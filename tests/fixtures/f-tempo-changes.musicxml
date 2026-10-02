@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Tempo changes. One part "Piano", 1 staff, 4/4, divisions=1 (ticksPerQuarter = 48).
+  m1: "Allegro", quarter = 120 with <sound tempo="120"/> at the start.  C4 whole.
+  m2: D4 half, then "Meno mosso" with <sound tempo="90"/> on beat 3, D4 half.
+  m3: a <metronome> dotted quarter = 40 with no <sound> (= 60 quarter notes per minute).  E4 whole.
+  m4: "a tempo" with <offset> of one quarter and <sound tempo="100"/> (takes effect on beat 2);
+      measure-level <sound tempo="0"/> and <sound tempo="2000"/> (both ignored);
+      measure-level <sound tempo="132"/> on beat 4.  F4 quarters.
+-->
+<score-partwise version="4.0">
+  <part-list>
+    <score-part id="P1"><part-name>Piano</part-name></score-part>
+  </part-list>
+  <part id="P1">
+    <measure number="1">
+      <attributes>
+        <divisions>1</divisions>
+        <time><beats>4</beats><beat-type>4</beat-type></time>
+        <clef><sign>G</sign><line>2</line></clef>
+      </attributes>
+      <direction placement="above">
+        <direction-type><words>Allegro</words></direction-type>
+        <direction-type><metronome><beat-unit>quarter</beat-unit><per-minute>120</per-minute></metronome></direction-type>
+        <sound tempo="120"/>
+      </direction>
+      <note><pitch><step>C</step><octave>4</octave></pitch><duration>4</duration><voice>1</voice><type>whole</type></note>
+    </measure>
+    <measure number="2">
+      <note><pitch><step>D</step><octave>4</octave></pitch><duration>2</duration><voice>1</voice><type>half</type></note>
+      <direction placement="above">
+        <direction-type><words>Meno mosso</words></direction-type>
+        <sound tempo="90"/>
+      </direction>
+      <note><pitch><step>D</step><octave>4</octave></pitch><duration>2</duration><voice>1</voice><type>half</type></note>
+    </measure>
+    <measure number="3">
+      <direction placement="above">
+        <direction-type><metronome><beat-unit>quarter</beat-unit><beat-unit-dot/><per-minute>40</per-minute></metronome></direction-type>
+      </direction>
+      <note><pitch><step>E</step><octave>4</octave></pitch><duration>4</duration><voice>1</voice><type>whole</type></note>
+    </measure>
+    <measure number="4">
+      <direction placement="above">
+        <direction-type><words>a tempo</words></direction-type>
+        <offset>1</offset>
+        <sound tempo="100"/>
+      </direction>
+      <note><pitch><step>F</step><octave>4</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type></note>
+      <sound tempo="0"/>
+      <note><pitch><step>F</step><octave>4</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type></note>
+      <sound tempo="2000"/>
+      <note><pitch><step>F</step><octave>4</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type></note>
+      <sound tempo="132"/>
+      <note><pitch><step>F</step><octave>4</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type></note>
+    </measure>
+  </part>
+</score-partwise>

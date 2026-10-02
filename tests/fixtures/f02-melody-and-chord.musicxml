@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  f02 - Simultaneous RH melody note and LH chord (brief §17 fixture 2).
+  One part "Piano", 2 staves, 4/4, divisions=2 (ticksPerQuarter = 48). Carries metadata.
+  Beat 1: RH E4 half  + LH chord C3 E3 G3 half.
+  Beat 3: RH D4 half  + LH chord B2 D3 G3 half (both hands change together; G3 is re-struck).
+-->
+<score-partwise version="4.0">
+  <work><work-title>Melody and chord</work-title></work>
+  <movement-title>Second movement</movement-title>
+  <identification>
+    <creator type="composer">Test   Composer</creator>
+    <creator type="arranger">Fixture Arranger</creator>
+    <rights>Public domain test fixture</rights>
+    <encoding><software>Hand-written</software></encoding>
+  </identification>
+  <credit page="1"><credit-type>title</credit-type><credit-words>Melody and chord</credit-words></credit>
+  <credit page="1"><credit-type>composer</credit-type><credit-words>Test
+Composer</credit-words><credit-words> (born 1900)</credit-words></credit>
+  <part-list>
+    <score-part id="P1"><part-name>Piano</part-name></score-part>
+  </part-list>
+  <part id="P1">
+    <measure number="1">
+      <attributes>
+        <divisions>2</divisions>
+        <key><fifths>0</fifths></key>
+        <time><beats>4</beats><beat-type>4</beat-type></time>
+        <staves>2</staves>
+        <clef number="1"><sign>G</sign><line>2</line></clef>
+        <clef number="2"><sign>F</sign><line>4</line></clef>
+      </attributes>
+      <note><pitch><step>E</step><octave>4</octave></pitch><duration>4</duration><voice>1</voice><type>half</type><staff>1</staff></note>
+      <note><pitch><step>D</step><octave>4</octave></pitch><duration>4</duration><voice>1</voice><type>half</type><staff>1</staff></note>
+      <backup><duration>8</duration></backup>
+      <note><pitch><step>C</step><octave>3</octave></pitch><duration>4</duration><voice>5</voice><type>half</type><staff>2</staff></note>
+      <note><chord/><pitch><step>E</step><octave>3</octave></pitch><duration>4</duration><voice>5</voice><type>half</type><staff>2</staff></note>
+      <note><chord/><pitch><step>G</step><octave>3</octave></pitch><duration>4</duration><voice>5</voice><type>half</type><staff>2</staff></note>
+      <note><pitch><step>B</step><octave>2</octave></pitch><duration>4</duration><voice>5</voice><type>half</type><staff>2</staff></note>
+      <note><chord/><pitch><step>D</step><octave>3</octave></pitch><duration>4</duration><voice>5</voice><type>half</type><staff>2</staff></note>
+      <note><chord/><pitch><step>G</step><octave>3</octave></pitch><duration>4</duration><voice>5</voice><type>half</type><staff>2</staff></note>
+    </measure>
+  </part>
+</score-partwise>

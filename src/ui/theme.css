@@ -1,0 +1,563 @@
+/*
+ * Piano Steps theme: light surfaces, near-black text.
+ * Colour rules (UI_SPEC): red and blue are reserved for notation actions,
+ * purple and green for hands, amber for wrong-key feedback and "needs review".
+ * Everything else here is neutral grey so it never competes with those cues.
+ */
+
+:root {
+  /* Notation, hands and feedback (UI_SPEC table). */
+  --fg: #111827;
+  --add: #c81e1e;
+  --release: #1d4ed8;
+  --rh: #7c3aed;
+  --rh-soft: #c4b5fd;
+  --lh: #15803d;
+  --lh-soft: #4ade80;
+  --wrong: #b45309;
+  --physical: #0f172a;
+
+  /* Surfaces and neutral text. Contrast on white: --muted 7.6:1, --subtle 4.8:1. */
+  --bg: #ffffff;
+  --surface: #f9fafb;
+  --surface-2: #f3f4f6;
+  --border: #e5e7eb;
+  --border-strong: #9ca3af;
+  --muted: #4b5563;
+  --subtle: #6b7280;
+
+  /* Status chips. */
+  --review-fg: #92400e;
+  --review-bg: #fef3c7;
+  --review-border: #f59e0b;
+  --unusable-fg: #4b5563;
+  --unusable-bg: #f3f4f6;
+  --unusable-border: #d1d5db;
+
+  /* Difficulty badge (neutral slate so it never reads as a hand or action colour). */
+  --badge-fg: #1e293b;
+  --badge-bg: #f1f5f9;
+  --badge-border: #cbd5e1;
+
+  --focus-ring: #111827;
+  --focus-ring-inner: #ffffff;
+  --radius: 10px;
+  --radius-small: 6px;
+  --shadow-card: 0 1px 2px rgb(17 24 39 / 0.06);
+  --shadow-raised: 0 4px 14px rgb(17 24 39 / 0.1);
+  --shadow-pop: 0 10px 30px rgb(17 24 39 / 0.18);
+
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+  color-scheme: light;
+  color: var(--fg);
+  background: var(--bg);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+dl,
+figure {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.25;
+}
+
+ul,
+ol {
+  padding-left: 1.25rem;
+}
+
+a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+pre,
+code,
+kbd {
+  font-family: var(--font-mono);
+}
+
+/* Note labels ("C#4") always use the monospace stack so octave digits line up. */
+.note-label,
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Focus                                                                     */
+/* ------------------------------------------------------------------------ */
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--focus-ring-inner);
+}
+
+/* ------------------------------------------------------------------------ */
+/* Utilities                                                                 */
+/* ------------------------------------------------------------------------ */
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* ------------------------------------------------------------------------ */
+/* Buttons                                                                   */
+/* ------------------------------------------------------------------------ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+  min-height: 2.5rem;
+  padding: 0.45rem 0.95rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-small);
+  background: var(--bg);
+  color: var(--fg);
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--surface-2);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+}
+
+.btn-primary {
+  background: var(--fg);
+  border-color: var(--fg);
+  color: #ffffff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #374151;
+  border-color: #374151;
+}
+
+.btn-quiet {
+  border-color: transparent;
+  background: transparent;
+}
+
+.btn-small {
+  min-height: 2rem;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.875rem;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  min-height: 2rem;
+  padding: 0 0.3rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  line-height: 1;
+}
+
+.icon-btn:hover:not(:disabled) {
+  background: var(--surface-2);
+  color: var(--fg);
+}
+
+/* Looks like a link, behaves like a button. */
+.link-btn {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.link-btn:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Form controls                                                             */
+/* ------------------------------------------------------------------------ */
+
+input[type='search'],
+input[type='text'],
+select {
+  min-height: 2.5rem;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-small);
+  background: var(--bg);
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0;
+  accent-color: var(--fg);
+}
+
+/* Toggle chips (e.g. difficulty filter): use aria-pressed. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  min-height: 2.25rem;
+  padding: 0.3rem 0.85rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--fg);
+  font-weight: 500;
+}
+
+.chip:hover {
+  background: var(--surface-2);
+}
+
+.chip[aria-pressed='true'] {
+  background: var(--fg);
+  border-color: var(--fg);
+  color: #ffffff;
+}
+
+.chip-count {
+  font-variant-numeric: tabular-nums;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Badges and status chips                                                   */
+/* ------------------------------------------------------------------------ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.1rem 0.55rem;
+  border: 1px solid var(--badge-border);
+  border-radius: 999px;
+  background: var(--badge-bg);
+  color: var(--badge-fg);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.badge-review {
+  border-color: var(--review-border);
+  background: var(--review-bg);
+  color: var(--review-fg);
+}
+
+.badge-unusable {
+  border-color: var(--unusable-border);
+  background: var(--unusable-bg);
+  color: var(--unusable-fg);
+}
+
+.badge-plain {
+  border-color: var(--border);
+  background: var(--bg);
+  color: var(--muted);
+}
+
+button.badge {
+  cursor: pointer;
+}
+
+button.badge:hover {
+  filter: brightness(0.96);
+}
+
+.difficulty-meter {
+  letter-spacing: -0.1em;
+  font-size: 0.7em;
+}
+
+.difficulty-qualifier {
+  font-weight: 400;
+}
+
+.difficulty-unrated {
+  border-color: var(--border);
+  background: var(--bg);
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Popover                                                                   */
+/* ------------------------------------------------------------------------ */
+
+.popover-anchor {
+  position: relative;
+  display: inline-flex;
+}
+
+.popover {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 30;
+  width: max-content;
+  max-width: min(22rem, calc(100vw - 2rem));
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-small);
+  background: var(--bg);
+  box-shadow: var(--shadow-pop);
+  color: var(--fg);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: left;
+  white-space: normal;
+  cursor: auto;
+}
+
+.popover-end {
+  left: auto;
+  right: 0;
+}
+
+.popover-title {
+  margin-bottom: 0.35rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.popover p + p,
+.popover p + ul,
+.popover ul + p,
+.popover dl + p {
+  margin-top: 0.4rem;
+}
+
+.popover ul {
+  margin-top: 0.25rem;
+}
+
+.popover li + li {
+  margin-top: 0.25rem;
+}
+
+.popover dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.2rem 0.75rem;
+}
+
+.popover dt {
+  color: var(--muted);
+}
+
+.popover dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Dialog                                                                    */
+/* ------------------------------------------------------------------------ */
+
+:root:has(dialog.dialog[open]) {
+  overflow: hidden;
+}
+
+dialog.dialog {
+  width: min(40rem, calc(100vw - 2rem));
+  max-height: calc(100vh - 2rem);
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--bg);
+  box-shadow: var(--shadow-pop);
+  color: var(--fg);
+}
+
+dialog.dialog-small {
+  width: min(28rem, calc(100vw - 2rem));
+}
+
+dialog.dialog-large {
+  width: min(52rem, calc(100vw - 2rem));
+}
+
+/* Fallback for browsers without showModal(): position it like a modal. */
+dialog.dialog.dialog-fallback {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  z-index: 100;
+}
+
+dialog.dialog::backdrop {
+  background: rgb(17 24 39 / 0.45);
+}
+
+.dialog-backdrop-fallback {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: rgb(17 24 39 / 0.45);
+}
+
+.dialog-frame {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 2rem);
+}
+
+.dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.dialog-title {
+  font-size: 1.2rem;
+}
+
+.dialog-body {
+  padding: 1rem 1.25rem 1.25rem;
+  overflow-y: auto;
+}
+
+.dialog-body > * + * {
+  margin-top: 0.75rem;
+}
+
+.dialog-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem 1rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ------------------------------------------------------------------------ */
+/* Page states                                                               */
+/* ------------------------------------------------------------------------ */
+
+.page-message {
+  max-width: 36rem;
+  margin: 4rem auto;
+  padding: 0 1.25rem;
+  text-align: center;
+}
+
+.page-message > * + * {
+  margin-top: 1rem;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Reduced motion                                                            */
+/* ------------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

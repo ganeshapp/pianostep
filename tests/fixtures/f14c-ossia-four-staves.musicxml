@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  f14c - Four staves with an "Ossia" label, as in the user's screenshot (brief §10, §17 fixture 14).
+  P1 "Piano": 4 staves, divisions=2, exported by MuseScore (voices 1-4 staff 1, 5-8 staff 2, ...).
+  Staves 1 and 2 are an ossia for both hands, with notes only in m2 and the
+  words "Ossia" on staff 1 only. Staves 3 and 4 are the real right and left hand.
+    m1 staff 3 C5 half, B4 half;              staff 4 C3 whole.
+    m2 staff 1 A4 quarter, B4 quarter, C5 half; staff 2 D3 whole (the ossia);
+       staff 3 A4 quarter, G4 quarter, F4 half; staff 4 F2 whole.
+  Neither ossia staff may be played; staff 3 is the right hand, staff 4 the left hand.
+-->
+<score-partwise version="4.0">
+  <identification><encoding><software>MuseScore 3.6.2</software></encoding></identification>
+  <part-list>
+    <score-part id="P1"><part-name>Piano</part-name></score-part>
+  </part-list>
+  <part id="P1">
+    <measure number="1">
+      <attributes>
+        <divisions>2</divisions>
+        <time><beats>4</beats><beat-type>4</beat-type></time>
+        <staves>4</staves>
+        <clef number="1"><sign>G</sign><line>2</line></clef>
+        <clef number="2"><sign>F</sign><line>4</line></clef>
+        <clef number="3"><sign>G</sign><line>2</line></clef>
+        <clef number="4"><sign>F</sign><line>4</line></clef>
+      </attributes>
+      <note><rest measure="yes"/><duration>8</duration><voice>1</voice><staff>1</staff></note>
+      <backup><duration>8</duration></backup>
+      <note><rest measure="yes"/><duration>8</duration><voice>5</voice><staff>2</staff></note>
+      <backup><duration>8</duration></backup>
+      <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration><voice>9</voice><type>half</type><staff>3</staff></note>
+      <note><pitch><step>B</step><octave>4</octave></pitch><duration>4</duration><voice>9</voice><type>half</type><staff>3</staff></note>
+      <backup><duration>8</duration></backup>
+      <note><pitch><step>C</step><octave>3</octave></pitch><duration>8</duration><voice>13</voice><type>whole</type><staff>4</staff></note>
+    </measure>
+    <measure number="2">
+      <direction placement="above">
+        <direction-type><words>Ossia</words></direction-type>
+        <staff>1</staff>
+      </direction>
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>2</duration><voice>1</voice><type>quarter</type><staff>1</staff></note>
+      <note><pitch><step>B</step><octave>4</octave></pitch><duration>2</duration><voice>1</voice><type>quarter</type><staff>1</staff></note>
+      <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration><voice>1</voice><type>half</type><staff>1</staff></note>
+      <backup><duration>8</duration></backup>
+      <note><pitch><step>D</step><octave>3</octave></pitch><duration>8</duration><voice>5</voice><type>whole</type><staff>2</staff></note>
+      <backup><duration>8</duration></backup>
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>2</duration><voice>9</voice><type>quarter</type><staff>3</staff></note>
+      <note><pitch><step>G</step><octave>4</octave></pitch><duration>2</duration><voice>9</voice><type>quarter</type><staff>3</staff></note>
+      <note><pitch><step>F</step><octave>4</octave></pitch><duration>4</duration><voice>9</voice><type>half</type><staff>3</staff></note>
+      <backup><duration>8</duration></backup>
+      <note><pitch><step>F</step><octave>2</octave></pitch><duration>8</duration><voice>13</voice><type>whole</type><staff>4</staff></note>
+    </measure>
+  </part>
+</score-partwise>

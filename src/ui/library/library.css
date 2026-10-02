@@ -1,0 +1,405 @@
+.library {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100vh;
+}
+
+.app-header,
+.library-main,
+.app-footer {
+  width: 100%;
+  max-width: 76rem;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Header                                                                    */
+/* ------------------------------------------------------------------------ */
+
+.app-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.brand-name {
+  font-size: 1.75rem;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+}
+
+.brand-tagline {
+  color: var(--muted);
+}
+
+.header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.help-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3rem;
+  height: 1.3rem;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Main                                                                      */
+/* ------------------------------------------------------------------------ */
+
+.library-main {
+  flex: 1;
+  padding-bottom: 2.5rem;
+}
+
+.continue {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.continue-link {
+  font-weight: 600;
+}
+
+.continue-link::after {
+  content: ' →';
+}
+
+.continue-detail {
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+/* Import progress / result */
+.import-status {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--border-strong);
+  border-radius: var(--radius-small);
+  background: var(--surface);
+}
+
+.import-status p {
+  flex: 1;
+}
+
+.import-status-done {
+  border-left-color: var(--fg);
+}
+
+.import-status-error {
+  border-left-color: var(--fg);
+  background: var(--bg);
+}
+
+.import-status-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.import-file {
+  overflow-wrap: anywhere;
+}
+
+.spinner {
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-top: 0.15rem;
+  border: 2px solid var(--border-strong);
+  border-top-color: var(--fg);
+  border-radius: 50%;
+  animation: library-spin 0.8s linear infinite;
+}
+
+@keyframes library-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+    border-top-color: var(--border-strong);
+  }
+}
+
+/* Controls */
+.library-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem 1.5rem;
+  padding: 0.25rem 0 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.search-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1 1 18rem;
+  max-width: 26rem;
+}
+
+.search-field label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.search-field input {
+  width: 100%;
+}
+
+.difficulty-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.review-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.25rem;
+  cursor: pointer;
+}
+
+.library-notice {
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
+/* Sections */
+.library-section {
+  margin-top: 1.75rem;
+}
+
+.section-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+  margin-bottom: 0.875rem;
+  font-size: 1.25rem;
+}
+
+.section-count {
+  color: var(--muted);
+  font-size: 0.9375rem;
+  font-weight: 400;
+}
+
+.empty-state {
+  padding: 2rem 1rem;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  color: var(--muted);
+  text-align: center;
+}
+
+.empty-state > * + * {
+  margin-top: 0.75rem;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Cards                                                                     */
+/* ------------------------------------------------------------------------ */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17.5rem, 1fr));
+  gap: 0.875rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1rem 1rem 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  box-shadow: var(--shadow-card);
+  transition:
+    border-color 120ms ease,
+    box-shadow 120ms ease;
+}
+
+.card:not(.card-disabled):hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-raised);
+}
+
+.card-head > * + * {
+  margin-top: 0.15rem;
+}
+
+.card-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+/* The title link stretches over the whole card, so clicking anywhere opens the piece. */
+.card-link {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.card-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+.card-link:focus-visible {
+  outline: none;
+  box-shadow: none;
+  text-decoration: underline;
+}
+
+.card-link:focus-visible::after {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.card-arrangement {
+  font-size: 0.9375rem;
+}
+
+.card-composer,
+.card-meta {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.card-file {
+  overflow-wrap: anywhere;
+}
+
+/*
+ * Controls inside a card sit above the stretched link because they are
+ * positioned and come later in the document; no z-index, so an open popover
+ * can rise above neighbouring cards. The empty space around them still opens the piece.
+ */
+.card-tags,
+.card-actions {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  pointer-events: none;
+}
+
+.card-tags > *,
+.card-actions > * {
+  pointer-events: auto;
+}
+
+.card-difficulty {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.card-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.4rem;
+  margin-top: auto;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+/* "at default speed": the file gives no tempo, so the length is the app's guess. */
+.card-stats-qualifier {
+  color: var(--subtle, #6b7280);
+  font-size: 0.8125rem;
+}
+
+.card-actions {
+  justify-content: flex-end;
+}
+
+.card-disabled {
+  background: var(--surface);
+  box-shadow: none;
+}
+
+.card-disabled .card-title,
+.card-disabled .card-arrangement {
+  color: var(--muted);
+}
+
+/* ------------------------------------------------------------------------ */
+/* Footer                                                                    */
+/* ------------------------------------------------------------------------ */
+
+.app-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.5rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.app-footer .link-btn {
+  font-size: inherit;
+}
+
+@media (max-width: 40rem) {
+  .app-header,
+  .library-main,
+  .app-footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .search-field {
+    max-width: none;
+  }
+}

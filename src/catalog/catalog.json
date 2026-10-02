@@ -1,0 +1,2206 @@
+[
+  {
+    "id": "12-variations-of-twinkle-twinkle-little-star",
+    "title": "Twinkle Twinkle Little Star – 12 Variations, K. 265",
+    "composer": "Wolfgang Amadeus Mozart",
+    "arrangement": "Mozart's own theme and 12 variations (credited \"arr. Solángel\")",
+    "file": "scores/12_Variations_of_Twinkle_Twinkle_Little_Star.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/12_Variations_of_Twinkle_Twinkle_Little_Star.mxl",
+    "rightsInFile": null,
+    "attribution": "Arr. Solángel; composed by Wolfgang Amadeus Mozart; MusicXML from the MuseTrainer library",
+    "licenseNote": "Credits a modern arranger (Solángel). The notes look like Mozart's own variations, but this edition may not be public domain.",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Trills, mordents and turns are played as the main note only, without the quick extra notes the music asks for."
+    ],
+    "stats": {
+      "measures": 325,
+      "performanceMeasures": 635,
+      "notes": 6133,
+      "durationSec": 688.5,
+      "lowest": "F1",
+      "highest": "F6"
+    },
+    "notes": [
+      "Theme plus 12 variations (325 measures)",
+      "Variation 8 switches to a minor key",
+      "Contains repeats with 1st/2nd endings",
+      "Repeats are followed",
+      "Trills and other ornaments are played as the main note"
+    ]
+  },
+  {
+    "id": "arabesque-l-66-no-1-in-e-major",
+    "title": "Arabesque No. 1 in E Major, L. 66",
+    "composer": "Claude Debussy",
+    "arrangement": "Original piano work",
+    "file": "scores/Arabesque_L._66_No._1_in_E_Major.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Arabesque_L._66_No._1_in_E_Major.mxl",
+    "originalSourceUrl": "https://musescore.com/user/19710/scores/55396",
+    "rightsInFile": null,
+    "attribution": "Composed by Claude Debussy; from Deux Arabesques, L. 66; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Some notes are written on the other hand's staff. The app guesses which hand plays them from the musical line they belong to. If a hand feels wrong, the measures are listed under More → About this arrangement."
+    ],
+    "stats": {
+      "measures": 107,
+      "performanceMeasures": 107,
+      "notes": 1455,
+      "durationSec": 214.7,
+      "lowest": "E1",
+      "highest": "G#6"
+    },
+    "notes": [
+      "Has 25 hidden playback-only notes",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "ave-maria-d839-schubert-solo-piano-arrg",
+    "title": "Ave Maria, D. 839",
+    "composer": "Franz Schubert",
+    "arrangement": "Solo piano arrangement credited to Simon Ewers",
+    "file": "scores/Ave_Maria_D839_-_Schubert_-_Solo_Piano_Arrg..mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Ave_Maria_D839_-_Schubert_-_Solo_Piano_Arrg..mxl",
+    "originalSourceUrl": "http://musescore.com/user/10783116/scores/4584986",
+    "rightsInFile": null,
+    "attribution": "Arr. Simon Ewers; composed by Franz Schubert; MusicXML from the MuseTrainer library",
+    "licenseNote": "Modern arrangement by a named arranger (Simon Ewers); probably not public domain even though the Schubert song is.",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 17,
+      "performanceMeasures": 30,
+      "notes": 1077,
+      "durationSec": 190.8,
+      "lowest": "A#1",
+      "highest": "G#5"
+    },
+    "notes": [
+      "Originally a song for voice and piano; this is a solo piano version",
+      "Contains repeat signs",
+      "Repeats are followed",
+      "Grace notes are approximated",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "bach-minuet-in-g-major-bwv-anh-114",
+    "title": "Minuet in G Major, BWV Anh. 114",
+    "composer": "Christian Petzold",
+    "arrangement": "Original keyboard work",
+    "file": "scores/Bach_Minuet_in_G_Major_BWV_Anh._114.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Bach_Minuet_in_G_Major_BWV_Anh._114.mxl",
+    "originalSourceUrl": "https://musescore.com/user/9292486/scores/2086106",
+    "rightsInFile": "Public Domain (PianoXML typeset)",
+    "attribution": "Composed by Christian Petzold; from the Notebook for Anna Magdalena Bach (BWV Anh. 114); typeset by PianoXML; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Beginner",
+      "basis": "source",
+      "originalLabel": "easy",
+      "sourceName": "MuseScore score page (level tag in its page title)",
+      "sourceUrl": "https://musescore.com/user/9292486/scores/2086106",
+      "checkedOn": "2026-10-02",
+      "note": "Same upload as the file’s embedded source link (PianoXML). The page description also gives the level as “Elementary-Late Elementary (RCM 1)”."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 32,
+      "performanceMeasures": 64,
+      "notes": 408,
+      "durationSec": 91.4,
+      "lowest": "G2",
+      "highest": "B5"
+    },
+    "notes": [
+      "Long attributed to J. S. Bach; now credited to Christian Petzold",
+      "Contains repeat signs",
+      "Repeats are followed"
+    ]
+  },
+  {
+    "id": "bach-toccata-and-fugue-in-d-minor-piano-solo",
+    "title": "Toccata and Fugue in D Minor, BWV 565",
+    "composer": "Johann Sebastian Bach",
+    "arrangement": "Piano adaptation of the organ work, drawing on Louis Brassin's piano arrangement (adapter not named)",
+    "file": "scores/Bach_Toccata_and_Fugue_in_D_Minor_Piano_solo.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Bach_Toccata_and_Fugue_in_D_Minor_Piano_solo.mxl",
+    "rightsInFile": null,
+    "attribution": "Adapted from the H. W. Gray Co. organ edition (Standard Series of Organ Compositions) and the piano arrangement by Louis Brassin; composed by Johann Sebastian Bach; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Some notes are outside the 88 keys of a piano (A0 to C8).",
+      "Some notes are written on the other hand's staff. The app guesses which hand plays them from the musical line they belong to. If a hand feels wrong, the measures are listed under More → About this arrangement.",
+      "In some places one hand is asked to strike keys too far apart to reach at once (wider than a tenth). Some of those notes may belong to the other hand, or the chord may be meant to be rolled."
+    ],
+    "stats": {
+      "measures": 143,
+      "performanceMeasures": 143,
+      "notes": 4107,
+      "durationSec": 431.7,
+      "lowest": "G#0",
+      "highest": "D6"
+    },
+    "notes": [
+      "Originally for organ",
+      "Grace notes are approximated",
+      "Rolled chords are played as plain chords",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "beethoven-symphony-no-5-1st-movement-piano-solo",
+    "title": "Symphony No. 5 in C Minor, Op. 67 – 1st Movement",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Piano solo adapted from Ernst Pauer's arrangement (adapter not named)",
+    "file": "scores/Beethoven_Symphony_No._5_1st_movement_Piano_solo.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Beethoven_Symphony_No._5_1st_movement_Piano_solo.mxl",
+    "rightsInFile": null,
+    "attribution": "Adapted from the arrangement by Ernst Pauer (1826–1905); composed by Ludwig van Beethoven; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Some notes are written on the other hand's staff. The app guesses which hand plays them from the musical line they belong to. If a hand feels wrong, the measures are listed under More → About this arrangement.",
+      "In some places one hand is asked to strike keys too far apart to reach at once (wider than a tenth). Some of those notes may belong to the other hand, or the chord may be meant to be rolled."
+    ],
+    "stats": {
+      "measures": 504,
+      "performanceMeasures": 504,
+      "notes": 4266,
+      "durationSec": 392.7,
+      "lowest": "D1",
+      "highest": "G#6"
+    },
+    "notes": [
+      "Originally for orchestra",
+      "Long piece (504 measures)",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "bella-ciao",
+    "title": "Bella Ciao",
+    "composer": "Traditional",
+    "arrangement": "Piano arrangement by Sami Lefebvre",
+    "file": "scores/Bella_Ciao.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Bella_Ciao.mxl",
+    "originalSourceUrl": "http://musescore.com/user/9429701/scores/4992158",
+    "rightsInFile": null,
+    "attribution": "Arr. Sami Lefebvre; traditional song; MusicXML from the MuseTrainer library",
+    "licenseNote": "Modern arrangement by a named arranger (Sami Lefebvre); probably not public domain even though the traditional song is.",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 38,
+      "performanceMeasures": 59,
+      "notes": 1203,
+      "durationSec": 117,
+      "lowest": "A1",
+      "highest": "F#5",
+      "tempoDefaulted": true
+    },
+    "notes": [
+      "Changes key partway through",
+      "Contains repeats with 1st/2nd endings",
+      "Includes chord symbols",
+      "Repeats are followed",
+      "No tempo is written in the file, so a default speed is used"
+    ]
+  },
+  {
+    "id": "bella-ciao-la-casa-de-papel",
+    "title": "Bella Ciao (La Casa de Papel)",
+    "composer": "Traditional",
+    "arrangement": "Piano arrangement of the La Casa de Papel version (from guestinpiano.fr)",
+    "file": "scores/Bella_Ciao_-_La_Casa_de_Papel.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Bella_Ciao_-_La_Casa_de_Papel.mxl",
+    "originalSourceUrl": "https://musescore.com/user/26930991/scores/6106322",
+    "rightsInFile": "https://guestinpiano.fr",
+    "attribution": "Arrangement from guestinpiano.fr; traditional song, as used in the La Casa de Papel soundtrack; MusicXML from the MuseTrainer library",
+    "licenseNote": "The rights line names the website guestinpiano.fr, so this arrangement belongs to that site and is probably not public domain.",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Trills, mordents and turns are played as the main note only, without the quick extra notes the music asks for."
+    ],
+    "stats": {
+      "measures": 74,
+      "performanceMeasures": 74,
+      "notes": 1291,
+      "durationSec": 131,
+      "lowest": "E1",
+      "highest": "A6"
+    },
+    "notes": [
+      "Starts with a pickup (partial) measure",
+      "Grace notes are approximated",
+      "Trills and other ornaments are played as the main note"
+    ]
+  },
+  {
+    "id": "canon-in-d",
+    "title": "Canon in D",
+    "composer": "Johann Pachelbel",
+    "arrangement": "Piano arrangement by lemontart",
+    "file": "scores/Canon_in_D.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Canon_in_D.mxl",
+    "originalSourceUrl": "https://musescore.com/user/1809056/scores/1019991",
+    "rightsInFile": null,
+    "attribution": "Arr. lemontart; composed by Johann Pachelbel; MusicXML from the MuseTrainer library",
+    "licenseNote": "Modern arrangement by a named arranger (the username lemontart); probably not public domain even though the canon itself is.",
+    "difficulty": {
+      "level": "Intermediate",
+      "basis": "source",
+      "originalLabel": "Intermediate (43/100)",
+      "sourceName": "PianoMetric",
+      "sourceUrl": "https://pianometric.com/score/23364-canon-in-d-sheet-piano",
+      "checkedOn": "2026-10-02",
+      "note": "PianoMetric rates scores with its own method; matched by arranger (lemontart), 102 bars and tempo."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 102,
+      "performanceMeasures": 102,
+      "notes": 1589,
+      "durationSec": 244.8,
+      "lowest": "D2",
+      "highest": "D6"
+    },
+    "notes": [
+      "Rolled chords are played as plain chords"
+    ]
+  },
+  {
+    "id": "canon-in-d-3",
+    "title": "Canon in D",
+    "composer": "Johann Pachelbel",
+    "arrangement": "Piano arrangement by Jacob Danao",
+    "file": "scores/Canon_in_D_3.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Canon_in_D_3.mxl",
+    "originalSourceUrl": "http://api.musescore.com/score/3161616",
+    "rightsInFile": "2016",
+    "attribution": "Arr. Jacob Danao (2016); composed by Johann Pachelbel; MusicXML from the MuseTrainer library",
+    "licenseNote": "The rights line says only \"2016\", which reads as a 2016 copyright date for Jacob Danao's modern arrangement; probably not public domain.",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 53,
+      "performanceMeasures": 53,
+      "notes": 765,
+      "durationSec": 182.9,
+      "lowest": "D2",
+      "highest": "D6"
+    },
+    "notes": [
+      "Grace notes are approximated",
+      "Rolled chords are played as plain chords",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "canon-in-d-easy",
+    "title": "Canon in D",
+    "composer": "Johann Pachelbel",
+    "arrangement": "Shorter, simpler piano arrangement with fingering (arranger not named)",
+    "file": "scores/Canon_in_D_easy.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Canon_in_D_easy.mxl",
+    "originalSourceUrl": "https://musescore.com/user/3349846/scores/1376056",
+    "rightsInFile": null,
+    "attribution": "Composed by Johann Pachelbel; arranger not named; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Beginner",
+      "basis": "source",
+      "originalLabel": "Skill Level: Beginner",
+      "sourceName": "LaSolSheet listing of this MuseScore arrangement",
+      "sourceUrl": "https://lasolsheet.com/piano-sheet-music/canon-in-d/",
+      "checkedOn": "2026-10-02",
+      "note": "Matched by 49 measures, key, metre and tempo."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 49,
+      "performanceMeasures": 53,
+      "notes": 471,
+      "durationSec": 127.2,
+      "lowest": "D2",
+      "highest": "D6"
+    },
+    "notes": [
+      "Contains repeat signs",
+      "Includes fingering numbers",
+      "Repeats are followed"
+    ]
+  },
+  {
+    "id": "carol-of-the-bells",
+    "title": "Carol of the Bells",
+    "composer": "Mykola Leontovych",
+    "arrangement": "Piano arrangement credited to William J. Ross",
+    "file": "scores/Carol_of_the_Bells.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Carol_of_the_Bells.mxl",
+    "originalSourceUrl": "https://musescore.com/user/12287421/scores/3022181",
+    "rightsInFile": null,
+    "attribution": "Credited to William J. Ross; tune by Mykola Leontovych (not named in the file); MusicXML from the MuseTrainer library",
+    "licenseNote": "Modern arrangement by a named arranger (William J. Ross); probably not public domain even though the Leontovych tune is.",
+    "difficulty": {
+      "level": "Intermediate",
+      "basis": "source",
+      "originalLabel": "Skill Level: Intermediate",
+      "sourceName": "LaSolSheet listing of this MuseScore arrangement",
+      "sourceUrl": "https://lasolsheet.com/piano-sheet-music/carol-of-the-bells/",
+      "checkedOn": "2026-10-02",
+      "note": "Matched by arranger (William J. Ross) and 65 measures."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 65,
+      "performanceMeasures": 120,
+      "notes": 1264,
+      "durationSec": 121,
+      "lowest": "A1",
+      "highest": "A6"
+    },
+    "notes": [
+      "The file puts William J. Ross where the composer usually goes; the tune is Mykola Leontovych's Ukrainian carol \"Shchedryk\", so Ross is treated as the arranger",
+      "Contains repeats with 1st/2nd endings",
+      "Repeats are followed",
+      "Rolled chords are played as plain chords",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "carol-of-the-bells-easy-piano",
+    "title": "Carol of the Bells",
+    "composer": "Mykola Leontovych",
+    "arrangement": "Easy arrangement by Orlia Amaral",
+    "file": "scores/Carol_of_the_Bells_easy_piano.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Carol_of_the_Bells_easy_piano.mxl",
+    "originalSourceUrl": "https://musescore.com/orliaann/scores/2782256",
+    "rightsInFile": null,
+    "attribution": "Arr. Orlia Amaral; credited as a traditional Ukrainian carol; MusicXML from the MuseTrainer library",
+    "licenseNote": "Modern arrangement by a named arranger (Orlia Amaral); probably not public domain even though the tune is.",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "checkedOn": "2026-10-02",
+      "note": "The arrangement’s published title says “easy piano”, but the score states no level and no published rating of this arrangement was found. A word in a title is a hint, not a rating."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 40,
+      "performanceMeasures": 40,
+      "notes": 186,
+      "durationSec": 60,
+      "lowest": "A2",
+      "highest": "A5",
+      "tempoDefaulted": true
+    },
+    "notes": [
+      "Credited as a traditional Ukrainian carol; the familiar tune is Mykola Leontovych's \"Shchedryk\"",
+      "No tempo is written in the file, so a default speed is used"
+    ]
+  },
+  {
+    "id": "chopin-ballade-no-1-in-g-minor-op-23",
+    "title": "Ballade No. 1 in G Minor, Op. 23",
+    "composer": "Frédéric Chopin",
+    "arrangement": "Original piano work",
+    "file": "scores/Chopin_-_Ballade_no._1_in_G_minor_Op._23.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Chopin_-_Ballade_no._1_in_G_minor_Op._23.mxl",
+    "originalSourceUrl": "http://api.musescore.com/score/2182146",
+    "rightsInFile": null,
+    "attribution": "Composed by Frédéric Chopin; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Trills, mordents and turns are played as the main note only, without the quick extra notes the music asks for.",
+      "Some notes are written on the other hand's staff. The app guesses which hand plays them from the musical line they belong to. If a hand feels wrong, the measures are listed under More → About this arrangement.",
+      "In some places one hand is asked to strike keys too far apart to reach at once (wider than a tenth). Some of those notes may belong to the other hand, or the chord may be meant to be rolled."
+    ],
+    "overrides": {
+      "excludeParts": [
+        "P2"
+      ],
+      "reason": "The second piano part (named “Grand Piano”) only holds an optional alternative version of one chord in measure 7, so it is left out: playing both versions together would clash. The main piano part has all the music for both hands."
+    },
+    "stats": {
+      "measures": 262,
+      "performanceMeasures": 262,
+      "notes": 5010,
+      "durationSec": 659.5,
+      "lowest": "A#0",
+      "highest": "F7"
+    },
+    "notes": [
+      "Ossia (alternative) staff in measure 7 left out",
+      "No title credits on the page; title and composer come from the file metadata",
+      "Long piece (262 measures)",
+      "Includes fingering numbers",
+      "Grace notes are approximated",
+      "Trills and other ornaments are played as the main note"
+    ]
+  },
+  {
+    "id": "chopin-nocturne-op-9-no-1",
+    "title": "Nocturne in B-flat Minor, Op. 9 No. 1",
+    "composer": "Frédéric Chopin",
+    "arrangement": "Original piano work",
+    "file": "scores/Chopin_-_Nocturne_Op._9_No._1.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Chopin_-_Nocturne_Op._9_No._1.mxl",
+    "originalSourceUrl": "http://musescore.com/score/169484",
+    "rightsInFile": null,
+    "attribution": "Composed by Frédéric Chopin (credited as F. Chopin); from Trois nocturnes, Op. 9; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Some notes are written on the other hand's staff. The app guesses which hand plays them from the musical line they belong to. If a hand feels wrong, the measures are listed under More → About this arrangement.",
+      "In some places one hand is asked to strike keys too far apart to reach at once (wider than a tenth). Some of those notes may belong to the other hand, or the chord may be meant to be rolled."
+    ],
+    "stats": {
+      "measures": 86,
+      "performanceMeasures": 86,
+      "notes": 1731,
+      "durationSec": 270.9,
+      "lowest": "A#1",
+      "highest": "F7"
+    },
+    "notes": [
+      "Has 14 hidden playback-only notes (written-out trills or ornaments)",
+      "Grace notes are approximated",
+      "Rolled chords are played as plain chords",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "chopin-nocturne-op-9-no-2-e-flat-major",
+    "title": "Nocturne in E-flat Major, Op. 9 No. 2",
+    "composer": "Frédéric Chopin",
+    "arrangement": "Original piano work",
+    "file": "scores/Chopin_-_Nocturne_Op_9_No_2_E_Flat_Major.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Chopin_-_Nocturne_Op_9_No_2_E_Flat_Major.mxl",
+    "originalSourceUrl": "http://musescore.com/user/6662591/scores/4383881",
+    "rightsInFile": null,
+    "attribution": "Composed by Frédéric Chopin; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Trills, mordents and turns are played as the main note only, without the quick extra notes the music asks for."
+    ],
+    "stats": {
+      "measures": 38,
+      "performanceMeasures": 38,
+      "notes": 1246,
+      "durationSec": 213.8,
+      "lowest": "G#1",
+      "highest": "D#7"
+    },
+    "notes": [
+      "Starts with a pickup (partial) measure",
+      "Includes fingering numbers",
+      "Grace notes are approximated",
+      "Trills and other ornaments are played as the main note",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "chopin-spring-waltz",
+    "title": "Mariage d'Amour (\"Spring Waltz\")",
+    "composer": "Paul de Senneville",
+    "arrangement": "Piano solo version (another copy; credits name Cristian Ospina)",
+    "file": "scores/Chopin_-_Spring_Waltz.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Chopin_-_Spring_Waltz.mxl",
+    "rightsInFile": "Cristian Ospina",
+    "attribution": "Credits name Cristian Ospina; composed by Paul de Senneville (credited on the page as Frédéric François Chopin); MusicXML from the MuseTrainer library",
+    "licenseNote": "Mariage d'Amour is a modern composition by Paul de Senneville and is still under copyright, so this file is not public domain. The rights line also names Cristian Ospina.",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Trills, mordents and turns are played as the main note only, without the quick extra notes the music asks for."
+    ],
+    "stats": {
+      "measures": 84,
+      "performanceMeasures": 84,
+      "notes": 1636,
+      "durationSec": 279.2,
+      "lowest": "D2",
+      "highest": "A7"
+    },
+    "notes": [
+      "Labelled \"Spring Waltz\" by Chopin on the page; the piece is Paul de Senneville's Mariage d'Amour, which is often misattributed to Chopin (the file's own metadata names de Senneville)",
+      "Grace notes are approximated",
+      "Trills and other ornaments are played as the main note",
+      "Rolled chords are played as plain chords",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "clair-de-lune-claude-debussy",
+    "title": "Clair de lune",
+    "composer": "Claude Debussy",
+    "arrangement": "Original piano work (another copy)",
+    "file": "scores/Clair_de_lune_-_Claude_Debussy.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Clair_de_lune_-_Claude_Debussy.mxl",
+    "originalSourceUrl": "https://musescore.com/user/27050692/scores/5369968",
+    "rightsInFile": null,
+    "attribution": "Composed by Claude Debussy; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Advanced",
+      "basis": "source",
+      "originalLabel": "Skill Level: Advanced",
+      "sourceName": "LaSolSheet listing of this MuseScore arrangement",
+      "sourceUrl": "https://lasolsheet.com/piano-sheet-music/clair-de-lune/",
+      "checkedOn": "2026-10-02",
+      "note": "Matched by 72 measures, key, 9/8 metre and tempo."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Some notes are written on the other hand's staff. The app guesses which hand plays them from the musical line they belong to. If a hand feels wrong, the measures are listed under More → About this arrangement.",
+      "In some places one hand is asked to strike keys too far apart to reach at once (wider than a tenth). Some of those notes may belong to the other hand, or the chord may be meant to be rolled."
+    ],
+    "stats": {
+      "measures": 72,
+      "performanceMeasures": 72,
+      "notes": 1501,
+      "durationSec": 254.3,
+      "lowest": "D#1",
+      "highest": "C#7"
+    },
+    "notes": [
+      "The file's internal title is misspelled \"Claire de lune\"",
+      "Has 63 hidden playback-only notes",
+      "Grace notes are approximated",
+      "Rolled chords are played as plain chords",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "clair-de-lune-debussy",
+    "title": "Clair de lune",
+    "composer": "Claude Debussy",
+    "arrangement": "Original piano work",
+    "file": "scores/Clair_de_Lune__Debussy.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Clair_de_Lune__Debussy.mxl",
+    "originalSourceUrl": "https://musescore.com/user/19710/scores/58553",
+    "rightsInFile": null,
+    "attribution": "Composed by Claude Debussy; from Suite bergamasque, L. 75 (3rd movement); MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Some notes are written on the other hand's staff. The app guesses which hand plays them from the musical line they belong to. If a hand feels wrong, the measures are listed under More → About this arrangement."
+    ],
+    "stats": {
+      "measures": 72,
+      "performanceMeasures": 72,
+      "notes": 1501,
+      "durationSec": 275.7,
+      "lowest": "D#1",
+      "highest": "C#7"
+    },
+    "notes": [
+      "Third movement of Suite bergamasque, L. 75",
+      "Has 102 hidden playback-only notes",
+      "Grace notes are approximated",
+      "Rolled chords are played as plain chords",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "dance-of-the-sugar-plum-fairy",
+    "title": "Dance of the Sugar Plum Fairy",
+    "composer": "Pyotr Ilyich Tchaikovsky",
+    "arrangement": "Piano transcription by Nohpets",
+    "file": "scores/Dance_of_the_sugar_plum_fairy.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Dance_of_the_sugar_plum_fairy.mxl",
+    "originalSourceUrl": "http://musescore.com/score/2899321",
+    "rightsInFile": null,
+    "attribution": "Transcribed by Nohpets; composed by Pyotr Ilyich Tchaikovsky; MusicXML from the MuseTrainer library",
+    "licenseNote": "Modern transcription by a named arranger (the username Nohpets); probably not public domain even though Tchaikovsky's music is.",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 53,
+      "performanceMeasures": 53,
+      "notes": 1098,
+      "durationSec": 90.9,
+      "lowest": "B1",
+      "highest": "B7"
+    },
+    "notes": [
+      "From The Nutcracker; originally for orchestra",
+      "Rolled chords are played as plain chords"
+    ]
+  },
+  {
+    "id": "danse-villageoise-beethoven",
+    "title": "Danse villageoise No. 2",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Piano version (edition not named)",
+    "file": "scores/DANSE_VILLAGEOISE_Beethoven.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/DANSE_VILLAGEOISE_Beethoven.mxl",
+    "rightsInFile": "©",
+    "attribution": "Composed by Ludwig van Beethoven; rights line \"©\" with no holder named; MusicXML from the MuseTrainer library",
+    "licenseNote": "The rights line is just \"©\" with no holder named, which conflicts with the library's public-domain claim. Beethoven's music is public domain, but the status of this edition is unclear.",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 61,
+      "performanceMeasures": 97,
+      "notes": 1040,
+      "durationSec": 96.3,
+      "lowest": "A2",
+      "highest": "E6"
+    },
+    "notes": [
+      "Has a Trio section",
+      "Contains repeats with 1st/2nd endings",
+      "Repeats are followed"
+    ]
+  },
+  {
+    "id": "flight-of-the-bumblebee",
+    "title": "Flight of the Bumblebee",
+    "composer": "Nikolai Rimsky-Korsakov",
+    "arrangement": "Piano transcription (arranger not named)",
+    "file": "scores/Flight_of_the_Bumblebee.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Flight_of_the_Bumblebee.mxl",
+    "originalSourceUrl": "https://musescore.com/nicolas/scores/437",
+    "rightsInFile": null,
+    "attribution": "Composed by Nikolai Rimsky-Korsakov; transcriber not named; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Intermediate",
+      "basis": "source",
+      "originalLabel": "Skill Level: Intermediate",
+      "sourceName": "LaSolSheet listing of this MuseScore arrangement",
+      "sourceUrl": "https://lasolsheet.com/piano-sheet-music/flight-of-the-bumblebee/",
+      "checkedOn": "2026-10-02",
+      "note": "Matched by 101 measures, key and 2/4 metre."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 101,
+      "performanceMeasures": 101,
+      "notes": 1134,
+      "durationSec": 84.2,
+      "lowest": "A1",
+      "highest": "A6"
+    },
+    "notes": [
+      "The credits use the German title \"Hummelflug\"",
+      "Originally an orchestral interlude from the opera The Tale of Tsar Saltan",
+      "Rolled chords are played as plain chords"
+    ]
+  },
+  {
+    "id": "fur-elise",
+    "title": "Für Elise",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Original piano work",
+    "file": "scores/Fur_Elise.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Fur_Elise.mxl",
+    "originalSourceUrl": "https://musescore.com/classicman/fur-elise",
+    "rightsInFile": null,
+    "attribution": "Composed by Ludwig van Beethoven (Für Elise in A Minor, WoO 59); MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Intermediate",
+      "basis": "source",
+      "originalLabel": "Skill Level: Intermediate",
+      "sourceName": "LaSolSheet listing of this MuseScore arrangement",
+      "sourceUrl": "https://lasolsheet.com/piano-sheet-music/fur-elise/",
+      "checkedOn": "2026-10-02",
+      "note": "Matched by ClassicMan credits and 106 measures."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 106,
+      "performanceMeasures": 127,
+      "notes": 1040,
+      "durationSec": 157.5,
+      "lowest": "A1",
+      "highest": "E7"
+    },
+    "notes": [
+      "Starts with a pickup (partial) measure",
+      "Contains repeats with 1st/2nd endings",
+      "Repeats are followed",
+      "Grace notes are approximated",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "fur-elise-beethoven-for-beginner-piano",
+    "title": "Für Elise",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Arrangement for beginners by E. Muirhead",
+    "file": "scores/Fur_Elise_-_Beethoven_-_for_beginner_piano.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Fur_Elise_-_Beethoven_-_for_beginner_piano.mxl",
+    "originalSourceUrl": "https://musescore.com/dundeepiano/fur-elise-beginner-piano",
+    "rightsInFile": null,
+    "attribution": "Arr. E. Muirhead; composed by Ludwig van Beethoven; MusicXML from the MuseTrainer library",
+    "licenseNote": "Modern arrangement by a named arranger (E. Muirhead); probably not public domain even though the Beethoven original is.",
+    "difficulty": {
+      "level": "Beginner",
+      "basis": "source",
+      "originalLabel": "easy",
+      "sourceName": "MuseScore score page (level tag in its page title)",
+      "sourceUrl": "https://musescore.com/dundeepiano/fur-elise-beginner-piano",
+      "checkedOn": "2026-10-02",
+      "note": "Same title and arranger credit (E Muirhead); the title itself also says “for beginner piano”."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 24,
+      "performanceMeasures": 32,
+      "notes": 199,
+      "durationSec": 51.5,
+      "lowest": "E2",
+      "highest": "E6"
+    },
+    "notes": [
+      "Shortened to the main theme (24 measures)",
+      "Starts with a pickup (partial) measure",
+      "Contains repeats with 1st/2nd endings",
+      "Repeats are followed",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "fur-elise-easy-piano",
+    "title": "Für Elise",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Easy version in 3/4 time (arranger not named)",
+    "file": "scores/Fur_Elise_Easy_Piano.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Fur_Elise_Easy_Piano.mxl",
+    "rightsInFile": null,
+    "attribution": "Credited as \"Easy Ver.\"; composer not named in the file (Ludwig van Beethoven); MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Beginner",
+      "basis": "in-file",
+      "originalLabel": "Easy Ver.",
+      "checkedOn": "2026-10-02",
+      "note": "The score’s subtitle says “Easy Ver.”, and the MuseTrainer library lists it as “Easy Piano”."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 22,
+      "performanceMeasures": 22,
+      "notes": 104,
+      "durationSec": 33,
+      "lowest": "A1",
+      "highest": "F5",
+      "tempoDefaulted": true
+    },
+    "notes": [
+      "Rewritten in 3/4 time; the original is in 3/8",
+      "No composer or arranger named in the file",
+      "No tempo is written in the file, so a default speed is used"
+    ]
+  },
+  {
+    "id": "fur-elise-fingered",
+    "title": "Für Elise",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Original piano work with fingering (another copy)",
+    "file": "scores/Fur_Elise_fingered.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Fur_Elise_fingered.mxl",
+    "originalSourceUrl": "https://musescore.com/user/2423821/scores/6647035",
+    "rightsInFile": "pianolessenassen.nl/bladmuziek",
+    "attribution": "Fingered edition from pianolessenassen.nl/bladmuziek (file metadata says \"arr. Verona\"); composed by L. van Beethoven; MusicXML from the MuseTrainer library",
+    "licenseNote": "The rights line names the website pianolessenassen.nl/bladmuziek and the metadata credits \"arr. Verona\", so this fingered edition is probably not public domain even though Beethoven's music is.",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 106,
+      "performanceMeasures": 127,
+      "notes": 1042,
+      "durationSec": 191.2,
+      "lowest": "A1",
+      "highest": "E7"
+    },
+    "notes": [
+      "Starts with a pickup (partial) measure",
+      "Contains repeats with 1st/2nd endings",
+      "Includes fingering numbers",
+      "Repeats are followed",
+      "Grace notes are approximated",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "g-minor-bach",
+    "title": "G Minor Bach",
+    "composer": "Luo Ni",
+    "arrangement": "Original piano piece (another copy, with ornaments on a separate staff)",
+    "file": "scores/G_Minor_Bach.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/G_Minor_Bach.mxl",
+    "originalSourceUrl": "https://musescore.com/user/10919536/scores/5518576",
+    "rightsInFile": "jvs",
+    "attribution": "Composed by Luo Ni (credited in this file to J.S. Bach); rights line \"jvs\"; MusicXML from the MuseTrainer library",
+    "licenseNote": "\"G Minor Bach\" is a modern piece by Luo Ni (a reworking of Bach's Prelude in C minor, BWV 847) and is probably still under copyright, so it is not public domain, even though this file credits J.S. Bach. The rights line also says \"jvs\".",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "overrides": {
+      "excludeParts": [
+        "P1"
+      ],
+      "reason": "The extra part named “PianoVoorslagen” (Dutch for “grace notes”) only holds a written-out trill (two notes alternating quickly) in measures 21–22, on top of notes the main piano part already plays. Leaving it out drops only that trill and avoids doubled notes; the main piano part has all the music for both hands."
+    },
+    "stats": {
+      "measures": 66,
+      "performanceMeasures": 66,
+      "notes": 1804,
+      "durationSec": 158.4,
+      "lowest": "A#1",
+      "highest": "G#5"
+    },
+    "notes": [
+      "Titled \"G minor\" and credited to J.S. Bach in this file; the piece is Luo Ni's \"G Minor Bach\"",
+      "Separate ornament staff left out",
+      "Another edition in this library has nearly the same notes (95.8% match)",
+      "Grace notes are approximated"
+    ]
+  },
+  {
+    "id": "g-minor-bach-original",
+    "title": "G Minor Bach",
+    "composer": "Luo Ni",
+    "arrangement": "Original piano piece",
+    "file": "scores/G_Minor_Bach_Original.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/G_Minor_Bach_Original.mxl",
+    "originalSourceUrl": "http://musescore.com/user/18666761/scores/3805681",
+    "rightsInFile": null,
+    "attribution": "Composed by Luo Ni (\"bottle\"); MusicXML from the MuseTrainer library",
+    "licenseNote": "\"G Minor Bach\" is a modern piece by Luo Ni (a reworking of Bach's Prelude in C minor, BWV 847) and is probably still under copyright, so it is not public domain.",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 66,
+      "performanceMeasures": 66,
+      "notes": 1802,
+      "durationSec": 175.1,
+      "lowest": "A#1",
+      "highest": "G#5"
+    },
+    "notes": [
+      "Often misattributed to J. S. Bach; it reworks his Prelude in C minor, BWV 847, in G minor",
+      "The file's composer field misspells the name as \"Lyo Ni\"",
+      "Another edition in this library has nearly the same notes (95.8% match)",
+      "Grace notes are approximated",
+      "Rolled chords are played as plain chords",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "gnossienne-no-1",
+    "title": "Gnossienne No. 1",
+    "composer": "Erik Satie",
+    "arrangement": "Original piano work",
+    "file": "scores/Gnossienne_No._1.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Gnossienne_No._1.mxl",
+    "originalSourceUrl": "https://musescore.com/classicman/scores/4131536",
+    "rightsInFile": null,
+    "attribution": "Composed by Erik Satie; from Trois Gnossiennes; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Intermediate",
+      "basis": "source",
+      "originalLabel": "Piano for Intermediate",
+      "sourceName": "Scribd copy of the MuseScore score page (ClassicMan)",
+      "sourceUrl": "https://www.scribd.com/document/754075678/Gnossienne-No-1-Sheet-music-for-Piano-Solo-Musescore-com",
+      "checkedOn": "2026-10-02",
+      "note": "Level read from a third-party copy of the MuseScore page."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 11,
+      "performanceMeasures": 11,
+      "notes": 836,
+      "durationSec": 190.6,
+      "lowest": "A#1",
+      "highest": "B5"
+    },
+    "notes": [
+      "Written in free time: no time signature, just 11 long unmetered measures",
+      "Has many grace notes (100)",
+      "Grace notes are approximated"
+    ]
+  },
+  {
+    "id": "greensleeves-for-piano-easy-and-beautiful",
+    "title": "Greensleeves",
+    "composer": "Traditional",
+    "arrangement": "Easy arrangement by Dominique Makowski",
+    "file": "scores/Greensleeves_for_Piano_easy_and_beautiful.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Greensleeves_for_Piano_easy_and_beautiful.mxl",
+    "originalSourceUrl": "https://musescore.com/dominiquemakowski/greensleeves",
+    "rightsInFile": null,
+    "attribution": "Arr. Dominique Makowski; English folk song, author unknown (16th century); MusicXML from the MuseTrainer library",
+    "licenseNote": "Modern arrangement by a named arranger (Dominique Makowski); probably not public domain even though the folk song is.",
+    "difficulty": {
+      "level": "Beginner",
+      "basis": "source",
+      "originalLabel": "Skill Level: Beginner",
+      "sourceName": "LaSolSheet listing of this MuseScore arrangement",
+      "sourceUrl": "https://lasolsheet.com/piano-sheet-music/greensleeves/",
+      "checkedOn": "2026-10-02",
+      "note": "Matched by Dominique Makowski credits, 33 measures and 3/4 time. The word “easy” in the upload title is not what this label rests on."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 33,
+      "performanceMeasures": 33,
+      "notes": 172,
+      "durationSec": 48.5,
+      "lowest": "E2",
+      "highest": "G5"
+    },
+    "notes": [
+      "Includes fingering numbers",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "gymnopdie-no-1-satie",
+    "title": "Gymnopédie No. 1",
+    "composer": "Erik Satie",
+    "arrangement": "Original piano work",
+    "file": "scores/Gymnopdie_No._1__Satie.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Gymnopdie_No._1__Satie.mxl",
+    "originalSourceUrl": "https://musescore.com/classicman/satie-gymnopedie-no-1",
+    "rightsInFile": null,
+    "attribution": "Composed by Erik Satie; from Trois Gymnopédies; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Beginner",
+      "basis": "source",
+      "originalLabel": "Skill Level: Beginner",
+      "sourceName": "LaSolSheet listing of this MuseScore arrangement",
+      "sourceUrl": "https://lasolsheet.com/piano-sheet-music/gymnopedie-no-1/",
+      "checkedOn": "2026-10-02",
+      "note": "Matched by ClassicMan credits and 78 measures."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 78,
+      "performanceMeasures": 78,
+      "notes": 455,
+      "durationSec": 262.5,
+      "lowest": "A1",
+      "highest": "A5"
+    },
+    "notes": [
+      "Written out in full (78 measures, no repeats)"
+    ]
+  },
+  {
+    "id": "happy-birthday-to-you-c-major",
+    "title": "Happy Birthday to You",
+    "composer": "Patty Hill and Mildred J. Hill",
+    "arrangement": "Simple 8-measure setting in C major with chord symbols (arranger not named)",
+    "file": "scores/Happy_Birthday_To_You_C_Major.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Happy_Birthday_To_You_C_Major.mxl",
+    "originalSourceUrl": "http://musescore.com/score/166951",
+    "rightsInFile": null,
+    "attribution": "Composed by Patty Hill and Mildred J. Hill; arranger not named; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 8,
+      "performanceMeasures": 8,
+      "notes": 52,
+      "durationSec": 12,
+      "lowest": "B2",
+      "highest": "G5",
+      "tempoDefaulted": true
+    },
+    "notes": [
+      "Includes chord symbols",
+      "No tempo is written in the file, so a default speed is used"
+    ]
+  },
+  {
+    "id": "happy-birthday-to-you-piano",
+    "title": "Happy Birthday to You",
+    "composer": "Patty Hill and Mildred J. Hill",
+    "arrangement": "Piano arrangement by Manjuprasad (rev. John German)",
+    "file": "scores/Happy_Birthday_To_You_Piano.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Happy_Birthday_To_You_Piano.mxl",
+    "originalSourceUrl": "https://musescore.com/user/27657013/scores/5282628",
+    "rightsInFile": null,
+    "attribution": "Arr. Manjuprasad, rev. John German; composed by Patty Hill and Mildred J. Hill (not named in the file); MusicXML from the MuseTrainer library",
+    "licenseNote": "Modern arrangement by named arrangers (Manjuprasad, John German); probably not public domain.",
+    "difficulty": {
+      "level": "Beginner",
+      "basis": "source",
+      "originalLabel": "easy",
+      "sourceName": "MuseScore score page (level tag in its page title)",
+      "sourceUrl": "https://musescore.com/user/27657013/scores/5282628",
+      "checkedOn": "2026-10-02",
+      "note": "Same upload as the file’s embedded source link; credits match (Manjuprasad, rev. John German)."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 20,
+      "performanceMeasures": 20,
+      "notes": 145,
+      "durationSec": 28.5,
+      "lowest": "C3",
+      "highest": "A#5",
+      "tempoDefaulted": true
+    },
+    "notes": [
+      "Starts with a pickup (partial) measure",
+      "Rolled chords are played as plain chords",
+      "No tempo is written in the file, so a default speed is used"
+    ]
+  },
+  {
+    "id": "hungarian-dance-no-5-in-g-minor",
+    "title": "Hungarian Dance No. 5 in G Minor",
+    "composer": "Johannes Brahms",
+    "arrangement": "Intermediate-level solo piano arrangement (arranger not named)",
+    "file": "scores/Hungarian_Dance_No_5_in_G_Minor.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Hungarian_Dance_No_5_in_G_Minor.mxl",
+    "originalSourceUrl": "http://musescore.com/user/191208/scores/4776321",
+    "rightsInFile": null,
+    "attribution": "Composed by Johannes Brahms; marked \"Intermediate\"; arranger not named; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Intermediate",
+      "basis": "in-file",
+      "originalLabel": "Intermediate",
+      "checkedOn": "2026-10-02",
+      "note": "The score’s title block says “Intermediate”."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 102,
+      "performanceMeasures": 142,
+      "notes": 1720,
+      "durationSec": 162.5,
+      "lowest": "G1",
+      "highest": "G6"
+    },
+    "notes": [
+      "Brahms wrote it for piano four hands; this is a solo version",
+      "Contains repeat signs",
+      "Includes chord symbols",
+      "Repeats are followed",
+      "Grace notes are approximated",
+      "Rolled chords are played as plain chords"
+    ]
+  },
+  {
+    "id": "hungarian-sonata",
+    "title": "Hungarian Sonata",
+    "composer": "Richard Clayderman",
+    "arrangement": "Piano solo version (arranger not named)",
+    "file": "scores/Hungarian_Sonata.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Hungarian_Sonata.mxl",
+    "originalSourceUrl": "http://musescore.com/user/23840281/scores/4620391",
+    "rightsInFile": null,
+    "attribution": "Credited to Richard Clayderman; MusicXML from the MuseTrainer library",
+    "licenseNote": "Modern popular piano piece from Richard Clayderman's repertoire (many sources credit Paul de Senneville as composer); still under copyright, not public domain.",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 49,
+      "performanceMeasures": 54,
+      "notes": 1117,
+      "durationSec": 197.5,
+      "lowest": "D#2",
+      "highest": "E7"
+    },
+    "notes": [
+      "Credited to Richard Clayderman, who recorded it; many sources name Paul de Senneville as the composer",
+      "Uses D.S. al Coda (jump back to the sign, then on to the coda)",
+      "Repeats and D.C./D.S. jumps are followed",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "j-s-bach-air-on-the-g-string-piano-arrangement",
+    "title": "Air on the G String, BWV 1068",
+    "composer": "Johann Sebastian Bach",
+    "arrangement": "Piano arrangement of the orchestral work (arranger not named)",
+    "file": "scores/J._S._Bach_-_Air_on_the_G_String_Piano_arrangement.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/J._S._Bach_-_Air_on_the_G_String_Piano_arrangement.mxl",
+    "originalSourceUrl": "http://musescore.com/user/18625336/scores/3722131",
+    "rightsInFile": null,
+    "attribution": "Composed by J. S. Bach (BWV 1068, 2nd movement); arranger not named; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 37,
+      "performanceMeasures": 72,
+      "notes": 877,
+      "durationSec": 261.8,
+      "lowest": "A1",
+      "highest": "F5"
+    },
+    "notes": [
+      "From the Orchestral Suite No. 3; originally for strings",
+      "Contains repeats with 1st/2nd endings",
+      "Repeats are followed",
+      "Grace notes are approximated"
+    ]
+  },
+  {
+    "id": "la-campanella-grandes-etudes-de-paganini-no-3-franz-liszt",
+    "title": "La Campanella (Grandes études de Paganini No. 3)",
+    "composer": "Franz Liszt",
+    "arrangement": "Original piano work (Liszt's étude on a theme by Paganini)",
+    "file": "scores/La_Campanella_-_Grandes_Etudes_de_Paganini_No._3_-_Franz_Liszt.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/La_Campanella_-_Grandes_Etudes_de_Paganini_No._3_-_Franz_Liszt.mxl",
+    "originalSourceUrl": "http://musescore.com/user/15293341/scores/4426976",
+    "rightsInFile": null,
+    "attribution": "Composed by Franz Liszt; from Grandes études de Paganini, No. 3; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Trills, mordents and turns are played as the main note only, without the quick extra notes the music asks for.",
+      "Some notes are written on the other hand's staff. The app guesses which hand plays them from the musical line they belong to. If a hand feels wrong, the measures are listed under More → About this arrangement.",
+      "In some places one hand is asked to strike keys too far apart to reach at once (wider than a tenth). Some of those notes may belong to the other hand, or the chord may be meant to be rolled."
+    ],
+    "stats": {
+      "measures": 150,
+      "performanceMeasures": 150,
+      "notes": 4153,
+      "durationSec": 270.3,
+      "lowest": "D#1",
+      "highest": "F#7"
+    },
+    "notes": [
+      "Has 59 hidden playback-only notes (written-out trills or ornaments)",
+      "Grace notes are approximated",
+      "Trills and other ornaments are played as the main note",
+      "Rolled chords are played as plain chords",
+      "Small cue notes are not played",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "lacrimosa-requiem",
+    "title": "Lacrimosa (Requiem in D Minor, K. 626)",
+    "composer": "Wolfgang Amadeus Mozart",
+    "arrangement": "Piano arrangement credited to TheoA",
+    "file": "scores/Lacrimosa_-_Requiem.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Lacrimosa_-_Requiem.mxl",
+    "originalSourceUrl": "http://api.musescore.com/score/2275496",
+    "rightsInFile": null,
+    "attribution": "Credited to TheoA; composed by Wolfgang Amadeus Mozart (credited as \"Amade Wolfgang Mozart\"); MusicXML from the MuseTrainer library",
+    "licenseNote": "Modern piano arrangement credited to TheoA (a username); probably not public domain even though Mozart's music is.",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 32,
+      "performanceMeasures": 32,
+      "notes": 694,
+      "durationSec": 180,
+      "lowest": "A1",
+      "highest": "D6"
+    },
+    "notes": [
+      "Originally for choir and orchestra"
+    ]
+  },
+  {
+    "id": "liebestraum-no-3-in-a-major",
+    "title": "Liebestraum No. 3 in A-flat Major, S. 541",
+    "composer": "Franz Liszt",
+    "arrangement": "Original piano work",
+    "file": "scores/Liebestraum_No._3_in_A_Major.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Liebestraum_No._3_in_A_Major.mxl",
+    "originalSourceUrl": "https://musescore.com/classicman/liszt-s-541-no-3",
+    "rightsInFile": null,
+    "attribution": "Composed by Franz Liszt (S. 541/3); MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Advanced",
+      "basis": "source",
+      "originalLabel": "Piano for Advanced",
+      "sourceName": "Scribd copy of the MuseScore score page (ClassicMan)",
+      "sourceUrl": "https://www.scribd.com/document/772994594/Liebestraum-S-541-No-3-in-A-Major-Liszt-Sheet-music-for-Piano-Solo-Musescore-com",
+      "checkedOn": "2026-10-02",
+      "note": "Level read from a third-party copy of the MuseScore page; matched by ClassicMan credits and 88 measures."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Some notes are written on the other hand's staff. The app guesses which hand plays them from the musical line they belong to. If a hand feels wrong, the measures are listed under More → About this arrangement.",
+      "In some places one hand is asked to strike keys too far apart to reach at once (wider than a tenth). Some of those notes may belong to the other hand, or the chord may be meant to be rolled."
+    ],
+    "stats": {
+      "measures": 88,
+      "performanceMeasures": 88,
+      "notes": 1885,
+      "durationSec": 230.3,
+      "lowest": "G#1",
+      "highest": "G7"
+    },
+    "notes": [
+      "The MuseTrainer library lists it as \"A Major\"; the piece is in A-flat major",
+      "Starts with a pickup (partial) measure",
+      "Has 36 hidden playback-only notes",
+      "Rolled chords are played as plain chords",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "maple-leaf-rag-scott-joplin",
+    "title": "Maple Leaf Rag",
+    "composer": "Scott Joplin",
+    "arrangement": "Original piano rag",
+    "file": "scores/Maple_Leaf_Rag_Scott_Joplin.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Maple_Leaf_Rag_Scott_Joplin.mxl",
+    "originalSourceUrl": "http://musescore.com/user/116681/scores/145724",
+    "rightsInFile": null,
+    "attribution": "Composed by Scott Joplin; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 85,
+      "performanceMeasures": 145,
+      "notes": 2568,
+      "durationSec": 173.1,
+      "lowest": "G#1",
+      "highest": "G#6"
+    },
+    "notes": [
+      "Starts with a pickup (partial) measure",
+      "Contains repeats with 1st/2nd endings",
+      "Repeats are followed"
+    ]
+  },
+  {
+    "id": "mariage-damour",
+    "title": "Mariage d'Amour",
+    "composer": "Paul de Senneville",
+    "arrangement": "Piano solo version (arranger not named)",
+    "file": "scores/Mariage_dAmour.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Mariage_dAmour.mxl",
+    "originalSourceUrl": "http://musescore.com/user/97638/scores/3387831",
+    "rightsInFile": null,
+    "attribution": "Composed by Paul de Senneville; MusicXML from the MuseTrainer library",
+    "licenseNote": "Mariage d'Amour is a modern composition by Paul de Senneville and is still under copyright, so this file is not public domain.",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Trills, mordents and turns are played as the main note only, without the quick extra notes the music asks for.",
+      "Some notes are outside the 88 keys of a piano (A0 to C8).",
+      "Some notes are written on the other hand's staff. The app guesses which hand plays them from the musical line they belong to. If a hand feels wrong, the measures are listed under More → About this arrangement.",
+      "In some places one hand is asked to strike keys too far apart to reach at once (wider than a tenth). Some of those notes may belong to the other hand, or the chord may be meant to be rolled."
+    ],
+    "stats": {
+      "measures": 83,
+      "performanceMeasures": 83,
+      "notes": 1630,
+      "durationSec": 226.4,
+      "lowest": "D1",
+      "highest": "D8"
+    },
+    "notes": [
+      "The file's internal title is misspelled \"Mariage d'Amoure\"",
+      "Grace notes are approximated",
+      "Trills and other ornaments are played as the main note",
+      "Rolled chords are played as plain chords"
+    ]
+  },
+  {
+    "id": "moonlight-sonata-3rd-movement",
+    "title": "Moonlight Sonata (Piano Sonata No. 14, Op. 27 No. 2) – 3rd Movement",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Original piano work (another copy)",
+    "file": "scores/moonlight_sonata_3rd_movement.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/moonlight_sonata_3rd_movement.mxl",
+    "rightsInFile": null,
+    "attribution": "Composed by L. V. Beethoven; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Some notes are written on the other hand's staff. The app guesses which hand plays them from the musical line they belong to. If a hand feels wrong, the measures are listed under More → About this arrangement.",
+      "In some places one hand is asked to strike keys too far apart to reach at once (wider than a tenth). Some of those notes may belong to the other hand, or the chord may be meant to be rolled."
+    ],
+    "stats": {
+      "measures": 201,
+      "performanceMeasures": 264,
+      "notes": 6450,
+      "durationSec": 375.9,
+      "lowest": "F1",
+      "highest": "E6"
+    },
+    "notes": [
+      "Contains repeats with 1st/2nd endings",
+      "Repeats are followed",
+      "Grace notes are approximated",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "mozart-piano-sonata-no-16-allegro",
+    "title": "Piano Sonata No. 16 in C Major, K. 545 – 1st Movement",
+    "composer": "Wolfgang Amadeus Mozart",
+    "arrangement": "Original piano work (another copy)",
+    "file": "scores/Mozart_-_Piano_Sonata_No._16_-_Allegro.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Mozart_-_Piano_Sonata_No._16_-_Allegro.mxl",
+    "rightsInFile": null,
+    "attribution": "Composed by Wolfgang Amadeus Mozart (not credited in the file); MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Trills, mordents and turns are played as the main note only, without the quick extra notes the music asks for.",
+      "Some notes are written on the other hand's staff. The app guesses which hand plays them from the musical line they belong to. If a hand feels wrong, the measures are listed under More → About this arrangement."
+    ],
+    "stats": {
+      "measures": 73,
+      "performanceMeasures": 146,
+      "notes": 2562,
+      "durationSec": 265.5,
+      "lowest": "C2",
+      "highest": "F6"
+    },
+    "notes": [
+      "No title or composer credits in the file",
+      "Contains repeat signs",
+      "Repeats are followed",
+      "Grace notes are approximated",
+      "Trills and other ornaments are played as the main note"
+    ]
+  },
+  {
+    "id": "nocturne-in-c-sharp-minor",
+    "title": "Nocturne No. 20 in C-sharp Minor, Op. posth.",
+    "composer": "Frédéric Chopin",
+    "arrangement": "Original piano work (another copy, trills not written out)",
+    "file": "scores/Nocturne_in_C_sharp_Minor.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Nocturne_in_C_sharp_Minor.mxl",
+    "originalSourceUrl": "http://musescore.com/user/16938116/scores/3896061",
+    "rightsInFile": null,
+    "attribution": "Composed by Frédéric Chopin (credited as Chopin); MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Trills, mordents and turns are played as the main note only, without the quick extra notes the music asks for."
+    ],
+    "stats": {
+      "measures": 65,
+      "performanceMeasures": 65,
+      "notes": 820,
+      "durationSec": 233.1,
+      "lowest": "G#1",
+      "highest": "D#7"
+    },
+    "notes": [
+      "Grace notes are approximated",
+      "Trills and other ornaments are played as the main note",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "nocturne-in-e-flat-major-op-9-no-2-easy",
+    "title": "Nocturne in E-flat Major, Op. 9 No. 2",
+    "composer": "Frédéric Chopin",
+    "arrangement": "Easy arrangement by Murilo Pedroza",
+    "file": "scores/Nocturne_in_E-flat_Major_Op._9_No._2_Easy.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Nocturne_in_E-flat_Major_Op._9_No._2_Easy.mxl",
+    "originalSourceUrl": "https://musescore.com/user/11105406/scores/3044996",
+    "rightsInFile": null,
+    "attribution": "Arr. Murilo Pedroza (named in the file metadata); composed by Frédéric Chopin; MusicXML from the MuseTrainer library",
+    "licenseNote": "Modern arrangement by a named arranger (Murilo Pedroza); probably not public domain even though the Chopin original is.",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "checkedOn": "2026-10-02",
+      "note": "The arrangement’s published title says “Easy”, but the score states no level and no published rating of this arrangement was found. A word in a title is a hint, not a rating."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 65,
+      "performanceMeasures": 65,
+      "notes": 482,
+      "durationSec": 105.3,
+      "lowest": "G#2",
+      "highest": "D6"
+    },
+    "notes": [
+      "Rewritten in 3/4 time; the original is in 12/8",
+      "Grace notes are approximated"
+    ]
+  },
+  {
+    "id": "nocturne-no-20-in-c-minor",
+    "title": "Nocturne No. 20 in C-sharp Minor, Op. posth.",
+    "composer": "Frédéric Chopin",
+    "arrangement": "Original piano work",
+    "file": "scores/Nocturne_No._20_in_C_Minor.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Nocturne_No._20_in_C_Minor.mxl",
+    "rightsInFile": null,
+    "attribution": "Composed by Frédéric François Chopin; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Some notes are written on the other hand's staff. The app guesses which hand plays them from the musical line they belong to. If a hand feels wrong, the measures are listed under More → About this arrangement."
+    ],
+    "stats": {
+      "measures": 65,
+      "performanceMeasures": 65,
+      "notes": 1000,
+      "durationSec": 263.3,
+      "lowest": "G#1",
+      "highest": "D#7"
+    },
+    "notes": [
+      "The MuseTrainer library lists it as \"C Minor\"; the piece is in C-sharp minor",
+      "Has 195 hidden playback-only notes (written-out trills or ornaments)",
+      "Grace notes are approximated",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "ode-to-joy-easy-variation",
+    "title": "Ode to Joy",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Easy arrangement by Torby Brand",
+    "file": "scores/Ode_to_Joy_Easy_variation.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Ode_to_Joy_Easy_variation.mxl",
+    "rightsInFile": null,
+    "attribution": "Arr. Torby Brand; composed by Ludwig van Beethoven; MusicXML from the MuseTrainer library",
+    "licenseNote": "Modern arrangement by Torby Brand. Its MuseScore page (musescore.com/torbybrand/ode-to-joy) now says the score was removed after a copyright claim by MyMusic5, so this arrangement is probably not freely redistributable even though Beethoven's melody is public domain.",
+    "difficulty": {
+      "level": "Beginner",
+      "basis": "in-file",
+      "originalLabel": "(Easy variation)",
+      "checkedOn": "2026-10-02",
+      "note": "The score’s title block says “Easy variation”."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 17,
+      "performanceMeasures": 17,
+      "notes": 123,
+      "durationSec": 29.1,
+      "lowest": "D2",
+      "highest": "D5"
+    },
+    "notes": [
+      "Theme from the finale of Symphony No. 9"
+    ]
+  },
+  {
+    "id": "passacaglia",
+    "title": "Passacaglia (Handel–Halvorsen)",
+    "composer": "George Frideric Handel",
+    "arrangement": "Piano version of Johan Halvorsen's Passacaglia (with chord names)",
+    "file": "scores/Passacaglia.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Passacaglia.mxl",
+    "originalSourceUrl": "https://musescore.com/user/31423751/scores/6121641",
+    "rightsInFile": null,
+    "attribution": "Credited as \"Arrangement by Handel Halvorsen\" (George Frideric Handel and Johan Halvorsen); MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 74,
+      "performanceMeasures": 74,
+      "notes": 1030,
+      "durationSec": 136.6,
+      "lowest": "C2",
+      "highest": "C7"
+    },
+    "notes": [
+      "Chord names (Am, Dm, G ...) are written as text above the staff",
+      "The credits merge the two names into \"Handel Halvorsen\"",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "piano-sonata-no-11-k-331-3rd-movement-rondo-alla-turca",
+    "title": "Rondo alla Turca (Piano Sonata No. 11, K. 331 – 3rd Movement)",
+    "composer": "Wolfgang Amadeus Mozart",
+    "arrangement": "Original piano work",
+    "file": "scores/Piano_Sonata_No._11_K._331_3rd_Movement_Rondo_alla_Turca.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Piano_Sonata_No._11_K._331_3rd_Movement_Rondo_alla_Turca.mxl",
+    "originalSourceUrl": "http://musescore.com/classicman/scores/49143",
+    "rightsInFile": null,
+    "attribution": "Composed by Wolfgang Amadeus Mozart; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 137,
+      "performanceMeasures": 241,
+      "notes": 2812,
+      "durationSec": 223.5,
+      "lowest": "D2",
+      "highest": "E6"
+    },
+    "notes": [
+      "Many grace notes (189)",
+      "Starts with a pickup (partial) measure",
+      "Contains repeats with 1st/2nd endings",
+      "Has 42 hidden playback-only notes (written-out trills or ornaments)",
+      "Repeats are followed",
+      "Grace notes are approximated"
+    ]
+  },
+  {
+    "id": "prelude-i-in-c-major-bwv-846-well-tempered-clavier-first-book",
+    "title": "Prelude in C Major, BWV 846 (Well-Tempered Clavier, Book I)",
+    "composer": "Johann Sebastian Bach",
+    "arrangement": "Original keyboard work",
+    "file": "scores/Prelude_I_in_C_major_BWV_846_-_Well_Tempered_Clavier_First_Book.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Prelude_I_in_C_major_BWV_846_-_Well_Tempered_Clavier_First_Book.mxl",
+    "originalSourceUrl": "https://musescore.com/user/101554/scores/117279",
+    "rightsInFile": null,
+    "attribution": "Composed by Johann Sebastian Bach; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Beginner",
+      "basis": "source",
+      "originalLabel": "easy",
+      "sourceName": "MuseScore score page (level tag in its page title)",
+      "sourceUrl": "https://musescore.com/user/101554/scores/117279",
+      "checkedOn": "2026-10-02",
+      "note": "Same upload as the file’s embedded source link. This is Bach’s original prelude, not a simplified arrangement; the level is the one MuseScore shows for this upload."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 34,
+      "performanceMeasures": 34,
+      "notes": 533,
+      "durationSec": 119.1,
+      "lowest": "C2",
+      "highest": "A5"
+    },
+    "notes": []
+  },
+  {
+    "id": "prelude-no-2-bwv-847-in-c-minor",
+    "title": "Prelude in C Minor, BWV 847 (Well-Tempered Clavier, Book I)",
+    "composer": "Johann Sebastian Bach",
+    "arrangement": "Original keyboard work",
+    "file": "scores/Prelude_No._2_BWV_847_in_C_Minor.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Prelude_No._2_BWV_847_in_C_Minor.mxl",
+    "originalSourceUrl": "http://musescore.com/score/227966",
+    "rightsInFile": null,
+    "attribution": "Composed by Johann Sebastian Bach; from Das Wohltemperierte Klavier, Book I; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Some notes are written on the other hand's staff. The app guesses which hand plays them from the musical line they belong to. If a hand feels wrong, the measures are listed under More → About this arrangement."
+    ],
+    "stats": {
+      "measures": 38,
+      "performanceMeasures": 38,
+      "notes": 1091,
+      "durationSec": 73.2,
+      "lowest": "C2",
+      "highest": "G#5"
+    },
+    "notes": [
+      "Has 24 hidden playback-only notes (written-out trills or ornaments)",
+      "Rolled chords are played as plain chords",
+      "Small cue notes are not played",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "prlude-opus-28-no-4-in-e-minor-chopin",
+    "title": "Prélude in E Minor, Op. 28 No. 4",
+    "composer": "Frédéric Chopin",
+    "arrangement": "Original piano work",
+    "file": "scores/Prlude_Opus_28_No._4_in_E_Minor__Chopin.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Prlude_Opus_28_No._4_in_E_Minor__Chopin.mxl",
+    "originalSourceUrl": "https://musescore.com/user/19710/scores/65474",
+    "rightsInFile": null,
+    "attribution": "Composed by Frédéric Chopin; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Some notes are written on the other hand's staff. The app guesses which hand plays them from the musical line they belong to. If a hand feels wrong, the measures are listed under More → About this arrangement."
+    ],
+    "stats": {
+      "measures": 26,
+      "performanceMeasures": 26,
+      "notes": 604,
+      "durationSec": 155.4,
+      "lowest": "E1",
+      "highest": "C6"
+    },
+    "notes": [
+      "Starts with a pickup (partial) measure",
+      "Grace notes are approximated",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "schubert-serenade-standchen-by-lizst",
+    "title": "Ständchen (Serenade)",
+    "composer": "Franz Schubert",
+    "arrangement": "Piano transcription by Franz Liszt",
+    "file": "scores/Schubert_Serenade_-_Standchen_-_By_Lizst.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Schubert_Serenade_-_Standchen_-_By_Lizst.mxl",
+    "originalSourceUrl": "http://musescore.com/user/15453381/scores/3252906",
+    "rightsInFile": null,
+    "attribution": "Transcribed by F. Liszt; composed by Franz Schubert; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "In some places one hand is asked to strike keys too far apart to reach at once (wider than a tenth). Some of those notes may belong to the other hand, or the chord may be meant to be rolled."
+    ],
+    "overrides": {
+      "staffHands": {
+        "P1:1": "R",
+        "P2:1": "L"
+      },
+      "reason": "The music for the two hands is written as two separate one-staff parts. The top part is higher than the bottom part in almost every measure, so the top part is played with the right hand and the bottom part with the left hand. In measures 40, 41, 53 and 59 the right-hand melody dips below some left-hand notes: the hands cross there, they are not swapped."
+    },
+    "stats": {
+      "measures": 115,
+      "performanceMeasures": 115,
+      "notes": 2421,
+      "durationSec": 356.9,
+      "lowest": "F1",
+      "highest": "A6"
+    },
+    "notes": [
+      "Right and left hands are stored as two separate single-staff parts",
+      "In a few measures (40, 41, 53, 59) the right-hand melody dips below the left-hand chords",
+      "Originally a Schubert song; the file's internal title is just \"Song\"",
+      "Grace notes are approximated",
+      "Rolled chords are played as plain chords"
+    ]
+  },
+  {
+    "id": "sonata-no-16-1st-movement-k-545",
+    "title": "Piano Sonata No. 16 in C Major, K. 545 – 1st Movement",
+    "composer": "Wolfgang Amadeus Mozart",
+    "arrangement": "Original piano work",
+    "file": "scores/Sonata_No._16_1st_Movement_K._545.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Sonata_No._16_1st_Movement_K._545.mxl",
+    "rightsInFile": null,
+    "attribution": "Composed by Wolfgang Amadeus Mozart; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Trills, mordents and turns are played as the main note only, without the quick extra notes the music asks for."
+    ],
+    "stats": {
+      "measures": 73,
+      "performanceMeasures": 146,
+      "notes": 2732,
+      "durationSec": 265.5,
+      "lowest": "C2",
+      "highest": "F6"
+    },
+    "notes": [
+      "Contains repeat signs",
+      "Has 92 hidden playback-only notes (written-out trills or ornaments)",
+      "Repeats are followed",
+      "Trills and other ornaments are played as the main note"
+    ]
+  },
+  {
+    "id": "sonate-no-14-moonlight-1st-movement",
+    "title": "Moonlight Sonata (Piano Sonata No. 14, Op. 27 No. 2) – 1st Movement",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Original piano work",
+    "file": "scores/Sonate_No._14_Moonlight_1st_Movement.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Sonate_No._14_Moonlight_1st_Movement.mxl",
+    "originalSourceUrl": "http://musescore.com/classicman/scores/55352",
+    "rightsInFile": null,
+    "attribution": "Composed by Ludwig van Beethoven; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Some notes are written on the other hand's staff. The app guesses which hand plays them from the musical line they belong to. If a hand feels wrong, the measures are listed under More → About this arrangement."
+    ],
+    "stats": {
+      "measures": 69,
+      "performanceMeasures": 69,
+      "notes": 1144,
+      "durationSec": 376.4,
+      "lowest": "F1",
+      "highest": "D#6"
+    },
+    "notes": []
+  },
+  {
+    "id": "sonate-no-14-moonlight-3rd-movement",
+    "title": "Moonlight Sonata (Piano Sonata No. 14, Op. 27 No. 2) – 3rd Movement",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Original piano work",
+    "file": "scores/Sonate_No._14_Moonlight_3rd_Movement.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Sonate_No._14_Moonlight_3rd_Movement.mxl",
+    "originalSourceUrl": "http://musescore.com/classicman/scores/33715",
+    "rightsInFile": null,
+    "attribution": "Composed by Ludwig van Beethoven; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Trills, mordents and turns are played as the main note only, without the quick extra notes the music asks for.",
+      "Some notes are written on the other hand's staff. The app guesses which hand plays them from the musical line they belong to. If a hand feels wrong, the measures are listed under More → About this arrangement."
+    ],
+    "stats": {
+      "measures": 201,
+      "performanceMeasures": 264,
+      "notes": 6413,
+      "durationSec": 405.6,
+      "lowest": "F1",
+      "highest": "E6"
+    },
+    "notes": [
+      "Contains repeats with 1st/2nd endings",
+      "Has 56 hidden playback-only notes (written-out trills or ornaments)",
+      "Repeats are followed",
+      "Grace notes are approximated",
+      "Trills and other ornaments are played as the main note",
+      "Small cue notes are not played"
+    ]
+  },
+  {
+    "id": "sonate-no-8-pathetique-2nd-movement",
+    "title": "Pathétique Sonata (Piano Sonata No. 8, Op. 13) – 2nd Movement",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Original piano work",
+    "file": "scores/Sonate_No._8_Pathetique_2nd_Movement.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Sonate_No._8_Pathetique_2nd_Movement.mxl",
+    "originalSourceUrl": "http://musescore.com/score/49148",
+    "rightsInFile": null,
+    "attribution": "Composed by Ludwig van Beethoven; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 73,
+      "performanceMeasures": 73,
+      "notes": 1640,
+      "durationSec": 278.1,
+      "lowest": "F1",
+      "highest": "F6"
+    },
+    "notes": [
+      "Has 14 hidden playback-only notes (written-out trills or ornaments)",
+      "Grace notes are approximated"
+    ]
+  },
+  {
+    "id": "spring-waltz-mariage-damour-chopin",
+    "title": "Mariage d'Amour (\"Spring Waltz\")",
+    "composer": "Paul de Senneville",
+    "arrangement": "Piano solo version (another copy)",
+    "file": "scores/Spring_Waltz_Mariage_dAmour_-_Chopin.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Spring_Waltz_Mariage_dAmour_-_Chopin.mxl",
+    "originalSourceUrl": "https://musescore.com/user/29754108/scores/5739597",
+    "rightsInFile": null,
+    "attribution": "Composed by Paul de Senneville (credited on the page as Chopin); MusicXML from the MuseTrainer library",
+    "licenseNote": "Mariage d'Amour is a modern composition by Paul de Senneville and is still under copyright, so this file is not public domain.",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 84,
+      "performanceMeasures": 84,
+      "notes": 1643,
+      "durationSec": 264,
+      "lowest": "D2",
+      "highest": "A7"
+    },
+    "notes": [
+      "Labelled \"Spring Waltz\" by Chopin (\"aka Mariage d'Amour\"); the piece is by Paul de Senneville and is often misattributed to Chopin",
+      "Grace notes are approximated",
+      "Rolled chords are played as plain chords",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "swan-lake",
+    "title": "Swan Lake (Theme)",
+    "composer": "Pyotr Ilyich Tchaikovsky",
+    "arrangement": "Short piano arrangement of the theme (arranger not named)",
+    "file": "scores/Swan_Lake.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Swan_Lake.mxl",
+    "rightsInFile": null,
+    "attribution": "Composed by Pyotr Ilyich Tchaikovsky; arranger not named; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 32,
+      "performanceMeasures": 32,
+      "notes": 326,
+      "durationSec": 76.8,
+      "lowest": "C3",
+      "highest": "C#6"
+    },
+    "notes": [
+      "Originally for orchestra (ballet)"
+    ]
+  },
+  {
+    "id": "the-entertainer-scott-joplin",
+    "title": "The Entertainer",
+    "composer": "Scott Joplin",
+    "arrangement": "Lightly simplified edition by Rui Sousa (2014), with chord symbols and fingering",
+    "file": "scores/The_Entertainer_-_Scott_Joplin.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/The_Entertainer_-_Scott_Joplin.mxl",
+    "originalSourceUrl": "http://musescore.com/score/162108",
+    "rightsInFile": null,
+    "attribution": "Edition by Rui Sousa (2 March 2014, version 10); composed by Scott Joplin; MusicXML from the MuseTrainer library",
+    "licenseNote": "Modern edition (2014) by a named editor, Rui Sousa. Joplin's 1902 rag is public domain, but this edition probably is not.",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "The music asks in words (such as \"8va\") for some notes to be played an octave higher or lower. This is not applied: those notes are played as written."
+    ],
+    "overrides": {
+      "staffHands": {
+        "P1:1": "R",
+        "P2:1": "L"
+      },
+      "reason": "The music for the two hands is written as two separate one-staff parts without names. The top part is higher than the bottom part all the way through, so the top part is played with the right hand and the bottom part with the left hand."
+    },
+    "stats": {
+      "measures": 92,
+      "performanceMeasures": 152,
+      "notes": 1997,
+      "durationSec": 260.6,
+      "lowest": "G1",
+      "highest": "F#6"
+    },
+    "notes": [
+      "Right and left hands are stored as two separate single-staff parts",
+      "Thinner than the 1902 original: about a quarter fewer notes (fewer chord notes and octave doublings)",
+      "Includes a \"Repeat 8va\" text instruction (play the repeat an octave higher); the app plays those notes as written",
+      "Contains repeats with 1st/2nd endings",
+      "Includes fingering numbers",
+      "Includes chord symbols"
+    ]
+  },
+  {
+    "id": "the-entertainer-scott-joplin-1902",
+    "title": "The Entertainer",
+    "composer": "Scott Joplin",
+    "arrangement": "Original 1902 piano rag",
+    "file": "scores/The_Entertainer_-_Scott_Joplin_-_1902.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/The_Entertainer_-_Scott_Joplin_-_1902.mxl",
+    "rightsInFile": "Public Domain",
+    "attribution": "Composed by Scott Joplin; \"A Rag Time Two Step\", dedicated to James Brown and his Mandolin Club; marked Public Domain; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "The music asks in words (such as \"8va\") for some notes to be played an octave higher or lower. This is not applied: those notes are played as written.",
+      "Some notes are written on the other hand's staff. The app guesses which hand plays them from the musical line they belong to. If a hand feels wrong, the measures are listed under More → About this arrangement."
+    ],
+    "stats": {
+      "measures": 92,
+      "performanceMeasures": 152,
+      "notes": 2626,
+      "durationSec": 304,
+      "lowest": "F1",
+      "highest": "F#6"
+    },
+    "notes": [
+      "Includes a \"Repeat 8va\" text instruction (play the repeat an octave higher); the app plays those notes as written",
+      "Contains repeats with 1st/2nd endings",
+      "Repeats are followed"
+    ]
+  },
+  {
+    "id": "waltz-in-a-minorchopin",
+    "title": "Waltz in A Minor, B. 150",
+    "composer": "Frédéric Chopin",
+    "arrangement": "Original piano work",
+    "file": "scores/Waltz_in_A_MinorChopin.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Waltz_in_A_MinorChopin.mxl",
+    "originalSourceUrl": "http://musescore.com/score/1749181",
+    "rightsInFile": null,
+    "attribution": "Composed by Frédéric Chopin; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Trills, mordents and turns are played as the main note only, without the quick extra notes the music asks for."
+    ],
+    "stats": {
+      "measures": 57,
+      "performanceMeasures": 81,
+      "notes": 920,
+      "durationSec": 120.5,
+      "lowest": "A1",
+      "highest": "E7"
+    },
+    "notes": [
+      "Contains repeat signs",
+      "Includes fingering numbers",
+      "Repeats are followed",
+      "Grace notes are approximated",
+      "Trills and other ornaments are played as the main note",
+      "Pedal marks are not turned into held notes"
+    ]
+  },
+  {
+    "id": "waltz-of-the-flowers",
+    "title": "Waltz of the Flowers (The Nutcracker)",
+    "composer": "Pyotr Ilyich Tchaikovsky",
+    "arrangement": "Piano arrangement of the theme (arranger not named)",
+    "file": "scores/Waltz_of_the_Flowers.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Waltz_of_the_Flowers.mxl",
+    "originalSourceUrl": "http://musescore.com/user/124709/scores/1131706",
+    "rightsInFile": null,
+    "attribution": "Composed by Pyotr Ilyich Tchaikovsky; theme from the Nutcracker ballet; arranger not named; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "ready",
+    "readinessReasons": [],
+    "stats": {
+      "measures": 80,
+      "performanceMeasures": 92,
+      "notes": 918,
+      "durationSec": 90.5,
+      "lowest": "D2",
+      "highest": "E6"
+    },
+    "notes": [
+      "Originally for orchestra (ballet)",
+      "Contains repeats with 1st/2nd endings",
+      "Repeats are followed"
+    ]
+  },
+  {
+    "id": "waltz-opus-64-no-2-in-c-minor",
+    "title": "Waltz in C-sharp Minor, Op. 64 No. 2",
+    "composer": "Frédéric Chopin",
+    "arrangement": "Original piano work",
+    "file": "scores/Waltz_Opus_64_No._2_in_C_Minor.mxl",
+    "upstreamUrl": "https://github.com/musetrainer/library/blob/9128876f6164d96997c877a2be843349a32bdabb/scores/Waltz_Opus_64_No._2_in_C_Minor.mxl",
+    "originalSourceUrl": "http://musescore.com/score/55375",
+    "rightsInFile": null,
+    "attribution": "Composed by Frédéric François Chopin; MusicXML from the MuseTrainer library",
+    "difficulty": {
+      "level": "Unrated",
+      "basis": "none",
+      "note": "No public difficulty label found for this arrangement."
+    },
+    "readiness": "review",
+    "readinessReasons": [
+      "Some notes are written on the other hand's staff. The app guesses which hand plays them from the musical line they belong to. If a hand feels wrong, the measures are listed under More → About this arrangement."
+    ],
+    "stats": {
+      "measures": 194,
+      "performanceMeasures": 194,
+      "notes": 1864,
+      "durationSec": 223.4,
+      "lowest": "G#1",
+      "highest": "C#7"
+    },
+    "notes": [
+      "The MuseTrainer library lists it as \"C Minor\"; the piece is in C-sharp minor",
+      "Starts with a pickup (partial) measure",
+      "Has 12 hidden playback-only notes (written-out trills or ornaments)",
+      "Grace notes are approximated",
+      "Pedal marks are not turned into held notes"
+    ]
+  }
+]

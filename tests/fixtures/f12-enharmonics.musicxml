@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  f12 - Sharp/flat enharmonic spelling and octave-boundary edge cases (brief §17 fixture 12).
+  One part "Piano", 2 staves, 4/4, divisions=1 (ticksPerQuarter = 48). Every accidental uses <alter>.
+  m1 RH: B#3 (= C4, 60)  Cb4 (= B3, 59)  Db4 (= C#4, 61)  E#4 (= F4, 65)       LH: whole rest
+  m2 RH: Fb4 (= E4, 64)  Bb3 (= A#3, 58)  B3 (59) -> C4 (60) across the octave boundary   LH: whole rest
+  m3 RH: C8 whole (108, top key)                                                LH: A0 whole (21, bottom key)
+-->
+<score-partwise version="4.0">
+  <part-list>
+    <score-part id="P1"><part-name>Piano</part-name></score-part>
+  </part-list>
+  <part id="P1">
+    <measure number="1">
+      <attributes>
+        <divisions>1</divisions>
+        <time><beats>4</beats><beat-type>4</beat-type></time>
+        <staves>2</staves>
+        <clef number="1"><sign>G</sign><line>2</line></clef>
+        <clef number="2"><sign>F</sign><line>4</line></clef>
+      </attributes>
+      <note><pitch><step>B</step><alter>1</alter><octave>3</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type><accidental>sharp</accidental><staff>1</staff></note>
+      <note><pitch><step>C</step><alter>-1</alter><octave>4</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type><accidental>flat</accidental><staff>1</staff></note>
+      <note><pitch><step>D</step><alter>-1</alter><octave>4</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type><accidental>flat</accidental><staff>1</staff></note>
+      <note><pitch><step>E</step><alter>1</alter><octave>4</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type><accidental>sharp</accidental><staff>1</staff></note>
+      <backup><duration>4</duration></backup>
+      <note><rest measure="yes"/><duration>4</duration><voice>5</voice><staff>2</staff></note>
+    </measure>
+    <measure number="2">
+      <note><pitch><step>F</step><alter>-1</alter><octave>4</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type><accidental>flat</accidental><staff>1</staff></note>
+      <note><pitch><step>B</step><alter>-1</alter><octave>3</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type><accidental>flat</accidental><staff>1</staff></note>
+      <note><pitch><step>B</step><alter>0</alter><octave>3</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type><accidental>natural</accidental><staff>1</staff></note>
+      <note><pitch><step>C</step><octave>4</octave></pitch><duration>1</duration><voice>1</voice><type>quarter</type><staff>1</staff></note>
+      <backup><duration>4</duration></backup>
+      <note><rest measure="yes"/><duration>4</duration><voice>5</voice><staff>2</staff></note>
+    </measure>
+    <measure number="3">
+      <note><pitch><step>C</step><octave>8</octave></pitch><duration>4</duration><voice>1</voice><type>whole</type><staff>1</staff></note>
+      <backup><duration>4</duration></backup>
+      <note><pitch><step>A</step><octave>0</octave></pitch><duration>4</duration><voice>5</voice><type>whole</type><staff>2</staff></note>
+    </measure>
+  </part>
+</score-partwise>

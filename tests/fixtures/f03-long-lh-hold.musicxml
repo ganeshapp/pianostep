@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  f03 - A long LH hold while the RH changes several times (brief §17 fixture 3).
+  One part "Piano", 2 staves, 4/4, divisions=3 (ticksPerQuarter = 48).
+  RH (staff 1): E4 F4 G4 A4 quarters.
+  LH (staff 2): C3 whole note held through all four RH notes.
+-->
+<score-partwise version="4.0">
+  <part-list>
+    <score-part id="P1"><part-name>Piano</part-name></score-part>
+  </part-list>
+  <part id="P1">
+    <measure number="1">
+      <attributes>
+        <divisions>3</divisions>
+        <time><beats>4</beats><beat-type>4</beat-type></time>
+        <staves>2</staves>
+        <clef number="1"><sign>G</sign><line>2</line></clef>
+        <clef number="2"><sign>F</sign><line>4</line></clef>
+      </attributes>
+      <note><pitch><step>E</step><octave>4</octave></pitch><duration>3</duration><voice>1</voice><type>quarter</type><staff>1</staff></note>
+      <note><pitch><step>F</step><octave>4</octave></pitch><duration>3</duration><voice>1</voice><type>quarter</type><staff>1</staff></note>
+      <note><pitch><step>G</step><octave>4</octave></pitch><duration>3</duration><voice>1</voice><type>quarter</type><staff>1</staff></note>
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>3</duration><voice>1</voice><type>quarter</type><staff>1</staff></note>
+      <backup><duration>12</duration></backup>
+      <note><pitch><step>C</step><octave>3</octave></pitch><duration>12</duration><voice>5</voice><type>whole</type><staff>2</staff></note>
+    </measure>
+  </part>
+</score-partwise>

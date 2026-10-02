@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  f14 - Alternative (ossia) passage in a second part (brief §17 fixture 14).
+  P1 "Piano": 2 staves, divisions=2, the full music.
+    m1 RH C5 half, B4 half;              LH C3 whole.
+    m2 RH A4 quarter, G4 quarter, F4 half; LH F2 whole.
+  P2 also named "Piano": 1 treble staff, divisions=3, whole rest in m1, then in m2 the words
+    "Ossia:" and three notes A4 quarter, B4 quarter, C5 half (an alternative for the RH of m2).
+  ticksPerQuarter = lcm(2, 3, 48) = 48. P2 must never be played together with P1.
+-->
+<score-partwise version="4.0">
+  <part-list>
+    <score-part id="P1"><part-name>Piano</part-name></score-part>
+    <score-part id="P2"><part-name>Piano</part-name></score-part>
+  </part-list>
+  <part id="P1">
+    <measure number="1">
+      <attributes>
+        <divisions>2</divisions>
+        <time><beats>4</beats><beat-type>4</beat-type></time>
+        <staves>2</staves>
+        <clef number="1"><sign>G</sign><line>2</line></clef>
+        <clef number="2"><sign>F</sign><line>4</line></clef>
+      </attributes>
+      <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration><voice>1</voice><type>half</type><staff>1</staff></note>
+      <note><pitch><step>B</step><octave>4</octave></pitch><duration>4</duration><voice>1</voice><type>half</type><staff>1</staff></note>
+      <backup><duration>8</duration></backup>
+      <note><pitch><step>C</step><octave>3</octave></pitch><duration>8</duration><voice>5</voice><type>whole</type><staff>2</staff></note>
+    </measure>
+    <measure number="2">
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>2</duration><voice>1</voice><type>quarter</type><staff>1</staff></note>
+      <note><pitch><step>G</step><octave>4</octave></pitch><duration>2</duration><voice>1</voice><type>quarter</type><staff>1</staff></note>
+      <note><pitch><step>F</step><octave>4</octave></pitch><duration>4</duration><voice>1</voice><type>half</type><staff>1</staff></note>
+      <backup><duration>8</duration></backup>
+      <note><pitch><step>F</step><octave>2</octave></pitch><duration>8</duration><voice>5</voice><type>whole</type><staff>2</staff></note>
+    </measure>
+  </part>
+  <part id="P2">
+    <measure number="1">
+      <attributes>
+        <divisions>3</divisions>
+        <time><beats>4</beats><beat-type>4</beat-type></time>
+        <clef><sign>G</sign><line>2</line></clef>
+      </attributes>
+      <note><rest measure="yes"/><duration>12</duration><voice>1</voice></note>
+    </measure>
+    <measure number="2">
+      <direction placement="above">
+        <direction-type><words>Ossia:</words></direction-type>
+      </direction>
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>3</duration><voice>1</voice><type>quarter</type></note>
+      <note><pitch><step>B</step><octave>4</octave></pitch><duration>3</duration><voice>1</voice><type>quarter</type></note>
+      <note><pitch><step>C</step><octave>5</octave></pitch><duration>6</duration><voice>1</voice><type>half</type></note>
+    </measure>
+  </part>
+</score-partwise>

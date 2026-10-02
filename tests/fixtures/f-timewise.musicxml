@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  A small score-timewise document (measures contain parts). 4/4, divisions=2 (ticksPerQuarter = 48).
+  P1 "Right Hand" (treble): m1 C4 half, E4 half | m2 G4 whole.
+  P2 "Left Hand" (bass):    m1 C3 whole         | m2 G2 whole.
+  Must parse exactly like the equivalent score-partwise document, plus a timewise-converted note.
+-->
+<!DOCTYPE score-timewise PUBLIC "-//Recordare//DTD MusicXML 4.0 Timewise//EN" "http://www.musicxml.org/dtds/timewise.dtd">
+<score-timewise version="4.0">
+  <part-list>
+    <score-part id="P1"><part-name>Right Hand</part-name></score-part>
+    <score-part id="P2"><part-name>Left Hand</part-name></score-part>
+  </part-list>
+  <measure number="1">
+    <part id="P1">
+      <attributes>
+        <divisions>2</divisions>
+        <time><beats>4</beats><beat-type>4</beat-type></time>
+        <clef><sign>G</sign><line>2</line></clef>
+      </attributes>
+      <note><pitch><step>C</step><octave>4</octave></pitch><duration>4</duration><voice>1</voice><type>half</type></note>
+      <note><pitch><step>E</step><octave>4</octave></pitch><duration>4</duration><voice>1</voice><type>half</type></note>
+    </part>
+    <part id="P2">
+      <attributes>
+        <divisions>2</divisions>
+        <time><beats>4</beats><beat-type>4</beat-type></time>
+        <clef><sign>F</sign><line>4</line></clef>
+      </attributes>
+      <note><pitch><step>C</step><octave>3</octave></pitch><duration>8</duration><voice>1</voice><type>whole</type></note>
+    </part>
+  </measure>
+  <measure number="2">
+    <part id="P1">
+      <note><pitch><step>G</step><octave>4</octave></pitch><duration>8</duration><voice>1</voice><type>whole</type></note>
+    </part>
+    <part id="P2">
+      <note><pitch><step>G</step><octave>2</octave></pitch><duration>8</duration><voice>1</voice><type>whole</type></note>
+    </part>
+  </measure>
+</score-timewise>

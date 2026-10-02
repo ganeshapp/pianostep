@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  f04 - One RH held note with a moving RH line (brief §6 example, §17 fixture 4).
+  One part "Piano", 2 staves, 4/4, divisions=480 (ticksPerQuarter = 480), tempo quarter = 60.
+  Staff 1 voice 1: C4 whole note.
+  Staff 1 voice 2: quarter rest, then E4, G4, F4 quarters.
+  LH (staff 2): whole rest.
+  Expected RH steps: normal C4; red E4; blue E4 + red G4; blue G4 + red F4; "." (release).
+-->
+<!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 4.0 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
+<score-partwise version="4.0">
+  <part-list>
+    <score-part id="P1"><part-name>Piano</part-name></score-part>
+  </part-list>
+  <part id="P1">
+    <measure number="1">
+      <attributes>
+        <divisions>480</divisions>
+        <time><beats>4</beats><beat-type>4</beat-type></time>
+        <staves>2</staves>
+        <clef number="1"><sign>G</sign><line>2</line></clef>
+        <clef number="2"><sign>F</sign><line>4</line></clef>
+      </attributes>
+      <direction placement="above">
+        <direction-type>
+          <metronome><beat-unit>quarter</beat-unit><per-minute>60</per-minute></metronome>
+        </direction-type>
+        <staff>1</staff>
+        <sound tempo="60"/>
+      </direction>
+      <note><pitch><step>C</step><octave>4</octave></pitch><duration>1920</duration><voice>1</voice><type>whole</type><staff>1</staff></note>
+      <backup><duration>1920</duration></backup>
+      <note><rest/><duration>480</duration><voice>2</voice><type>quarter</type><staff>1</staff></note>
+      <note><pitch><step>E</step><octave>4</octave></pitch><duration>480</duration><voice>2</voice><type>quarter</type><staff>1</staff></note>
+      <note><pitch><step>G</step><octave>4</octave></pitch><duration>480</duration><voice>2</voice><type>quarter</type><staff>1</staff></note>
+      <note><pitch><step>F</step><octave>4</octave></pitch><duration>480</duration><voice>2</voice><type>quarter</type><staff>1</staff></note>
+      <backup><duration>1920</duration></backup>
+      <note><rest measure="yes"/><duration>1920</duration><voice>5</voice><staff>2</staff></note>
+    </measure>
+  </part>
+</score-partwise>

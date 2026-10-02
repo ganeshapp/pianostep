@@ -1,0 +1,1137 @@
+[
+  {
+    "file": "12_Variations_of_Twinkle_Twinkle_Little_Star.mxl",
+    "id": "12-variations-of-twinkle-twinkle-little-star",
+    "title": "Twinkle Twinkle Little Star – 12 Variations, K. 265",
+    "composer": "Wolfgang Amadeus Mozart",
+    "arrangement": "Mozart's own theme and 12 variations (credited \"arr. Solángel\")",
+    "attribution": "Arr. Solángel; composed by Wolfgang Amadeus Mozart; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": "Credits a modern arranger (Solángel). The notes look like Mozart's own variations, but this edition may not be public domain.",
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Theme plus 12 variations (325 measures)",
+      "Variation 8 switches to a minor key",
+      "Contains repeats with 1st/2nd endings"
+    ]
+  },
+  {
+    "file": "Arabesque_L._66_No._1_in_E_Major.mxl",
+    "id": "arabesque-l-66-no-1-in-e-major",
+    "title": "Arabesque No. 1 in E Major, L. 66",
+    "composer": "Claude Debussy",
+    "arrangement": "Original piano work",
+    "attribution": "Composed by Claude Debussy; from Deux Arabesques, L. 66; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Has 25 hidden playback-only notes"
+    ]
+  },
+  {
+    "file": "Ave_Maria_D839_-_Schubert_-_Solo_Piano_Arrg..mxl",
+    "id": "ave-maria-d839-schubert-solo-piano-arrg",
+    "title": "Ave Maria, D. 839",
+    "composer": "Franz Schubert",
+    "arrangement": "Solo piano arrangement credited to Simon Ewers",
+    "attribution": "Arr. Simon Ewers; composed by Franz Schubert; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": "Modern arrangement by a named arranger (Simon Ewers); probably not public domain even though the Schubert song is.",
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Originally a song for voice and piano; this is a solo piano version",
+      "Contains repeat signs"
+    ]
+  },
+  {
+    "file": "Bach_Minuet_in_G_Major_BWV_Anh._114.mxl",
+    "id": "bach-minuet-in-g-major-bwv-anh-114",
+    "title": "Minuet in G Major, BWV Anh. 114",
+    "composer": "Christian Petzold",
+    "arrangement": "Original keyboard work",
+    "attribution": "Composed by Christian Petzold; from the Notebook for Anna Magdalena Bach (BWV Anh. 114); typeset by PianoXML; MusicXML from the MuseTrainer library",
+    "rightsInFile": "Public Domain (PianoXML typeset)",
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Long attributed to J. S. Bach; now credited to Christian Petzold",
+      "Contains repeat signs"
+    ]
+  },
+  {
+    "file": "Bach_Toccata_and_Fugue_in_D_Minor_Piano_solo.mxl",
+    "id": "bach-toccata-and-fugue-in-d-minor-piano-solo",
+    "title": "Toccata and Fugue in D Minor, BWV 565",
+    "composer": "Johann Sebastian Bach",
+    "arrangement": "Piano adaptation of the organ work, drawing on Louis Brassin's piano arrangement (adapter not named)",
+    "attribution": "Adapted from the H. W. Gray Co. organ edition (Standard Series of Organ Compositions) and the piano arrangement by Louis Brassin; composed by Johann Sebastian Bach; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Originally for organ"
+    ]
+  },
+  {
+    "file": "Beethoven_Symphony_No._5_1st_movement_Piano_solo.mxl",
+    "id": "beethoven-symphony-no-5-1st-movement-piano-solo",
+    "title": "Symphony No. 5 in C Minor, Op. 67 – 1st Movement",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Piano solo adapted from Ernst Pauer's arrangement (adapter not named)",
+    "attribution": "Adapted from the arrangement by Ernst Pauer (1826–1905); composed by Ludwig van Beethoven; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Originally for orchestra",
+      "Long piece (504 measures)"
+    ]
+  },
+  {
+    "file": "Bella_Ciao.mxl",
+    "id": "bella-ciao",
+    "title": "Bella Ciao",
+    "composer": "Traditional",
+    "arrangement": "Piano arrangement by Sami Lefebvre",
+    "attribution": "Arr. Sami Lefebvre; traditional song; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": "Modern arrangement by a named arranger (Sami Lefebvre); probably not public domain even though the traditional song is.",
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Changes key partway through",
+      "Contains repeats with 1st/2nd endings",
+      "Includes chord symbols"
+    ]
+  },
+  {
+    "file": "Bella_Ciao_-_La_Casa_de_Papel.mxl",
+    "id": "bella-ciao-la-casa-de-papel",
+    "title": "Bella Ciao (La Casa de Papel)",
+    "composer": "Traditional",
+    "arrangement": "Piano arrangement of the La Casa de Papel version (from guestinpiano.fr)",
+    "attribution": "Arrangement from guestinpiano.fr; traditional song, as used in the La Casa de Papel soundtrack; MusicXML from the MuseTrainer library",
+    "rightsInFile": "https://guestinpiano.fr",
+    "licenseNote": "The rights line names the website guestinpiano.fr, so this arrangement belongs to that site and is probably not public domain.",
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Starts with a pickup (partial) measure"
+    ]
+  },
+  {
+    "file": "Canon_in_D.mxl",
+    "id": "canon-in-d",
+    "title": "Canon in D",
+    "composer": "Johann Pachelbel",
+    "arrangement": "Piano arrangement by lemontart",
+    "attribution": "Arr. lemontart; composed by Johann Pachelbel; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": "Modern arrangement by a named arranger (the username lemontart); probably not public domain even though the canon itself is.",
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": []
+  },
+  {
+    "file": "Canon_in_D_3.mxl",
+    "id": "canon-in-d-3",
+    "title": "Canon in D",
+    "composer": "Johann Pachelbel",
+    "arrangement": "Piano arrangement by Jacob Danao",
+    "attribution": "Arr. Jacob Danao (2016); composed by Johann Pachelbel; MusicXML from the MuseTrainer library",
+    "rightsInFile": "2016",
+    "licenseNote": "The rights line says only \"2016\", which reads as a 2016 copyright date for Jacob Danao's modern arrangement; probably not public domain.",
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": []
+  },
+  {
+    "file": "Canon_in_D_easy.mxl",
+    "id": "canon-in-d-easy",
+    "title": "Canon in D",
+    "composer": "Johann Pachelbel",
+    "arrangement": "Shorter, simpler piano arrangement with fingering (arranger not named)",
+    "attribution": "Composed by Johann Pachelbel; arranger not named; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Contains repeat signs",
+      "Includes fingering numbers"
+    ]
+  },
+  {
+    "file": "Carol_of_the_Bells.mxl",
+    "id": "carol-of-the-bells",
+    "title": "Carol of the Bells",
+    "composer": "Mykola Leontovych",
+    "arrangement": "Piano arrangement credited to William J. Ross",
+    "attribution": "Credited to William J. Ross; tune by Mykola Leontovych (not named in the file); MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": "Modern arrangement by a named arranger (William J. Ross); probably not public domain even though the Leontovych tune is.",
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "The file puts William J. Ross where the composer usually goes; the tune is Mykola Leontovych's Ukrainian carol \"Shchedryk\", so Ross is treated as the arranger",
+      "Contains repeats with 1st/2nd endings"
+    ]
+  },
+  {
+    "file": "Carol_of_the_Bells_easy_piano.mxl",
+    "id": "carol-of-the-bells-easy-piano",
+    "title": "Carol of the Bells",
+    "composer": "Mykola Leontovych",
+    "arrangement": "Easy arrangement by Orlia Amaral",
+    "attribution": "Arr. Orlia Amaral; credited as a traditional Ukrainian carol; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": "Modern arrangement by a named arranger (Orlia Amaral); probably not public domain even though the tune is.",
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Credited as a traditional Ukrainian carol; the familiar tune is Mykola Leontovych's \"Shchedryk\""
+    ]
+  },
+  {
+    "file": "Chopin_-_Ballade_no._1_in_G_minor_Op._23.mxl",
+    "id": "chopin-ballade-no-1-in-g-minor-op-23",
+    "title": "Ballade No. 1 in G Minor, Op. 23",
+    "composer": "Frédéric Chopin",
+    "arrangement": "Original piano work",
+    "attribution": "Composed by Frédéric Chopin; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": {
+      "excludeParts": [
+        "P2"
+      ],
+      "reason": "The second piano part (named “Grand Piano”) only holds an optional alternative version of one chord in measure 7, so it is left out: playing both versions together would clash. The main piano part has all the music for both hands.",
+      "evidence": "P2 \"Grand Piano\" is an ossia staff (marked \"Ossia:\") with only 3 notes, all in measure 7: an alternative chord (D3-G3-D4) for the beat where P1 already plays D3-G3-E-flat4. It is an optional alternative reading, not an extra part, so playing both would double the chord with a clashing top note. P1 holds the full two-staff piano part."
+    },
+    "notes": [
+      "Ossia (alternative) staff in measure 7 left out",
+      "No title credits on the page; title and composer come from the file metadata",
+      "Long piece (262 measures)",
+      "Includes fingering numbers"
+    ]
+  },
+  {
+    "file": "Chopin_-_Nocturne_Op._9_No._1.mxl",
+    "id": "chopin-nocturne-op-9-no-1",
+    "title": "Nocturne in B-flat Minor, Op. 9 No. 1",
+    "composer": "Frédéric Chopin",
+    "arrangement": "Original piano work",
+    "attribution": "Composed by Frédéric Chopin (credited as F. Chopin); from Trois nocturnes, Op. 9; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Has 14 hidden playback-only notes (written-out trills or ornaments)"
+    ]
+  },
+  {
+    "file": "Chopin_-_Nocturne_Op_9_No_2_E_Flat_Major.mxl",
+    "id": "chopin-nocturne-op-9-no-2-e-flat-major",
+    "title": "Nocturne in E-flat Major, Op. 9 No. 2",
+    "composer": "Frédéric Chopin",
+    "arrangement": "Original piano work",
+    "attribution": "Composed by Frédéric Chopin; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Starts with a pickup (partial) measure",
+      "Includes fingering numbers"
+    ]
+  },
+  {
+    "file": "Chopin_-_Spring_Waltz.mxl",
+    "id": "chopin-spring-waltz",
+    "title": "Mariage d'Amour (\"Spring Waltz\")",
+    "composer": "Paul de Senneville",
+    "arrangement": "Piano solo version (another copy; credits name Cristian Ospina)",
+    "attribution": "Credits name Cristian Ospina; composed by Paul de Senneville (credited on the page as Frédéric François Chopin); MusicXML from the MuseTrainer library",
+    "rightsInFile": "Cristian Ospina",
+    "licenseNote": "Mariage d'Amour is a modern composition by Paul de Senneville and is still under copyright, so this file is not public domain. The rights line also names Cristian Ospina.",
+    "suspectedDuplicateOf": "Mariage_dAmour.mxl",
+    "overrides": null,
+    "notes": [
+      "Labelled \"Spring Waltz\" by Chopin on the page; the piece is Paul de Senneville's Mariage d'Amour, which is often misattributed to Chopin (the file's own metadata names de Senneville)",
+      "About 94% of its notes match Mariage_dAmour.mxl measure for measure; the rest are small edits"
+    ]
+  },
+  {
+    "file": "Clair_de_Lune__Debussy.mxl",
+    "id": "clair-de-lune-debussy",
+    "title": "Clair de lune",
+    "composer": "Claude Debussy",
+    "arrangement": "Original piano work",
+    "attribution": "Composed by Claude Debussy; from Suite bergamasque, L. 75 (3rd movement); MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Third movement of Suite bergamasque, L. 75",
+      "Has 102 hidden playback-only notes"
+    ]
+  },
+  {
+    "file": "Clair_de_lune_-_Claude_Debussy.mxl",
+    "id": "clair-de-lune-claude-debussy",
+    "title": "Clair de lune",
+    "composer": "Claude Debussy",
+    "arrangement": "Original piano work (another copy)",
+    "attribution": "Composed by Claude Debussy; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": "Clair_de_Lune__Debussy.mxl",
+    "overrides": null,
+    "notes": [
+      "The file's internal title is misspelled \"Claire de lune\"",
+      "About 97% of its notes match Clair_de_Lune__Debussy.mxl, with the same 72 measures and the same clef changes",
+      "Has 63 hidden playback-only notes"
+    ]
+  },
+  {
+    "file": "DANSE_VILLAGEOISE_Beethoven.mxl",
+    "id": "danse-villageoise-beethoven",
+    "title": "Danse villageoise No. 2",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Piano version (edition not named)",
+    "attribution": "Composed by Ludwig van Beethoven; rights line \"©\" with no holder named; MusicXML from the MuseTrainer library",
+    "rightsInFile": "©",
+    "licenseNote": "The rights line is just \"©\" with no holder named, which conflicts with the library's public-domain claim. Beethoven's music is public domain, but the status of this edition is unclear.",
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Has a Trio section",
+      "Contains repeats with 1st/2nd endings"
+    ]
+  },
+  {
+    "file": "Dance_of_the_sugar_plum_fairy.mxl",
+    "id": "dance-of-the-sugar-plum-fairy",
+    "title": "Dance of the Sugar Plum Fairy",
+    "composer": "Pyotr Ilyich Tchaikovsky",
+    "arrangement": "Piano transcription by Nohpets",
+    "attribution": "Transcribed by Nohpets; composed by Pyotr Ilyich Tchaikovsky; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": "Modern transcription by a named arranger (the username Nohpets); probably not public domain even though Tchaikovsky's music is.",
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "From The Nutcracker; originally for orchestra"
+    ]
+  },
+  {
+    "file": "Erik_Satie_-_Gymnopedie_No.1.mxl",
+    "id": "erik-satie-gymnopedie-no-1",
+    "title": "Gymnopédie No. 1",
+    "composer": "Erik Satie",
+    "arrangement": "Original piano work (another copy, written with a repeat)",
+    "attribution": "Composed by Erik Satie; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": "Gymnopdie_No._1__Satie.mxl",
+    "overrides": {
+      "voiceHands": [
+        {
+          "part": "P1",
+          "voice": "1",
+          "hand": "L",
+          "measures": [[0, 17], [31, 35], [39, 43]]
+        }
+      ],
+      "reason": "In this copy the left hand's chords on the second beat are written in the upper staff, under the melody, in measures 1–18, 32–36 and 40–44. They are played with the left hand, as in the copy of this piece that writes them in the lower staff; the right hand plays only the melody there.",
+      "evidence": "P1 staff 1 voice 1 holds the beat-2 chords (for example B3-D4-F#4 in measure 1) in written measures 1-18, 32-36 and 40-44 (0-based indexes 0-17, 31-35, 39-43); the melody is voice 2. Gymnopdie_No._1__Satie.mxl writes the same chords in the bass staff. Without the rule the right hand would strike B3 to F#5 at once (hand-span review in measures 5, 6, 13, 14, 36, 44). With it, every one of the 78 measure occurrences matches Gymnopdie_No._1__Satie.mxl exactly (hand, key and beat; tests/e2e.regressions.test.ts). Voice 1 is not given to the left hand in measures 19-31, 37-39 or 45-47: there it is the right-hand melody (E4 in measure 19) or right-hand chords (measures 37 and 45) while the left hand plays in the bass staff."
+    },
+    "notes": [
+      "Uses a repeat with 1st/2nd endings instead of writing the second half out; each of its 47 measures matches the written-out 78-measure Gymnopdie_No._1__Satie.mxl exactly",
+      "In many measures the left-hand chords are written in the upper staff; they are played with the left hand",
+      "Contains repeats with 1st/2nd endings"
+    ]
+  },
+  {
+    "file": "Flight_of_the_Bumblebee.mxl",
+    "id": "flight-of-the-bumblebee",
+    "title": "Flight of the Bumblebee",
+    "composer": "Nikolai Rimsky-Korsakov",
+    "arrangement": "Piano transcription (arranger not named)",
+    "attribution": "Composed by Nikolai Rimsky-Korsakov; transcriber not named; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "The credits use the German title \"Hummelflug\"",
+      "Originally an orchestral interlude from the opera The Tale of Tsar Saltan"
+    ]
+  },
+  {
+    "file": "Fur_Elise.mxl",
+    "id": "fur-elise",
+    "title": "Für Elise",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Original piano work",
+    "attribution": "Composed by Ludwig van Beethoven (Für Elise in A Minor, WoO 59); MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Starts with a pickup (partial) measure",
+      "Contains repeats with 1st/2nd endings"
+    ]
+  },
+  {
+    "file": "Fur_Elise_-_Beethoven_-_for_beginner_piano.mxl",
+    "id": "fur-elise-beethoven-for-beginner-piano",
+    "title": "Für Elise",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Arrangement for beginners by E. Muirhead",
+    "attribution": "Arr. E. Muirhead; composed by Ludwig van Beethoven; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": "Modern arrangement by a named arranger (E. Muirhead); probably not public domain even though the Beethoven original is.",
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Shortened to the main theme (24 measures)",
+      "Starts with a pickup (partial) measure",
+      "Contains repeats with 1st/2nd endings"
+    ]
+  },
+  {
+    "file": "Fur_Elise_Easy_Piano.mxl",
+    "id": "fur-elise-easy-piano",
+    "title": "Für Elise",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Easy version in 3/4 time (arranger not named)",
+    "attribution": "Credited as \"Easy Ver.\"; composer not named in the file (Ludwig van Beethoven); MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Rewritten in 3/4 time; the original is in 3/8",
+      "No composer or arranger named in the file"
+    ]
+  },
+  {
+    "file": "Fur_Elise_fingered.mxl",
+    "id": "fur-elise-fingered",
+    "title": "Für Elise",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Original piano work with fingering (another copy)",
+    "attribution": "Fingered edition from pianolessenassen.nl/bladmuziek (file metadata says \"arr. Verona\"); composed by L. van Beethoven; MusicXML from the MuseTrainer library",
+    "rightsInFile": "pianolessenassen.nl/bladmuziek",
+    "licenseNote": "The rights line names the website pianolessenassen.nl/bladmuziek and the metadata credits \"arr. Verona\", so this fingered edition is probably not public domain even though Beethoven's music is.",
+    "suspectedDuplicateOf": "Fur_Elise.mxl",
+    "overrides": null,
+    "notes": [
+      "Same notes as Fur_Elise.mxl (about 99% match) with fingering added",
+      "Starts with a pickup (partial) measure",
+      "Contains repeats with 1st/2nd endings",
+      "Includes fingering numbers"
+    ]
+  },
+  {
+    "file": "G_Minor_Bach.mxl",
+    "id": "g-minor-bach",
+    "title": "G Minor Bach",
+    "composer": "Luo Ni",
+    "arrangement": "Original piano piece (another copy, with ornaments on a separate staff)",
+    "attribution": "Composed by Luo Ni (credited in this file to J.S. Bach); rights line \"jvs\"; MusicXML from the MuseTrainer library",
+    "rightsInFile": "jvs",
+    "licenseNote": "\"G Minor Bach\" is a modern piece by Luo Ni (a reworking of Bach's Prelude in C minor, BWV 847) and is probably still under copyright, so it is not public domain, even though this file credits J.S. Bach. The rights line also says \"jvs\".",
+    "suspectedDuplicateOf": "G_Minor_Bach_Original.mxl",
+    "overrides": {
+      "excludeParts": [
+        "P1"
+      ],
+      "reason": "The extra part named “PianoVoorslagen” (Dutch for “grace notes”) only holds a written-out trill (two notes alternating quickly) in measures 21–22, on top of notes the main piano part already plays. Leaving it out drops only that trill and avoids doubled notes; the main piano part has all the music for both hands.",
+      "evidence": "P1 \"PianoVoorslagen\" (Dutch for grace notes/ornaments) is an extra single staff with only 10 notes, all in measures 21-22: a written-out F5/E-flat5 trill laid over notes that P2 already plays on the same beats. P2 is the complete two-staff piano part (it matches G_Minor_Bach_Original.mxl at about 99%), so leaving P1 out drops only that ornament and avoids doubled notes."
+    },
+    "notes": [
+      "Titled \"G minor\" and credited to J.S. Bach in this file; the piece is Luo Ni's \"G Minor Bach\"",
+      "Separate ornament staff left out",
+      "About 99% of its notes match G_Minor_Bach_Original.mxl"
+    ]
+  },
+  {
+    "file": "G_Minor_Bach_Original.mxl",
+    "id": "g-minor-bach-original",
+    "title": "G Minor Bach",
+    "composer": "Luo Ni",
+    "arrangement": "Original piano piece",
+    "attribution": "Composed by Luo Ni (\"bottle\"); MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": "\"G Minor Bach\" is a modern piece by Luo Ni (a reworking of Bach's Prelude in C minor, BWV 847) and is probably still under copyright, so it is not public domain.",
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Often misattributed to J. S. Bach; it reworks his Prelude in C minor, BWV 847, in G minor",
+      "The file's composer field misspells the name as \"Lyo Ni\""
+    ]
+  },
+  {
+    "file": "Gnossienne_No._1.mxl",
+    "id": "gnossienne-no-1",
+    "title": "Gnossienne No. 1",
+    "composer": "Erik Satie",
+    "arrangement": "Original piano work",
+    "attribution": "Composed by Erik Satie; from Trois Gnossiennes; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Written in free time: no time signature, just 11 long unmetered measures",
+      "Has many grace notes (100)"
+    ]
+  },
+  {
+    "file": "Greensleeves_for_Piano_easy_and_beautiful.mxl",
+    "id": "greensleeves-for-piano-easy-and-beautiful",
+    "title": "Greensleeves",
+    "composer": "Traditional",
+    "arrangement": "Easy arrangement by Dominique Makowski",
+    "attribution": "Arr. Dominique Makowski; English folk song, author unknown (16th century); MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": "Modern arrangement by a named arranger (Dominique Makowski); probably not public domain even though the folk song is.",
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Includes fingering numbers"
+    ]
+  },
+  {
+    "file": "Gymnopdie_No._1__Satie.mxl",
+    "id": "gymnopdie-no-1-satie",
+    "title": "Gymnopédie No. 1",
+    "composer": "Erik Satie",
+    "arrangement": "Original piano work",
+    "attribution": "Composed by Erik Satie; from Trois Gymnopédies; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Written out in full (78 measures, no repeats)"
+    ]
+  },
+  {
+    "file": "Happy_Birthday_To_You_C_Major.mxl",
+    "id": "happy-birthday-to-you-c-major",
+    "title": "Happy Birthday to You",
+    "composer": "Patty Hill and Mildred J. Hill",
+    "arrangement": "Simple 8-measure setting in C major with chord symbols (arranger not named)",
+    "attribution": "Composed by Patty Hill and Mildred J. Hill; arranger not named; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Includes chord symbols"
+    ]
+  },
+  {
+    "file": "Happy_Birthday_To_You_Piano.mxl",
+    "id": "happy-birthday-to-you-piano",
+    "title": "Happy Birthday to You",
+    "composer": "Patty Hill and Mildred J. Hill",
+    "arrangement": "Piano arrangement by Manjuprasad (rev. John German)",
+    "attribution": "Arr. Manjuprasad, rev. John German; composed by Patty Hill and Mildred J. Hill (not named in the file); MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": "Modern arrangement by named arrangers (Manjuprasad, John German); probably not public domain.",
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Starts with a pickup (partial) measure"
+    ]
+  },
+  {
+    "file": "Hungarian_Dance_No_5_in_G_Minor.mxl",
+    "id": "hungarian-dance-no-5-in-g-minor",
+    "title": "Hungarian Dance No. 5 in G Minor",
+    "composer": "Johannes Brahms",
+    "arrangement": "Intermediate-level solo piano arrangement (arranger not named)",
+    "attribution": "Composed by Johannes Brahms; marked \"Intermediate\"; arranger not named; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Brahms wrote it for piano four hands; this is a solo version",
+      "Contains repeat signs",
+      "Includes chord symbols"
+    ]
+  },
+  {
+    "file": "Hungarian_Sonata.mxl",
+    "id": "hungarian-sonata",
+    "title": "Hungarian Sonata",
+    "composer": "Richard Clayderman",
+    "arrangement": "Piano solo version (arranger not named)",
+    "attribution": "Credited to Richard Clayderman; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": "Modern popular piano piece from Richard Clayderman's repertoire (many sources credit Paul de Senneville as composer); still under copyright, not public domain.",
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Credited to Richard Clayderman, who recorded it; many sources name Paul de Senneville as the composer",
+      "Uses D.S. al Coda (jump back to the sign, then on to the coda)"
+    ]
+  },
+  {
+    "file": "J._S._Bach_-_Air_on_the_G_String_Piano_arrangement.mxl",
+    "id": "j-s-bach-air-on-the-g-string-piano-arrangement",
+    "title": "Air on the G String, BWV 1068",
+    "composer": "Johann Sebastian Bach",
+    "arrangement": "Piano arrangement of the orchestral work (arranger not named)",
+    "attribution": "Composed by J. S. Bach (BWV 1068, 2nd movement); arranger not named; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "From the Orchestral Suite No. 3; originally for strings",
+      "Contains repeats with 1st/2nd endings"
+    ]
+  },
+  {
+    "file": "La_Campanella_-_Grandes_Etudes_de_Paganini_No._3_-_Franz_Liszt.mxl",
+    "id": "la-campanella-grandes-etudes-de-paganini-no-3-franz-liszt",
+    "title": "La Campanella (Grandes études de Paganini No. 3)",
+    "composer": "Franz Liszt",
+    "arrangement": "Original piano work (Liszt's étude on a theme by Paganini)",
+    "attribution": "Composed by Franz Liszt; from Grandes études de Paganini, No. 3; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Has 59 hidden playback-only notes (written-out trills or ornaments)"
+    ]
+  },
+  {
+    "file": "Lacrimosa_-_Requiem.mxl",
+    "id": "lacrimosa-requiem",
+    "title": "Lacrimosa (Requiem in D Minor, K. 626)",
+    "composer": "Wolfgang Amadeus Mozart",
+    "arrangement": "Piano arrangement credited to TheoA",
+    "attribution": "Credited to TheoA; composed by Wolfgang Amadeus Mozart (credited as \"Amade Wolfgang Mozart\"); MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": "Modern piano arrangement credited to TheoA (a username); probably not public domain even though Mozart's music is.",
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Originally for choir and orchestra"
+    ]
+  },
+  {
+    "file": "Liebestraum_No._3_in_A_Major.mxl",
+    "id": "liebestraum-no-3-in-a-major",
+    "title": "Liebestraum No. 3 in A-flat Major, S. 541",
+    "composer": "Franz Liszt",
+    "arrangement": "Original piano work",
+    "attribution": "Composed by Franz Liszt (S. 541/3); MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "The MuseTrainer library lists it as \"A Major\"; the piece is in A-flat major",
+      "Starts with a pickup (partial) measure",
+      "Has 36 hidden playback-only notes"
+    ]
+  },
+  {
+    "file": "Maple_Leaf_Rag_Scott_Joplin.mxl",
+    "id": "maple-leaf-rag-scott-joplin",
+    "title": "Maple Leaf Rag",
+    "composer": "Scott Joplin",
+    "arrangement": "Original piano rag",
+    "attribution": "Composed by Scott Joplin; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Starts with a pickup (partial) measure",
+      "Contains repeats with 1st/2nd endings"
+    ]
+  },
+  {
+    "file": "Mariage_dAmour.mxl",
+    "id": "mariage-damour",
+    "title": "Mariage d'Amour",
+    "composer": "Paul de Senneville",
+    "arrangement": "Piano solo version (arranger not named)",
+    "attribution": "Composed by Paul de Senneville; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": "Mariage d'Amour is a modern composition by Paul de Senneville and is still under copyright, so this file is not public domain.",
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "The file's internal title is misspelled \"Mariage d'Amoure\"",
+      "Chopin_-_Spring_Waltz.mxl and Spring_Waltz_Mariage_dAmour_-_Chopin.mxl are near-copies labelled \"Spring Waltz\""
+    ]
+  },
+  {
+    "file": "Minuet_in_G_Major_Bach.mxl",
+    "id": "minuet-in-g-major-bach",
+    "title": "Minuet in G Major, BWV Anh. 114",
+    "composer": "Christian Petzold",
+    "arrangement": "Original keyboard work (another copy)",
+    "attribution": "Composed by Christian Petzold (formerly attributed to Johann Sebastian Bach); BWV Anh. 114; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": "Bach_Minuet_in_G_Major_BWV_Anh._114.mxl",
+    "overrides": null,
+    "notes": [
+      "Long attributed to J. S. Bach; now credited to Christian Petzold",
+      "About 99% of its notes match Bach_Minuet_in_G_Major_BWV_Anh._114.mxl; same 32 measures",
+      "Contains repeat signs"
+    ]
+  },
+  {
+    "file": "Mozart_-_Piano_Sonata_No._16_-_Allegro.mxl",
+    "id": "mozart-piano-sonata-no-16-allegro",
+    "title": "Piano Sonata No. 16 in C Major, K. 545 – 1st Movement",
+    "composer": "Wolfgang Amadeus Mozart",
+    "arrangement": "Original piano work (another copy)",
+    "attribution": "Composed by Wolfgang Amadeus Mozart (not credited in the file); MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": "Sonata_No._16_1st_Movement_K._545.mxl",
+    "overrides": null,
+    "notes": [
+      "No title or composer credits in the file",
+      "About 99% of its notes match Sonata_No._16_1st_Movement_K._545.mxl; same 73 measures",
+      "Contains repeat signs"
+    ]
+  },
+  {
+    "file": "Nocturne_No._20_in_C_Minor.mxl",
+    "id": "nocturne-no-20-in-c-minor",
+    "title": "Nocturne No. 20 in C-sharp Minor, Op. posth.",
+    "composer": "Frédéric Chopin",
+    "arrangement": "Original piano work",
+    "attribution": "Composed by Frédéric François Chopin; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "The MuseTrainer library lists it as \"C Minor\"; the piece is in C-sharp minor",
+      "Has 195 hidden playback-only notes (written-out trills or ornaments)"
+    ]
+  },
+  {
+    "file": "Nocturne_in_C_sharp_Minor.mxl",
+    "id": "nocturne-in-c-sharp-minor",
+    "title": "Nocturne No. 20 in C-sharp Minor, Op. posth.",
+    "composer": "Frédéric Chopin",
+    "arrangement": "Original piano work (another copy, trills not written out)",
+    "attribution": "Composed by Frédéric Chopin (credited as Chopin); MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": "Nocturne_No._20_in_C_Minor.mxl",
+    "overrides": null,
+    "notes": [
+      "About 82% of its notes match Nocturne_No._20_in_C_Minor.mxl (same 65 measures); the differences are mostly trills, grace notes and how the fast runs are notated"
+    ]
+  },
+  {
+    "file": "Nocturne_in_E-flat_Major_Op._9_No._2_Easy.mxl",
+    "id": "nocturne-in-e-flat-major-op-9-no-2-easy",
+    "title": "Nocturne in E-flat Major, Op. 9 No. 2",
+    "composer": "Frédéric Chopin",
+    "arrangement": "Easy arrangement by Murilo Pedroza",
+    "attribution": "Arr. Murilo Pedroza (named in the file metadata); composed by Frédéric Chopin; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": "Modern arrangement by a named arranger (Murilo Pedroza); probably not public domain even though the Chopin original is.",
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Rewritten in 3/4 time; the original is in 12/8"
+    ]
+  },
+  {
+    "file": "Ode_to_Joy_Easy_variation.mxl",
+    "id": "ode-to-joy-easy-variation",
+    "title": "Ode to Joy",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Easy arrangement by Torby Brand",
+    "attribution": "Arr. Torby Brand; composed by Ludwig van Beethoven; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": "Modern arrangement by Torby Brand. Its MuseScore page (musescore.com/torbybrand/ode-to-joy) now says the score was removed after a copyright claim by MyMusic5, so this arrangement is probably not freely redistributable even though Beethoven's melody is public domain.",
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Theme from the finale of Symphony No. 9"
+    ]
+  },
+  {
+    "file": "Passacaglia.mxl",
+    "id": "passacaglia",
+    "title": "Passacaglia (Handel–Halvorsen)",
+    "composer": "George Frideric Handel",
+    "arrangement": "Piano version of Johan Halvorsen's Passacaglia (another copy, with chord names)",
+    "attribution": "Credited as \"Arrangement by Handel Halvorsen\" (George Frideric Handel and Johan Halvorsen); MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": "Passacaglia2.mxl",
+    "overrides": null,
+    "notes": [
+      "Note-for-note identical to Passacaglia2.mxl",
+      "Chord names (Am, Dm, G ...) are written as text above the staff",
+      "The credits merge the two names into \"Handel Halvorsen\""
+    ]
+  },
+  {
+    "file": "Passacaglia2.mxl",
+    "id": "passacaglia2",
+    "title": "Passacaglia (Handel–Halvorsen)",
+    "composer": "George Frideric Handel",
+    "arrangement": "Piano version of Johan Halvorsen's Passacaglia (piano arranger not named)",
+    "attribution": "Arr. Johan Halvorsen; composed by George Frideric Handel; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Halvorsen's original is a duet for violin and viola on a theme by Handel; whoever made this piano version is not named"
+    ]
+  },
+  {
+    "file": "Piano_Sonata_No._11_K._331_3rd_Movement_Rondo_alla_Turca.mxl",
+    "id": "piano-sonata-no-11-k-331-3rd-movement-rondo-alla-turca",
+    "title": "Rondo alla Turca (Piano Sonata No. 11, K. 331 – 3rd Movement)",
+    "composer": "Wolfgang Amadeus Mozart",
+    "arrangement": "Original piano work",
+    "attribution": "Composed by Wolfgang Amadeus Mozart; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Many grace notes (189)",
+      "Starts with a pickup (partial) measure",
+      "Contains repeats with 1st/2nd endings",
+      "Has 42 hidden playback-only notes (written-out trills or ornaments)"
+    ]
+  },
+  {
+    "file": "Prelude_I_in_C_major_BWV_846_-_Well_Tempered_Clavier_First_Book.mxl",
+    "id": "prelude-i-in-c-major-bwv-846-well-tempered-clavier-first-book",
+    "title": "Prelude in C Major, BWV 846 (Well-Tempered Clavier, Book I)",
+    "composer": "Johann Sebastian Bach",
+    "arrangement": "Original keyboard work",
+    "attribution": "Composed by Johann Sebastian Bach; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": []
+  },
+  {
+    "file": "Prelude_No._2_BWV_847_in_C_Minor.mxl",
+    "id": "prelude-no-2-bwv-847-in-c-minor",
+    "title": "Prelude in C Minor, BWV 847 (Well-Tempered Clavier, Book I)",
+    "composer": "Johann Sebastian Bach",
+    "arrangement": "Original keyboard work",
+    "attribution": "Composed by Johann Sebastian Bach; from Das Wohltemperierte Klavier, Book I; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Has 24 hidden playback-only notes (written-out trills or ornaments)"
+    ]
+  },
+  {
+    "file": "Prlude_No._4_in_E_Minor_Op._28_-_Frdric_Chopin.mxl",
+    "id": "prlude-no-4-in-e-minor-op-28-frdric-chopin",
+    "title": "Prélude in E Minor, Op. 28 No. 4",
+    "composer": "Frédéric Chopin",
+    "arrangement": "Original piano work (another copy)",
+    "attribution": "Composed by Frédéric Chopin; marked Public Domain; MusicXML from the MuseTrainer library",
+    "rightsInFile": "Public Domain",
+    "licenseNote": null,
+    "suspectedDuplicateOf": "Prlude_Opus_28_No._4_in_E_Minor__Chopin.mxl",
+    "overrides": null,
+    "notes": [
+      "Same notes as Prlude_Opus_28_No._4_in_E_Minor__Chopin.mxl (over 99% match; same 26 measures)",
+      "Starts with a pickup (partial) measure"
+    ]
+  },
+  {
+    "file": "Prlude_Opus_28_No._4_in_E_Minor__Chopin.mxl",
+    "id": "prlude-opus-28-no-4-in-e-minor-chopin",
+    "title": "Prélude in E Minor, Op. 28 No. 4",
+    "composer": "Frédéric Chopin",
+    "arrangement": "Original piano work",
+    "attribution": "Composed by Frédéric Chopin; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Starts with a pickup (partial) measure"
+    ]
+  },
+  {
+    "file": "Schubert_Serenade_-_Standchen_-_By_Lizst.mxl",
+    "id": "schubert-serenade-standchen-by-lizst",
+    "title": "Ständchen (Serenade)",
+    "composer": "Franz Schubert",
+    "arrangement": "Piano transcription by Franz Liszt",
+    "attribution": "Transcribed by F. Liszt; composed by Franz Schubert; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": {
+      "staffHands": {
+        "P1:1": "R",
+        "P2:1": "L"
+      },
+      "reason": "The music for the two hands is written as two separate one-staff parts. The top part is higher than the bottom part in almost every measure, so the top part is played with the right hand and the bottom part with the left hand. In measures 40, 41, 53 and 59 the right-hand melody dips below some left-hand notes: the hands cross there, they are not swapped.",
+      "evidence": "The two hands are stored as two single-staff parts. P1 starts in treble clef and is in treble clef for 99 of 115 measures (average pitch about B-flat4); P2 starts in bass clef and is in bass clef for 114 of 115 measures (average about G3). In 106 of the 110 measures where both play, P1 is higher on average (entirely above P2 in 51), so P1 is the upper (right-hand) staff and P2 the lower (left-hand) staff. In measures 40, 41, 53 and 59 the P1 melody dips below some P2 chord notes, which is a hand crossing, not a swapped part."
+    },
+    "notes": [
+      "Right and left hands are stored as two separate single-staff parts",
+      "In a few measures (40, 41, 53, 59) the right-hand melody dips below the left-hand chords",
+      "Originally a Schubert song; the file's internal title is just \"Song\""
+    ]
+  },
+  {
+    "file": "Sonata_No._16_1st_Movement_K._545.mxl",
+    "id": "sonata-no-16-1st-movement-k-545",
+    "title": "Piano Sonata No. 16 in C Major, K. 545 – 1st Movement",
+    "composer": "Wolfgang Amadeus Mozart",
+    "arrangement": "Original piano work",
+    "attribution": "Composed by Wolfgang Amadeus Mozart; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Contains repeat signs",
+      "Has 92 hidden playback-only notes (written-out trills or ornaments)"
+    ]
+  },
+  {
+    "file": "Sonate_No._14_Moonlight_1st_Movement.mxl",
+    "id": "sonate-no-14-moonlight-1st-movement",
+    "title": "Moonlight Sonata (Piano Sonata No. 14, Op. 27 No. 2) – 1st Movement",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Original piano work",
+    "attribution": "Composed by Ludwig van Beethoven; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": []
+  },
+  {
+    "file": "Sonate_No._14_Moonlight_3rd_Movement.mxl",
+    "id": "sonate-no-14-moonlight-3rd-movement",
+    "title": "Moonlight Sonata (Piano Sonata No. 14, Op. 27 No. 2) – 3rd Movement",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Original piano work",
+    "attribution": "Composed by Ludwig van Beethoven; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Contains repeats with 1st/2nd endings",
+      "Has 56 hidden playback-only notes (written-out trills or ornaments)"
+    ]
+  },
+  {
+    "file": "Sonate_No._8_Pathetique_2nd_Movement.mxl",
+    "id": "sonate-no-8-pathetique-2nd-movement",
+    "title": "Pathétique Sonata (Piano Sonata No. 8, Op. 13) – 2nd Movement",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Original piano work",
+    "attribution": "Composed by Ludwig van Beethoven; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Has 14 hidden playback-only notes (written-out trills or ornaments)"
+    ]
+  },
+  {
+    "file": "Spring_Waltz_Mariage_dAmour_-_Chopin.mxl",
+    "id": "spring-waltz-mariage-damour-chopin",
+    "title": "Mariage d'Amour (\"Spring Waltz\")",
+    "composer": "Paul de Senneville",
+    "arrangement": "Piano solo version (another copy)",
+    "attribution": "Composed by Paul de Senneville (credited on the page as Chopin); MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": "Mariage d'Amour is a modern composition by Paul de Senneville and is still under copyright, so this file is not public domain.",
+    "suspectedDuplicateOf": "Mariage_dAmour.mxl",
+    "overrides": null,
+    "notes": [
+      "Labelled \"Spring Waltz\" by Chopin (\"aka Mariage d'Amour\"); the piece is by Paul de Senneville and is often misattributed to Chopin",
+      "About 97% of its notes match Mariage_dAmour.mxl once one inserted measure is allowed for"
+    ]
+  },
+  {
+    "file": "Swan_Lake.mxl",
+    "id": "swan-lake",
+    "title": "Swan Lake (Theme)",
+    "composer": "Pyotr Ilyich Tchaikovsky",
+    "arrangement": "Short piano arrangement of the theme (arranger not named)",
+    "attribution": "Composed by Pyotr Ilyich Tchaikovsky; arranger not named; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Originally for orchestra (ballet)"
+    ]
+  },
+  {
+    "file": "The_Entertainer_-_Scott_Joplin.mxl",
+    "id": "the-entertainer-scott-joplin",
+    "title": "The Entertainer",
+    "composer": "Scott Joplin",
+    "arrangement": "Lightly simplified edition by Rui Sousa (2014), with chord symbols and fingering",
+    "attribution": "Edition by Rui Sousa (2 March 2014, version 10); composed by Scott Joplin; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": "Modern edition (2014) by a named editor, Rui Sousa. Joplin's 1902 rag is public domain, but this edition probably is not.",
+    "suspectedDuplicateOf": null,
+    "overrides": {
+      "staffHands": {
+        "P1:1": "R",
+        "P2:1": "L"
+      },
+      "reason": "The music for the two hands is written as two separate one-staff parts without names. The top part is higher than the bottom part all the way through, so the top part is played with the right hand and the bottom part with the left hand.",
+      "evidence": "The two hands are stored as two unnamed single-staff parts. P1 is in treble clef for all 92 measures (G3-F#6, average about D#5); P2 is in bass clef for all 92 measures (G1-F4, average about F#3). In 89 of 90 measures where both play, every P1 note is above every P2 note, so P1 is the upper (right-hand) staff and P2 the lower (left-hand) staff."
+    },
+    "notes": [
+      "Right and left hands are stored as two separate single-staff parts",
+      "Thinner than the 1902 original: about a quarter fewer notes (fewer chord notes and octave doublings)",
+      "Includes a \"Repeat 8va\" text instruction (play the repeat an octave higher); the app plays those notes as written",
+      "Contains repeats with 1st/2nd endings",
+      "Includes fingering numbers",
+      "Includes chord symbols"
+    ]
+  },
+  {
+    "file": "The_Entertainer_-_Scott_Joplin_-_1902.mxl",
+    "id": "the-entertainer-scott-joplin-1902",
+    "title": "The Entertainer",
+    "composer": "Scott Joplin",
+    "arrangement": "Original 1902 piano rag",
+    "attribution": "Composed by Scott Joplin; \"A Rag Time Two Step\", dedicated to James Brown and his Mandolin Club; marked Public Domain; MusicXML from the MuseTrainer library",
+    "rightsInFile": "Public Domain",
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Includes a \"Repeat 8va\" text instruction (play the repeat an octave higher); the app plays those notes as written",
+      "Contains repeats with 1st/2nd endings"
+    ]
+  },
+  {
+    "file": "WA_Mozart_Marche_Turque_Turkish_March_fingered.mxl",
+    "id": "wa-mozart-marche-turque-turkish-march-fingered",
+    "title": "Rondo alla Turca (Piano Sonata No. 11, K. 331 – 3rd Movement)",
+    "composer": "Wolfgang Amadeus Mozart",
+    "arrangement": "Original piano work with fingering (another copy)",
+    "attribution": "Composed by Wolfgang Amadeus Mozart; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": "Piano_Sonata_No._11_K._331_3rd_Movement_Rondo_alla_Turca.mxl",
+    "overrides": null,
+    "notes": [
+      "Same visible notes as Piano_Sonata_No._11_K._331_3rd_Movement_Rondo_alla_Turca.mxl (100% match) with fingering added",
+      "Many grace notes (189)",
+      "Starts with a pickup (partial) measure",
+      "Contains repeats with 1st/2nd endings",
+      "Includes fingering numbers"
+    ]
+  },
+  {
+    "file": "Waltz_Opus_64_No._2_in_C_Minor.mxl",
+    "id": "waltz-opus-64-no-2-in-c-minor",
+    "title": "Waltz in C-sharp Minor, Op. 64 No. 2",
+    "composer": "Frédéric Chopin",
+    "arrangement": "Original piano work",
+    "attribution": "Composed by Frédéric François Chopin; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "The MuseTrainer library lists it as \"C Minor\"; the piece is in C-sharp minor",
+      "Starts with a pickup (partial) measure",
+      "Has 12 hidden playback-only notes (written-out trills or ornaments)"
+    ]
+  },
+  {
+    "file": "Waltz_in_A_MinorChopin.mxl",
+    "id": "waltz-in-a-minorchopin",
+    "title": "Waltz in A Minor, B. 150",
+    "composer": "Frédéric Chopin",
+    "arrangement": "Original piano work",
+    "attribution": "Composed by Frédéric Chopin; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Contains repeat signs",
+      "Includes fingering numbers"
+    ]
+  },
+  {
+    "file": "Waltz_of_the_Flowers.mxl",
+    "id": "waltz-of-the-flowers",
+    "title": "Waltz of the Flowers (The Nutcracker)",
+    "composer": "Pyotr Ilyich Tchaikovsky",
+    "arrangement": "Piano arrangement of the theme (arranger not named)",
+    "attribution": "Composed by Pyotr Ilyich Tchaikovsky; theme from the Nutcracker ballet; arranger not named; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": null,
+    "overrides": null,
+    "notes": [
+      "Originally for orchestra (ballet)",
+      "Contains repeats with 1st/2nd endings"
+    ]
+  },
+  {
+    "file": "moonlight_sonata_3rd_movement.mxl",
+    "id": "moonlight-sonata-3rd-movement",
+    "title": "Moonlight Sonata (Piano Sonata No. 14, Op. 27 No. 2) – 3rd Movement",
+    "composer": "Ludwig van Beethoven",
+    "arrangement": "Original piano work (another copy)",
+    "attribution": "Composed by L. V. Beethoven; MusicXML from the MuseTrainer library",
+    "rightsInFile": null,
+    "licenseNote": null,
+    "suspectedDuplicateOf": "Sonate_No._14_Moonlight_3rd_Movement.mxl",
+    "overrides": null,
+    "notes": [
+      "About 99% of its notes match Sonate_No._14_Moonlight_3rd_Movement.mxl; same 201 measures",
+      "Contains repeats with 1st/2nd endings"
+    ]
+  }
+]

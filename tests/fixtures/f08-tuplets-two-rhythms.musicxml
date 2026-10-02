@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  f08 - Different rhythms in the two hands, with ordinary tuplets (brief §17 fixture 8).
+  One part "Piano", 2 staves, 4/4, divisions=60 (ticksPerQuarter = lcm(60, 48) = 240).
+  RH beat 1: triplet eighths C5 D5 E5 (3:2)   beat 2: triplet eighths F5 E5 D5
+  RH beat 3: quintuplet sixteenths C5 D5 E5 F5 G5 (5:4)
+  RH beat 4: dotted eighth A5 + sixteenth G5
+  LH: straight eighths C3 E3 G3 E3 C3 E3 G3 E3.
+-->
+<score-partwise version="4.0">
+  <part-list>
+    <score-part id="P1"><part-name>Piano</part-name></score-part>
+  </part-list>
+  <part id="P1">
+    <measure number="1">
+      <attributes>
+        <divisions>60</divisions>
+        <time><beats>4</beats><beat-type>4</beat-type></time>
+        <staves>2</staves>
+        <clef number="1"><sign>G</sign><line>2</line></clef>
+        <clef number="2"><sign>F</sign><line>4</line></clef>
+      </attributes>
+      <note><pitch><step>C</step><octave>5</octave></pitch><duration>20</duration><voice>1</voice><type>eighth</type><time-modification><actual-notes>3</actual-notes><normal-notes>2</normal-notes></time-modification><staff>1</staff><notations><tuplet type="start"/></notations></note>
+      <note><pitch><step>D</step><octave>5</octave></pitch><duration>20</duration><voice>1</voice><type>eighth</type><time-modification><actual-notes>3</actual-notes><normal-notes>2</normal-notes></time-modification><staff>1</staff></note>
+      <note><pitch><step>E</step><octave>5</octave></pitch><duration>20</duration><voice>1</voice><type>eighth</type><time-modification><actual-notes>3</actual-notes><normal-notes>2</normal-notes></time-modification><staff>1</staff><notations><tuplet type="stop"/></notations></note>
+      <note><pitch><step>F</step><octave>5</octave></pitch><duration>20</duration><voice>1</voice><type>eighth</type><time-modification><actual-notes>3</actual-notes><normal-notes>2</normal-notes></time-modification><staff>1</staff><notations><tuplet type="start"/></notations></note>
+      <note><pitch><step>E</step><octave>5</octave></pitch><duration>20</duration><voice>1</voice><type>eighth</type><time-modification><actual-notes>3</actual-notes><normal-notes>2</normal-notes></time-modification><staff>1</staff></note>
+      <note><pitch><step>D</step><octave>5</octave></pitch><duration>20</duration><voice>1</voice><type>eighth</type><time-modification><actual-notes>3</actual-notes><normal-notes>2</normal-notes></time-modification><staff>1</staff><notations><tuplet type="stop"/></notations></note>
+      <note><pitch><step>C</step><octave>5</octave></pitch><duration>12</duration><voice>1</voice><type>16th</type><time-modification><actual-notes>5</actual-notes><normal-notes>4</normal-notes></time-modification><staff>1</staff><notations><tuplet type="start"/></notations></note>
+      <note><pitch><step>D</step><octave>5</octave></pitch><duration>12</duration><voice>1</voice><type>16th</type><time-modification><actual-notes>5</actual-notes><normal-notes>4</normal-notes></time-modification><staff>1</staff></note>
+      <note><pitch><step>E</step><octave>5</octave></pitch><duration>12</duration><voice>1</voice><type>16th</type><time-modification><actual-notes>5</actual-notes><normal-notes>4</normal-notes></time-modification><staff>1</staff></note>
+      <note><pitch><step>F</step><octave>5</octave></pitch><duration>12</duration><voice>1</voice><type>16th</type><time-modification><actual-notes>5</actual-notes><normal-notes>4</normal-notes></time-modification><staff>1</staff></note>
+      <note><pitch><step>G</step><octave>5</octave></pitch><duration>12</duration><voice>1</voice><type>16th</type><time-modification><actual-notes>5</actual-notes><normal-notes>4</normal-notes></time-modification><staff>1</staff><notations><tuplet type="stop"/></notations></note>
+      <note><pitch><step>A</step><octave>5</octave></pitch><duration>45</duration><voice>1</voice><type>eighth</type><dot/><staff>1</staff></note>
+      <note><pitch><step>G</step><octave>5</octave></pitch><duration>15</duration><voice>1</voice><type>16th</type><staff>1</staff></note>
+      <backup><duration>240</duration></backup>
+      <note><pitch><step>C</step><octave>3</octave></pitch><duration>30</duration><voice>5</voice><type>eighth</type><staff>2</staff></note>
+      <note><pitch><step>E</step><octave>3</octave></pitch><duration>30</duration><voice>5</voice><type>eighth</type><staff>2</staff></note>
+      <note><pitch><step>G</step><octave>3</octave></pitch><duration>30</duration><voice>5</voice><type>eighth</type><staff>2</staff></note>
+      <note><pitch><step>E</step><octave>3</octave></pitch><duration>30</duration><voice>5</voice><type>eighth</type><staff>2</staff></note>
+      <note><pitch><step>C</step><octave>3</octave></pitch><duration>30</duration><voice>5</voice><type>eighth</type><staff>2</staff></note>
+      <note><pitch><step>E</step><octave>3</octave></pitch><duration>30</duration><voice>5</voice><type>eighth</type><staff>2</staff></note>
+      <note><pitch><step>G</step><octave>3</octave></pitch><duration>30</duration><voice>5</voice><type>eighth</type><staff>2</staff></note>
+      <note><pitch><step>E</step><octave>3</octave></pitch><duration>30</duration><voice>5</voice><type>eighth</type><staff>2</staff></note>
+    </measure>
+  </part>
+</score-partwise>

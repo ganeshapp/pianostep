@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  f09 - Rest followed by entry, and a final note with its full duration (brief §17 fixture 9).
+  One part "Piano", 2 staves, 4/4, divisions=2 (ticksPerQuarter = 48).
+  m1: both hands start with rests; the LH enters with C3 half on beat 3.
+  m2: RH quarter rest, then E4 D4 C4 quarters (RH entry on beat 2); LH G2 whole.
+  m3: RH C4 dotted half then a quarter rest (final rest); LH C3 dotted half, quarter rest.
+-->
+<score-partwise version="4.0">
+  <part-list>
+    <score-part id="P1"><part-name>Piano</part-name></score-part>
+  </part-list>
+  <part id="P1">
+    <measure number="1">
+      <attributes>
+        <divisions>2</divisions>
+        <time><beats>4</beats><beat-type>4</beat-type></time>
+        <staves>2</staves>
+        <clef number="1"><sign>G</sign><line>2</line></clef>
+        <clef number="2"><sign>F</sign><line>4</line></clef>
+      </attributes>
+      <note><rest measure="yes"/><duration>8</duration><voice>1</voice><staff>1</staff></note>
+      <backup><duration>8</duration></backup>
+      <note><rest/><duration>4</duration><voice>5</voice><type>half</type><staff>2</staff></note>
+      <note><pitch><step>C</step><octave>3</octave></pitch><duration>4</duration><voice>5</voice><type>half</type><staff>2</staff></note>
+    </measure>
+    <measure number="2">
+      <note><rest/><duration>2</duration><voice>1</voice><type>quarter</type><staff>1</staff></note>
+      <note><pitch><step>E</step><octave>4</octave></pitch><duration>2</duration><voice>1</voice><type>quarter</type><staff>1</staff></note>
+      <note><pitch><step>D</step><octave>4</octave></pitch><duration>2</duration><voice>1</voice><type>quarter</type><staff>1</staff></note>
+      <note><pitch><step>C</step><octave>4</octave></pitch><duration>2</duration><voice>1</voice><type>quarter</type><staff>1</staff></note>
+      <backup><duration>8</duration></backup>
+      <note><pitch><step>G</step><octave>2</octave></pitch><duration>8</duration><voice>5</voice><type>whole</type><staff>2</staff></note>
+    </measure>
+    <measure number="3">
+      <note><pitch><step>C</step><octave>4</octave></pitch><duration>6</duration><voice>1</voice><type>half</type><dot/><staff>1</staff></note>
+      <note><rest/><duration>2</duration><voice>1</voice><type>quarter</type><staff>1</staff></note>
+      <backup><duration>8</duration></backup>
+      <note><pitch><step>C</step><octave>3</octave></pitch><duration>6</duration><voice>5</voice><type>half</type><dot/><staff>2</staff></note>
+      <note><rest/><duration>2</duration><voice>5</voice><type>quarter</type><staff>2</staff></note>
+      <barline location="right"><bar-style>light-heavy</bar-style></barline>
+    </measure>
+  </part>
+</score-partwise>

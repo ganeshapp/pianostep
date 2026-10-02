@@ -1,0 +1,408 @@
+/* Notation: tokens, cells and the scrolling instruction timeline.
+   Colours come from theme.css; the fallbacks keep the notation readable on
+   its own (for example inside the help dialog). */
+
+.nt-token {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  height: 28px;
+  min-width: 3ch;
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.nt-token__label {
+  display: block;
+}
+
+.nt-token--carried .nt-token__label {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, currentColor 55%, transparent);
+}
+
+/* The mark sits directly beneath the label and inherits the token colour. */
+.nt-token__mark {
+  display: block;
+  box-sizing: border-box;
+  width: 7px;
+  height: 7px;
+  margin-top: 1px;
+  border-radius: 50%;
+}
+
+.nt-token__mark--dot {
+  background: currentColor;
+}
+
+.nt-token__mark--ring {
+  border: 1.5px solid currentColor;
+  background: transparent;
+}
+
+.nt-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.nt-glyph {
+  display: block;
+  user-select: none;
+}
+
+.nt-glyph--hold {
+  color: var(--subtle, #6b7280);
+  font-size: 22px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.nt-glyph--rest {
+  color: var(--fg, #111827);
+  font-family: var(--font-sans, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif);
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 24px;
+  height: 24px;
+  overflow: visible;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Timeline                                                                */
+/* ---------------------------------------------------------------------- */
+
+.tl {
+  position: relative;
+  display: flex;
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 12px;
+  background: var(--bg, #ffffff);
+  overflow: visible;
+}
+
+.tl__tabs {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  width: 48px;
+  border-right: 1px solid var(--border, #e5e7eb);
+  background: var(--surface, #f9fafb);
+  border-radius: 12px 0 0 12px;
+}
+
+.tl__tabs-head {
+  flex: none;
+}
+
+.tl__tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid var(--border, #e5e7eb);
+}
+
+.tl__tab-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.tl__tab--R .tl__tab-letter {
+  background: var(--rh, #7c3aed);
+}
+
+.tl__tab--L .tl__tab-letter {
+  background: var(--lh, #15803d);
+}
+
+.tl__viewport {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  /*
+   * clip, not hidden: a hidden box is still a scroll container, and focusing
+   * a control in the strip beyond the edge would scroll it, moving the
+   * columns away from the play marker. `hidden` is the fallback for engines
+   * without clip; Timeline resets any scroll of the viewport.
+   */
+  overflow: hidden;
+  overflow: clip;
+  border-radius: 0 12px 12px 0;
+}
+
+.tl__marker {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: color-mix(in srgb, var(--fg, #111827) 6%, transparent);
+  border-left: 2px solid color-mix(in srgb, var(--fg, #111827) 55%, transparent);
+  border-right: 2px solid color-mix(in srgb, var(--fg, #111827) 55%, transparent);
+  box-sizing: border-box;
+}
+
+.tl__strip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+  will-change: transform;
+}
+
+.tl__col {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.tl__col.is-past .tl__cells {
+  opacity: 0.35;
+}
+
+.tl__head {
+  position: relative;
+  flex: none;
+  height: 26px;
+}
+
+.tl__boundary {
+  position: absolute;
+  top: 4px;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  border-left: 1.5px solid var(--border-strong, #9ca3af);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.tl__measure {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  max-width: calc(100% - 6px);
+  padding: 1px 6px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted, #4b5563);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.tl__measure:hover {
+  background: var(--surface-2, #f3f4f6);
+  border-color: var(--border, #e5e7eb);
+  color: var(--fg, #111827);
+}
+
+.tl__measure:focus-visible {
+  outline: 2px solid var(--focus-ring, #111827);
+  outline-offset: 1px;
+}
+
+.tl__measure-pass {
+  font-weight: 500;
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tl__cells {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  transition: opacity 120ms ease;
+}
+
+.tl__cells:hover .tl__row {
+  background: color-mix(in srgb, var(--fg, #111827) 4%, transparent);
+}
+
+.tl__cells:focus-visible {
+  outline: 2px solid var(--focus-ring, #111827);
+  outline-offset: -3px;
+  border-radius: 6px;
+}
+
+.tl__row {
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  padding: 6px 0;
+  border-top: 1px solid var(--border, #e5e7eb);
+}
+
+.tl__gridline {
+  position: absolute;
+  top: 26px;
+  bottom: 0;
+  right: 0;
+  border-right: 1px solid var(--surface-2, #f3f4f6);
+  pointer-events: none;
+}
+
+.tl__empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 24px;
+  color: var(--muted, #4b5563);
+  font-size: 15px;
+  text-align: center;
+}
+
+.tl__menu {
+  position: absolute;
+  z-index: 20;
+  min-width: 190px;
+  padding: 6px;
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 10px;
+  background: var(--bg, #ffffff);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.14), 0 2px 6px rgba(15, 23, 42, 0.08);
+}
+
+/* Focused itself only after a mouse click (keyboard opening focuses the first item). */
+.tl__menu:focus {
+  outline: none;
+}
+
+.tl__menu-title {
+  padding: 4px 10px 6px;
+  color: var(--muted, #4b5563);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tl__menu-item {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--fg, #111827);
+  font: inherit;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.tl__menu-item:hover,
+.tl__menu-item:focus-visible {
+  background: var(--surface-2, #f3f4f6);
+  outline: none;
+}
+
+.tl__menu-item:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--focus-ring, #111827);
+}
+
+/* Mini timeline used by the help dialog. */
+.nt-mini {
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 72px;
+  border: 1px solid var(--border, #e5e7eb);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg, #ffffff);
+}
+
+.nt-mini__col {
+  display: grid;
+  grid-template-rows: 24px auto auto;
+  border-left: 1px solid var(--surface-2, #f3f4f6);
+}
+
+.nt-mini__col:first-child {
+  border-left: 0;
+}
+
+.nt-mini__head {
+  padding-top: 4px;
+  color: var(--muted, #4b5563);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.nt-mini__cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 76px;
+  padding: 6px 0;
+  border-top: 1px solid var(--border, #e5e7eb);
+}
+
+.nt-mini__held {
+  padding: 6px 2px;
+  border-top: 1px solid var(--border, #e5e7eb);
+  background: var(--surface, #f9fafb);
+  color: var(--muted, #4b5563);
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace);
+  font-size: 12px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tl__cells {
+    transition: none;
+  }
+}
+
+.nt-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

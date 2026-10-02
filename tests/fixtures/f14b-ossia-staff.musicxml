@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  f14b - Alternative (ossia) staff inside the piano part (brief §10, §17 fixture 14).
+  P1 "Piano": 3 staves, divisions=2. Staff 1 is a small ossia staff (staff-size 70)
+  that carries the words "Ossia:" and notes only in m2; staves 2 and 3 are the
+  real right and left hand.
+    m1 staff 2 C5 half, B4 half;              staff 3 C3 whole.
+    m2 staff 1 A4 quarter, B4 quarter, C5 half (the ossia);
+       staff 2 A4 quarter, G4 quarter, F4 half; staff 3 F2 whole.
+  Voices are numbered 1, 2 and 5 (no 4-voices-per-staff blocks), as some programs do.
+  The ossia staff must never be played, and never in place of the real right hand.
+-->
+<score-partwise version="4.0">
+  <part-list>
+    <score-part id="P1"><part-name>Piano</part-name></score-part>
+  </part-list>
+  <part id="P1">
+    <measure number="1">
+      <attributes>
+        <divisions>2</divisions>
+        <time><beats>4</beats><beat-type>4</beat-type></time>
+        <staves>3</staves>
+        <clef number="1"><sign>G</sign><line>2</line></clef>
+        <clef number="2"><sign>G</sign><line>2</line></clef>
+        <clef number="3"><sign>F</sign><line>4</line></clef>
+        <staff-details number="1"><staff-size>70</staff-size></staff-details>
+      </attributes>
+      <note><rest measure="yes"/><duration>8</duration><voice>1</voice><staff>1</staff></note>
+      <backup><duration>8</duration></backup>
+      <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration><voice>2</voice><type>half</type><staff>2</staff></note>
+      <note><pitch><step>B</step><octave>4</octave></pitch><duration>4</duration><voice>2</voice><type>half</type><staff>2</staff></note>
+      <backup><duration>8</duration></backup>
+      <note><pitch><step>C</step><octave>3</octave></pitch><duration>8</duration><voice>5</voice><type>whole</type><staff>3</staff></note>
+    </measure>
+    <measure number="2">
+      <direction placement="above">
+        <direction-type><words>Ossia:</words></direction-type>
+        <staff>1</staff>
+      </direction>
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>2</duration><voice>1</voice><type>quarter</type><staff>1</staff></note>
+      <note><pitch><step>B</step><octave>4</octave></pitch><duration>2</duration><voice>1</voice><type>quarter</type><staff>1</staff></note>
+      <note><pitch><step>C</step><octave>5</octave></pitch><duration>4</duration><voice>1</voice><type>half</type><staff>1</staff></note>
+      <backup><duration>8</duration></backup>
+      <note><pitch><step>A</step><octave>4</octave></pitch><duration>2</duration><voice>2</voice><type>quarter</type><staff>2</staff></note>
+      <note><pitch><step>G</step><octave>4</octave></pitch><duration>2</duration><voice>2</voice><type>quarter</type><staff>2</staff></note>
+      <note><pitch><step>F</step><octave>4</octave></pitch><duration>4</duration><voice>2</voice><type>half</type><staff>2</staff></note>
+      <backup><duration>8</duration></backup>
+      <note><pitch><step>F</step><octave>2</octave></pitch><duration>8</duration><voice>5</voice><type>whole</type><staff>3</staff></note>
+    </measure>
+  </part>
+</score-partwise>

@@ -1,0 +1,1100 @@
+{
+ "research:batch1": {
+  "results": [
+   {
+    "file": "12_Variations_of_Twinkle_Twinkle_Little_Star.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "No level found for Solángel's arrangement in any search snippet. The ratings found elsewhere (Galaxy 'Level 6', Tomplay) are for Mozart's K.265, not this arrangement.",
+    "arrangementUrl": "https://musescore.com/solangel/12-variations-of-twinkle-twinkle-little-star",
+    "matchReason": "The MuseScore title matches the file name, and the page credits 'Wolfgang Amadeus Mozart arr. Solángel', which matches the file's 'arr. Solángel'.",
+    "sourceName": null,
+    "sourceUrl": null,
+    "originalLabel": null,
+    "licenseFinding": null
+   },
+   {
+    "file": "Arabesque_L._66_No._1_in_E_Major.mxl",
+    "level": "Intermediate",
+    "basis": "source",
+    "evidence": "Scribd copy of the MuseScore page: 'including its difficulty level as intermediate and its structure, which features a combination of triads and pentatonic progressions'",
+    "arrangementUrl": "https://musescore.com/classicman/scores/55396",
+    "matchReason": "The file name equals ClassicMan's MuseScore title 'Arabesque L. 66 No. 1 in E Major'. The Scribd capture has that exact page title and a description matching ClassicMan's (triads, pentatonic). Vic_Alves's derivative credits ClassicMan and uses the same title metadata. Plausible match; the level comes from a page capture, not the live page.",
+    "sourceName": "Scribd copy of the MuseScore score page (ClassicMan)",
+    "sourceUrl": "https://www.scribd.com/document/867424674/Arabesque-L-66-No-1-in-E-Major-Sheet-Music-for-Piano-Solo-Musescore-com",
+    "originalLabel": "intermediate",
+    "licenseFinding": null
+   },
+   {
+    "file": "Ave_Maria_D839_-_Schubert_-_Solo_Piano_Arrg..mxl",
+    "level": "Intermediate",
+    "basis": "source",
+    "evidence": "LaSolSheet: 'Arrangement: Ewwas17 ... Skill Level: Intermediate ... Pages: 3, Measures: 17'",
+    "arrangementUrl": "https://musescore.com/user/10783116/scores/4584986",
+    "matchReason": "The MuseScore title 'Ave Maria (D839) - Schubert - Solo Piano Arrg.' by Ewwas17 matches the file name. Ewwas17 is presumably Simon Ewers, the file's arranger credit. LaSolSheet's 17 measures and Sao Mai Center's 17 measures match the file. PianoMetric separately rates a copy 'Expert', which is not a usable category.",
+    "sourceName": "LaSolSheet (mirrors the MuseScore arrangement metadata)",
+    "sourceUrl": "https://lasolsheet.com/piano-sheet-music/ave-maria/",
+    "originalLabel": "Intermediate",
+    "licenseFinding": "The MuseScore page description mislabels the piece as Charles Gounod's Ave Maria. No licence statement was seen."
+   },
+   {
+    "file": "Bach_Minuet_in_G_Major_BWV_Anh._114.mxl",
+    "level": "Beginner",
+    "basis": "source",
+    "evidence": "MuseScore page title 'Bach: Minuet in G Major (BWV Anh. 114) Sheet Music for Piano (Solo) easy'. The description says 'Elementary-Late Elementary (RCM 1)'.",
+    "arrangementUrl": "https://musescore.com/user/9292486/scores/2086106",
+    "matchReason": "The PianoXML score's title, with punctuation stripped, equals the file name. The file's rights line 'Public Domain (PianoXML typeset)' and its Petzold / Anna Magdalena credits match the page.",
+    "sourceName": "MuseScore.com (PianoXML)",
+    "sourceUrl": "https://musescore.com/user/9292486/scores/2086106",
+    "originalLabel": "easy; Elementary-Late Elementary (RCM 1)",
+    "licenseFinding": "The page says the score is part of the PianoXML project and 'released as Public Domain'."
+   },
+   {
+    "file": "Bach_Toccata_and_Fugue_in_D_Minor_Piano_solo.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "No difficulty label found for hmscomp's score in any snippet. The arranger notes that some Brassin chord spreads are beyond most hands, but that is not a level label.",
+    "arrangementUrl": "https://musescore.com/hmscomp/bach_toccata_and_fugue_in_d_minor_v2_0_2",
+    "matchReason": "The title 'Bach Toccata and Fugue in D Minor (Piano solo)' matches the file name. The description says Brassin's piano arrangement was used, matching the file's Brassin credit.",
+    "sourceName": null,
+    "sourceUrl": null,
+    "originalLabel": null,
+    "licenseFinding": "According to the page description, the original 8/3/2014 upload was removed by MuseScore due to copyright issues. It was re-uploaded on 4/10/2019, and a search summary says the re-upload is CC0."
+   },
+   {
+    "file": "Beethoven_Symphony_No._5_1st_movement_Piano_solo.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "No difficulty label found for hmscomp's 'Beethoven Symphony No. 5 (1st movement) Piano solo'. The 'intermediate difficulty' score in the results is a different arrangement (user 26899119).",
+    "arrangementUrl": "https://musescore.com/hmscomp/scores/128179",
+    "matchReason": "hmscomp's title, with parentheses stripped, equals the file name. The 'Adp. from' credit style matches hmscomp's Toccata file. pem.bn's Pauer upload has a different title.",
+    "sourceName": null,
+    "sourceUrl": null,
+    "originalLabel": null,
+    "licenseFinding": null
+   },
+   {
+    "file": "Bella_Ciao.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "Sami Lefebvre's arrangement is found on Breizh Partitions with no level. Sheet Music Direct lists 'Level 4', a numeric scale that cannot be mapped. No MuseScore level found.",
+    "arrangementUrl": "https://www.celticscores.com/sheet-music/1038_Bella_ciao",
+    "matchReason": "The arranger credit 'Arr. Sami Lefebvre' matches, and the page is piano. The exact MuseScore upload of this file was not identified (one copy is credited 'Alice Lefebvre').",
+    "sourceName": null,
+    "sourceUrl": null,
+    "originalLabel": null,
+    "licenseFinding": "Breizh Partitions (celticscores.com) lists Sami Lefebvre's arrangement under the licence 'Creative Commons BY-NC-SA'."
+   },
+   {
+    "file": "Bella_Ciao_-_La_Casa_de_Papel.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "GuestinPiano's own site labels it 'Difficulté : Normale' (MyMusic5 lists 'Normal'). 'Normal' is not one of the allowed categories, so it is left unrated.",
+    "arrangementUrl": "https://musescore.com/guestinpiano/bella-ciao",
+    "matchReason": "The file's rights line 'https://guestinpiano.fr' and the 'La Casa de Papel' credit match GuestinPiano's MuseScore arrangement and his site's sheet page.",
+    "sourceName": "GuestinPiano.fr",
+    "sourceUrl": "https://guestinpiano.fr/partitions/10/bella-ciao",
+    "originalLabel": "Normale",
+    "licenseFinding": "The guestinpiano.fr footer reads '© 2021 guestinpiano.fr Tous droits réservés'. The arrangement is also sold as a paid sheet on MyMusic5 (mymusicsheet)."
+   },
+   {
+    "file": "Canon_in_D.mxl",
+    "level": "Intermediate",
+    "basis": "source",
+    "evidence": "PianoMetric: 'Canon in D Sheet Piano — Lemontart ... Difficulty: Intermediate (score 43/100)'. Lemontart's own page note confirms MuseScore labelled it intermediate.",
+    "arrangementUrl": "https://musescore.com/user/1809056/scores/1019991",
+    "matchReason": "The file credit 'Arr. by lemontart' matches the uploader lemontart. Conflict: lemontart describes it as an 'easy arrangement', and Sheet Music Direct sells it as Easy Piano Level 2. The MuseScore listing label (Intermediate) was used.",
+    "sourceName": "MuseScore listing label (via Scribd capture and arranger's note) / PianoMetric",
+    "sourceUrl": "https://pianometric.com/score/23364-canon-in-d-sheet-piano",
+    "originalLabel": "Intermediate",
+    "licenseFinding": null
+   },
+   {
+    "file": "Canon_in_D_3.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "No published difficulty label found for Jacob Danao's arrangement. The search snippet of the MuseScore page shows no level.",
+    "arrangementUrl": "https://musescore.com/user/7183206/scores/3161616",
+    "matchReason": "Jacob Danao's YouTube video ('Canon in D | Johann Pachelbel Arr. by Jacob Danao') links to this MuseScore score (uploader jxcobtd). The file credits 'Arr. by Jacob Danao'.",
+    "sourceName": null,
+    "sourceUrl": null,
+    "originalLabel": null,
+    "licenseFinding": null
+   },
+   {
+    "file": "Canon_in_D_easy.mxl",
+    "level": "Beginner",
+    "basis": "source",
+    "evidence": "LaSolSheet: 'Arrangement: David Hernández1, Skill Level: Beginner, Key Signature: D major, B minor, Metronome: 50, Pages: 2, Measures: 49'",
+    "arrangementUrl": "https://musescore.com/user/3349846/scores/1376056",
+    "matchReason": "The MuseScore title 'Canon in D (easy)' by David Hernández1 becomes 'Canon_in_D_easy' once punctuation is stripped. LaSolSheet's 49 measures match the file. The uploader calls it a 'Very easy version'. The file name also says 'easy' (in-file wording).",
+    "sourceName": "LaSolSheet (mirrors the MuseScore arrangement metadata)",
+    "sourceUrl": "https://lasolsheet.com/piano-sheet-music/canon-in-d/",
+    "originalLabel": "Beginner",
+    "licenseFinding": "LaSolSheet lists this arrangement as 'Public domain'."
+   },
+   {
+    "file": "Carol_of_the_Bells.mxl",
+    "level": "Intermediate",
+    "basis": "source",
+    "evidence": "LaSolSheet: Arranger William J. Ross, 'Skill Level: Intermediate', F major/D minor, 65 measures, 2 pages",
+    "arrangementUrl": "https://musescore.com/user/12287421/scores/3022181",
+    "matchReason": "Will_Ross / William J. Ross matches the file's composer, arranger and credits. 65 measures match the file, and F major/D minor and 2 pages match the MuseScore listing. A Scribd capture of the MuseScore page is titled 'Intermediate Piano Score'. Conflict: the PiaStudy re-upload by another user says 'Advanced'.",
+    "sourceName": "LaSolSheet (mirrors the MuseScore arrangement metadata)",
+    "sourceUrl": "https://lasolsheet.com/piano-sheet-music/carol-of-the-bells/",
+    "originalLabel": "Intermediate",
+    "licenseFinding": "LaSolSheet lists this arrangement as 'Public domain'. Etsy sellers resell this free MuseScore arrangement as paid sheet music."
+   },
+   {
+    "file": "Carol_of_the_Bells_easy_piano.mxl",
+    "level": "Beginner",
+    "basis": "in-file",
+    "evidence": "File name 'Carol_of_the_Bells_easy_piano' and MuseScore upload title 'Carol of the Bells (easy piano)'. No external level label was found.",
+    "arrangementUrl": "https://musescore.com/orliaann/scores/2782256",
+    "matchReason": "The file credit 'Arr. Orlia Amaral' matches MuseScore uploader OrliaAnn, and the upload title matches the file name.",
+    "sourceName": null,
+    "sourceUrl": null,
+    "originalLabel": "easy piano (file name / upload title)",
+    "licenseFinding": null
+   },
+   {
+    "file": "Chopin_-_Ballade_no._1_in_G_minor_Op._23.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "No difficulty label found for Psamtik's score. The ratings found (Piano Street, PianoLevels) describe Chopin's composition, not this upload.",
+    "arrangementUrl": "https://musescore.com/user/3177366/scores/2182146",
+    "matchReason": "Psamtik's MuseScore title 'Chopin - Ballade no. 1 in G minor Op. 23' exactly equals the file name. The file has no other credits.",
+    "sourceName": null,
+    "sourceUrl": null,
+    "originalLabel": null,
+    "licenseFinding": "A search snippet says the page states the score is based on a public-domain edition and released under CC0. This is not independently verified."
+   },
+   {
+    "file": "Chopin_-_Nocturne_Op._9_No._1.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "No difficulty label found for somebody6's score (the snippet lists '1 part • 5 pages • 04:32 • Mar 09, 2014' with no level).",
+    "arrangementUrl": "https://musescore.com/user/122383/scores/169484",
+    "matchReason": "somebody6's title 'Chopin - Nocturne Op. 9 No. 1' matches the file name, and the page metadata 'Trois nocturnes' / 'F. Chopin' matches the file credits.",
+    "sourceName": null,
+    "sourceUrl": null,
+    "originalLabel": null,
+    "licenseFinding": null
+   },
+   {
+    "file": "Chopin_-_Nocturne_Op_9_No_2_E_Flat_Major.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "The only exact-title MuseScore upload (lotte2019dec) is listed as Cello (Solo) and shows no level. LaSolSheet's Intermediate 38-measure version is johnxcollins's differently titled score, so it is not transferred.",
+    "arrangementUrl": null,
+    "matchReason": "Unconfirmed. The exact-title match is tagged for cello, and the file's 'Fredrik Chopin' credit was not found on any page.",
+    "sourceName": null,
+    "sourceUrl": null,
+    "originalLabel": null,
+    "licenseFinding": null
+   },
+   {
+    "file": "Chopin_-_Spring_Waltz.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "Cristian Ospina's arrangement was found only as Scribd re-uploads (7 pages). No MuseScore page and no difficulty label were found.",
+    "arrangementUrl": null,
+    "matchReason": "Scribd copies show 'Cristian Ospina' in their page headers, matching the file credit, but these are third-party copies, not the arrangement's own page.",
+    "sourceName": null,
+    "sourceUrl": null,
+    "originalLabel": null,
+    "licenseFinding": "The piece is not by Chopin. It is 'Mariage d'amour', composed by Paul de Senneville in 1978, so the composition is still under copyright."
+   },
+   {
+    "file": "Clair_de_Lune__Debussy.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "No exact MuseScore upload identified. Candidates are ClassicMan's 'Clair de Lune' and Smim.it's 'Clair de Lune (Debussy)', but neither title or credit set matches the file exactly.",
+    "arrangementUrl": null,
+    "matchReason": "Unconfirmed. The file has no arranger credit, and its name (double underscore) does not exactly match any found title.",
+    "sourceName": null,
+    "sourceUrl": null,
+    "originalLabel": null,
+    "licenseFinding": null
+   },
+   {
+    "file": "Clair_de_lune_-_Claude_Debussy.mxl",
+    "level": "Advanced",
+    "basis": "source",
+    "evidence": "LaSolSheet: 'Arrangement: RickyZ' | 'Skill Level: Advanced' | 'Key Signature: D♭ major, B♭ minor' | 'Pages: 4' | 'Measures: 72'",
+    "arrangementUrl": "https://musescore.com/user/27050692/scores/5369968",
+    "matchReason": "RickyZ's MuseScore title 'Clair de lune - Claude Debussy' exactly equals the file name. LaSolSheet's 72 measures match the file.",
+    "sourceName": "LaSolSheet (mirrors the MuseScore arrangement metadata)",
+    "sourceUrl": "https://lasolsheet.com/piano-sheet-music/clair-de-lune/",
+    "originalLabel": "Advanced",
+    "licenseFinding": "LaSolSheet lists 'Copyright: Public domain'."
+   },
+   {
+    "file": "DANSE_VILLAGEOISE_Beethoven.mxl",
+    "level": "Beginner",
+    "basis": "source",
+    "evidence": "Henry Lemoine, Les classiques favoris Vol.1A: level '1. Very easy'. The contents include Beethoven's Danse villageoise. BNTT's MuseScore upload cites Volume 1A.",
+    "arrangementUrl": "https://musescore.com/bntt-piano/danse-villageoise-ludwig-van-beethoven-danse-villageoise-beethoven",
+    "matchReason": "BNTT-Piano's page metadata 'DANSE VILLAGEOISE No.2' / 'Ludwig Van Beethoven (1770-1827)' matches the file. The page says it comes from 'Les Classiques Favoris du Piano – Volume 1A'. The publisher labels the whole volume, not this piece individually, and no MuseScore level was found.",
+    "sourceName": "Editions Henry Lemoine (publisher of the source edition)",
+    "sourceUrl": "https://www.henry-lemoine.com/en/partitions-piano/15691-les-classiques-favoris-vol1a.html",
+    "originalLabel": "1. Very easy",
+    "licenseFinding": "The upload reproduces a piece from a Henry Lemoine publication (Les Classiques Favoris Vol. 1A), and the file's credits carry '©' marks."
+   },
+   {
+    "file": "Dance_of_the_sugar_plum_fairy.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "No difficulty label found for Nohpets' score. LaSolSheet's Sugar Plum versions are by other arrangers (Benji Sánchez, RobertKuss, Hinci).",
+    "arrangementUrl": "https://musescore.com/user/3435661/scores/2899321",
+    "matchReason": "Nohpets' title 'Dance of the sugar plum fairy' (same lowercase) equals the file name. The page metadata 'Transcribed by Nohpets' matches the file credits.",
+    "sourceName": null,
+    "sourceUrl": null,
+    "originalLabel": null,
+    "licenseFinding": null
+   },
+   {
+    "file": "Erik_Satie_-_Gymnopedie_No.1.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "Nearest match is nolbo's 'Erik satie - Gymnopedie No.1 ... Easy'. The capitalisation differs from the file name and the file has no arranger credit, so it is not confirmed.",
+    "arrangementUrl": null,
+    "matchReason": "Title-only near match (musescore.com/beannote/erik-satie-gymnopedie-no-1, labelled Easy). Not counted because the title case differs and no credit confirms it. The file's 47 measures match none of LaSolSheet's versions (78, 81 or 127).",
+    "sourceName": null,
+    "sourceUrl": null,
+    "originalLabel": null,
+    "licenseFinding": null
+   },
+   {
+    "file": "Flight_of_the_Bumblebee.mxl",
+    "level": "Intermediate",
+    "basis": "source",
+    "evidence": "LaSolSheet: 'Arrangement: Nicolas | Skill Level: Intermediate | Key Signature: C major, A minor | Pages: 8 | Measures: 101'",
+    "arrangementUrl": "https://musescore.com/nicolas/scores/437",
+    "matchReason": "Nicolas' MuseScore title 'Flight of the Bumblebee' equals the file name. The page metadata 'Hummelflug' / 'Nikolai Andreyevitch Rimsky-Korsakov' matches the file credits, and the 101 measures match the file.",
+    "sourceName": "LaSolSheet (mirrors the MuseScore arrangement metadata)",
+    "sourceUrl": "https://lasolsheet.com/piano-sheet-music/flight-of-the-bumblebee/",
+    "originalLabel": "Intermediate",
+    "licenseFinding": null
+   }
+  ]
+ },
+ "metadata:curate": "I wrote `/Users/gapp/Desktop/Piano/catalog/metadata.json`. It has 69 entries in file-name order with unique ids, and every field the task asked for. No other project file was changed; the generator scripts are in `/tmp/pinspect`.\n\nI used 3 quick web searches for composer facts, since you said to use public info. For duplicates, I compared the notes in each pair measure by measure.\n\n**Judgment calls:**\n\n1. **Composers corrected from public info:**\n   - **Mariage d'Amour (3 files):** composer is Paul de Senneville. The two files whose credits say \"Spring Waltz\" are titled `Mariage d'Amour (\"Spring Waltz\")`.\n   - **G Minor Bach (2 files):** composer is Luo Ni, not J.S. Bach. It is a modern rework of Bach's Prelude BWV 847, and the two files' notes match about 99%.\n   - **Carol of the Bells (2 files):** composer is Mykola Leontovych. William J. Ross, who sits in the composer slot, is treated as the arranger.\n   - **Hungarian Sonata:** I kept Richard Clayderman, as the file credits him. Many sources name Paul de Senneville, but I found no authoritative source, so it's only mentioned in the notes.\n   - **Files with no composer credit** (Fur_Elise_Easy_Piano, Happy_Birthday_To_You_Piano, the uncredited K. 545 file): the composer comes from the title, and the attribution says the file doesn't name one.\n\n2. **Suspected duplicates (13).** In each pair I flagged the copy with weaker credits or the later date:\n   - **Exact or near-exact (99–100%):** Passacaglia, the E minor Prélude, Rondo alla Turca fingered, Für Elise fingered, Minuet in G, K. 545, Moonlight 3rd movement, G Minor Bach.\n   - **97%:** Clair de lune, and Spring_Waltz_Mariage_dAmour after allowing for one inserted measure.\n   - **94%:** Chopin_-_Spring_Waltz.\n   - **Gymnopédie:** the 47-measure file uses a repeat, and each of its measures matches the written-out 78-measure file exactly.\n   - **Not on your candidate list:** the two C♯ minor Nocturnes (82% match, same 65 measures). The differences are mostly trills and how the fast runs are written.\n   - **The Entertainer is not flagged.** The Rui Sousa file has about 24% fewer notes (thinner chords, single bass notes instead of octaves), so I called it a \"lightly simplified edition\" rather than a duplicate.\n\n3. **Overrides:**\n   - **Ballade:** P2 is left out. Its 3 notes in measure 7 are an alternative chord (D on top instead of E♭) for a beat P1 already plays.\n   - **G_Minor_Bach.mxl:** P1 is left out. Its 10 notes are a written-out trill in measures 21–22 on top of notes P2 already plays.\n   - **The Entertainer (Rui Sousa) and Schubert Serenade:** P1 is the right hand and P2 the left. Entertainer P1 is above P2 in 89 of 90 measures. Serenade P1 is higher in 106 of 110, and the hands cross in measures 40, 41, 53 and 59.\n\n4. **License notes (24).** These cover:\n   - rights lines that name someone or something (©, 2016, jvs, websites, a person's name);\n   - named modern arrangers, including usernames like lemontart, Nohpets and TheoA;\n   - copyrighted modern pieces (Mariage d'Amour, G Minor Bach, Hungarian Sonata);\n   - the 2014 Rui Sousa edition.\n\n   Unnamed arrangers get no license note, as the rules say, although those arrangements may also be copyrighted.\n\n5. **Other calls:**\n   - **Twinkle:** described as \"Mozart's own theme and 12 variations (credited 'arr. Solángel')\", because the content matches K. 265.\n   - **\"Rev. John German\":** kept as \"rev.\" because it's unclear whether it means revised or Reverend.\n   - **Danse villageoise:** kept as \"No. 2\" with no WoO number. Public sources only tentatively link the title to WoO 11.\n   - **Arrangement wording:** Bach and Petzold keyboard pieces say \"Original keyboard work\". Toccata, Beethoven 5, Air, Swan Lake and Waltz of the Flowers mention the original organ or orchestral version.\n   - **Wrong keys in file names:** noted for Waltz Op. 64 No. 2 and Nocturne No. 20 (say \"C Minor\", are C♯ minor) and Liebestraum (says \"A Major\", is A♭ major).\n   - **Automatic notes:** each file also gets notes for pickup bars, repeats and 1st/2nd endings, D.S. al Coda, fingering, chord symbols, and 10 or more hidden playback-only notes. I removed the pickup note from Gnossienne because it is written in free time.\n   - **Ids:** generated directly from the file names, so they keep the names' typos (e.g. `prlude-…`, `gymnopdie-…`).\n   - **Source URLs:** many files contain a MuseScore source URL in their metadata. I didn't add it as a field because it wasn't in the spec.\n\nSources:\n- [Hungarian Sonata (Paul de Senneville) – YouTube](https://www.youtube.com/watch?v=YThVernEFqI)\n- [Tomplay – Hungarian Sonata](https://tomplay.com/piano-sheet-music/clayderman-richard/hungarian-sonata-piano-score)\n- [Piano Tiles wiki – G minor Bach](https://piano-tiles.fandom.com/wiki/G_minor_Bach)\n- [Flat.io – G Minor Bach](https://flat.io/score/590907cc3a6db21ec87e926f-g-minor-bach)\n- [Amazon.fr – Danse villageoise, WoO 11](https://www.amazon.fr/Danse-villageoise-Sieben-l%C3%A4ndlerische-Musiques/dp/B000WF7IF8)",
+ "research:batch3": {
+  "results": [
+   {
+    "file": "Nocturne_in_E-flat_Major_Op._9_No._2_Easy.mxl",
+    "level": "Beginner",
+    "basis": "in-file",
+    "evidence": "File name ends '_Easy'; matching MuseScore upload titled 'Nocturne in E-flat Major, Op. 9, No. 2 (Easy)'. No MuseScore level tag seen.",
+    "originalLabel": "Easy (in file name / upload title '(Easy)')",
+    "sourceName": "MuseScore.com",
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/user/11105406/scores/3044996",
+    "matchReason": "Same title with '(Easy)'; page says arranged by Pedroza Murilo, matching arrangerInFile 'Murilo Pedroza'; file MuseScore 2.0.3 (Feb 2017) fits arranger's 2017 update notes.",
+    "licenseFinding": null
+   },
+   {
+    "file": "Ode_to_Joy_Easy_variation.mxl",
+    "level": "Beginner",
+    "basis": "source",
+    "evidence": "Arranger's description on the MuseScore page: 'This is a very easy version that I arranged for beginners.' File credits also say '(Easy variation)'.",
+    "originalLabel": "a very easy version that I arranged for beginners",
+    "sourceName": "MuseScore.com (Torby Brand's score page)",
+    "sourceUrl": "https://musescore.com/torbybrand/ode-to-joy",
+    "arrangementUrl": "https://musescore.com/torbybrand/ode-to-joy",
+    "matchReason": "Page title 'Ode to Joy (Easy variation)', arranged by Torby Brand. Matches the file credits 'Arr: Torby Brand' and '(Easy variation)'.",
+    "licenseFinding": "Torby Brand also sells this arrangement on Musicnotes (MN0259278, 'Ode to Joy [easy]') and MyMusicSheet, so the arrangement is commercial. My searches did not show the copyright-claim removal notice (MyMusic5) mentioned in the brief. The search index still lists the page, last modified 2026-08-18."
+   },
+   {
+    "file": "Passacaglia.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "Credit matches reyesjuandavi's 'Passacaglia Handel/Halvorsen (easy version)', but another MuseScore upload carries the same heading. Exact upload unclear; no MuseScore level seen.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": null,
+    "matchReason": "Candidate: https://musescore.com/user/37309912/scores/6790392, whose composer field reads 'Arrangement by Handel Halvorsen'. But a MuseScore.com download titled 'Passacaglia – Johan Halvorsen' (pianosolo.it PDF) has the same heading. The notes are the same as Passacaglia2/TruuMoo's.",
+    "licenseFinding": null
+   },
+   {
+    "file": "Passacaglia2.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "TruuMoo's MuseScore page 'Passacaglia' was found, but no difficulty label appeared in search results.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/truumoo/passacaglia",
+    "matchReason": "Page credits 'George Frideric Handel arr.Johan Halvorsen', the same as the file credits (including the missing space after 'arr.'). Title 'Passacaglia' also matches.",
+    "licenseFinding": null
+   },
+   {
+    "file": "Piano_Sonata_No._11_K._331_3rd_Movement_Rondo_alla_Turca.mxl",
+    "level": "Intermediate",
+    "basis": "source",
+    "evidence": "Studocu copy of ClassicMan's MuseScore page: 'We rate difficulty level of this score as a Intermediate one.' A Scribd copy also says intermediate.",
+    "originalLabel": "Intermediate",
+    "sourceName": "Studocu copy of the MuseScore.com score page (MuseScore difficulty rating)",
+    "sourceUrl": "https://www.studocu.com/es-ar/document/universidad-de-buenos-aires/taller-musical-i/piano-sonata-no-11-k-331-3rd-movement-rondo-alla-turca-sheet-music-for-piano-solo-musescore/70335402",
+    "arrangementUrl": "https://musescore.com/classicman/scores/49143",
+    "matchReason": "Title 'Piano Sonata No. 11 K. 331 3rd Movement, “Rondo alla Turca”' by ClassicMan matches the file name. The copy lists 137 measures and uploader ClassicMan, and the file also has 137 measures.",
+    "licenseFinding": null
+   },
+   {
+    "file": "Prelude_I_in_C_major_BWV_846_-_Well_Tempered_Clavier_First_Book.mxl",
+    "level": "Beginner",
+    "basis": "source",
+    "evidence": "MuseScore page title: 'Prelude I in C major, BWV 846 - Well Tempered Clavier [First Book] Sheet Music for Piano (Solo) easy'.",
+    "originalLabel": "easy (MuseScore level tag in page title)",
+    "sourceName": "MuseScore.com",
+    "sourceUrl": "https://musescore.com/user/101554/scores/117279",
+    "arrangementUrl": "https://musescore.com/user/101554/scores/117279",
+    "matchReason": "File name is the same as the page title. The description credits 'Johann Sebastian Bach (1685-1750)', like the file. The file is MuseScore 1.3 (2013), which fits the low score ID.",
+    "licenseFinding": "Page description ends with 'Public Domain Mark'."
+   },
+   {
+    "file": "Prelude_No._2_BWV_847_in_C_Minor.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "ClassicMan page 'Prélude No. 2 BWV 847 in C Minor' found; no difficulty tag in search titles or snippets.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/classicman/scores/227966",
+    "matchReason": "File name matches ClassicMan's title, and the credits use ClassicMan's '(1685 - 1750)' style. A Sheet Music Plus 'Intermediate' listing with similar wording is by Flavio Regis Cunha, a different arranger, so I did not use it.",
+    "licenseFinding": null
+   },
+   {
+    "file": "Prlude_No._4_in_E_Minor_Op._28_-_Frdric_Chopin.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "Likely James Brigham's 'Prélude No. 4 in E Minor, Op. 28'; no difficulty label seen in search results.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/james_brigham/scores/1156331",
+    "matchReason": "Title matches. James Brigham uses the same 'Title – Composer' naming and 'Public Domain' credit (compare his Entertainer). Description: 'Prélude in E Minor Op. 28 No. 4' modelled on first editions. Moderately confident.",
+    "licenseFinding": "The file's rights and credits say 'Public Domain'. The search results did not show the MuseScore page's licence."
+   },
+   {
+    "file": "Prlude_Opus_28_No._4_in_E_Minor__Chopin.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "ClassicMan page 'Prélude Opus 28 No. 4 in E Minor' found; no difficulty label in search results.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/classicman/chopin-opus-28-no-4",
+    "matchReason": "Title matches ClassicMan's upload, and a related-scores list shows it as 'Prélude Opus 28 No. 4 in E Minor – Chopin'. The 'Fryderyk Franciszek Chopin' credit style matches ClassicMan's other Chopin files.",
+    "licenseFinding": null
+   },
+   {
+    "file": "Schubert_Serenade_-_Standchen_-_By_Lizst.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "Matching MuseScore upload found; title has no level tag and no difficulty was stated in snippets.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/user/15453381/scores/3252906",
+    "matchReason": "Upload titled 'Schubert Serenade - Standchen - By Lizst'. Score title 'Schubert's Serenade' and composer field 'Transcribed by F. Liszt' match the file credits (listed as Piano Duo).",
+    "licenseFinding": null
+   },
+   {
+    "file": "Sonata_No._16_1st_Movement_K._545.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "ClassicMan page found; no difficulty tag in search results. Composition-level ratings (e.g., Henle) were not used.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/classicman/scores/77457",
+    "matchReason": "Title 'Sonata No. 16, 1st Movement K. 545' by ClassicMan matches the file name and credit style. The file is MuseScore 1.2 (2012).",
+    "licenseFinding": null
+   },
+   {
+    "file": "Sonate_No._14_Moonlight_1st_Movement.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "ClassicMan page found with no level tag. A Sheet Music Plus 'Intermediate' listing with the same title is by Zachary Corbett, a different arranger, so I did not use it.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/classicman/scores/55352",
+    "matchReason": "Title 'Sonate No. 14, “Moonlight” 1st Movement' by ClassicMan matches the file name and credits ('Opus 27 No. 2').",
+    "licenseFinding": null
+   },
+   {
+    "file": "Sonate_No._14_Moonlight_3rd_Movement.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "No explicit label. A Scribd copy's auto-summary mentions 'the movement's advanced difficulty', which is ambiguous. A Sheet Music Plus 'Advanced' listing is by another arranger.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/classicman/scores/33715",
+    "matchReason": "Title 'Sonate No. 14, “Moonlight” 3rd Movement' by ClassicMan matches the file name and credits.",
+    "licenseFinding": null
+   },
+   {
+    "file": "Sonate_No._8_Pathetique_2nd_Movement.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "ClassicMan page found; no difficulty label in search results or on the Scribd copy.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/classicman/scores/49148",
+    "matchReason": "Title 'Sonate No. 8, “Pathétique” 2nd Movement' by ClassicMan matches the file credits word for word.",
+    "licenseFinding": null
+   },
+   {
+    "file": "Spring_Waltz_Mariage_dAmour_-_Chopin.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "Matching MuseScore page by sivu found; title has no level tag and no difficulty was stated.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/sivu/mariage-damour",
+    "matchReason": "Title 'Spring Waltz (Mariage d'Amour) - Chopin' matches the file name. Another copy's metadata shows 84 measures, the same as the file.",
+    "licenseFinding": "The piece is Paul de Senneville's 'Mariage d'amour' (1978), wrongly credited to Chopin. It is a copyrighted composition: a Musicnotes listing shows © 1980 Coronet-Delphine Inc. It is not public domain."
+   },
+   {
+    "file": "Swan_Lake.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "Many MuseScore 'Swan Lake' uploads exist. None could be tied to this file's bare credits, so no label was used.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": null,
+    "matchReason": "Not identified. vedk's 'Swan Lake' (tagged easy) includes chords, but this file has none.",
+    "licenseFinding": null
+   },
+   {
+    "file": "The_Entertainer_-_Scott_Joplin.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "No MuseScore page found. A PDFCoffee copy has the same credit 'Edição: Rui Sousa, 2/Março/2014, versão 10' but no difficulty label.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": null,
+    "matchReason": "PDFCoffee copy (https://pdfcoffee.com/the-entertainer-scott-joplin-4-pdf-free.html) has the same title, Rui Sousa credit and 'Moderato (♩= 70 bpm)'. The original upload page was not found.",
+    "licenseFinding": null
+   },
+   {
+    "file": "The_Entertainer_-_Scott_Joplin_-_1902.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "James Brigham's MuseScore page found; no difficulty label in search results.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/james_brigham/the-entertainer",
+    "matchReason": "Page metadata title is 'The Entertainer – Scott Joplin – 1902'. It is typeset to match the 1902 original, like the file's credits (dedication, 'A Rag Time Two Step').",
+    "licenseFinding": "The MuseScore page is CC0: 'This sheet music has been placed in the public domain by the typesetter.' IMSLP lists Brigham's engraving files under CC BY-SA 4.0. The file's rights say 'Public Domain'."
+   },
+   {
+    "file": "WA_Mozart_Marche_Turque_Turkish_March_fingered.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "PapyPiano's MuseScore page found; title has no level tag and no difficulty was stated.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/user/73797/scores/142975",
+    "matchReason": "Title 'WA Mozart Marche Turque (Turkish March fingered)' by PapyPiano matches the file name. joseph145wils's 'fingered 1' re-upload was set aside.",
+    "licenseFinding": null
+   },
+   {
+    "file": "Waltz_Opus_64_No._2_in_C_Minor.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "ClassicMan page found; no difficulty label in search results.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/classicman/scores/55375",
+    "matchReason": "Title 'Waltz Opus 64, No. 2 in C♯ Minor' by ClassicMan matches the file name (♯ removed) and the credits ('Fryderyk Franciszek Chopin').",
+    "licenseFinding": null
+   },
+   {
+    "file": "Waltz_in_A_MinorChopin.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "Several MuseScore B.150 uploads, some tagged easy, but none matched this file's title and credits ('Frederic Chopin', fingered).",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": null,
+    "matchReason": "Not identified. ClassicMan's 'Waltz B. 150 in A Minor' (tagged easy) uses a different title and credit style.",
+    "licenseFinding": null
+   },
+   {
+    "file": "Waltz_of_the_Flowers.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "No MuseScore page found with the heading 'Theme from the 'Nutcracker' Ballet'. Only a Scribd copy, with no level.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": null,
+    "matchReason": "Not identified. A Scribd document (https://www.scribd.com/document/386363439/waltz-of-flowers) has the same heading wording.",
+    "licenseFinding": null
+   },
+   {
+    "file": "moonlight_sonata_3rd_movement.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "No MuseScore upload found matching the 2015 file with credits 'Moonlight sonata / 3rd movement / L.V.Beethoven'.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": null,
+    "matchReason": "Not identified. The lowercase-title uploads I found have recent score IDs (22M+), which don't fit a 2015 MuseScore 2.0.1 file.",
+    "licenseFinding": null
+   }
+  ]
+ },
+ "research:batch2": {
+  "results": [
+   {
+    "file": "Fur_Elise.mxl",
+    "level": "Intermediate",
+    "basis": "source",
+    "evidence": "LaSolSheet: \"Arrangement: ClassicMan ... Skill Level: Intermediate ... Measures: 106, Copyright: Public domain\"",
+    "originalLabel": "Skill Level: Intermediate",
+    "sourceName": "LaSolSheet (third-party listing of ClassicMan's MuseScore score)",
+    "sourceUrl": "https://lasolsheet.com/piano-sheet-music/fur-elise/",
+    "arrangementUrl": "https://musescore.com/classicman/fur-elise",
+    "licenseFinding": "LaSolSheet lists ClassicMan's Für Elise as \"Copyright: Public domain\".",
+    "matchReason": "File name Fur_Elise matches ClassicMan's upload title \"Für Elise\". The credits use ClassicMan's layout (\"in A Minor\", \"WoO 59\", \"(1770–1827)\") and both have 106 measures. A later re-upload titled \"Für Elise in A Minor\" by malikahmedmou showed no level. The level comes from a mirror site, not from musescore.com itself."
+   },
+   {
+    "file": "Fur_Elise_-_Beethoven_-_for_beginner_piano.mxl",
+    "level": "Beginner",
+    "basis": "source",
+    "evidence": "MuseScore page title: \"Für Elise - Beethoven - for beginner piano Sheet Music for Piano (Solo) easy\"",
+    "originalLabel": "easy (MuseScore level suffix); file name also says \"for beginner piano\"",
+    "sourceName": "MuseScore.com",
+    "sourceUrl": "https://musescore.com/dundeepiano/fur-elise-beginner-piano",
+    "arrangementUrl": "https://musescore.com/dundeepiano/fur-elise-beginner-piano",
+    "licenseFinding": null,
+    "matchReason": "The upload title matches the file name exactly. The page credit \"Ludwig van Beethoven (1770-1827) arr. E Muirhead\" matches the file's credits, and the uploader is dundeepiano (E Muirhead)."
+   },
+   {
+    "file": "Fur_Elise_Easy_Piano.mxl",
+    "level": "Beginner",
+    "basis": "in-file",
+    "evidence": "File credits subtitle \"Easy Ver.\" and file name \"Fur_Elise_Easy_Piano\". The matching MuseScore page title showed no level suffix.",
+    "originalLabel": "\"Easy Ver.\" (credit subtitle); \"Easy Piano\" (file name)",
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/user/2816076/scores/5418894",
+    "licenseFinding": null,
+    "matchReason": "Probably Yuri Kotov's \"Fur Elise (Easy Ver.)\" (1 page). The file's credits are \"Fur Elise\" plus \"Easy Ver.\" and it was saved in MuseScore 3.0.1 in Jan 2019, which fits that score's era. The file name differs a little from the upload title."
+   },
+   {
+    "file": "Fur_Elise_fingered.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "Verona has two uploads. This file is the full original (106 measures, with the 32nd-note runs), probably the \"Original (wider layout...)\" upload, which shows no level.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/verona/fu-r-elise",
+    "licenseFinding": null,
+    "matchReason": "The file credits pianolessenassen.nl/bladmuziek and \"arr. Verona\" (veeroonaa). Verona's \"for beginner piano (easy with fingering)\" upload goes with an \"Easy Piano Tutorial\" video. This file has the same note content as the full piece, so it most likely matches \"Für Elise Original (wider layout with fingering and pedal)\"."
+   },
+   {
+    "file": "G_Minor_Bach.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "Couldn't find a musescore.com upload credited to \"jvs\". PianoSnap's \"G minor Piano (J.S. Bach)\" shows \"Intermediate\" but names no arranger, so the match is unconfirmed.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": null,
+    "licenseFinding": "This is Luo Ni's modern piece (from Piano Tiles 2), misattributed to J.S. Bach in the file. It is not a Bach work.",
+    "matchReason": "A musescore.org forum PDF \"G_minor J.S.Bach_.pdf\" carries \"jvs\" on its pages, so the source is likely a forum attachment rather than a scored listing with a level."
+   },
+   {
+    "file": "G_Minor_Bach_Original.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "Search snippets for the MuseScore page \"G Minor Bach (Original) Sheet Music for Piano (Solo)\" showed no difficulty level.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/user/18666761/scores/3805681",
+    "licenseFinding": "This is a modern composition by Luo Ni (Piano Tiles 2). A commercial \"G Minor Bach - Luo Ni\" sheet is listed on mymusic5.com.",
+    "matchReason": "The file name matches the upload title \"G Minor Bach (Original)\" by Taiwanzygarde, and the page credits \"Luo Ni (bottle)\" as the file does. PianoSnap marks a \"G Minor Bach\" credited \"Luo Ni (bottle)\" as Intermediate, but I couldn't confirm it is this upload."
+   },
+   {
+    "file": "Gnossienne_No._1.mxl",
+    "level": "Intermediate",
+    "basis": "source",
+    "evidence": "Scribd copy of ClassicMan's MuseScore page: difficulty Intermediate; \"Categories Piano for Intermediate\"",
+    "originalLabel": "Intermediate",
+    "sourceName": "Scribd copy of MuseScore.com page (ClassicMan)",
+    "sourceUrl": "https://www.scribd.com/document/754075678/Gnossienne-No-1-Sheet-music-for-Piano-Solo-Musescore-com",
+    "arrangementUrl": "https://musescore.com/classicman/scores/4131536",
+    "licenseFinding": null,
+    "matchReason": "The credits (\"from Trois Gnossiennes\", \"Éric Alfred Leslie Satie\", \"(1866–1925)\") use ClassicMan's layout, and truongca's mirror of ClassicMan's score shows \"from Trois Gnossiennes\". The level comes from a search snippet of the Scribd copy; WebFetch did not render that text."
+   },
+   {
+    "file": "Greensleeves_for_Piano_easy_and_beautiful.mxl",
+    "level": "Beginner",
+    "basis": "in-file",
+    "evidence": "File name and upload title \"Greensleeves for Piano (easy and beautiful)\". MuseScore page snippets showed no level suffix.",
+    "originalLabel": "\"easy and beautiful\" (file name / upload title)",
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/dominiquemakowski/greensleeves",
+    "licenseFinding": null,
+    "matchReason": "The upload title matches the file name, and the credit \"Arr. Dominique Makowski\" matches the uploader DominiqueMakowski. A later same-title upload by adrianofonsec1 is a separate copy."
+   },
+   {
+    "file": "Gymnopdie_No._1__Satie.mxl",
+    "level": "Beginner",
+    "basis": "source",
+    "evidence": "LaSolSheet: \"Arrangement: ClassicMan ... Skill Level: Beginner ... Key Signature: D major, B minor ... Measures: 78\"",
+    "originalLabel": "Skill Level: Beginner",
+    "sourceName": "LaSolSheet (third-party listing of ClassicMan's MuseScore score)",
+    "sourceUrl": "https://lasolsheet.com/piano-sheet-music/gymnopedie-no-1/",
+    "arrangementUrl": "https://musescore.com/classicman/satie-gymnopedie-no-1",
+    "licenseFinding": null,
+    "matchReason": "The credits use ClassicMan's layout (\"from Trois Gymnopédies\", \"Éric Alfred Leslie Satie\"), and both have 78 measures. The file name hints at a re-titled re-upload of ClassicMan's typesetting. The level comes from a mirror site, not from musescore.com directly."
+   },
+   {
+    "file": "Happy_Birthday_To_You_C_Major.mxl",
+    "level": "Beginner",
+    "basis": "source",
+    "evidence": "Re-upload page title: \"Happy_Birthday_To_You_C_Major Piano Sheet Music with Chords for Piano (Solo) easy\"",
+    "originalLabel": "easy (MuseScore level suffix on re-upload)",
+    "sourceName": "MuseScore.com (re-upload by momimomiau)",
+    "sourceUrl": "https://musescore.com/user/82959184/scores/17572369",
+    "arrangementUrl": "https://musescore.com/user/173585/scores/166951",
+    "licenseFinding": "The song is public domain in the US and EU. Warner Chappell's copyright claim was ruled invalid in 2015.",
+    "matchReason": "The original is wildpig's \"Happy Birthday (To You) C Major\" (credit \"Patty Hill Mildred J. Hill\", MuseScore 1.x era), which shows no level. The mid-2026 re-upload's title is literally this file name, with the same credits and key. Caveat: the label was set by the re-uploader, not the arranger."
+   },
+   {
+    "file": "Happy_Birthday_To_You_Piano.mxl",
+    "level": "Beginner",
+    "basis": "source",
+    "evidence": "MuseScore page title: \"Happy Birthday To You Piano Sheet Music for Piano (Solo) easy\"",
+    "originalLabel": "easy (MuseScore level suffix)",
+    "sourceName": "MuseScore.com",
+    "sourceUrl": "https://musescore.com/user/27657013/scores/5282628",
+    "arrangementUrl": "https://musescore.com/user/27657013/scores/5282628",
+    "licenseFinding": "Etsy shop CSProjections sells this same arrangement as \"Arr by Manjuprasad\". The song itself is public domain in the US and EU.",
+    "matchReason": "The upload title matches the file name, and the page credit \"Arr. Manjuprasad, Rev. John German\" is identical to the file's credit."
+   },
+   {
+    "file": "Hungarian_Dance_No_5_in_G_Minor.mxl",
+    "level": "Intermediate",
+    "basis": "in-file",
+    "evidence": "File credits include the word \"Intermediate\" under the title. I couldn't identify the matching MuseScore upload or a published level.",
+    "originalLabel": "\"Intermediate\" (credit text under the title)",
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": null,
+    "licenseFinding": null,
+    "matchReason": null
+   },
+   {
+    "file": "Hungarian_Sonata.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "None of the MuseScore \"Hungarian Sonata\" listings found showed a difficulty level, and the credits give only \"Richard Clayderman\".",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": null,
+    "licenseFinding": "The composition is by Paul de Senneville (1933–2023), a modern work, so it is not public domain.",
+    "matchReason": "Possibly Franklin Hoàng's \"Hungarian Sonata\" (musescore.com/user/23840281/scores/4620391), based on the title, but unconfirmed."
+   },
+   {
+    "file": "J._S._Bach_-_Air_on_the_G_String_Piano_arrangement.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "The MuseScore page title \"J. S. Bach - Air on the G String (Piano arrangement) Sheet Music for Piano (Solo)\" has no level suffix.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/user/18625336/scores/3722131",
+    "licenseFinding": null,
+    "matchReason": "The file name matches the upload title by hersanderie exactly."
+   },
+   {
+    "file": "La_Campanella_-_Grandes_Etudes_de_Paganini_No._3_-_Franz_Liszt.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "The MuseScore page title for Heavilon's upload has no level suffix. Advanced ratings elsewhere are for the composition or other editions.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/user/15293341/scores/4426976",
+    "licenseFinding": null,
+    "matchReason": "The file name matches the upload title \"La Campanella - Grandes Etudes de Paganini No. 3 - Franz Liszt\" by Heavilon exactly."
+   },
+   {
+    "file": "Lacrimosa_-_Requiem.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "The MuseScore page \"Lacrimosa - Requiem Sheet Music for Piano (Solo)\" by TheoA showed no difficulty level.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/user/7554051/scores/2275496",
+    "licenseFinding": null,
+    "matchReason": "The title matches, and the credits \"Amade Wolfgang Mozart\" and \"TheoA\" match TheoA's upload (also mirrored on pianosbay.com with the same header)."
+   },
+   {
+    "file": "Liebestraum_No._3_in_A_Major.mxl",
+    "level": "Advanced",
+    "basis": "source",
+    "evidence": "Scribd copy of ClassicMan's MuseScore page lists categories \"Piano for Advanced\". LaSolSheet lists eallan9's 88-measure copy as \"Skill Level: Advanced\".",
+    "originalLabel": "Piano for Advanced / Skill Level: Advanced",
+    "sourceName": "Scribd copy of MuseScore.com page (ClassicMan); LaSolSheet",
+    "sourceUrl": "https://www.scribd.com/document/772994594/Liebestraum-S-541-No-3-in-A-Major-Liszt-Sheet-music-for-Piano-Solo-Musescore-com",
+    "arrangementUrl": "https://musescore.com/classicman/liszt-s-541-no-3",
+    "licenseFinding": null,
+    "matchReason": "The credits use ClassicMan's layout (\"S. 541/3\", \"(1811–1886)\") and both have 88 measures. The file title \"Liebestraum No. 3 in A♭ Major\" matches eallan9's copy (also 88 measures, 6 pages). Both candidates are labelled Advanced. Qinthwaites' 88-measure upload (Beginner) has a different title."
+   },
+   {
+    "file": "Maple_Leaf_Rag_Scott_Joplin.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "The MuseScore page title \"Maple Leaf Rag (Scott Joplin) Sheet Music for Piano (Solo)\" by Escherfan has no level suffix.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/user/116681/scores/145724",
+    "licenseFinding": null,
+    "matchReason": "The file name matches Escherfan's upload title. LaSolSheet lists a James Brigham 85-measure arrangement as Intermediate (4/4, 112 bpm), but this file is in 2/4 at 100/120 bpm, so it is not counted."
+   },
+   {
+    "file": "Mariage_dAmour.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "Couldn't identify the exact upload. A re-upload titled \"Mariage d'Amoure\" (cogai1m5222, \"Arranged by: Freaske\") showed no level.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": null,
+    "licenseFinding": "The composition is by Paul de Senneville (1933–2023) and is not public domain. MuseScore also sells an official publisher-licensed version.",
+    "matchReason": "The file's internal title \"Mariage d'Amoure\" matches musescore.com/user/54806841/scores/10142689, but the file has no Freaske credit, so the match is unconfirmed."
+   },
+   {
+    "file": "Minuet_in_G_Major_Bach.mxl",
+    "level": "Beginner",
+    "basis": "source",
+    "evidence": "MuseScore page title: \"Minuet BWV Anhang 114 in G Major Sheet Music for Piano (Solo) easy\"",
+    "originalLabel": "easy (MuseScore level suffix)",
+    "sourceName": "MuseScore.com (ClassicMan)",
+    "sourceUrl": "https://musescore.com/classicman/scores/62312",
+    "arrangementUrl": "https://musescore.com/classicman/scores/62312",
+    "licenseFinding": null,
+    "matchReason": "The file's credits (\"BWV Anhang 114\", \"Christian Petzold (1677–1733)\", note on the former Bach attribution) match ClassicMan's score, whose metadata names \"Christian Petzold (1677–1733)\". The file name differs from ClassicMan's title, so it may be a re-titled copy."
+   },
+   {
+    "file": "Mozart_-_Piano_Sonata_No._16_-_Allegro.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "The MuseScore page title \"Mozart - Piano Sonata No. 16 - Allegro Sheet Music for Piano (Solo)\" has no level suffix.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/nicolas/scores/539",
+    "licenseFinding": null,
+    "matchReason": "The file name matches Nicolas's upload title exactly. It is a very early score ID and the file was saved in MuseScore 0.9.6.2, which fits. Mozart's own \"for beginners\" note describes the composition, so it is not counted."
+   },
+   {
+    "file": "Nocturne_No._20_in_C_Minor.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "Search snippets for ClassicMan's \"Nocturne No. 20 in C♯ Minor\" showed 65 measures and 3 pages but no difficulty level.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": "https://musescore.com/classicman/scores/77131",
+    "licenseFinding": "ClassicMan's score details reportedly show \"License: None (All rights reserved)\".",
+    "matchReason": "The file name matches ClassicMan's upload title (♯ dropped), and both have 65 measures. The file was saved in MuseScore 1.2, which fits the Dec 2012 upload."
+   },
+   {
+    "file": "Nocturne_in_C_sharp_Minor.mxl",
+    "level": null,
+    "basis": "none",
+    "evidence": "Couldn't identify the exact upload titled \"Nocturne in C sharp Minor\" (composer \"Chopin\"). The Scribd copy found showed no level.",
+    "originalLabel": null,
+    "sourceName": null,
+    "sourceUrl": null,
+    "arrangementUrl": null,
+    "licenseFinding": null,
+    "matchReason": null
+   }
+  ]
+ },
+ "verify:batch3": {
+  "verdicts": [
+   {
+    "file": "Nocturne_in_E-flat_Major_Op._9_No._2_Easy.mxl",
+    "confirmed": true,
+    "level": "Beginner",
+    "reason": "I confirmed the in-file basis locally. The file name public/scores/Nocturne_in_E-flat_Major_Op._9_No._2_Easy.mxl ends in '_Easy', and 'easy' maps to Beginner. The file's own metadata has work-title 'Nocturne', arranger 'Murilo Pedroza' and composer 'Frédéric Chopin', and its credits ('Nocturne', 'Op. 09, No. 02', 'Frédéric Chopin') state no level, so the label rests on the file name only. The file was written by MuseScore 2.0.3, encoding date 2017-02-03. I could not check whether an external MuseScore level tag exists that would take precedence: the WebSearch budget was used up (200/200) and musescore.com returns 403. The arrangementUrl musescore.com/user/11105406/scores/3044996 is therefore unverified by me. Nothing I found contradicts the claim.",
+    "licenseFinding": null
+   },
+   {
+    "file": "Ode_to_Joy_Easy_variation.mxl",
+    "confirmed": false,
+    "level": "Beginner",
+    "reason": "I could not verify the 'source' claim. The WebSearch budget was used up and musescore.com/torbybrand/ode-to-joy cannot be fetched (403), so I never saw the quoted description 'a very easy version that I arranged for beginners'. The brief also says the page was removed after a copyright claim, so that description may no longer be public. Beginner is still supported in-file, and I checked this locally: the score.xml credits contain 'Arr: Torby Brand' and '(Easy variation)', and the file name is Ode_to_Joy_Easy_variation.mxl. The file was written by MuseScore 2.3.2, encoding date 2020-12-22. Recommendation: Beginner with basis 'in-file', originalLabel '(Easy variation)' (credit line and file name), sourceUrl null.",
+    "licenseFinding": "Verified by fetch: https://www.mymusicsheet.com/TorbyBrand redirects (301) to https://www.mymusic5.com/TorbyBrand, a page titled 'Torby Brand Official Sheet Music | mymusic5' with 322 pieces. So MyMusic5/MyMusicSheet is Torby Brand's own commercial storefront. This fits the brief's note that his MuseScore 'Ode to Joy (Easy variation)' page was removed after a MyMusic5 copyright claim, so the arrangement should be treated as commercial or rights-claimed. No Ode to Joy entry appeared in the results I could see on that page. I could not verify the claimed Musicnotes listing MN0259278: the guessed product URL returned 404."
+   },
+   {
+    "file": "Piano_Sonata_No._11_K._331_3rd_Movement_Rondo_alla_Turca.mxl",
+    "confirmed": false,
+    "level": null,
+    "reason": "Not verified. I fetched the claimed sourceUrl (the Studocu page) twice. Both times it returned unrelated content titled 'Guides. Dental.', uploaded by 'Anonymous Student'. The words 'Rondo', 'ClassicMan', 'Intermediate', 'difficulty' and 'measures' did not appear, so I could not see the quoted 'We rate difficulty level of this score as a Intermediate one'. Studocu is also a third-party re-upload, not the MuseScore page. The WebSearch budget was used up and musescore.com/classicman/scores/49143 returns 403. The file itself has no arranger or uploader credit. Its credits are 'Piano Sonata No. 11', '3rd Movement', 'K. 331', 'Rondo alla Turca' and 'Wolfgang Amadeus Mozart (1756–1791)'; it was written by MuseScore 2.2.1 on 2018-05-10. Any link to ClassicMan therefore rests only on the title and the 137-measure count, which I could not check. Nothing in the file states a level, so the file should stay Unrated.",
+    "licenseFinding": null
+   },
+   {
+    "file": "Prelude_I_in_C_major_BWV_846_-_Well_Tempered_Clavier_First_Book.mxl",
+    "confirmed": false,
+    "level": null,
+    "reason": "Not verified. musescore.com/user/101554/scores/117279 returned HTTP 403 to WebFetch, and the WebSearch budget was used up, so I could not see the claimed page title ending in '... Sheet Music for Piano (Solo) easy'. The local file fits the claimed match: MuseScore 1.3, encoding date 2013-07-09, credits 'Prelude I', 'In C major', 'Johann Sebastian Bach (1685 - 1750)' and 'BWV 846'. But the file states no level, so in-file does not apply. Without seeing the level, the file should stay Unrated.",
+    "licenseFinding": null
+   }
+  ]
+ },
+ "verify:batch1": {
+  "verdicts": [
+   {
+    "file": "Arabesque_L._66_No._1_in_E_Major.mxl",
+    "confirmed": false,
+    "level": null,
+    "reason": "The file's own <source> tag points to musescore.com/user/19710/scores/55396, so the score ID matches the claimed arrangementUrl. The level evidence does not hold up, though. The Scribd document (uploader 'np47st2wpk', 1 page) contains the sentence 'including its difficulty level as intermediate', but it names no MuseScore uploader or arranger: no 'ClassicMan', no score ID, no measure count. That sentence also reads like Scribd's own document summary rather than the MuseScore level field. The claim itself says Vic_Alves's derivative uses the same title, so the capture could be of a different upload. Criterion (a), level shown next to the same title AND the same uploader, is not met. The web-search budget was used up, so the live listing could not be checked.",
+    "licenseFinding": null
+   },
+   {
+    "file": "Ave_Maria_D839_-_Schubert_-_Solo_Piano_Arrg..mxl",
+    "confirmed": false,
+    "level": null,
+    "reason": "The identity match is strong: the file's <source> tag is musescore.com/user/10783116/scores/4584986, exactly the claimed arrangementUrl, and the score is about 3 pages and 17 measures. The level evidence could not be seen, however. https://lasolsheet.com/piano-sheet-music/ave-maria/ now serves an empty auto-index directory listing (last modified 2026-09-09) with no arrangement entries. The site search returned nothing for 'ave maria', and the downloadsheet.top mirror domain no longer resolves. The quoted 'Skill Level: Intermediate' for Ewwas17 is therefore unverified. Web search was unavailable (budget used up). Treat as Unrated unless it is re-verified.",
+    "licenseFinding": "Not verified in this pass. The claimed Gounod mislabel on the MuseScore description could not be checked because musescore.com returns 403 and search was unavailable."
+   },
+   {
+    "file": "Bach_Minuet_in_G_Major_BWV_Anh._114.mxl",
+    "confirmed": false,
+    "level": null,
+    "reason": "The identity is confirmed. The file's <source> is api.musescore.com/score/2086106, matching the claimed ID, and its credits include 'Public Domain (PianoXML typeset)', Christian Petzold and the Notebooks for Anna Magdalena Bach. The level claim, however, depends entirely on the MuseScore page title ('... easy') and description ('Elementary-Late Elementary (RCM 1)'). musescore.com returns HTTP 403, web search was unavailable (budget used up), and no non-MuseScore mirror stating a level for this PianoXML arrangement could be found. The level cannot be confirmed independently.",
+    "licenseFinding": "In-file rights line reads 'Public Domain (PianoXML typeset)' (verified in the file). The MuseScore page's 'released as Public Domain' wording could not be checked independently."
+   },
+   {
+    "file": "Canon_in_D.mxl",
+    "confirmed": true,
+    "level": "Intermediate",
+    "reason": "https://pianometric.com/score/23364-canon-in-d-sheet-piano shows 'Canon in D Sheet Piano' credited to Lemontart, Difficulty 'Intermediate' (43/100), 102 bars, 6 pages, tempo 100 BPM. The file credits 'Arr. by lemontart' and has 102 measures, about 6 pages and tempo 100, so it is the same arrangement. The label maps directly to Intermediate. Caveat: the page says its difficulty scoring is PianoMetric's own method ('original work © PianoMetric.com'), not a MuseScore label, and the word 'easy' does not appear on it. The conflicting 'easy arrangement' and Sheet Music Direct 'Easy Piano Level 2' statements in the claim could not be checked (no search budget). Neither could the claimed MuseScore 'intermediate' listing label.",
+    "licenseFinding": "PianoMetric shows only a generic notice that rights belong to the composers and publishers. No licence for this arrangement was seen."
+   },
+   {
+    "file": "Canon_in_D_easy.mxl",
+    "confirmed": true,
+    "level": "Beginner",
+    "reason": "https://lasolsheet.com/piano-sheet-music/canon-in-d/ lists 'Canon In D' by David Hernández1 with Skill Level 'Beginner', D major/B minor, 4/4, metronome 50, 2 pages, 49 measures, Public domain. The file matches every detail: 49 measures, 2 sharps, 4/4, metronome half note = 50, about 2 pages, <source> musescore.com/score/1376056 (same ID as the claimed URL). The file name's 'easy' wording also maps to Beginner. The link between the file and David Hernández1 rests on these matching details plus the score ID, because the file itself has no arranger credit.",
+    "licenseFinding": "LaSolSheet lists this arrangement's copyright as 'Public domain' (verified)."
+   },
+   {
+    "file": "Carol_of_the_Bells.mxl",
+    "confirmed": true,
+    "level": "Intermediate",
+    "reason": "https://lasolsheet.com/piano-sheet-music/carol-of-the-bells/ lists the William J. Ross arrangement with Skill Level 'Intermediate', F major/D minor, 2 pages, 65 measures, Public domain. The file's credits name William J. Ross / Will_Ross, and it has 65 measures, 1 flat (F major), 3/4 and about 2 pages. Its <source> is musescore.com/score/3022181, the same ID as the claimed URL. Title, arranger and details all match. The claimed Scribd 'Intermediate Piano Score' capture and the PiaStudy 'Advanced' re-upload were not re-checked (no search budget).",
+    "licenseFinding": "LaSolSheet lists this arrangement as 'Public domain' (verified). The Etsy resale claim was not verified."
+   },
+   {
+    "file": "Carol_of_the_Bells_easy_piano.mxl",
+    "confirmed": true,
+    "level": "Beginner",
+    "reason": "In-file basis holds: the file name 'Carol_of_the_Bells_easy_piano' contains 'easy piano', which maps to Beginner. The credits read 'Arr. Orlia Amaral', and the file's <source> is musescore.com/score/2782256, matching the claimed arrangementUrl ID. LaSolSheet's Carol of the Bells page has no OrliaAnn/Orlia Amaral entry, so no conflicting external label was seen. A full external search was not possible because the search budget was used up.",
+    "licenseFinding": null
+   },
+   {
+    "file": "Clair_de_lune_-_Claude_Debussy.mxl",
+    "confirmed": true,
+    "level": "Advanced",
+    "reason": "https://lasolsheet.com/piano-sheet-music/clair-de-lune/ lists the RickyZ arrangement as 'Advanced': D♭ major/B♭ minor, 9/8, metronome 50, 4 pages, 72 measures, Public domain. The file matches on 72 measures, 5 flats, 9/8, dotted-quarter = 50, about 4 pages, and its credits 'Clair de Lune' / 'Claude Debussy' have no other arranger. Caveat: the file has no <source> tag or uploader credit. The link to RickyZ rests on these matching details plus the claimed MuseScore title, which could not be checked independently (403 and no search budget). The editorial metronome marking and page count make it a reasonably specific match.",
+    "licenseFinding": "LaSolSheet lists 'Copyright: Public domain' for the RickyZ arrangement (verified)."
+   },
+   {
+    "file": "DANSE_VILLAGEOISE_Beethoven.mxl",
+    "confirmed": false,
+    "level": null,
+    "reason": "Refuted under the exact-arrangement rule. The Henry Lemoine page (https://www.henry-lemoine.com/en/partitions-piano/15691-les-classiques-favoris-vol1a.html) does show Level '1. Very easy' and lists Beethoven's 'Danse villageoise' among 26 pieces. That is a label for the whole volume, not for this piece or this MuseScore upload, as the claim itself admits. The volume page does not say 'No.2', the number in the file's credits. The BNTT-Piano page's citation of Volume 1A, and the unusual arrangementUrl slug, could not be checked (403 and no search budget). No piece-level label was found.",
+    "licenseFinding": "The file's rights field is '©' and its credits carry two '©' marks (verified in the file). The Lemoine product page lists the volume's 'Release Date: 03/03/1916', item code P1013 and ISMN 9790230912556. It was not verified that the upload is copied from this Lemoine edition."
+   },
+   {
+    "file": "Flight_of_the_Bumblebee.mxl",
+    "confirmed": true,
+    "level": "Intermediate",
+    "reason": "https://lasolsheet.com/piano-sheet-music/flight-of-the-bumblebee/ lists 'Flight of the Bumblebee' by Nicolas as 'Intermediate': C major/A minor, 2/4, no metronome given, 8 pages, 101 measures. The file matches on 101 measures, no key signature (C), 2/4, no metronome mark and about 8 pages. The other entries on that page (GC with 56 measures, Rachmaninoff with 105) clearly differ. Caveat: the file has no <source> tag or arranger credit, only 'Hummelflug' / 'Nikolai Andreyevitch Rimsky-Korsakov'. The match to Nicolas rests on these details plus the claimed MuseScore title, which could not be checked (403 and no search budget).",
+    "licenseFinding": "LaSolSheet shows Copyright '(updating)' for this arrangement. No licence was stated."
+   }
+  ]
+ },
+ "verify:musescore-level-tags": {
+  "method": "Re-check of every label that rests on a MuseScore level tag: the three research:batch2 records, which never had a verification pass, and the two records whose earlier verification failed only because musescore.com returned 403 and the search budget was used up (Bach_Minuet_in_G_Major_BWV_Anh._114 in verify:batch1, Prelude BWV 846 in verify:batch3). Rule applied to all five alike: the tag counts only if it is seen again on the exact upload (same score ID as the file's embedded source link, or the same title and arranger credit); otherwise the file is Unrated. musescore.com/user/101554/scores/117279 was fetched directly and returned HTTP 403.",
+  "verdicts": [
+   {
+    "file": "Bach_Minuet_in_G_Major_BWV_Anh._114.mxl",
+    "confirmed": true,
+    "level": "Beginner",
+    "reason": "Checked on 2026-10-02. A direct fetch of musescore.com still returns HTTP 403, so the level tag was read from the page title as a web search restricted to musescore.com returns it (the title ends in the page's level tag after 'Sheet Music for Piano (Solo)'). https://musescore.com/user/9292486/scores/2086106 is titled 'Bach: Minuet in G Major (BWV Anh. 114) Sheet Music for Piano (Solo) easy'. The score ID is the one in the file's <source> (api.musescore.com/score/2086106), and the uploader is PianoXML, matching the file's rights line 'Public Domain (PianoXML typeset)'. The search result also quotes the page description's level 'Elementary-Late Elementary (RCM 1)'. 'easy' maps to Beginner. This replaces the verify:batch1 verdict, which could not see the page.",
+    "licenseFinding": "The search result repeats the page's statement that the score is part of the PianoXML project and in the public domain."
+   },
+   {
+    "file": "Minuet_in_G_Major_Bach.mxl",
+    "confirmed": true,
+    "level": "Beginner",
+    "reason": "Checked on 2026-10-02. A direct fetch of musescore.com still returns HTTP 403, so the level tag was read from the page title as a web search restricted to musescore.com returns it (the title ends in the page's level tag after 'Sheet Music for Piano (Solo)'). https://musescore.com/classicman/scores/62312 is titled 'Minuet BWV Anhang 114 in G Major Sheet Music for Piano (Solo) easy'. The score ID is the one in the file's <source>, and the page names Christian Petzold (1677–1733), as the file's credits do. 'easy' maps to Beginner.",
+    "licenseFinding": null
+   },
+   {
+    "file": "Prelude_I_in_C_major_BWV_846_-_Well_Tempered_Clavier_First_Book.mxl",
+    "confirmed": true,
+    "level": "Beginner",
+    "reason": "Checked on 2026-10-02. A direct fetch of musescore.com still returns HTTP 403, so the level tag was read from the page title as a web search restricted to musescore.com returns it (the title ends in the page's level tag after 'Sheet Music for Piano (Solo)'). https://musescore.com/user/101554/scores/117279 is titled 'Prelude I in C major, BWV 846 - Well Tempered Clavier [First Book] Sheet Music for Piano (Solo) easy'. The score ID is the one in the file's <source> (musescore.com/score/117279), and the description credits Johann Sebastian Bach (1685-1750), as the file does. 'easy' maps to Beginner. This is Bach's original prelude, so the level is the uploader's tag for this upload, not a simplified arrangement. This replaces the verify:batch3 verdict, which could not see the page.",
+    "licenseFinding": "The search result repeats the page description's 'Public Domain Mark'."
+   },
+   {
+    "file": "Fur_Elise_-_Beethoven_-_for_beginner_piano.mxl",
+    "confirmed": true,
+    "level": "Beginner",
+    "reason": "Checked on 2026-10-02. A direct fetch of musescore.com still returns HTTP 403, so the level tag was read from the page title as a web search restricted to musescore.com returns it (the title ends in the page's level tag after 'Sheet Music for Piano (Solo)'). https://musescore.com/dundeepiano/fur-elise-beginner-piano is titled 'Für Elise - Beethoven - for beginner piano Sheet Music for Piano (Solo) easy', and its description reads 'An easy arrangement of Beethoven's Für Elise for beginner piano.' The title equals the file name, and the file's credits 'Ludwig van Beethoven (1770-1827)' / 'arr. E Muirhead' and 24 measures fit a short beginner arrangement by dundeepiano (E Muirhead). Caveat: the file's own <source> is musescore.com/classicman/scores/33816 (ClassicMan's Für Elise), not this upload, so the match rests on the title and arranger credit. 'easy' maps to Beginner.",
+    "licenseFinding": null
+   },
+   {
+    "file": "Happy_Birthday_To_You_Piano.mxl",
+    "confirmed": true,
+    "level": "Beginner",
+    "reason": "Checked on 2026-10-02. A direct fetch of musescore.com still returns HTTP 403, so the level tag was read from the page title as a web search restricted to musescore.com returns it (the title ends in the page's level tag after 'Sheet Music for Piano (Solo)'). https://musescore.com/user/27657013/scores/5282628 is titled 'Happy Birthday To You Piano Sheet Music for Piano (Solo) easy'. The score ID is the one in the file's <source>, and the page credits 'Original Arrangement: Manjuprasad Revised By: John German', matching the file's 'Arr. Manjuprasad, Rev. John German'. 'easy' maps to Beginner.",
+    "licenseFinding": null
+   }
+  ]
+ },
+ "verify:batch2": {
+  "note": "Run as a separate verifier agent on 2026-10-02 after the workflow's batch-2 verifier hit a session limit.",
+  "verdicts": [
+   {
+    "file": "Fur_Elise.mxl",
+    "confirmed": true,
+    "level": "Intermediate",
+    "reason": "LaSolSheet Für Elise page lists 'Arrangement: ClassicMan, Skill Level: Intermediate, 3/8, Pages: 3, Measures: 106', matching the file's 106 measures and ClassicMan credits (read via two consistent search-index readings; direct fetch returned a directory index)."
+   },
+   {
+    "file": "Fur_Elise_-_Beethoven_-_for_beginner_piano.mxl",
+    "confirmed": true,
+    "level": "Beginner",
+    "reason": "Page title verified: 'Für Elise - Beethoven - for beginner piano Sheet Music for Piano (Solo) easy' at musescore.com/dundeepiano/fur-elise-beginner-piano; LaSolSheet independently lists the E Muirhead 24-measure arrangement as Beginner."
+   },
+   {
+    "file": "Fur_Elise_Easy_Piano.mxl",
+    "confirmed": true,
+    "level": "Beginner",
+    "reason": "In-file: credit subtitle 'Easy Ver.'."
+   },
+   {
+    "file": "Gnossienne_No._1.mxl",
+    "confirmed": true,
+    "level": "Intermediate",
+    "reason": "Search index of Scribd document 754075678 (copy of ClassicMan's MuseScore page) lists it under 'Piano for Intermediate'; credit style matches ClassicMan."
+   },
+   {
+    "file": "Greensleeves_for_Piano_easy_and_beautiful.mxl",
+    "confirmed": true,
+    "level": "Beginner",
+    "reason": "'easy' in the published title; LaSolSheet lists 'Arrangement: Makowski Dominique, Skill Level: Beginner, Measures: 33'. (Later set to Unrated by the round-1 review because the level word is not inside the score itself.)"
+   },
+   {
+    "file": "Gymnopdie_No._1__Satie.mxl",
+    "confirmed": true,
+    "level": "Beginner",
+    "reason": "LaSolSheet fetched directly lists the ClassicMan arrangement as Skill Level Beginner with 78 measures."
+   },
+   {
+    "file": "Happy_Birthday_To_You_C_Major.mxl",
+    "confirmed": false,
+    "level": null,
+    "reason": "The 'easy' tag belongs to a third-party re-upload, not the original; left Unrated."
+   },
+   {
+    "file": "Happy_Birthday_To_You_Piano.mxl",
+    "confirmed": true,
+    "level": "Beginner",
+    "reason": "Page title verified: 'Happy Birthday To You Piano Sheet Music for Piano (Solo) easy' at musescore.com/user/27657013/scores/5282628; credits match."
+   },
+   {
+    "file": "Hungarian_Dance_No_5_in_G_Minor.mxl",
+    "confirmed": true,
+    "level": "Intermediate",
+    "reason": "In-file: credits contain 'Intermediate' under the title."
+   },
+   {
+    "file": "Liebestraum_No._3_in_A_Major.mxl",
+    "confirmed": true,
+    "level": "Advanced",
+    "reason": "Search index of Scribd document 772994594 (copy of ClassicMan's page, 6 pages, 88 measures) categorised 'Piano for Advanced'."
+   },
+   {
+    "file": "Minuet_in_G_Major_Bach.mxl",
+    "confirmed": true,
+    "level": "Beginner",
+    "reason": "Page title verified: 'Minuet BWV Anhang 114 in G Major Sheet Music for Piano (Solo) easy' at musescore.com/classicman/scores/62312."
+   }
+  ]
+ },
+ "orchestrator-checks": {
+  "note": "WebSearch checks by the orchestrator on 2026-10-02",
+  "items": [
+   {
+    "file": "Prelude_I_in_C_major_BWV_846_-_Well_Tempered_Clavier_First_Book.mxl",
+    "confirmed": true,
+    "level": "Beginner",
+    "reason": "Search result title 'Prelude I in C major, BWV 846 - Well Tempered Clavier [First Book] Sheet Music for Piano (Solo) easy' at musescore.com/user/101554/scores/117279; the file's <source> is musescore.com/score/117279."
+   },
+   {
+    "file": "Bach_Minuet_in_G_Major_BWV_Anh._114.mxl",
+    "confirmed": true,
+    "level": "Beginner",
+    "reason": "Search result title 'Bach: Minuet in G Major (BWV Anh. 114) Sheet Music for Piano (Solo) easy' at musescore.com/user/9292486/scores/2086106 (the file's own <source>); description gives 'Elementary-Late Elementary (RCM 1)' and public domain."
+   },
+   {
+    "file": "Ave_Maria_D839_-_Schubert_-_Solo_Piano_Arrg..mxl",
+    "confirmed": false,
+    "level": null,
+    "reason": "MuseScore page found (user/10783116/scores/4584986) but no level visible in search results."
+   },
+   {
+    "file": "Arabesque_L._66_No._1_in_E_Major.mxl",
+    "confirmed": false,
+    "level": null,
+    "reason": "ClassicMan page found; the only 'intermediate' wording is in a Scribd summary, not the level field."
+   }
+  ]
+ },
+ "verify:greensleeves-listing": {
+  "note": "Re-check on 2026-10-02 (review round 3) of the LaSolSheet listing cited for this file in verify:batch2, under the evidence rule that pass applied to Fur_Elise.mxl: the listing page itself opened only as an empty directory index, so the level was read from two independent search-index readings of it, which agree.",
+  "verdicts": [
+   {
+    "file": "Greensleeves_for_Piano_easy_and_beautiful.mxl",
+    "confirmed": true,
+    "level": "Beginner",
+    "reason": "Both search-index readings of https://lasolsheet.com/piano-sheet-music/greensleeves/ list 'Arrangement: Makowski Dominique', Skill Level: Beginner, Style: Folk, Key: C major / A minor, Time signature: 3/4, Metronome: 120, Pages: 1, Measures: 33. The file has the credit 'Arr. Dominique Makowski', 33 measures, 3/4 time and no key signature (C major / A minor), and its arrangementUrl is musescore.com/dominiquemakowski/greensleeves. The same page lists two other Greensleeves arrangements (ICallItGenius, Intermediate, 6/8, 49 measures; Timothy Stapay, Advanced, 6/8, 42 measures), neither of which matches this file. A direct fetch of the page returned an empty directory index. The label rests on this listing, not on the word 'easy' in the upload title."
+   }
+  ]
+ }
+}
