@@ -4,7 +4,7 @@ import { act, createElement } from 'react';
 import { createRoot, type Root } from 'react-dom/client';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { labelToMidi } from '../src/core/pitch';
-import { Keyboard, type KeyboardProps } from '../src/ui/keyboard/Keyboard';
+import { BODY_PAD_X, Keyboard, type KeyboardProps } from '../src/ui/keyboard/Keyboard';
 
 (globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -80,8 +80,10 @@ describe('Keyboard', () => {
     expect(fill('C4')).toContain('--rh-soft');
     expect(fill('C3')).toContain('--lh-soft');
     expect(fill('D4')).toBe('');
-    expect(key('E4').querySelector('.kb-hand-letter')?.textContent).toBe('R');
-    expect(key('C3').querySelector('.kb-hand-letter')?.textContent).toBe('L');
+    // Colour alone tells the hands apart: no R / L letters are drawn on the keys.
+    expect(container.querySelector('.kb-hand-letter')).toBeNull();
+    expect(key('E4').textContent).toBe('E4');
+    expect(key('C3').textContent).toBe('C3');
     // Notation colours never appear on the keyboard.
     expect(container.innerHTML).not.toMatch(/--(add|release)\b/);
   });
@@ -95,7 +97,7 @@ describe('Keyboard', () => {
     const stops = [...(gradient?.querySelectorAll('stop') ?? [])].map((s) => (s as SVGStopElement).style.stopColor);
     expect(stops[0]).toContain('--rh-soft');
     expect(stops[1]).toContain('--lh,');
-    expect(key('C4').querySelector('.kb-hand-letter')?.textContent).toBe('R L');
+    expect(key('C4').textContent).toBe('C4');
   });
 
   it('outlines "keep holding" keys in the full hand colour, so long holds stay visible', () => {
@@ -136,7 +138,9 @@ describe('Keyboard', () => {
       const n = parseInt(hex.slice(1), 16);
       return 0.2126 * lin(n >> 16) + 0.7152 * lin((n >> 8) & 255) + 0.0722 * lin(n & 255);
     };
-    const onWhite = (hex: string): number => 1.05 / (luminance(hex) + 0.05);
+    // Against the white keys' own fill (theme.css --key-white), not an assumed white.
+    const keyWhite = luminance(value('--key-white'));
+    const onWhite = (hex: string): number => (keyWhite + 0.05) / (luminance(hex) + 0.05);
     for (const soft of ['--rh-soft', '--lh-soft']) expect(onWhite(value(soft))).toBeGreaterThanOrEqual(1.6);
     // Still clearly lighter than "press now".
     expect(luminance(value('--rh-soft'))).toBeGreaterThan(luminance(value('--rh')) * 2.5);
@@ -185,11 +189,12 @@ describe('Keyboard', () => {
     expect(shownRange()).not.toEqual(before);
   });
 
-  it('only lists the hands in use in the legend', () => {
+  it('lists both hand colours in the legend whichever hands are practised, so it never changes with them', () => {
     render({ hands: ['L'] });
     const legend = container.querySelector('.kb-legend')?.textContent ?? '';
     expect(legend).toContain('Green = left hand');
-    expect(legend).not.toContain('Purple');
+    expect(legend).toContain('Purple = right hand');
+    expect(legend).not.toMatch(/\bR\b|\bL\b|letter/);
     expect(legend).not.toContain('your key');
     expect(legend).not.toContain('not expected');
   });
@@ -209,5 +214,46 @@ describe('Keyboard', () => {
     expect(radios[0].checked).toBe(true);
     act(() => radios[1].click());
     expect(chosen).toBe(true);
+  });
+});
+
+describe('Keyboard body (the warm dark frame around the keys)', () => {
+  const css = readFileSync(join(__dirname, '..', 'src', 'ui', 'keyboard', 'keyboard.css'), 'utf8');
+  const rule = (selector: string): string => {
+    const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const body = new RegExp(`(?:^|\\n)${escaped}\\s*\\{([^}]*)\\}`).exec(css)?.[1];
+    if (body === undefined) throw new Error(`${selector} not in keyboard.css`);
+    return body;
+  };
+
+  it('draws the keys inside the body', () => {
+    render();
+    const svg = container.querySelector('svg.kb__svg');
+    expect(svg?.parentElement?.classList.contains('kb__body')).toBe(true);
+    expect(svg?.closest('.kb__stage')).not.toBeNull();
+  });
+
+  it('gives the keys the stage width less the body padding, so the body never overflows', () => {
+    // jsdom has no layout, so the stage reports the 1100px fallback; 88 keys want far more.
+    render({ frameKeys: ks('A0 C8'), labelKeys: [] });
+    const width = Number(container.querySelector('svg.kb__svg')?.getAttribute('width'));
+    expect(width).toBe(1100 - 2 * BODY_PAD_X);
+    // The CSS padding is the same number.
+    const padding = /padding:\s*(\d+)px\s+(\d+)px/.exec(rule('.kb__body'));
+    expect(Number(padding?.[2])).toBe(BODY_PAD_X);
+  });
+
+  it('keeps a small range at its natural width, centred with its body', () => {
+    render({ frameKeys: ks('C4 E4'), labelKeys: ks('C4 E4') });
+    const width = Number(container.querySelector('svg.kb__svg')?.getAttribute('width'));
+    expect(width).toBeLessThan(1100 - 2 * BODY_PAD_X);
+    expect(rule('.kb__stage')).toMatch(/justify-content:\s*center/);
+    expect(rule('.kb__body')).toMatch(/flex:\s*none/);
+  });
+
+  it('draws "Middle C" and the black-key focus ring in light colours, as they sit on dark', () => {
+    expect(rule('.kb-middle-c text')).toMatch(/fill:\s*var\(--kb-caption/);
+    expect(rule('.kb-middle-c path')).toMatch(/fill:\s*var\(--kb-caption/);
+    expect(rule('.kb-key--black .kb-focus-ring')).toMatch(/stroke:\s*var\(--focus-ring-on-dark/);
   });
 });

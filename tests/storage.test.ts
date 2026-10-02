@@ -130,6 +130,7 @@ describe('prefs: global preferences', () => {
       midiInputName: null,
       midiOutputName: null,
       fitWholePiece: false,
+      setupCollapsed: false,
     });
   });
 
@@ -137,11 +138,13 @@ describe('prefs: global preferences', () => {
     const prefs = await freshPrefs();
     prefs.saveGlobalPrefs({ lastPieceId: 'fur-elise' });
     prefs.saveGlobalPrefs({ fitWholePiece: true, midiInputName: 'Yamaha P-125' });
+    prefs.saveGlobalPrefs({ setupCollapsed: true });
     expect(prefs.loadGlobalPrefs()).toEqual({
       lastPieceId: 'fur-elise',
       midiInputName: 'Yamaha P-125',
       midiOutputName: null,
       fitWholePiece: true,
+      setupCollapsed: true,
     });
     expect([...fake.data.keys()].every((k) => k.startsWith('pianosteps:v1:'))).toBe(true);
     expect(fake.data.size).toBe(1);
@@ -159,7 +162,13 @@ describe('prefs: global preferences', () => {
   it('validates each field separately', async () => {
     fake.data.set(
       'pianosteps:v1:global',
-      JSON.stringify({ lastPieceId: 42, midiInputName: 'Piano', midiOutputName: ['x'], fitWholePiece: 'yes' }),
+      JSON.stringify({
+        lastPieceId: 42,
+        midiInputName: 'Piano',
+        midiOutputName: ['x'],
+        fitWholePiece: 'yes',
+        setupCollapsed: 1,
+      }),
     );
     const prefs = await freshPrefs();
     expect(prefs.loadGlobalPrefs()).toEqual({
@@ -167,6 +176,7 @@ describe('prefs: global preferences', () => {
       midiInputName: 'Piano',
       midiOutputName: null,
       fitWholePiece: false,
+      setupCollapsed: false,
     });
   });
 

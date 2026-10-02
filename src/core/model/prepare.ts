@@ -1,7 +1,15 @@
 import type { KeyPress, MeasureOccurrence, PreparedScore, Readiness, ScoreOverrides, ScoreWarning, SourceScore } from '../types';
 import { isOnPiano } from '../pitch';
 import { detectHandMapping } from './hands';
-import { buildPerformanceNotes, buildTempoMap, mergeWarnings, noTempoWarning, unrollMeasures, WarningBag } from './performance';
+import {
+  buildPerformanceNotes,
+  buildTempoMap,
+  mergeWarnings,
+  noTempoWarning,
+  openingTempoWarning,
+  unrollMeasures,
+  WarningBag,
+} from './performance';
 import { buildKeyPresses } from './physical';
 
 export const NO_PRESSES_REASON = 'There are no notes to play for either hand.';
@@ -120,11 +128,12 @@ export function prepareScore(source: SourceScore, overrides?: ScoreOverrides): P
     }
   }
 
+  const openingTempo = openingTempoWarning(source);
   const warnings = mergeWarnings(
     source.warnings,
     hands.warnings,
     unrolled.warnings,
-    tempo.defaulted ? [noTempoWarning()] : [],
+    tempo.defaulted ? [noTempoWarning()] : openingTempo ? [openingTempo] : [],
     performance.warnings,
     physical.warnings,
     rangeBag.list(),

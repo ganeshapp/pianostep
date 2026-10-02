@@ -6,7 +6,16 @@ const IMPORT_WARNINGS: Partial<Record<WarningCode, { severity: WarningSeverity; 
     severity: 'info',
     message: 'Grace notes are played as very short notes taken from the start of the main note (an approximation).',
   },
-  'cue-notes-skipped': { severity: 'info', message: 'Small cue notes are shown in the score only and are not played.' },
+  'cue-notes-skipped': {
+    severity: 'info',
+    message:
+      'Small cue notes that only repeat or decorate the notes around them (such as a written-out trill), or show another part’s line, are not played.',
+  },
+  'cue-notes-played': {
+    severity: 'info',
+    message:
+      'Small cue notes written out as a cadenza (in a measure longer than its time signature, with nothing else played meanwhile) are played as written.',
+  },
   'ornament-not-played': {
     severity: 'review',
     message: 'Trills, mordents and turns are played as the main note only, without the quick extra notes the music asks for.',

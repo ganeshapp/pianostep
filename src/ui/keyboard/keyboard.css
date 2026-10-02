@@ -3,7 +3,7 @@
 .kb {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .kb__footer {
@@ -24,15 +24,15 @@
   align-items: center;
   gap: 2px;
   padding: 3px;
-  border: 1px solid var(--border, #e5e7eb);
+  border: 1px solid var(--border, #e6dfd2);
   border-radius: 999px;
-  background: var(--surface, #f9fafb);
+  background: var(--surface-2, #f0e9dd);
   font-size: 13px;
 }
 
 .kb-fit__label {
   padding: 0 6px 0 8px;
-  color: var(--muted, #4b5563);
+  color: var(--muted, #585148);
   font-weight: 600;
 }
 
@@ -54,20 +54,21 @@
   padding: 4px 12px;
   white-space: nowrap;
   border-radius: 999px;
-  color: var(--muted, #4b5563);
+  color: var(--muted, #585148);
   font-weight: 500;
 }
 
 .kb-fit__option input:checked + span {
-  background: var(--bg, #ffffff);
-  color: var(--fg, #111827);
+  background: var(--bg, #fffdf9);
+  color: var(--fg, #22201c);
   font-weight: 600;
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12), 0 0 0 1px var(--border, #e5e7eb);
+  box-shadow: 0 1px 2px rgb(40 30 20 / 0.14), 0 0 0 1px var(--border-strong, #b3a998);
 }
 
 .kb-fit__option input:focus-visible + span {
-  outline: 2px solid var(--focus-ring, #111827);
+  outline: 2px solid var(--focus-ring, #22201c);
   outline-offset: 1px;
+  box-shadow: 0 0 0 1px var(--focus-ring-inner, #fffdf9);
 }
 
 .kb-pedal.is-up {
@@ -80,7 +81,7 @@
   gap: 4px;
   padding: 4px 12px;
   border-radius: 999px;
-  background: var(--physical, #0f172a);
+  background: var(--physical, #1c1915);
   color: #ffffff;
   font-size: 13px;
   font-weight: 600;
@@ -103,26 +104,79 @@
   min-width: 0;
 }
 
+/*
+ * The piano's body: a warm dark case around the keys, hugging them (a small
+ * range is centred with its body). The side padding is BODY_PAD_X in
+ * Keyboard.tsx; the keys get the stage's width less that on each side. The
+ * lip above the keys is the fallboard; "Middle C" sits on the body below.
+ */
+.kb__body {
+  flex: none;
+  max-width: 100%;
+  padding: 12px 12px 4px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, var(--kb-body, #2b2622) 0%, var(--kb-body-deep, #1f1b18) 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.07),
+    inset 0 -1px 0 rgb(0 0 0 / 0.3),
+    0 8px 22px rgb(40 30 20 / 0.2),
+    0 1px 3px rgb(40 30 20 / 0.18);
+}
+
 .kb__svg {
   display: block;
   max-width: 100%;
   overflow: visible;
 }
 
+/* Click-to-hear: every key can be pressed to hear it. */
+.kb__svg.is-playable .kb-key {
+  cursor: pointer;
+}
+
+.kb__svg.is-playable {
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.kb-key:focus {
+  outline: none;
+}
+
+.kb-focus-ring {
+  fill: none;
+  stroke: var(--focus-ring, #22201c);
+  stroke-width: 3;
+  stroke-linejoin: round;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.kb-key:focus-visible .kb-focus-ring {
+  visibility: visible;
+}
+
+/* An ink ring would vanish on a black key: light there. */
+.kb-key--black .kb-focus-ring {
+  stroke: var(--focus-ring-on-dark, #fbf8f2);
+}
+
+/* Keys stay crisp: pure white and a warm black, so the light and strong hand colours read clearly. */
 .kb-shape--white {
-  fill: #ffffff;
-  stroke: #c3c9d2;
+  fill: var(--key-white, #ffffff);
+  stroke: var(--key-white-edge, #c9c0b1);
   stroke-width: 1;
 }
 
 .kb-shape--black {
-  fill: #1f2937;
-  stroke: #0b1220;
+  fill: var(--key-black, #1d1a17);
+  stroke: var(--key-black-edge, #0c0a09);
   stroke-width: 1;
 }
 
 .kb-key--black.is-lit .kb-shape--black {
-  stroke: #0b1220;
+  stroke: var(--key-black-edge, #0c0a09);
   stroke-width: 1.5;
 }
 
@@ -136,8 +190,9 @@
   stroke-width: 2.5;
 }
 
+/* The felt strip where the keys meet the fallboard. */
 .kb-felt {
-  fill: #475569;
+  fill: var(--kb-felt, #5a4b3f);
 }
 
 .kb-text {
@@ -148,7 +203,7 @@
 }
 
 .kb-text--dark {
-  fill: var(--fg, #111827);
+  fill: var(--fg, #22201c);
 }
 
 .kb-text--light {
@@ -162,13 +217,8 @@
   stroke-linejoin: round;
 }
 
-.kb-hand-letter {
-  font-weight: 800;
-  letter-spacing: 0.04em;
-}
-
 .kb-physical {
-  fill: var(--physical, #0f172a);
+  fill: var(--physical, #1c1915);
   stroke: #ffffff;
   stroke-width: 2;
 }
@@ -192,12 +242,13 @@
   stroke-linecap: round;
 }
 
+/* On the dark body under the keys. */
 .kb-middle-c path {
-  fill: var(--muted, #4b5563);
+  fill: var(--kb-caption, #d6cdbf);
 }
 
 .kb-middle-c text {
-  fill: var(--muted, #4b5563);
+  fill: var(--kb-caption, #d6cdbf);
   font-family: var(--font-sans, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif);
   font-size: 11px;
   font-weight: 600;
@@ -217,7 +268,7 @@
   align-items: center;
   gap: 4px 0;
   margin: 0;
-  color: var(--muted, #4b5563);
+  color: var(--muted, #585148);
   font-size: 13px;
 }
 
@@ -228,7 +279,7 @@
 
 .kb-legend__sep {
   padding: 0 7px;
-  color: #9ca3af;
+  color: var(--border-strong, #b3a998);
 }
 
 .kb-legend__item {
@@ -263,7 +314,7 @@
 }
 
 .kb-legend__dot {
-  color: var(--physical, #0f172a);
+  color: var(--physical, #1c1915);
   font-size: 12px;
 }
 

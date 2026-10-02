@@ -359,10 +359,39 @@ export function unrollMeasures(source: SourceScore): UnrollResult {
 /* Tempo map                                                                 */
 /* ------------------------------------------------------------------------ */
 
+/**
+ * An upbeat (pickup) first measure: marked implicit, or shorter than its time
+ * signature (some files leave the implicit flag out).
+ */
+function isPickup(m: SourceMeasure, ticksPerQuarter: number): boolean {
+  if (m.implicit) return true;
+  const ts = m.timeSignature;
+  if (!ts || m.durationTicks <= 0) return false;
+  return m.durationTicks < Math.round((ts.beats * 4 * ticksPerQuarter) / ts.beatType);
+}
+
+/**
+ * The file's first tempo mark (in written order), and whether it counts as
+ * the opening tempo. It does when it is written in the first measure, or in
+ * the first full measure after a pickup: the mark is then meant from the
+ * start (an upbeat or a mark placed a little late). A first mark further in
+ * leaves the opening unmarked, so the opening plays at the app's default.
+ */
+function firstTempoMark(source: SourceScore): { tempo: SourceScore['tempos'][number]; opens: boolean } | null {
+  let first: SourceScore['tempos'][number] | null = null;
+  for (const t of source.tempos) if (first === null || t.tick < first.tick) first = t;
+  if (first === null) return null;
+  const opens =
+    first.measureIndex === 0 ||
+    (first.measureIndex === 1 && source.measures.length > 0 && isPickup(source.measures[0], source.ticksPerQuarter));
+  return { tempo: first, opens };
+}
+
 export function buildTempoMap(source: SourceScore, occurrences: MeasureOccurrence[]): TempoMap {
   const tpq = source.ticksPerQuarter;
   const tempos = [...source.tempos].sort((a, b) => a.tick - b.tick);
-  if (tempos.length === 0) {
+  const first = firstTempoMark(source);
+  if (first === null) {
     return { ticksPerQuarter: tpq, points: [{ tick: 0, qpm: DEFAULT_QPM }], defaulted: true };
   }
   const byMeasure = new Map<number, typeof tempos>();
@@ -371,9 +400,11 @@ export function buildTempoMap(source: SourceScore, occurrences: MeasureOccurrenc
     list.push(t);
     byMeasure.set(t.measureIndex, list);
   }
-  // The tempo in force is tracked in performance order. The first mark also
-  // applies from the very start.
-  let current = tempos[0].qpm;
+  // The tempo in force is tracked in performance order. A first mark at the
+  // start (see firstTempoMark) also applies from the very start; otherwise the
+  // unmarked opening plays at the app's default until the first mark.
+  const opening = first.opens ? first.tempo.qpm : DEFAULT_QPM;
+  let current = opening;
   /** Tempo in force when each written measure was first entered. */
   const entryQpm = new Map<number, number>();
   const raw: TempoPoint[] = [];
@@ -401,8 +432,8 @@ export function buildTempoMap(source: SourceScore, occurrences: MeasureOccurrenc
     if (last && last.tick === p.tick) last.qpm = p.qpm;
     else points.push({ ...p });
   }
-  if (points.length === 0) points.push({ tick: 0, qpm: tempos[0].qpm });
-  if (points[0].tick > 0) points.unshift({ tick: 0, qpm: points[0].qpm });
+  if (points.length === 0) points.push({ tick: 0, qpm: opening });
+  if (points[0].tick > 0) points.unshift({ tick: 0, qpm: opening });
   const compact = points.filter((p, k) => k === 0 || p.qpm !== points[k - 1].qpm);
   return { ticksPerQuarter: tpq, points: compact, defaulted: false };
 }
@@ -412,6 +443,25 @@ export function noTempoWarning(): ScoreWarning {
     code: 'no-tempo-in-file',
     severity: 'info',
     message: `The file does not give a tempo, so the app chose ${DEFAULT_QPM} quarter notes per minute.`,
+    count: 1,
+  };
+}
+
+/**
+ * Info note for a file whose first tempo mark comes after the opening (see
+ * firstTempoMark), so the opening plays at the app's default tempo. Null when
+ * the file has no tempo at all (noTempoWarning) or marks it from the start.
+ */
+export function openingTempoWarning(source: SourceScore): ScoreWarning | null {
+  const first = firstTempoMark(source);
+  if (first === null || first.opens) return null;
+  const measure = measureDisplayNumbers(source.measures)[first.tempo.measureIndex];
+  return {
+    code: 'opening-tempo-defaulted',
+    severity: 'info',
+    message:
+      `The opening has no tempo mark, so the app plays it at ${DEFAULT_QPM} quarter notes per minute ` +
+      `until the first marked tempo (measure ${measure}).`,
     count: 1,
   };
 }

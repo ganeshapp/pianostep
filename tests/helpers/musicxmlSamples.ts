@@ -31,10 +31,13 @@ const TWO_STAVES_4_4 = `<time><beats>4</beats><beat-type>4</beat-type></time>
  * Cue notes, <transpose> (one for every staff plus a staff-specific one) and
  * velocity from <sound dynamics> and note@dynamics. divisions=2 (48 ticks per quarter).
  *  m1 staff 1, transposed -14 (chromatic -2, octave-change -1):
- *     D5 quarter -> 60, cue E5 quarter (silent, still takes its beat), F5 half -> 63.
+ *     D5 quarter -> 60, cue E5 quarter (alone on staff 1 meanwhile, but in a
+ *     measure no longer than its time signature, so it is taken for another
+ *     part's cue, not a cadenza: silent, though it still takes its beat), F5 half -> 63.
  *     staff 2, transpose number="2" chromatic 0: C3 whole -> 48.
  *  m2 transpose reset to 0 for every staff; <sound dynamics="50"/> (velocity 45):
- *     C4 quarter, C4 quarter with dynamics="100" (velocity 90), cue chord D4+F4 half (skipped).
+ *     C4 quarter, C4 quarter with dynamics="100" (velocity 90), cue chord D4+F4
+ *     half over a regular G3 half in voice 2 of the same staff (skipped).
  */
 export const CUE_TRANSPOSE = partwise(`
     <measure number="1">
@@ -57,8 +60,67 @@ export const CUE_TRANSPOSE = partwise(`
       <note dynamics="100">${pitch('C', 4)}<duration>2</duration><voice>1</voice><type>quarter</type><staff>1</staff></note>
       <note><cue/>${pitch('D', 4)}<duration>4</duration><voice>1</voice><type size="cue">half</type><staff>1</staff></note>
       <note><cue/><chord/>${pitch('F', 4)}<duration>4</duration><voice>1</voice><type size="cue">half</type><staff>1</staff></note>
+      <backup><duration>4</duration></backup>
+      <note>${pitch('G', 3)}<duration>4</duration><voice>2</voice><type>half</type><staff>1</staff></note>
       <backup><duration>8</duration></backup>
       <note>${pitch('C', 3)}<duration>8</duration><voice>5</voice><type>whole</type><staff>2</staff></note>
+    </measure>`);
+
+/**
+ * Which cue notes are played. divisions=4 (48 ticks per quarter; a division is 12 ticks), 4/4.
+ *  m1 a written-out cadenza in an overlong measure (6 quarters):
+ *     voice 1: A4 half, then cue eighths G4, F4, E4 (staff 1), D4 (staff 2),
+ *     then a cue chord C4+E4 half on staff 2 written the MuseScore way (<cue/>
+ *     on the first note only). Nothing regular sounds on either staff meanwhile:
+ *     all six are played, at their written times.
+ *     voice 5: C3+G3 half tied into a hidden cue chord C3+G3 (<cue/> on C3
+ *     only) that lasts to the end: never shown nor played, so the left hand
+ *     lets go after its half note.
+ *  m2 cue notes that stay silent but take their written time:
+ *     voice 1: B4 half, C5 half.
+ *     voice 2: hidden cue C5, B4 sixteenths (a written-out trill), a printed cue
+ *     A4 eighth (alongside B4), then a regular G4 quarter that starts on beat 2.
+ *     voice 5: C3 whole.
+ *  m3 the file's own playback notes: voice 1 hidden G5 eighth, then a printed
+ *     cue G5 quarter in an otherwise silent staff (silent: the hidden note
+ *     already plays that spot); voice 5 C3 whole.
+ */
+export const CUE_NOTES = partwise(`
+    <measure number="1">
+      <attributes>
+        <divisions>4</divisions>
+        ${TWO_STAVES_4_4}
+      </attributes>
+      <note>${pitch('A', 4)}<duration>8</duration><voice>1</voice><type>half</type><staff>1</staff></note>
+      <note><cue/>${pitch('G', 4)}<duration>2</duration><voice>1</voice><type>eighth</type><staff>1</staff></note>
+      <note><cue/>${pitch('F', 4)}<duration>2</duration><voice>1</voice><type>eighth</type><staff>1</staff></note>
+      <note><cue/>${pitch('E', 4)}<duration>2</duration><voice>1</voice><type>eighth</type><staff>1</staff></note>
+      <note><cue/>${pitch('D', 4)}<duration>2</duration><voice>1</voice><type>eighth</type><staff>2</staff></note>
+      <note><cue/>${pitch('C', 4)}<duration>8</duration><voice>1</voice><type>half</type><staff>2</staff></note>
+      <note><chord/>${pitch('E', 4)}<duration>8</duration><voice>1</voice><type>half</type><staff>2</staff></note>
+      <backup><duration>24</duration></backup>
+      <note>${pitch('C', 3)}<duration>8</duration><tie type="start"/><voice>5</voice><type>half</type><staff>2</staff></note>
+      <note><chord/>${pitch('G', 3)}<duration>8</duration><tie type="start"/><voice>5</voice><type>half</type><staff>2</staff></note>
+      <note print-object="no"><cue/>${pitch('C', 3)}<duration>16</duration><tie type="stop"/><voice>5</voice><type>whole</type><staff>2</staff></note>
+      <note print-object="no"><chord/>${pitch('G', 3)}<duration>16</duration><tie type="stop"/><voice>5</voice><type>whole</type><staff>2</staff></note>
+    </measure>
+    <measure number="2">
+      <note>${pitch('B', 4)}<duration>8</duration><voice>1</voice><type>half</type><staff>1</staff></note>
+      <note>${pitch('C', 5)}<duration>8</duration><voice>1</voice><type>half</type><staff>1</staff></note>
+      <backup><duration>16</duration></backup>
+      <note print-object="no"><cue/>${pitch('C', 5)}<duration>1</duration><voice>2</voice><type size="cue">16th</type><staff>1</staff></note>
+      <note print-object="no"><cue/>${pitch('B', 4)}<duration>1</duration><voice>2</voice><type size="cue">16th</type><staff>1</staff></note>
+      <note><cue/>${pitch('A', 4)}<duration>2</duration><voice>2</voice><type size="cue">eighth</type><staff>1</staff></note>
+      <note>${pitch('G', 4)}<duration>4</duration><voice>2</voice><type>quarter</type><staff>1</staff></note>
+      <backup><duration>8</duration></backup>
+      <note>${pitch('C', 3)}<duration>16</duration><voice>5</voice><type>whole</type><staff>2</staff></note>
+    </measure>
+    <measure number="3">
+      <note print-object="no">${pitch('G', 5)}<duration>2</duration><voice>1</voice><type>eighth</type><staff>1</staff></note>
+      <note><cue/>${pitch('G', 5)}<duration>4</duration><voice>1</voice><type>quarter</type><staff>1</staff></note>
+      <note><rest/><duration>10</duration><voice>1</voice><staff>1</staff></note>
+      <backup><duration>16</duration></backup>
+      <note>${pitch('C', 3)}<duration>16</duration><voice>5</voice><type>whole</type><staff>2</staff></note>
     </measure>`);
 
 /**
@@ -313,6 +375,7 @@ export const EXTERNAL_DTD_WITH_SUBSET = `<?xml version="1.0" encoding="UTF-8" st
 /** Every inline sample that parses successfully, by name. */
 export const VALID_SAMPLES: Readonly<Record<string, string>> = {
   'cue-transpose': CUE_TRANSPOSE,
+  'cue-notes': CUE_NOTES,
   navigation: NAVIGATION,
   'pickup-cross-staff': PICKUP_CROSS_STAFF,
   'grace-edges': GRACE_EDGES,

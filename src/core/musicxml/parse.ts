@@ -273,17 +273,112 @@ function replacedByHiddenNotes(drafts: readonly DraftNote[], measures: SourceMea
   return replaced;
 }
 
+/**
+ * The cue notes of one part that are played. MusicXML does not play small
+ * "cue" notes, and most of them only repeat or decorate notes already played:
+ * a written-out trill over its main note, a grace note spelled out, a chord
+ * restated for playback, another reading of a passage. Playing those would
+ * double the music, and small notes over a part's rests are usually another
+ * instrument's line, shown only to help the player come in. A cue note is
+ * played only when the file clearly means it as a cadenza, which is all of these:
+ *  - it is printed: a hidden cue note is neither shown nor heard;
+ *  - its measure is written longer than its time signature, as a cadenza in
+ *    free time is (a pickup is not): small notes in a measure of ordinary
+ *    length are taken for another part's cue, not music to play;
+ *  - no regular note sounds on its staff at any moment of its written time;
+ *  - its staff has no hidden regular notes in that measure: those are the
+ *    file's own playback of the spot, and the small notes only show it.
+ * Every other cue note is left out.
+ */
+function cueNotesToPlay(drafts: readonly DraftNote[], measures: readonly SourceMeasure[], tpq: number): Set<DraftNote> {
+  const play = new Set<DraftNote>();
+  const cues = drafts.filter((d) => d.cue && d.printed && writtenOverlong(measures[d.measureIndex], tpq));
+  if (cues.length === 0) return play;
+  const onset = (d: DraftNote) => measures[d.refMeasure].startTick + d.local;
+  // Regular notes that sound: every non-cue note except one both hidden and silenced (see buildNotes).
+  const spansByStaff = new Map<number, [number, number][]>();
+  const hiddenPlayback = new Set<string>();
+  for (const d of drafts) {
+    if (d.cue || (d.muted && !d.printed)) continue;
+    const list = spansByStaff.get(d.staff) ?? [];
+    list.push([onset(d), onset(d) + d.duration]);
+    spansByStaff.set(d.staff, list);
+    if (!d.printed) hiddenPlayback.add(`${d.staff}:${d.measureIndex}`);
+  }
+  const timelines = new Map<number, SpanTimeline>();
+  for (const [staff, spans] of spansByStaff) timelines.set(staff, spanTimeline(spans));
+  for (const c of cues) {
+    if (hiddenPlayback.has(`${c.staff}:${c.measureIndex}`)) continue;
+    const t = timelines.get(c.staff);
+    const start = onset(c);
+    if (!t || !soundsDuring(t, start, start + c.duration)) play.add(c);
+  }
+  return play;
+}
+
+/** A measure whose written notes last longer than its time signature allows (never a pickup, or one without a time signature). */
+function writtenOverlong(m: SourceMeasure | undefined, tpq: number): boolean {
+  const t = m?.timeSignature;
+  if (!m || !t || m.implicit) return false;
+  return m.durationTicks > Math.round((t.beats * 4 * tpq) / t.beatType);
+}
+
+/** Spans sorted by start with, at each position, the latest end of any span up to there. */
+interface SpanTimeline {
+  starts: number[];
+  reach: number[];
+}
+
+function spanTimeline(spans: [number, number][]): SpanTimeline {
+  spans.sort((a, b) => a[0] - b[0]);
+  const reach: number[] = [];
+  let max = -Infinity;
+  for (const [, end] of spans) reach.push((max = Math.max(max, end)));
+  return { starts: spans.map(([start]) => start), reach };
+}
+
+/** True when some span of the timeline overlaps [start, end) (binary search, so a huge file stays fast). */
+function soundsDuring(t: SpanTimeline, start: number, end: number): boolean {
+  let lo = 0;
+  let hi = t.starts.length - 1;
+  let last = -1;
+  while (lo <= hi) {
+    const mid = (lo + hi) >> 1;
+    if (t.starts[mid] < end) {
+      last = mid;
+      lo = mid + 1;
+    } else hi = mid - 1;
+  }
+  return last >= 0 && t.reach[last] > start;
+}
+
 function buildNotes(
   results: PartResult[],
   measures: SourceMeasure[],
+  tpq: number,
   warnings: WarningSink,
   stavesOf: (partId: string) => number,
   software: string | null,
 ): SourceNote[] {
   const notes: SourceNote[] = [];
   for (const r of results) {
-    const replaced = replacedByHiddenNotes(r.notes, measures);
+    const playedCues = cueNotesToPlay(r.notes, measures, tpq);
+    const drafts: DraftNote[] = [];
     for (const d of r.notes) {
+      if (!d.cue) {
+        drafts.push(d);
+        continue;
+      }
+      if (!playedCues.has(d)) {
+        warnings.add('cue-notes-skipped', d.measureIndex);
+        continue;
+      }
+      warnings.add('cue-notes-played', d.measureIndex);
+      for (const code of d.cueWarnings ?? []) warnings.add(code, d.measureIndex);
+      drafts.push(d);
+    }
+    const replaced = replacedByHiddenNotes(drafts, measures);
+    for (const d of drafts) {
       /** Ticks kept of a note whose sound the file gives to hidden notes (see replacedByHiddenNotes). */
       const keep = replaced.get(d);
       if (keep !== undefined) {
@@ -330,6 +425,7 @@ function buildNotes(
         printed: d.printed,
         crossStaff: false,
       };
+      if (d.cue) note.cue = true;
       if (d.velocity !== undefined) note.velocity = d.velocity;
       if (!Number.isInteger(d.spelled.alter)) warnings.add('microtone-rounded', d.measureIndex);
       if (!isOnPiano(midi)) warnings.add('out-of-piano-range', d.measureIndex);
@@ -404,7 +500,7 @@ export function parseMusicXml(xmlText: string): SourceScore {
 
   const measures = buildMeasures(results, columns, tpq, warnings);
   const staves = new Map(layout.map((p, i) => [p.id, results[i].staves]));
-  const notes = buildNotes(results, measures, warnings, (id) => staves.get(id) ?? 1, meta.software);
+  const notes = buildNotes(results, measures, tpq, warnings, (id) => staves.get(id) ?? 1, meta.software);
   const tempos = buildTempos(results, measures);
   const display = measureDisplayNumbers(measures);
 

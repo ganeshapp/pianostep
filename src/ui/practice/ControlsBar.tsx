@@ -1,10 +1,8 @@
-import { useId, useRef, type ReactNode } from 'react';
+import { useId, useRef } from 'react';
 import type { HandSelection, MeasureOccurrence, PracticeMode, PracticeSettings } from '../../core/types';
-import type { SessionStatus } from '../../engine/session';
 import { useFocusHandoff } from '../common/focusHandoff';
 import { isKeyboardClick, keepFocusOffFromLabel, keepFocusOnMouse, releaseAfterDrag, usePointerRelease } from '../common/pointerFocus';
 import { ConnectPiano } from './ConnectPiano';
-import { IconNext, IconPause, IconPlay, IconPrev, IconRestart, IconStop } from './Icons';
 import type { MidiConnection } from './midiConnection';
 import { MoreMenu } from './MoreMenu';
 import { Segmented, type SegmentOption } from './Segmented';
@@ -19,22 +17,14 @@ import {
   STEP_SECONDS_SLIDER,
 } from './settings';
 
-/** The session methods the controls call. */
+/** The session method the settings call. */
 export interface SessionControls {
   updateSettings(patch: Partial<PracticeSettings>): void;
-  togglePlay(): void;
-  restart(): void;
-  next(): void;
-  prev(): void;
-  stop(): void;
 }
 
 export interface ControlsBarProps {
   session: SessionControls;
   settings: PracticeSettings;
-  status: SessionStatus;
-  stepIndex: number;
-  stepCount: number;
   canFollow: boolean;
   measures: readonly MeasureOccurrence[];
   midi: MidiConnection;
@@ -53,41 +43,6 @@ const HANDS: readonly SegmentOption<HandSelection>[] = [
   { value: 'R', label: 'Right hand' },
   { value: 'L', label: 'Left hand' },
 ];
-
-function TransportButton({
-  label,
-  onClick,
-  disabled = false,
-  primary,
-  children,
-}: {
-  label: string;
-  onClick: () => void;
-  disabled?: boolean;
-  primary?: boolean;
-  children: ReactNode;
-}) {
-  const ref = useRef<HTMLButtonElement>(null);
-  // Next at the last step, Previous at the first, Stop once stopped: keyboard
-  // focus goes to Play (never disabled) instead of the page body.
-  useFocusHandoff(ref, disabled, () =>
-    ref.current?.closest('.ps-transport')?.querySelector<HTMLButtonElement>('.ps-transport__btn--primary'),
-  );
-  return (
-    <button
-      ref={ref}
-      type="button"
-      className={`ps-transport__btn${primary ? ' ps-transport__btn--primary' : ''}`}
-      aria-label={label}
-      title={label}
-      disabled={disabled}
-      onMouseDown={keepFocusOnMouse}
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  );
-}
 
 function Switch({
   label,
@@ -119,12 +74,14 @@ function Switch({
   );
 }
 
+/**
+ * The practice settings: mode, hands, speed or step length, passage, Repeat,
+ * Sound, Count-in, Connect piano and More. Playback (the transport) is in
+ * the transport bar under the notes.
+ */
 export function ControlsBar({
   session,
   settings,
-  status,
-  stepIndex,
-  stepCount,
   canFollow,
   measures,
   midi,
@@ -135,7 +92,6 @@ export function ControlsBar({
   const id = useId();
   const fromPointer = usePointerRelease();
   const toPointer = usePointerRelease();
-  const running = status === 'playing' || status === 'count-in' || status === 'waiting';
   const follow = settings.mode === 'follow';
   const occCount = measures.length;
   const last = Math.max(0, occCount - 1);
@@ -154,7 +110,6 @@ export function ControlsBar({
     },
   ];
 
-  const playLabel = running ? 'Pause' : follow ? 'Start Follow me' : 'Play';
   const update = (patch: Partial<PracticeSettings>): void => session.updateSettings(patch);
   // A timing change re-anchors playback, so a drag commits once it rests or ends, not on every input event.
   const speed = useSettledSlider(settings.speed, (v) => session.updateSettings({ speed: v }));
@@ -167,32 +122,10 @@ export function ControlsBar({
   const midiReady = midi.phase === 'connected' || midi.phase === 'choose' || midi.phase === 'disconnected' || midi.phase === 'no-devices';
 
   return (
-    <div className="ps-controls" role="region" aria-label="Practice controls">
+    <div className="ps-controls">
       <div className="ps-controls__row">
         <Segmented label="Mode" hideLabel value={settings.mode} options={modes} onChange={(mode) => update({ mode })} />
         <Segmented label="Hands" hideLabel value={settings.hands} options={HANDS} onChange={(hands) => update({ hands })} />
-
-        <div className="ps-transport" role="group" aria-label="Playback">
-          <TransportButton label="Restart" onClick={() => session.restart()} disabled={stepCount === 0}>
-            <IconRestart />
-          </TransportButton>
-          <TransportButton label="Previous step" onClick={() => session.prev()} disabled={stepCount === 0 || stepIndex <= 0}>
-            <IconPrev />
-          </TransportButton>
-          <TransportButton label={playLabel} onClick={() => session.togglePlay()} primary>
-            {running ? <IconPause /> : <IconPlay />}
-          </TransportButton>
-          <TransportButton
-            label="Next step"
-            onClick={() => session.next()}
-            disabled={stepCount === 0 || stepIndex >= stepCount - 1}
-          >
-            <IconNext />
-          </TransportButton>
-          <TransportButton label="Stop" onClick={() => session.stop()} disabled={status === 'stopped' && stepIndex === 0}>
-            <IconStop />
-          </TransportButton>
-        </div>
 
         <div className="ps-controls__end">
           <ConnectPiano conn={midi} />

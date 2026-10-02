@@ -41,11 +41,17 @@ export interface SessionSnapshot {
   /**
    * MIDI is ready and the selected input is a piano remembered from an
    * earlier visit that has not turned up this session (`midi.inputSeen`
-   * false): the status line says "MIDI: no piano found", never "disconnected".
+   * false): the transport bar says "MIDI: no piano found", never "disconnected".
    */
   midiInputNotFound: boolean;
   /** Plain-language transient message (e.g. "Piano disconnected — playback paused"). */
   message: string | null;
+}
+
+/** Listen / Steady: the marker's place in the passage and the passage length, in seconds. */
+export interface PassageTime {
+  elapsed: number;
+  total: number;
 }
 
 export interface SamplerLike {
@@ -54,12 +60,14 @@ export interface SamplerLike {
   ensureStarted(): Promise<void>;
   onStateChange(fn: (s: AudioState) => void): () => void;
   /**
-   * `owner` (default 'app') keeps the learner's monitored notes ('input')
-   * and the app's playback apart: a strike or release by one never ends the
-   * other's voice on the same key. allNotesOff silences both.
+   * `owner` (default 'app') keeps the learner's monitored notes ('input'),
+   * keys clicked on the on-screen keyboard ('audition', played by the UI,
+   * never by the session) and the app's playback apart: a strike or release
+   * by one never ends another's voice on the same key. allNotesOff silences
+   * them all.
    */
-  noteOn(midi: number, velocity?: number, when?: number, owner?: 'app' | 'input'): void;
-  noteOff(midi: number, when?: number, owner?: 'app' | 'input'): void;
+  noteOn(midi: number, velocity?: number, when?: number, owner?: 'app' | 'input' | 'audition'): void;
+  noteOff(midi: number, when?: number, owner?: 'app' | 'input' | 'audition'): void;
   allNotesOff(fadeSec?: number): void;
   click(when: number, accent?: boolean): void;
 }
@@ -106,6 +114,14 @@ export class PracticeSession {
   getSnapshot(): SessionSnapshot;
   /** Fractional step index for smooth scrolling; read every animation frame. */
   getVisualPosition(): number;
+  /**
+   * Listen / Steady: elapsed and total passage time in seconds at the
+   * current speed or step length (the transport's "0:07 / 4:22"). Moves with
+   * the clock while playing (read every animation frame), stays at the start
+   * point during a count-in, is the passage length once finished, and is the
+   * marker step's time otherwise. Follow me: null.
+   */
+  getPassageTime(): PassageTime | null;
   updateSettings(patch: Partial<PracticeSettings>): void;
   /** Call from a user gesture. Starts audio when needed, then plays (Listen/Steady) or waits for input (Follow). */
   play(): Promise<void>;
@@ -278,7 +294,7 @@ export class PracticeSession {
 
 ```ts
 // prefs.ts  (localStorage; keys prefixed "pianosteps:v1:"; tolerate corrupt JSON)
-export interface GlobalPrefs { lastPieceId: string | null; midiInputName: string | null; midiOutputName: string | null; fitWholePiece: boolean }
+export interface GlobalPrefs { lastPieceId: string | null; midiInputName: string | null; midiOutputName: string | null; fitWholePiece: boolean; setupCollapsed: boolean /* practice settings folded into their summary line; default false */ }
 export function loadGlobalPrefs(): GlobalPrefs;
 export function saveGlobalPrefs(patch: Partial<GlobalPrefs>): void;
 export interface PieceState { settings: PracticeSettings; stepTick: number | null }
@@ -336,6 +352,14 @@ needs to scrape or parse the whole library at runtime.
 
 `CatalogEntry.stats.tempoDefaulted` is `true` (and present only then) when the
 file gives no tempo, so library cards label the length "at default speed".
+A file whose first tempo mark comes after the opening (Prelude No. 2: the
+Presto at measure 28) does give a tempo, so `TempoMap.defaulted` and
+`tempoDefaulted` stay `false`; its opening plays at the app's default (120)
+and its length counts the opening at that speed. Such a score carries the
+info warning `opening-tempo-defaulted`, whose message names the measure of
+the first mark; a UI that describes the tempo source can look for that code
+("About this arrangement" does: its Speed and Length rows say the opening
+plays at the app's default until the first marked measure).
 `CatalogEntry.notes` are shown in "About this arrangement" under "About this
 version".
 
@@ -344,12 +368,27 @@ version".
 - **library-ui** owns:
   - `src/main.tsx`, `src/App.tsx`, and the router (`src/ui/router.ts`).
   - `src/ui/theme.css` and `src/ui/library/*`.
-  - `src/ui/common/*`: Dialog, Popover, Badge, and a DifficultyBadge that
-    exports `DifficultyBadge({ info }: { info: DifficultyInfo })`.
+  - `src/ui/common/*`: Dialog, Popover, Badge, a DifficultyBadge that
+    exports `DifficultyBadge({ info }: { info: DifficultyInfo })`, and the
+    logo, `Logo.tsx`: `LogoMark({ size?, className? })` (decorative SVG,
+    `aria-hidden`) and `Wordmark({ className? })` (reads as "Piano Steps").
+    The favicon in `index.html` draws the same shapes
+    (`LOGO_WHITE_KEYS`, `LOGO_BLACK_KEYS`, `LOGO_INK`, `LOGO_PAPER`).
   - `src/ui/about/AboutDialog.tsx`.
   - `src/storage/*` and `src/catalog/loader.ts`.
 - **practice-ui** owns `src/ui/practice/*`, `src/ui/notation/*`,
   `src/ui/keyboard/*` and `src/ui/help/HelpDialog.tsx`.
+  - The practice page is `PracticePage` → a `SetupPanel` (folding settings,
+    holding `ControlsBar`), the notes card (`NotationLegend`, the starting
+    setup, `Timeline`), `TransportBar` and `Keyboard`.
+  - `Timeline` takes `layoutSequence` (the passage with both hands, so the
+    rows keep their height whichever hand is practised), `browsable` (not
+    during Listen / Steady playback: the notes can be panned) and
+    `recenterKey` (a change returns the view to the marker).
+  - `Keyboard` is framed and labelled from the both-hands passage and takes
+    an optional `audition` (`KeyAudition` in `src/ui/keyboard/audition.ts`)
+    for click-to-hear, which talks to `services.sampler` directly and never
+    to the session or MIDI.
   - It exports `PracticePage({ pieceId }: { pieceId: string })` from
     `src/ui/practice/PracticePage.tsx`.
   - It exports `HelpDialog({ open, onClose }: { open: boolean; onClose: () => void })`.

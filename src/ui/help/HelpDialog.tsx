@@ -56,7 +56,8 @@ export function HelpDialog({ open, onClose }: HelpDialogProps) {
           The <span className="help-hand help-hand--R">R</span> row is your right hand and the{' '}
           <span className="help-hand help-hand--L">L</span> row is your left hand. Read from left to right. Everything
           in one column happens at the same moment, and notes stacked in one cell are pressed together. Each
-          instruction only affects its own hand.
+          instruction only affects its own hand. When you practise one hand, the other hand’s row stays in place but
+          empty.
         </p>
         <p>
           Keys are named by letter and octave: <span className="help-mono">C4</span> is middle C, the octave number
@@ -89,7 +90,8 @@ export function HelpDialog({ open, onClose }: HelpDialogProps) {
           <span className="help-inline-token">
             <Token hand="R" token={t(55, 'G3', 'press', { carried: true })} />
           </span>
-          , is already held when the chosen passage starts — press it to get ready.
+          , is already held when the chosen passage starts — press it to get ready. The “Starting setup” line above
+          the notes lists these keys.
         </p>
       </section>
 
@@ -125,10 +127,11 @@ export function HelpDialog({ open, onClose }: HelpDialogProps) {
         <h3 id="help-keyboard">The keyboard</h3>
         <p>
           Keys light up <strong className="help-rh">purple</strong> for the right hand and{' '}
-          <strong className="help-lh">green</strong> for the left hand, with a small R or L on the key. A strong colour
-          means press it now; a light colour means keep holding it. A key both hands hold is split in two. Every key the
-          passage uses has its name on it, and middle C is marked.
+          <strong className="help-lh">green</strong> for the left hand. A strong colour means press it now; a light
+          colour means keep holding it. A key both hands hold is split in two. Every key the passage uses has its name
+          on it, and middle C is marked.
         </p>
+        <p>Click a key on the keyboard to hear it.</p>
         <p>
           With a piano connected, a dark dot shows each key you are holding. In Follow me, a key you should not be
           pressing gets an amber dashed outline and a ✕. The pedal is shown separately and never counts as holding a
@@ -161,6 +164,11 @@ export function HelpDialog({ open, onClose }: HelpDialogProps) {
         <p>
           In any mode you can step through by hand with the arrow buttons, or click a column to jump to it. Click a
           measure number above the instructions to start or end your passage there, and turn on Repeat to loop it.
+        </p>
+        <p>
+          While the music is not playing, you can look ahead or back without moving your place: swipe sideways on a
+          trackpad, scroll with Shift held, drag the notes, or drag the bar under them. “Back to current step” brings
+          you back. Your settings fold into one line while you practise; “Adjust settings” opens them again.
         </p>
       </section>
 

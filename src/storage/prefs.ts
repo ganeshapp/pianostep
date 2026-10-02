@@ -20,6 +20,8 @@ export interface GlobalPrefs {
   midiInputName: string | null;
   midiOutputName: string | null;
   fitWholePiece: boolean;
+  /** The practice page's settings area is folded into its one-line summary. */
+  setupCollapsed: boolean;
 }
 
 export const DEFAULT_GLOBAL_PREFS: Readonly<GlobalPrefs> = Object.freeze({
@@ -27,6 +29,7 @@ export const DEFAULT_GLOBAL_PREFS: Readonly<GlobalPrefs> = Object.freeze({
   midiInputName: null,
   midiOutputName: null,
   fitWholePiece: false,
+  setupCollapsed: false,
 });
 
 export interface PieceState {
@@ -171,6 +174,7 @@ function sanitizeGlobalPrefs(raw: unknown): GlobalPrefs {
     midiInputName: stringOrNull(raw.midiInputName, d.midiInputName),
     midiOutputName: stringOrNull(raw.midiOutputName, d.midiOutputName),
     fitWholePiece: bool(raw.fitWholePiece, d.fitWholePiece),
+    setupCollapsed: bool(raw.setupCollapsed, d.setupCollapsed),
   };
 }
 

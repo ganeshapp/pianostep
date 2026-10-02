@@ -3,12 +3,13 @@ import { SAMPLE_MIDIS, sampleFileName, sampleForMidi } from './sampleMap';
 export type AudioState = 'not-started' | 'loading' | 'ready' | 'error';
 
 /**
- * Who started a voice: the app's own playback (Listen, Steady, previews) or
- * the learner's monitored MIDI input ("Hear my playing"). They are two
- * players: a strike or a release by one never ends the other's voice on the
+ * Who started a voice: the app's own playback (Listen, Steady, previews),
+ * the learner's monitored MIDI input ("Hear my playing"), or a key clicked
+ * on the on-screen keyboard to hear it ('audition'). They are separate
+ * players: a strike or a release by one never ends another's voice on the
  * same key.
  */
-export type VoiceOwner = 'app' | 'input';
+export type VoiceOwner = 'app' | 'input' | 'audition';
 
 export interface PianoSamplerOptions {
   /** Folder holding the sample files; defaults to `<BASE_URL>audio/piano/`. */

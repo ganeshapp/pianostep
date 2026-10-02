@@ -5,7 +5,18 @@ const TOKEN_HEIGHT = 28;
 const ROW_PADDING = 12;
 const MIN_ROW_HEIGHT = 50;
 
-/** Each row is tall enough for the biggest stack that hand ever shows in this sequence. */
+/**
+ * The timeline always shows both rows, R above L, whichever hands are being
+ * practised: the other hand's row stays in place, blank, so switching hands
+ * never moves anything.
+ */
+export const ROW_HANDS: readonly Hand[] = ['R', 'L'];
+
+/**
+ * Each row is tall enough for the biggest stack that hand ever shows in this
+ * sequence. A hand the sequence leaves out gets the minimum height. Pass the
+ * passage's both-hands sequence to size the rows for either hand selection.
+ */
 export function rowHeights(sequence: {
   hands: readonly Hand[];
   steps: readonly Pick<ActionStep, 'cells'>[];

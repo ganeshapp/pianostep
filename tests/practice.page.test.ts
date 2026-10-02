@@ -177,7 +177,9 @@ describe('PracticePage', () => {
     expect(text()).toMatch(/Step 1 of/);
     act(() => button('Next step').click());
     act(() => radio('Right hand').click());
+    // The left row stays, blank and marked as not practised.
     expect(container.querySelector('[aria-label="Left hand"]')).toBeNull();
+    expect(container.querySelector('[aria-label="Left hand (not practising)"]')).not.toBeNull();
 
     act(() => root.unmount());
     const saved = JSON.parse(localStorage.getItem('pianosteps:v1:piece:minuet') ?? 'null');

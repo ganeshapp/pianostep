@@ -1,24 +1,47 @@
-import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from 'react';
+import {
+  Fragment,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+  type ReactNode,
+} from 'react';
 import { midi, sampler } from '../../app/services';
 import { isAbortError, loadPiece, type LoadedPiece } from '../../catalog/loader';
-import type { PracticeSettings, PreparedScore } from '../../core/types';
+import { deriveSteps } from '../../core/actions/derive';
+import type { Hand, PracticeSettings, PreparedScore, StepSequence } from '../../core/types';
 import { PracticeSession } from '../../engine/session';
 import { loadGlobalPrefs, loadPieceState, saveGlobalPrefs, savePieceState } from '../../storage/prefs';
 import { Badge } from '../common/Badge';
+import { LogoMark } from '../common/Logo';
 import { keepFocusOnMouse } from '../common/pointerFocus';
 import { DifficultyBadge, DifficultyInfoButton } from '../common/DifficultyBadge';
 import { ReadinessChip } from '../common/ReadinessChip';
 import { HelpDialog } from '../help/HelpDialog';
+import { KeyAudition } from '../keyboard/audition';
 import { Keyboard } from '../keyboard/Keyboard';
+import { NotationLegend } from '../notation/Legend';
 import { Timeline } from '../notation/Timeline';
 import { ControlsBar } from './ControlsBar';
 import { MidiNotice } from './ConnectPiano';
 import { DiagnosticsDialog } from './DiagnosticsDialog';
 import { useMidiConnection } from './midiConnection';
+import { playWillStart, revealScroll } from './practiceFocus';
 import { passageEndingAt, passageStartingAt, restoreSettings, stepIndexForTick } from './settings';
+import { SetupPanel } from './SetupPanel';
 import { usePracticeShortcuts } from './shortcuts';
-import { ModeNote, StatusLine } from './StatusLine';
-import { nothingToPlayText } from './text';
+import {
+  NOT_PRACTISING,
+  nothingToPlayText,
+  setupSummary,
+  startingSetup,
+  startingSetupHandText,
+  STARTING_SETUP_NOTE,
+} from './text';
+import { TransportBar, type TransportActions } from './TransportBar';
 import './practice.css';
 
 const SAVE_DELAY_MS = 600;
@@ -36,6 +59,83 @@ function errorText(err: unknown): string {
 /** Every key the piece uses, so "Whole piece" framing never moves while practising. */
 function wholePieceKeys(prepared: Pick<PreparedScore, 'presses'>): number[] {
   return [...new Set(prepared.presses.map((p) => p.midi))].sort((a, b) => a - b);
+}
+
+/**
+ * The passage with both hands, whichever hands are being practised. The
+ * keyboard is framed and labelled from it, and the timeline's rows are sized
+ * from it, so choosing a hand changes only what is shown in them, never the
+ * layout.
+ */
+function useBothHandsSequence(
+  prepared: PreparedScore,
+  sequence: StepSequence,
+  range: PracticeSettings['range'],
+): StepSequence {
+  return useMemo(
+    () => (sequence.hands.length >= 2 ? sequence : deriveSteps(prepared, ['R', 'L'], range)),
+    [prepared, sequence, range],
+  );
+}
+
+/**
+ * Whether the practice settings are open. Remembered across pieces and
+ * visits; they fold away by themselves when playback or Follow me starts.
+ * Connecting a piano that needs a choice from the list, or a keyboard-used
+ * piano notice whose focus must land on the piano control, opens them.
+ */
+function useSetupOpen(): [boolean, (open: boolean) => void] {
+  const [open, setOpen] = useState(() => !loadGlobalPrefs().setupCollapsed);
+  const current = useRef(open);
+  const change = useCallback((next: boolean) => {
+    if (current.current === next) return;
+    current.current = next;
+    setOpen(next);
+    saveGlobalPrefs({ setupCollapsed: !next });
+  }, []);
+  return [open, change];
+}
+
+/**
+ * The starting setup line above the notes, when the passage begins with keys
+ * already held. It is read from the passage with both hands (`bothHands`), so
+ * it never comes and goes, or rewraps, as hands are switched: a hand that is
+ * not being practised keeps its place and words, only muted (and read out as
+ * "not practising"), like its empty row in the notes.
+ */
+function StartingSetup({ bothHands, practising }: { bothHands: StepSequence; practising: readonly Hand[] }) {
+  const setup = startingSetup(bothHands);
+  if (setup.length === 0) return null;
+  const anyPractised = setup.some((s) => practising.includes(s.hand));
+  return (
+    <p className={`ps-start-setup${anyPractised ? '' : ' is-off'}`} role="note">
+      <strong className="ps-start-setup__label">Starting setup</strong>
+      {' — '}
+      <span className="ps-start-setup__keys">
+        {setup.map((entry, i) => {
+          const on = practising.includes(entry.hand);
+          const text = startingSetupHandText(entry);
+          const at = text.indexOf(':');
+          return (
+            <Fragment key={entry.hand}>
+              {i > 0 && ' · '}
+              <span
+                className={`ps-start-setup__hand${on ? '' : ' is-off'}`}
+                data-hand={entry.hand}
+                title={on ? undefined : 'Not practising this hand'}
+              >
+                {text.slice(0, at)}
+                {!on && <span className="visually-hidden">{NOT_PRACTISING}</span>}
+                {text.slice(at)}
+              </span>
+            </Fragment>
+          );
+        })}
+      </span>
+      .{' '}
+      <span className="ps-start-setup__note">{STARTING_SETUP_NOTE}</span>
+    </p>
+  );
 }
 
 /**
@@ -82,14 +182,22 @@ function usePieceStateSaver(
   }, [flush]);
 }
 
+/** The small mark and "Library": the way back from every practice screen. */
+function BackToLibrary() {
+  return (
+    <a className="ps-back" href="#/" title="Back to the library">
+      <LogoMark size={28} className="ps-back__mark" />
+      <span className="ps-back__text">Library</span>
+    </a>
+  );
+}
+
 function PageHeader({ piece, onHelp }: { piece: LoadedPiece; onHelp: () => void }) {
   const { prepared, entry } = piece;
   const sub = [piece.arrangement, piece.composer].filter((s): s is string => Boolean(s && s.trim()));
   return (
     <header className="ps-header">
-      <a className="ps-back" href="#/">
-        <span aria-hidden="true">←</span> Library
-      </a>
+      <BackToLibrary />
       <div className="ps-header__titles">
         <h1 className="ps-title">{piece.title}</h1>
         {sub.length > 0 && <p className="ps-subtitle">{sub.join(' · ')}</p>}
@@ -163,6 +271,20 @@ function PracticeView({ pieceId, piece, session, wantsFollow }: PracticeViewProp
   const [aboutOpen, setAboutOpen] = useState(false);
   const [fitWholePiece, setFitWholePiece] = useState(() => loadGlobalPrefs().fitWholePiece);
   const [savedInputName] = useState(() => loadGlobalPrefs().midiInputName);
+  const [setupOpen, setSetupOpen] = useSetupOpen();
+  /** Bumped by every transport action, which brings the notes back to the marker. */
+  const [recenterKey, setRecenterKey] = useState(0);
+  /** Bumped when practice starts: the practice area is scrolled into view once the settings have folded. */
+  const [revealKey, setRevealKey] = useState(0);
+  const practiceRef = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    const area = practiceRef.current;
+    if (revealKey === 0 || !area) return;
+    const by = revealScroll(area.getBoundingClientRect(), window.innerHeight);
+    if (by <= 0) return;
+    const still = typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollBy({ top: by, behavior: still ? 'auto' : 'smooth' });
+  }, [revealKey]);
 
   const pendingFollow = usePendingFollow(
     session,
@@ -182,18 +304,63 @@ function PracticeView({ pieceId, piece, session, wantsFollow }: PracticeViewProp
     },
   });
 
+  // The piano list (several devices) and the piano control that keyboard focus
+  // returns to after Connect / Try again / Dismiss live in the settings.
+  useEffect(() => {
+    if (conn.phase === 'choose' || conn.focusFrom) setSetupOpen(true);
+  }, [conn.phase, conn.focusFrom, setSetupOpen]);
+
+  const actions = useMemo<TransportActions>(() => {
+    const recenter = (): void => setRecenterKey((k) => k + 1);
+    return {
+      togglePlay: () => {
+        // Starting playback or Follow me folds the settings away and brings
+        // the notes and keyboard into view. When Play cannot start (nothing
+        // to play, or Follow me without a piano) the settings stay open: the
+        // message points at them.
+        if (playWillStart(session.getSnapshot())) {
+          setSetupOpen(false);
+          setRevealKey((k) => k + 1);
+        }
+        recenter();
+        session.togglePlay();
+      },
+      restart: () => {
+        recenter();
+        session.restart();
+      },
+      prev: () => {
+        recenter();
+        session.prev();
+      },
+      next: () => {
+        recenter();
+        session.next();
+      },
+      stop: () => {
+        recenter();
+        session.stop();
+      },
+    };
+  }, [session, setSetupOpen]);
+
   usePracticeShortcuts(
     {
-      toggle: () => session.togglePlay(),
-      prev: () => session.prev(),
-      next: () => session.next(),
-      restart: () => session.restart(),
+      toggle: actions.togglePlay,
+      prev: actions.prev,
+      next: actions.next,
+      restart: actions.restart,
     },
     !helpOpen && !aboutOpen,
   );
 
   const wholeKeys = useMemo(() => wholePieceKeys(prepared), [prepared]);
+  const bothHands = useBothHandsSequence(prepared, sequence, settings.range);
+  const audition = useMemo(() => new KeyAudition(sampler), []);
+  useEffect(() => () => audition.releaseAll(), [audition]);
+
   const getPosition = useCallback(() => session.getVisualPosition(), [session]);
+  const getPassageTime = useCallback(() => session.getPassageTime(), [session]);
   const onSeek = useCallback((i: number) => session.seek(i), [session]);
   const onPassageStart = useCallback(
     (occ: number) =>
@@ -216,40 +383,56 @@ function PracticeView({ pieceId, piece, session, wantsFollow }: PracticeViewProp
     saveGlobalPrefs({ fitWholePiece: whole });
   };
 
+  const playing = snapshot.status === 'playing' || snapshot.status === 'count-in';
+
   return (
     <main className="ps-page">
       <PageHeader piece={piece} onHelp={() => setHelpOpen(true)} />
 
-      <ControlsBar
-        session={session}
-        settings={settings}
-        status={snapshot.status}
-        stepIndex={snapshot.stepIndex}
-        stepCount={snapshot.stepCount}
-        canFollow={snapshot.midiInputConnected}
-        measures={prepared.measures}
-        midi={conn}
-        onOutputChange={onOutputChange}
-        onOpenAbout={() => setAboutOpen(true)}
-        defaultTempoQpm={prepared.tempo.defaulted ? (prepared.tempo.points[0]?.qpm ?? 120) : null}
-      />
+      <SetupPanel
+        expanded={setupOpen}
+        onExpandedChange={setSetupOpen}
+        summary={setupSummary(settings, prepared.measures)}
+      >
+        <ControlsBar
+          session={session}
+          settings={settings}
+          canFollow={snapshot.midiInputConnected}
+          measures={prepared.measures}
+          midi={conn}
+          onOutputChange={onOutputChange}
+          onOpenAbout={() => setAboutOpen(true)}
+          defaultTempoQpm={prepared.tempo.defaulted ? (prepared.tempo.points[0]?.qpm ?? 120) : null}
+        />
+      </SetupPanel>
       <MidiNotice conn={conn} />
 
-      <div className="ps-main">
-        <ModeNote mode={settings.mode} />
-        <Timeline
-          sequence={sequence}
-          measures={prepared.measures}
-          stepIndex={snapshot.stepIndex}
-          getPosition={getPosition}
-          onSeek={onSeek}
-          onPassageStart={onPassageStart}
-          onPassageEnd={onPassageEnd}
-          emptyMessage={nothingToPlayText(settings)}
-        />
+      <div ref={practiceRef} className="ps-practice">
+        <section className="ps-notes" aria-label="Notes">
+          <div className="ps-notes__head">
+            <NotationLegend />
+          </div>
+          <StartingSetup bothHands={bothHands} practising={sequence.hands} />
+          <Timeline
+            sequence={sequence}
+            layoutSequence={bothHands}
+            measures={prepared.measures}
+            stepIndex={snapshot.stepIndex}
+            getPosition={getPosition}
+            onSeek={onSeek}
+            onPassageStart={onPassageStart}
+            onPassageEnd={onPassageEnd}
+            emptyMessage={nothingToPlayText(settings)}
+            browsable={!playing}
+            recenterKey={recenterKey}
+          />
+        </section>
+
+        <TransportBar snapshot={snapshot} actions={actions} getPassageTime={getPassageTime} />
+
         <Keyboard
-          frameKeys={fitWholePiece ? wholeKeys : sequence.usedKeys}
-          labelKeys={sequence.usedKeys}
+          frameKeys={fitWholePiece ? wholeKeys : bothHands.usedKeys}
+          labelKeys={bothHands.usedKeys}
           expected={snapshot.expected}
           struck={snapshot.struck}
           physicalDown={snapshot.physicalDown}
@@ -260,10 +443,9 @@ function PracticeView({ pieceId, piece, session, wantsFollow }: PracticeViewProp
           showWrong={settings.mode === 'follow'}
           fitWholePiece={fitWholePiece}
           onFitChange={onFitChange}
+          audition={audition}
         />
       </div>
-
-      <StatusLine snapshot={snapshot} />
 
       <HelpDialog open={helpOpen} onClose={() => setHelpOpen(false)} />
       <DiagnosticsDialog open={aboutOpen} onClose={() => setAboutOpen(false)} piece={piece} />
@@ -297,9 +479,7 @@ function SessionHost({ pieceId, piece }: { pieceId: string; piece: LoadedPiece }
 function PageMessage({ title, children }: { title: string; children?: ReactNode }) {
   return (
     <main className="ps-page ps-page--message">
-      <a className="ps-back" href="#/">
-        <span aria-hidden="true">←</span> Library
-      </a>
+      <BackToLibrary />
       <div className="ps-message" role="status">
         <p className="ps-message__title">{title}</p>
         {children}

@@ -58,6 +58,12 @@ export interface SessionSnapshot {
   message: string | null;
 }
 
+/** Listen / Steady: the marker's place in the passage and the passage length, in seconds. */
+export interface PassageTime {
+  elapsed: number;
+  total: number;
+}
+
 export interface SamplerLike {
   readonly state: AudioState;
   readonly currentTime: number;
@@ -415,6 +421,7 @@ export class PracticeSession {
     this.subscribe = this.subscribe.bind(this);
     this.getSnapshot = this.getSnapshot.bind(this);
     this.getVisualPosition = this.getVisualPosition.bind(this);
+    this.getPassageTime = this.getPassageTime.bind(this);
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
     this.stop = this.stop.bind(this);
@@ -457,6 +464,25 @@ export class PracticeSession {
     const run = this.livePass(this.run);
     const rel = this.clockNow(run.clock) - run.anchor;
     return positionAt(run.times, Math.min(run.duration, Math.max(run.startRel, rel)));
+  }
+
+  /**
+   * Listen / Steady: how far into the passage the marker is, and how long the
+   * passage lasts, in seconds at the current speed or step length (the times
+   * playback itself uses). While playing it moves with the clock, so it is
+   * read every animation frame like getVisualPosition(); during a count-in
+   * it stays at the starting point. Follow me has no clock: null.
+   */
+  getPassageTime(): PassageTime | null {
+    if (this.disposed || this.inFollow()) return null;
+    if (this.run && (this.status === 'playing' || this.status === 'count-in')) {
+      const run = this.livePass(this.run);
+      const rel = this.clockNow(run.clock) - run.anchor;
+      return { elapsed: Math.min(run.duration, Math.max(run.startRel, rel)), total: run.duration };
+    }
+    const tl = this.timeline();
+    const at = this.status === 'finished' ? tl.duration : this.startRelFor(this.displayIndex());
+    return { elapsed: Math.min(tl.duration, Math.max(0, at)), total: tl.duration };
   }
 
   updateSettings(patch: Partial<PracticeSettings>): void {
@@ -1373,7 +1399,7 @@ export class PracticeSession {
   }
 
   /**
-   * Name of the selected input for the status line. None while a remembered
+   * Name of the selected input for the transport bar. None while a remembered
    * piano has not turned up this session: it was not found, so it is not
    * reported as "<name> disconnected" (and the manager may only know it as
    * an unnamed placeholder). Re-read on every MIDI change.

@@ -1,5 +1,17 @@
-import { useId, useMemo, useRef, type ReactNode } from 'react';
-import { MIDDLE_C, midiToLabel } from '../../core/pitch';
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+  type FocusEvent as ReactFocusEvent,
+  type KeyboardEvent as ReactKeyboardEvent,
+  type MouseEvent as ReactMouseEvent,
+  type PointerEvent as ReactPointerEvent,
+  type ReactNode,
+} from 'react';
+import { MIDDLE_C, midiToLabel, midiToSpoken } from '../../core/pitch';
 import type { Hand } from '../../core/types';
 import { usePointerRelease } from '../common/pointerFocus';
 import { describeHighlights, keyHighlights, type HandKeys, type KeyHighlight } from './highlight';
@@ -7,11 +19,18 @@ import { computeKeyboardRange, framingKey, keyLayout, whiteKeyCount, type KeyRec
 import { useElementWidth } from './useElementWidth';
 import './keyboard.css';
 
-const WHITE_HEIGHT = 180;
+/** Tall enough to read the labels, short enough that notes, transport and keyboard fit a laptop screen. */
+export const WHITE_HEIGHT = 160;
 const BLACK_RATIO = 0.62;
 /** Very wide white keys look odd; small ranges are centred instead. */
 const MAX_WHITE_WIDTH = 64;
 const CAPTION_HEIGHT = 18;
+/**
+ * Side padding of the dark body around the keys (`.kb__body` in keyboard.css).
+ * The keys get the stage's width less this on each side, so the body never
+ * overflows; a small range keeps its body hugging the keys, centred.
+ */
+export const BODY_PAD_X = 12;
 /** Half the "keep holding" outline's width (keyboard.css) plus a hair, so it sits inside the key. */
 const HOLD_INSET = 2;
 
@@ -37,6 +56,18 @@ export interface KeyboardProps {
   showWrong: boolean;
   fitWholePiece: boolean;
   onFitChange: (wholePiece: boolean) => void;
+  /**
+   * Click-to-hear: when given, each key can be pressed with the mouse (or
+   * touch) to hear it, and the keys form one Tab stop whose arrow keys move
+   * between them (Enter or Space plays the focused key).
+   */
+  audition?: KeyAuditionLike;
+}
+
+/** Plays a key while it is held down on screen (see audition.ts). */
+export interface KeyAuditionLike {
+  press(midi: number): void;
+  release(midi: number): void;
 }
 
 function bottomRoundedPath(x: number, y: number, w: number, h: number, r: number): string {
@@ -98,9 +129,13 @@ interface KeyShapeProps {
   physical: boolean;
   wrong: boolean;
   splitIds: Record<string, string>;
+  /** Click-to-hear is on: the key is a button in the keyboard's roving tab order. */
+  interactive: boolean;
+  /** This key is the keyboard's one Tab stop. */
+  tabStop: boolean;
 }
 
-function KeyShape({ rect, label, highlight, physical, wrong, splitIds }: KeyShapeProps) {
+function KeyShape({ rect, label, highlight, physical, wrong, splitIds, interactive, tabStop }: KeyShapeProps) {
   const { x, width, height, black } = rect;
   const w = width;
   const cx = x + w / 2;
@@ -108,7 +143,6 @@ function KeyShape({ rect, label, highlight, physical, wrong, splitIds }: KeyShap
   const holdStroke = holdStrokeFor(highlight, splitIds);
   const lit = fill !== undefined;
   const strong = isStrongOnly(highlight);
-  const letters = highlight ? [highlight.R && 'R', highlight.L && 'L'].filter(Boolean).join(' ') : '';
 
   const textClass = black
     ? lit && !strong
@@ -159,12 +193,17 @@ function KeyShape({ rect, label, highlight, physical, wrong, splitIds }: KeyShap
   }
 
   const dotY = labelTop - 12;
-  const letterY = dotY - 12;
+  const badgeY = dotY - 28;
   const dotR = Math.max(3.5, Math.min(6, w * 0.16));
-  const letterSize = Math.max(9, Math.min(12, w * 0.3));
 
   return (
-    <g className={`kb-key ${black ? 'kb-key--black' : 'kb-key--white'}${lit ? ' is-lit' : ''}`} data-midi={rect.midi}>
+    <g
+      className={`kb-key ${black ? 'kb-key--black' : 'kb-key--white'}${lit ? ' is-lit' : ''}`}
+      data-midi={rect.midi}
+      role={interactive ? 'button' : undefined}
+      tabIndex={interactive ? (tabStop ? 0 : -1) : undefined}
+      aria-label={interactive ? midiToSpoken(rect.midi) : undefined}
+    >
       <path
         className={black ? 'kb-shape kb-shape--black' : 'kb-shape kb-shape--white'}
         d={bottomRoundedPath(x, 0, w, height, black ? 3 : 5)}
@@ -185,25 +224,125 @@ function KeyShape({ rect, label, highlight, physical, wrong, splitIds }: KeyShap
       )}
       {labelNode}
       {physical && <circle className="kb-physical" cx={cx} cy={dotY} r={dotR} />}
-      {letters && (
-        <text
-          className={`${textClass} kb-hand-letter${haloed}`}
-          x={cx}
-          y={letterY}
-          fontSize={letterSize}
-          textAnchor="middle"
-        >
-          {letters}
-        </text>
-      )}
       {wrong && (
-        <g className="kb-wrong-badge" transform={`translate(${cx} ${letterY - 16})`}>
+        <g className="kb-wrong-badge" transform={`translate(${cx} ${badgeY})`}>
           <circle r={8} />
           <path d="M-3.2 -3.2 L3.2 3.2 M3.2 -3.2 L-3.2 3.2" />
         </g>
       )}
+      {interactive && (
+        <path
+          className="kb-focus-ring"
+          d={bottomRoundedPath(x + 1.5, 1.5, w - 3, height - 3, black ? 2 : 4)}
+          aria-hidden="true"
+        />
+      )}
     </g>
   );
+}
+
+/** The key a pointer event or a focused key belongs to. */
+function keyOf(target: EventTarget | null): number | null {
+  if (!(target instanceof Element)) return null;
+  const g = target.closest('.kb-key');
+  const midi = Number(g?.getAttribute('data-midi'));
+  return g && Number.isFinite(midi) ? midi : null;
+}
+
+/**
+ * Pointer and keyboard presses of on-screen keys, passed to the audition.
+ * A pointer press never focuses the key (pointer use never leaves focus on
+ * a control, so Space and the arrows stay play/pause and step), and a key
+ * sounds until the pointer is let go or leaves it.
+ */
+function useKeyPlay(audition: KeyAuditionLike | undefined) {
+  const pointers = useRef(new Map<number, number>());
+  const keyboard = useRef<number | null>(null);
+  const ref = useRef(audition);
+  useEffect(() => {
+    ref.current = audition;
+  });
+  // Nothing keeps sounding once the keyboard goes away.
+  useEffect(() => {
+    const held = pointers.current;
+    return () => {
+      for (const midi of held.values()) ref.current?.release(midi);
+      held.clear();
+      if (keyboard.current !== null) ref.current?.release(keyboard.current);
+      keyboard.current = null;
+    };
+  }, []);
+
+  const releasePointer = useCallback((id: number): void => {
+    const midi = pointers.current.get(id);
+    if (midi === undefined) return;
+    pointers.current.delete(id);
+    ref.current?.release(midi);
+  }, []);
+
+  return useMemo(
+    () => ({
+      pointerDown: (e: ReactPointerEvent<SVGSVGElement>): void => {
+        if (e.button !== 0) return;
+        const midi = keyOf(e.target);
+        if (midi === null) return;
+        releasePointer(e.pointerId);
+        pointers.current.set(e.pointerId, midi);
+        ref.current?.press(midi);
+      },
+      pointerUp: (e: ReactPointerEvent<SVGSVGElement>): void => releasePointer(e.pointerId),
+      /** Leaving the pressed key (onto another key, or off the keyboard) lets it go. */
+      pointerOut: (e: ReactPointerEvent<SVGSVGElement>): void => {
+        const midi = pointers.current.get(e.pointerId);
+        if (midi === undefined) return;
+        if (keyOf(e.relatedTarget) === midi) return;
+        releasePointer(e.pointerId);
+      },
+      mouseDown: (e: ReactMouseEvent<SVGSVGElement>): void => {
+        if (keyOf(e.target) === null) return;
+        e.preventDefault();
+        const active = document.activeElement;
+        if (active instanceof HTMLElement && active.matches('input, select, textarea')) active.blur();
+      },
+      keyDown: (midi: number): void => {
+        if (keyboard.current !== null && keyboard.current !== midi) ref.current?.release(keyboard.current);
+        keyboard.current = midi;
+        ref.current?.press(midi);
+      },
+      keyUp: (midi: number): void => {
+        if (keyboard.current !== midi) return;
+        keyboard.current = null;
+        ref.current?.release(midi);
+      },
+      blur: (e: ReactFocusEvent<SVGSVGElement>): void => {
+        const midi = keyboard.current;
+        if (midi === null || keyOf(e.target) !== midi) return;
+        keyboard.current = null;
+        ref.current?.release(midi);
+      },
+    }),
+    [releasePointer],
+  );
+}
+
+/**
+ * The keyboard's one Tab stop: the key last moved to with the arrows (or
+ * focused), else middle C when shown, else the lowest labelled key, else the
+ * lowest key. A key that framing has removed falls back the same way.
+ */
+function useRovingKey(byMidi: ReadonlyMap<number, KeyRect>, labelKeys: readonly number[], low: number) {
+  const [chosen, setChosen] = useState<number | null>(null);
+  let midi: number;
+  if (chosen !== null && byMidi.has(chosen)) midi = chosen;
+  else if (byMidi.has(MIDDLE_C)) midi = MIDDLE_C;
+  else midi = labelKeys.find((k) => byMidi.has(k)) ?? low;
+  return {
+    midi,
+    set: setChosen,
+    focused: (key: number | null): void => {
+      if (key !== null && key !== chosen) setChosen(key);
+    },
+  };
 }
 
 function LegendSwatch({ className }: { className: string }) {
@@ -228,9 +367,11 @@ export function Keyboard({
   showWrong,
   fitWholePiece,
   onFitChange,
+  audition,
 }: KeyboardProps) {
   const uid = `kb${useId().replace(/[^a-zA-Z0-9_-]/g, '')}`;
   const containerRef = useRef<HTMLDivElement>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
   const containerWidth = useElementWidth(containerRef, 1100);
   const fitPointer = usePointerRelease();
 
@@ -240,7 +381,7 @@ export function Keyboard({
   const range = useMemo(() => computeKeyboardRange(frameKeys), [frameSignature]);
 
   const whiteCount = whiteKeyCount(range.low, range.high);
-  const width = Math.max(200, Math.min(containerWidth, whiteCount * MAX_WHITE_WIDTH));
+  const width = Math.max(200, Math.min(containerWidth - 2 * BODY_PAD_X, whiteCount * MAX_WHITE_WIDTH));
   const layout = useMemo(
     () => keyLayout(range, width, { whiteHeight: WHITE_HEIGHT, blackHeightRatio: BLACK_RATIO }),
     [range, width],
@@ -263,6 +404,10 @@ export function Keyboard({
   const highLabel = midiToLabel(range.high);
   const summary = describeHighlights(highlights, midiToLabel);
 
+  const interactive = audition !== undefined;
+  const play = useKeyPlay(audition);
+  const tabKey = useRovingKey(layout.byMidi, labelKeys, layout.low);
+
   const renderKey = (rect: KeyRect) => (
     <KeyShape
       key={rect.midi}
@@ -272,26 +417,63 @@ export function Keyboard({
       physical={physical.has(rect.midi)}
       wrong={wrongSet.has(rect.midi)}
       splitIds={splitIds}
+      interactive={interactive}
+      tabStop={rect.midi === tabKey.midi}
     />
   );
 
+  /** Arrow keys move between the keys (all of them, in pitch order); Enter or Space plays one. */
+  const onKeyDown = (e: ReactKeyboardEvent<SVGSVGElement>): void => {
+    const midi = keyOf(e.target);
+    if (!interactive || midi === null || e.altKey || e.ctrlKey || e.metaKey) return;
+    let to: number | null = null;
+    switch (e.key) {
+      case 'ArrowRight':
+      case 'ArrowUp':
+        to = Math.min(layout.high, midi + 1);
+        break;
+      case 'ArrowLeft':
+      case 'ArrowDown':
+        to = Math.max(layout.low, midi - 1);
+        break;
+      case 'Home':
+        to = layout.low;
+        break;
+      case 'End':
+        to = layout.high;
+        break;
+      case 'Enter':
+      case ' ':
+      case 'Spacebar':
+        e.preventDefault();
+        if (!e.repeat) play.keyDown(midi);
+        return;
+      default:
+        return;
+    }
+    e.preventDefault();
+    if (to === midi) return;
+    play.keyUp(midi);
+    tabKey.set(to);
+    svgRef.current?.querySelector<SVGGElement>(`.kb-key[data-midi="${to}"]`)?.focus({ preventScroll: true });
+  };
+  const onKeyUp = (e: ReactKeyboardEvent<SVGSVGElement>): void => {
+    const midi = keyOf(e.target);
+    if (midi !== null && (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar')) play.keyUp(midi);
+  };
+
   const legend: ReactNode[] = [];
-  if (hands.includes('R')) {
-    legend.push(
-      <span key="r" className="kb-legend__item">
-        <LegendSwatch className="kb-swatch--rh" />
-        Purple = right hand
-      </span>,
-    );
-  }
-  if (hands.includes('L')) {
-    legend.push(
-      <span key="l" className="kb-legend__item">
-        <LegendSwatch className="kb-swatch--lh" />
-        Green = left hand
-      </span>,
-    );
-  }
+  // Both hands are always listed, so the legend does not change with the hand selection.
+  legend.push(
+    <span key="r" className="kb-legend__item">
+      <LegendSwatch className="kb-swatch--rh" />
+      Purple = right hand
+    </span>,
+    <span key="l" className="kb-legend__item">
+      <LegendSwatch className="kb-swatch--lh" />
+      Green = left hand
+    </span>,
+  );
   legend.push(
     <span key="strong" className="kb-legend__item">
       <LegendSwatch className={hands.includes('R') ? 'kb-swatch--rh' : 'kb-swatch--lh'} />
@@ -365,47 +547,67 @@ export function Keyboard({
       )}
 
       <div ref={containerRef} className="kb__stage">
-        <svg
-          className="kb__svg"
-          width={layout.width}
-          height={svgHeight}
-          viewBox={`0 0 ${layout.width} ${svgHeight}`}
-          role="img"
-          // Named with aria-label, not an SVG <title>: browsers show a <title> as
-          // a hover tooltip over the keys, and this summary changes every step.
-          aria-label={`Keyboard from ${lowLabel} to ${highLabel}. ${summary}.`}
-        >
-          <defs>
-            {(['strong', 'soft'] as const).flatMap((r) =>
-              (['strong', 'soft'] as const).map((l) => (
-                <linearGradient
-                  key={`${r}-${l}`}
-                  id={splitIds[`${r}-${l}`]}
-                  x1="0"
-                  y1="0"
-                  x2="1"
-                  y2="1"
-                  gradientUnits="objectBoundingBox"
-                >
-                  {/* Hard stops split the key along its diagonal: right hand upper left, left hand lower right. */}
-                  <stop offset="0.5" style={{ stopColor: colourOf('R', r) }} />
-                  <stop offset="0.5" style={{ stopColor: colourOf('L', l) }} />
-                </linearGradient>
-              )),
+        {/* The piano's body: a warm dark frame around the keys. */}
+        <div className="kb__body">
+          <svg
+            ref={svgRef}
+            className={`kb__svg${interactive ? ' is-playable' : ''}`}
+            width={layout.width}
+            height={svgHeight}
+            viewBox={`0 0 ${layout.width} ${svgHeight}`}
+            // With click-to-hear the keys are buttons, in one group the arrow keys move through.
+            role={interactive ? 'toolbar' : 'img'}
+            // Named with aria-label, not an SVG <title>: browsers show a <title> as
+            // a hover tooltip over the keys, and this summary changes every step.
+            aria-label={`Keyboard from ${lowLabel} to ${highLabel}. ${summary}.`}
+            aria-describedby={interactive ? `${uid}-hint` : undefined}
+            onPointerDown={interactive ? play.pointerDown : undefined}
+            onPointerUp={interactive ? play.pointerUp : undefined}
+            onPointerCancel={interactive ? play.pointerUp : undefined}
+            onPointerOut={interactive ? play.pointerOut : undefined}
+            onMouseDown={interactive ? play.mouseDown : undefined}
+            onKeyDown={interactive ? onKeyDown : undefined}
+            onKeyUp={interactive ? onKeyUp : undefined}
+            onBlur={interactive ? play.blur : undefined}
+            onFocus={interactive ? (e) => tabKey.focused(keyOf(e.target)) : undefined}
+          >
+            <defs>
+              {(['strong', 'soft'] as const).flatMap((r) =>
+                (['strong', 'soft'] as const).map((l) => (
+                  <linearGradient
+                    key={`${r}-${l}`}
+                    id={splitIds[`${r}-${l}`]}
+                    x1="0"
+                    y1="0"
+                    x2="1"
+                    y2="1"
+                    gradientUnits="objectBoundingBox"
+                  >
+                    {/* Hard stops split the key along its diagonal: right hand upper left, left hand lower right. */}
+                    <stop offset="0.5" style={{ stopColor: colourOf('R', r) }} />
+                    <stop offset="0.5" style={{ stopColor: colourOf('L', l) }} />
+                  </linearGradient>
+                )),
+              )}
+            </defs>
+            <g className="kb-whites">{layout.whites.map(renderKey)}</g>
+            <rect className="kb-felt" x={0} y={0} width={layout.width} height={5} />
+            <g className="kb-blacks">{layout.blacks.map(renderKey)}</g>
+            {middleC && (
+              <g className="kb-middle-c" aria-hidden="true">
+                <path d={`M${middleC.x + middleC.width / 2 - 5} ${WHITE_HEIGHT + 7} l4.5 -5 l4.5 5 z`} />
+                <text x={middleC.x + middleC.width / 2} y={WHITE_HEIGHT + 17} textAnchor="middle">
+                  Middle C
+                </text>
+              </g>
             )}
-          </defs>
-          <g className="kb-whites">{layout.whites.map(renderKey)}</g>
-          <rect className="kb-felt" x={0} y={0} width={layout.width} height={5} />
-          <g className="kb-blacks">{layout.blacks.map(renderKey)}</g>
-          {middleC && (
-            <g className="kb-middle-c" aria-hidden="true">
-              <path d={`M${middleC.x + middleC.width / 2 - 5} ${WHITE_HEIGHT + 7} l4.5 -5 l4.5 5 z`} />
-              <text x={middleC.x + middleC.width / 2} y={WHITE_HEIGHT + 17} textAnchor="middle">
-                Middle C
-              </text>
-            </g>
-          )}
-        </svg>
+          </svg>
+        </div>
+        {interactive && (
+          <span id={`${uid}-hint`} className="kb-sr-only">
+            Click a key, or press Enter on it, to hear it.
+          </span>
+        )}
       </div>
 
       <div className="kb__footer">

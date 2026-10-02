@@ -121,7 +121,7 @@ function notice(): string | null {
   return container.querySelector('.ps-notice')?.textContent ?? null;
 }
 
-/** The facts part of the status line under the keyboard ("Step 1 of 275 · Measure 1 · MIDI: …"). */
+/** The facts line in the transport bar under the notes ("0:00 / 1:31 · Step 1 of 275 · Measure 1 · MIDI: …"). */
 function statusFacts(): string {
   return container.querySelector('.ps-status__facts')?.textContent ?? '';
 }

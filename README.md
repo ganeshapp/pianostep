@@ -56,8 +56,15 @@ Other commands:
 2. **Import MusicXML…** adds your own `.musicxml`, `.xml` or `.mxl` file.
    Files are processed entirely in your browser and stored only there, in
    IndexedDB. Imported pieces get no difficulty tag.
-3. **Practice page.**
-   - **Hands**: Both hands / Right hand / Left hand.
+3. **Practice page.** The settings sit at the top and fold into one summary
+   line once Play starts (**Adjust settings** opens them again), and the page
+   scrolls down if needed to show the keyboard, so while you practise the
+   screen shows the notes, the transport bar under them (time, step count,
+   messages) and the keyboard.
+   - **Hands**: Both hands / Right hand / Left hand. The other hand's row stays
+     in place, empty; the rows, the Starting setup line, the transport and the
+     keyboard keep their size and place. The columns of notes do change: they
+     are the steps of the hands you practise.
    - **Passage**: "From measure … to …", or click a measure number in the
      instructions to start or end a passage there. **Repeat** loops it.
    - **Listen** plays the piece at its written rhythm, with speed from
@@ -70,6 +77,12 @@ Other commands:
      - It checks *notes*, not timing or pedalling.
      - Steps where a hand only lets go of keys advance by themselves.
    - **◀ / ▶** move one step; clicking a column jumps to it.
+   - While not playing, look ahead or back without moving your place: swipe
+     sideways on a trackpad, Shift + scroll, drag the notes, or drag the bar
+     under them. **Back to current step** returns.
+   - When a passage begins with keys already held, a **Starting setup** line
+     above the notes lists them.
+   - Click a key on the keyboard to hear it.
    - Shortcuts (when you're not typing in a field): Space play/pause, ←/→
      previous/next step, Home restart.
 4. **Your place and settings** for each piece are remembered in this browser.
@@ -88,9 +101,8 @@ Notes stacked in one cell, and RH/LH cells in one column, happen together.
 Keys use scientific names, sharps only: middle C is **C4**, and C#4 is the
 black key just above it.
 
-On the keyboard, **purple** means right hand and **green** means left hand
-(with a small R or L on the key). Strong colour means press now; light colour
-means keep holding. With a piano connected, a dark dot shows each key you're
+On the keyboard, **purple** means right hand and **green** means left hand.
+Strong colour means press now; light colour means keep holding. With a piano connected, a dark dot shows each key you're
 holding. The sustain pedal is shown separately and never counts as a held
 key.
 

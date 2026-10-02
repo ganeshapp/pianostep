@@ -10,5 +10,8 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: true,
+    // One chunk by design (about 0.5 MB: React, the score reader, the app and
+    // the catalog), loaded once and then cached; warn only if it grows well past that.
+    chunkSizeWarningLimit: 650,
   },
 });

@@ -4,13 +4,13 @@
 .ps-page {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   width: 100%;
   max-width: 1440px;
   min-height: 100vh;
   margin: 0 auto;
-  padding: 12px 28px 0;
-  color: var(--fg, #111827);
+  padding: 10px 28px 16px;
+  color: var(--fg, #22201c);
 }
 
 .ps-icon {
@@ -29,23 +29,30 @@
   min-height: 40px;
 }
 
+/* The small logo and "Library": back to the library. */
 .ps-back {
   flex: none;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 12px 6px 10px;
-  border: 1px solid var(--border, #e5e7eb);
+  gap: 8px;
+  padding: 3px 12px 3px 3px;
+  border: 1px solid var(--border, #e6dfd2);
   border-radius: 999px;
-  color: var(--fg, #111827);
+  background: var(--bg, #fffdf9);
+  color: var(--fg, #22201c);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   text-decoration: none;
 }
 
 .ps-back:hover {
-  background: var(--surface-2, #f3f4f6);
+  border-color: var(--border-strong, #b3a998);
+  background: var(--surface-2, #f0e9dd);
   text-decoration: none;
+}
+
+.ps-back .ps-back__mark {
+  box-shadow: none;
 }
 
 .ps-header__titles {
@@ -60,17 +67,18 @@
   max-width: 100%;
   min-width: 0;
   overflow: hidden;
-  font-size: 22px;
-  font-weight: 700;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 25px;
+  font-weight: 600;
   line-height: 1.2;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .ps-subtitle {
   overflow: hidden;
-  color: var(--muted, #4b5563);
+  color: var(--muted, #585148);
   font-size: 14px;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -91,24 +99,87 @@
 
 .ps-help-btn {
   flex: none;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   margin-left: auto;
-  border: 1px solid var(--border-strong, #9ca3af);
+  border: 1px solid var(--border-strong, #b3a998);
   border-radius: 50%;
-  background: var(--bg, #ffffff);
-  color: var(--fg, #111827);
-  font-size: 17px;
+  background: var(--bg, #fffdf9);
+  color: var(--fg, #22201c);
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 18px;
   font-weight: 700;
   line-height: 1;
 }
 
 .ps-help-btn:hover {
-  background: var(--surface-2, #f3f4f6);
+  background: var(--surface-2, #f0e9dd);
 }
 
 /* ---------------------------------------------------------------------- */
-/* Controls bar                                                            */
+/* Setup: the practice settings, folding into one summary line             */
+/* ---------------------------------------------------------------------- */
+
+/*
+ * Secondary to the notes and keyboard: a recessed tray on the page colour,
+ * no shadow, smaller muted text. Folded, it is one quiet line.
+ */
+.ps-setup {
+  border: 1px solid var(--border, #e6dfd2);
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--surface-2, #f0e9dd) 55%, var(--page, #f5f0e6));
+}
+
+.ps-setup.is-folded {
+  border-style: dashed;
+  border-color: var(--border-strong, #b3a998);
+  background: transparent;
+}
+
+.ps-setup__bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 38px;
+  padding: 2px 4px 2px 14px;
+}
+
+.ps-setup__title {
+  margin: 0;
+  color: var(--muted, #585148);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ps-setup__summary {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  color: var(--muted, #585148);
+  font-size: 13.5px;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ps-setup__toggle {
+  flex: none;
+  margin-left: auto;
+}
+
+.ps-setup.is-open .ps-setup__bar {
+  border-bottom: 1px solid var(--border, #e6dfd2);
+}
+
+.ps-setup__panel[hidden] {
+  display: none;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Controls (inside the setup)                                             */
 /* ---------------------------------------------------------------------- */
 
 .ps-controls {
@@ -116,9 +187,6 @@
   flex-direction: column;
   gap: 7px;
   padding: 8px 12px;
-  border: 1px solid var(--border, #e5e7eb);
-  border-radius: 14px;
-  background: var(--surface, #f9fafb);
 }
 
 .ps-controls__row {
@@ -131,7 +199,7 @@
 .ps-controls__row--secondary {
   align-items: flex-start;
   padding-top: 7px;
-  border-top: 1px solid var(--border, #e5e7eb);
+  border-top: 1px solid var(--border, #e6dfd2);
 }
 
 .ps-controls__end {
@@ -142,7 +210,7 @@
 }
 
 .ps-field-label {
-  color: var(--muted, #4b5563);
+  color: var(--muted, #585148);
   font-size: 13px;
   font-weight: 600;
   white-space: nowrap;
@@ -159,9 +227,9 @@
 .ps-seg {
   display: inline-flex;
   padding: 3px;
-  border: 1px solid var(--border, #e5e7eb);
-  border-radius: 10px;
-  background: var(--bg, #ffffff);
+  border: 1px solid var(--border, #e6dfd2);
+  border-radius: 999px;
+  background: var(--bg, #fffdf9);
 }
 
 .ps-seg__option {
@@ -181,9 +249,9 @@
 }
 
 .ps-seg__text {
-  padding: 6px 13px;
-  border-radius: 7px;
-  color: var(--muted, #4b5563);
+  padding: 6px 14px;
+  border-radius: 999px;
+  color: var(--muted, #585148);
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
@@ -191,19 +259,20 @@
 }
 
 .ps-seg__option:hover .ps-seg__text {
-  background: var(--surface-2, #f3f4f6);
-  color: var(--fg, #111827);
+  background: var(--surface-2, #f0e9dd);
+  color: var(--fg, #22201c);
 }
 
 .ps-seg__option input:checked + .ps-seg__text {
-  background: var(--fg, #111827);
-  color: #ffffff;
+  background: var(--ink, #22201c);
+  color: var(--on-ink, #fffdf9);
   font-weight: 600;
 }
 
 .ps-seg__option input:focus-visible + .ps-seg__text {
-  outline: 3px solid var(--focus-ring, #111827);
+  outline: 3px solid var(--focus-ring, #22201c);
   outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--focus-ring-inner, #fffdf9);
 }
 
 .ps-seg__option.is-disabled {
@@ -212,16 +281,63 @@
 
 .ps-seg__option.is-disabled .ps-seg__text {
   background: transparent;
-  color: var(--subtle, #6b7280);
+  color: var(--subtle, #6c6458);
   opacity: 0.6;
 }
 
-/* Transport */
+/* Transport (the bar under the notes) */
+
+.ps-transport-bar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 58px;
+  padding: 4px 16px 4px 8px;
+  border: 1px solid var(--border, #e6dfd2);
+  border-radius: 999px;
+  background: var(--bg, #fffdf9);
+  box-shadow: var(--shadow-card, 0 1px 2px rgb(60 45 30 / 0.06));
+}
 
 .ps-transport {
   display: inline-flex;
+  flex: none;
   align-items: center;
   gap: 4px;
+}
+
+.ps-transport__info {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  min-width: 0;
+}
+
+.ps-transport__time {
+  color: var(--fg, #22201c);
+  font-weight: 700;
+}
+
+.ps-transport__step {
+  color: var(--fg, #22201c);
+  font-weight: 600;
+}
+
+.ps-transport__line {
+  min-width: 0;
+  font-size: 13.5px;
+}
+
+.ps-transport__line .ps-status__msg:empty {
+  display: none;
+}
+
+.ps-transport__line > p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .ps-transport__btn {
@@ -231,14 +347,15 @@
   width: 40px;
   height: 40px;
   padding: 0;
-  border: 1px solid var(--border, #e5e7eb);
-  border-radius: 10px;
-  background: var(--bg, #ffffff);
-  color: var(--fg, #111827);
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--fg, #22201c);
 }
 
 .ps-transport__btn:hover:not(:disabled) {
-  background: var(--surface-2, #f3f4f6);
+  border-color: var(--border, #e6dfd2);
+  background: var(--surface-2, #f0e9dd);
 }
 
 .ps-transport__btn:disabled {
@@ -246,17 +363,18 @@
 }
 
 .ps-transport__btn--primary {
-  width: 52px;
-  height: 46px;
-  margin: 0 4px;
-  border-color: var(--fg, #111827);
-  border-radius: 12px;
-  background: var(--fg, #111827);
-  color: #ffffff;
+  width: 48px;
+  height: 48px;
+  margin: 0 6px;
+  border-color: var(--ink, #22201c);
+  background: var(--ink, #22201c);
+  box-shadow: 0 2px 6px rgb(40 30 20 / 0.22);
+  color: var(--on-ink, #fffdf9);
 }
 
 .ps-transport__btn--primary:hover:not(:disabled) {
-  background: #374151;
+  border-color: var(--ink-hover, #3b362f);
+  background: var(--ink-hover, #3b362f);
 }
 
 /* Buttons */
@@ -267,18 +385,19 @@
   justify-content: center;
   gap: 8px;
   min-height: 38px;
-  padding: 0 14px;
-  border: 1px solid var(--border-strong, #9ca3af);
-  border-radius: 9px;
-  background: var(--bg, #ffffff);
-  color: var(--fg, #111827);
+  padding: 0 15px;
+  border: 1px solid var(--border-strong, #b3a998);
+  border-radius: 999px;
+  background: var(--bg, #fffdf9);
+  color: var(--fg, #22201c);
   font-size: 14px;
   font-weight: 500;
   white-space: nowrap;
 }
 
 .ps-btn:hover:not(:disabled) {
-  background: var(--surface-2, #f3f4f6);
+  border-color: var(--border-input, #8f8574);
+  background: var(--surface-2, #f0e9dd);
 }
 
 .ps-btn:disabled {
@@ -297,7 +416,7 @@
 }
 
 .ps-btn--connect {
-  border-color: var(--fg, #111827);
+  border-color: var(--ink, #22201c);
   font-weight: 600;
 }
 
@@ -309,14 +428,14 @@
   padding: 0;
   border: 0;
   background: none;
-  color: var(--muted, #4b5563);
+  color: var(--muted, #585148);
   font-size: 13px;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .ps-link-btn:hover {
-  color: var(--fg, #111827);
+  color: var(--fg, #22201c);
 }
 
 /* Selects and sliders */
@@ -325,9 +444,9 @@
   min-height: 34px;
   max-width: 220px;
   padding: 4px 8px;
-  border: 1px solid var(--border-strong, #9ca3af);
-  border-radius: 8px;
-  background: var(--bg, #ffffff);
+  border: 1px solid var(--border-input, #8f8574);
+  border-radius: 9px;
+  background: var(--bg, #fffdf9);
   font-size: 14px;
 }
 
@@ -346,7 +465,7 @@
 .ps-slider input[type='range'] {
   width: 140px;
   margin: 0;
-  accent-color: var(--fg, #111827);
+  accent-color: var(--ink, #22201c);
 }
 
 .ps-slider__value {
@@ -360,7 +479,7 @@
 .ps-slider__note {
   flex-basis: 100%;
   max-width: 26em;
-  color: var(--subtle, #6b7280);
+  color: var(--subtle, #6c6458);
   font-size: 12px;
 }
 
@@ -387,7 +506,7 @@
 
 .ps-passage__hint {
   margin-left: 1px;
-  color: var(--subtle, #6b7280);
+  color: var(--subtle, #6c6458);
   font-size: 12px;
 }
 
@@ -426,7 +545,7 @@
   width: 34px;
   height: 20px;
   border-radius: 999px;
-  background: #d1d5db;
+  background: #cfc6b7;
   transition: background 120ms ease;
 }
 
@@ -438,13 +557,13 @@
   height: 16px;
   border-radius: 50%;
   background: #ffffff;
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.25);
+  box-shadow: 0 1px 2px rgb(40 30 20 / 0.3);
   content: '';
   transition: transform 120ms ease;
 }
 
 .ps-switch input:checked + .ps-switch__track {
-  background: var(--fg, #111827);
+  background: var(--ink, #22201c);
 }
 
 .ps-switch input:checked + .ps-switch__track::after {
@@ -452,12 +571,13 @@
 }
 
 .ps-switch input:focus-visible + .ps-switch__track {
-  outline: 3px solid var(--focus-ring, #111827);
+  outline: 3px solid var(--focus-ring, #22201c);
   outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--focus-ring-inner, #fffdf9);
 }
 
 .ps-switch.is-disabled {
-  color: var(--subtle, #6b7280);
+  color: var(--subtle, #6c6458);
   cursor: not-allowed;
 }
 
@@ -480,9 +600,9 @@
   max-width: 260px;
   min-height: 38px;
   padding: 0 14px 0 12px;
-  border: 1px solid var(--border, #e5e7eb);
+  border: 1px solid var(--border, #e6dfd2);
   border-radius: 999px;
-  background: var(--bg, #ffffff);
+  background: var(--bg, #fffdf9);
   font-size: 14px;
   font-weight: 600;
 }
@@ -494,7 +614,7 @@
 }
 
 .ps-midi__state {
-  color: var(--subtle, #6b7280);
+  color: var(--subtle, #6c6458);
   font-size: 12px;
   white-space: nowrap;
 }
@@ -513,8 +633,8 @@
 
 /* Neutral, not green: green means the left hand everywhere else on this page. */
 .ps-dot--on {
-  background: var(--fg, #111827);
-  box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.16);
+  background: var(--ink, #22201c);
+  box-shadow: 0 0 0 3px rgb(34 32 28 / 0.16);
 }
 
 .ps-dot--wait {
@@ -522,7 +642,7 @@
 }
 
 .ps-dot--off {
-  background: #9ca3af;
+  background: #a69c8b;
 }
 
 .ps-notice {
@@ -532,10 +652,10 @@
   gap: 8px 14px;
   margin-top: -4px;
   padding: 9px 12px 9px 16px;
-  border: 1px solid var(--border, #e5e7eb);
-  border-left: 4px solid var(--border-strong, #9ca3af);
-  border-radius: 10px;
-  background: var(--bg, #ffffff);
+  border: 1px solid var(--border, #e6dfd2);
+  border-left: 4px solid var(--ink, #22201c);
+  border-radius: 12px;
+  background: var(--bg, #fffdf9);
   font-size: 14px;
 }
 
@@ -561,10 +681,10 @@
   z-index: 40;
   width: 330px;
   padding: 4px;
-  border: 1px solid var(--border-strong, #9ca3af);
-  border-radius: 12px;
-  background: var(--bg, #ffffff);
-  box-shadow: var(--shadow-pop, 0 10px 30px rgb(17 24 39 / 0.18));
+  border: 1px solid var(--border, #e6dfd2);
+  border-radius: 14px;
+  background: var(--bg, #fffdf9);
+  box-shadow: var(--shadow-pop, 0 14px 36px rgb(40 30 20 / 0.18));
 }
 
 .ps-more__section {
@@ -572,7 +692,7 @@
   flex-direction: column;
   gap: 6px;
   padding: 12px;
-  border-bottom: 1px solid var(--border, #e5e7eb);
+  border-bottom: 1px solid var(--border, #e6dfd2);
 }
 
 .ps-more__section--last {
@@ -590,7 +710,7 @@
 }
 
 .ps-more__hint {
-  color: var(--muted, #4b5563);
+  color: var(--muted, #585148);
   font-size: 12.5px;
   line-height: 1.45;
 }
@@ -607,58 +727,92 @@
 }
 
 .ps-more__item:hover {
-  background: var(--surface-2, #f3f4f6);
+  background: var(--surface-2, #f0e9dd);
 }
 
 /* ---------------------------------------------------------------------- */
-/* Main area                                                               */
+/* Practice area: notes, transport, keyboard                               */
 /* ---------------------------------------------------------------------- */
 
-.ps-main {
+.ps-practice {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
+}
+
+/* The notes card: the page's main surface, paper on the cream page. */
+.ps-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 10px 8px;
+  border: 1px solid var(--border, #e6dfd2);
+  border-radius: 18px;
+  background: var(--bg, #fffdf9);
+  box-shadow: var(--shadow-raised, 0 6px 18px rgb(60 45 30 / 0.1));
+}
+
+.ps-notes__head {
+  display: flex;
+  align-items: center;
+  min-height: 20px;
+  padding: 0 4px;
+}
+
+.ps-start-setup {
+  margin: 0;
+  padding: 5px 12px;
+  border: 1px dashed var(--border-strong, #b3a998);
+  border-radius: 10px;
+  background: var(--surface, #faf6ee);
+  font-size: 13.5px;
+  line-height: 1.4;
+}
+
+.ps-start-setup__keys {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-weight: 600;
+}
+
+.ps-start-setup__note {
+  color: var(--muted, #585148);
+}
+
+/* A hand that is not being practised keeps its place and words (the line
+   never changes size when hands are switched); only its colour is muted. */
+.ps-start-setup__hand.is-off,
+.ps-start-setup.is-off .ps-start-setup__label {
+  color: var(--subtle, #6c6458);
+}
+
+.ps-start-setup.is-off .ps-start-setup__note {
+  color: var(--subtle, #6c6458);
 }
 
 .ps-mode-note {
-  margin: 0 0 -4px 2px;
-  color: var(--muted, #4b5563);
-  font-size: 14px;
+  margin: 0;
+  color: var(--muted, #585148);
 }
 
-/* ---------------------------------------------------------------------- */
-/* Status line                                                             */
-/* ---------------------------------------------------------------------- */
-
-.ps-status {
-  position: sticky;
-  bottom: 0;
-  z-index: 10;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 4px 20px;
-  margin: auto -28px 0;
-  padding: 8px 28px;
-  border-top: 1px solid var(--border, #e5e7eb);
-  background: rgba(255, 255, 255, 0.96);
-  font-size: 14px;
-  backdrop-filter: blur(6px);
-}
+/* The facts and message lines inside the transport bar. */
 
 .ps-status__facts {
-  color: var(--muted, #4b5563);
+  margin: 0;
+  overflow: hidden;
+  color: var(--muted, #585148);
+  font-size: 14px;
   font-variant-numeric: tabular-nums;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .ps-status__sep {
   padding: 0 8px;
-  color: #9ca3af;
+  color: var(--border-strong, #b3a998);
 }
 
 .ps-status__msg {
-  min-height: 1.5em;
+  margin: 0;
   font-weight: 600;
 }
 
@@ -667,7 +821,7 @@
 }
 
 .ps-status__msg--info {
-  color: var(--muted, #4b5563);
+  color: var(--muted, #585148);
   font-weight: 500;
 }
 
@@ -690,19 +844,20 @@
 }
 
 .ps-message__title {
-  font-size: 20px;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 24px;
   font-weight: 600;
 }
 
 .ps-message__text {
   margin-top: 10px;
-  color: var(--muted, #4b5563);
+  color: var(--muted, #585148);
 }
 
 .ps-message__reasons {
   margin-top: 12px;
   padding: 0;
-  color: var(--muted, #4b5563);
+  color: var(--muted, #585148);
   list-style: none;
 }
 
@@ -719,12 +874,14 @@
 
 .ps-diag__section {
   padding-top: 14px;
-  border-top: 1px solid var(--border, #e5e7eb);
+  border-top: 1px solid var(--border, #e6dfd2);
 }
 
 .ps-diag__section h3 {
   margin-bottom: 8px;
-  font-size: 15px;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 17px;
+  font-weight: 600;
 }
 
 .ps-diag__list,
@@ -737,7 +894,7 @@
 
 .ps-diag__list dt,
 .ps-diag__difficulty dt {
-  color: var(--muted, #4b5563);
+  color: var(--muted, #585148);
 }
 
 .ps-diag__list dd,
@@ -779,7 +936,7 @@
 }
 
 .ps-diag__group--info h4 {
-  color: var(--muted, #4b5563);
+  color: var(--muted, #585148);
 }
 
 .ps-diag__group ul,
@@ -792,7 +949,7 @@
 
 .ps-diag__measures {
   display: block;
-  color: var(--muted, #4b5563);
+  color: var(--muted, #585148);
   font-size: 13px;
 }
 
@@ -812,7 +969,7 @@
 
 .help-section {
   padding: 16px 0;
-  border-top: 1px solid var(--border, #e5e7eb);
+  border-top: 1px solid var(--border, #e6dfd2);
   font-size: 15px;
   line-height: 1.55;
 }
@@ -824,7 +981,9 @@
 
 .help-section h3 {
   margin-bottom: 8px;
-  font-size: 16px;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .help-section p + p,
@@ -892,7 +1051,7 @@
 }
 
 .help-rule__text {
-  color: var(--muted, #4b5563);
+  color: var(--muted, #585148);
 }
 
 .help-example {
@@ -901,9 +1060,10 @@
   justify-content: center;
   min-width: 72px;
   padding: 8px 6px;
-  border: 1px solid var(--border, #e5e7eb);
-  border-radius: 10px;
-  background: var(--bg, #ffffff);
+  border: 1px solid var(--border, #e6dfd2);
+  border-radius: 12px;
+  background: var(--bg, #fffdf9);
+  box-shadow: var(--shadow-card, 0 1px 2px rgb(60 45 30 / 0.06));
   vertical-align: middle;
 }
 
@@ -927,7 +1087,7 @@
 
 .help-note {
   margin-top: 10px;
-  color: var(--muted, #4b5563);
+  color: var(--muted, #585148);
   font-size: 14px;
 }
 
@@ -978,10 +1138,10 @@
   display: inline-block;
   min-width: 28px;
   padding: 1px 8px;
-  border: 1px solid var(--border-strong, #9ca3af);
+  border: 1px solid var(--border-strong, #b3a998);
   border-bottom-width: 2px;
   border-radius: 6px;
-  background: var(--surface, #f9fafb);
+  background: var(--surface, #faf6ee);
   font-size: 13px;
   text-align: center;
 }
@@ -992,12 +1152,19 @@
 
 @media (max-width: 900px) {
   .ps-page {
-    padding: 12px 14px 0;
+    padding: 10px 14px 14px;
   }
 
-  .ps-status {
-    margin: auto -14px 0;
-    padding: 8px 14px;
+  .ps-transport-bar {
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    padding: 6px 10px;
+    border-radius: 22px;
+  }
+
+  .ps-transport__line > p,
+  .ps-status__facts {
+    white-space: normal;
   }
 
   .ps-header {

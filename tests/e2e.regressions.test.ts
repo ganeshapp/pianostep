@@ -9,10 +9,12 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { deriveSteps } from '../src/core/actions/derive';
 import { roundTrip } from '../src/core/actions/interpret';
+import { tickToSeconds } from '../src/core/model/performance';
 import { prepareScore } from '../src/core/model/prepare';
 import { loadSourceScore, parseMusicXml } from '../src/core/musicxml/parse';
 import { midiToLabel } from '../src/core/pitch';
 import type { Hand, PreparedScore, StepSequence } from '../src/core/types';
+import { CUE_NOTES } from './helpers/musicxmlSamples';
 import { REST, add, change, press, replace } from './helpers/pressBuilder';
 
 /* ------------------------------------------------------------------------ */
@@ -521,5 +523,177 @@ describe('Gymnopédie No. 1 (Erik Satie edition): left-hand chords written in th
     expect(a.tempo.ticksPerQuarter).toBe(b.tempo.ticksPerQuarter);
     expect(attacksByOccurrence(a)).toEqual(attacksByOccurrence(b));
     checkedSteps(a, ['R', 'L']);
+  });
+});
+
+/** Presses starting in a measure: "R G#5@4+0.5" = hand, key, start and length in quarter notes from the measure start. */
+function pressesInMeasure(p: PreparedScore, label: string): string[] {
+  const o = p.measures.find((m) => m.label === label)!;
+  const tpq = p.tempo.ticksPerQuarter;
+  return p.presses
+    .filter((x) => x.startTick >= o.startTick && x.startTick < o.startTick + o.durationTicks)
+    .map((x) => `${x.hand} ${midiToLabel(x.midi)}@${(x.startTick - o.startTick) / tpq}+${(x.endTick - x.startTick) / tpq}`);
+}
+
+/** Keys held down by both hands at the same moment (no pianist can do that), in one measure. */
+function keysHeldByBothHands(p: PreparedScore, label: string): string[] {
+  const o = p.measures.find((m) => m.label === label)!;
+  const during = p.presses.filter((x) => x.startTick < o.startTick + o.durationTicks && x.endTick > o.startTick);
+  const out: string[] = [];
+  const right = during.filter((x) => x.hand === 'R');
+  for (const l of during.filter((x) => x.hand === 'L')) {
+    for (const r of right) {
+      if (r.midi === l.midi && r.startTick < l.endTick && l.startTick < r.endTick) out.push(`${midiToLabel(l.midi)}@${l.startTick}`);
+    }
+  }
+  return out;
+}
+
+describe('small cue notes', () => {
+  it('a written-out cadenza in cue notes is played by its hand at its written times; other small notes stay silent', () => {
+    const p = prepareXml(CUE_NOTES);
+    // m1: the cadenza after A4, crossing into the bass staff; the left hand lets go after its half notes.
+    expect(pressesInMeasure(p, '1')).toEqual([
+      'R A4@0+2',
+      'L C3@0+2',
+      'L G3@0+2',
+      'R G4@2+0.5',
+      'R F4@2.5+0.5',
+      'R E4@3+0.5',
+      'R D4@3.5+0.5',
+      'R C4@4+2',
+      'R E4@4+2',
+    ]);
+    // m2: the written-out trill and the cue note beside B4 are silent; G4 still comes on beat 2.
+    expect(pressesInMeasure(p, '2')).toEqual(['R B4@0+2', 'L C3@0+4', 'R G4@1+1', 'R C5@2+2']);
+    // m3: the hidden G5 is the file's own playback of that spot, so the printed cue G5 is not struck again.
+    expect(pressesInMeasure(p, '3')).toEqual(['R G5@0+0.5', 'L C3@0+4']);
+    expect(p.warnings.find((w) => w.code === 'cue-notes-played')).toMatchObject({ severity: 'info', count: 6, measures: ['1'] });
+    expect(p.warnings.find((w) => w.code === 'cue-notes-skipped')).toMatchObject({ severity: 'info', count: 6, measures: ['1', '2', '3'] });
+    checkedSteps(p, ['R', 'L']);
+    checkedSteps(p, ['R']);
+  });
+
+  it('Moonlight Sonata, 3rd mvt: the cadenza of measure 188 is played as written, at the tempo marks inside it', () => {
+    const p = prepareLibrary('Sonate_No._14_Moonlight_3rd_Movement.mxl');
+    // 27 eighths from beat 5, then three quarters (B# is shown as C).
+    const eighths = 'G#5 F#5 E5 D#5 F#5 C#5 C5 D#5 A4 G#4 F#4 A4 E4 D#4 F#4 C#4 C4 D#4 A3 G#3 F#3 A3 E3 D#3 F#3 C#3 C3';
+    expect(pressesInMeasure(p, '188')).toEqual([
+      'R A5@0+4',
+      'L G#3@0+4',
+      'L C4@0+4',
+      'L F#4@0+4',
+      ...eighths.split(' ').map((key, i) => `R ${key}@${4 + i / 2}+0.5`),
+      'R D#3@17.5+1',
+      'R A2@18.5+1',
+      'R G#2@19.5+1',
+    ]);
+    expect(p.warnings.find((w) => w.code === 'cue-notes-played')).toMatchObject({ count: 30, measures: ['188'] });
+    // 144 qpm for 4.5 quarters, 134 for 2.5, 124 for 3.5, 114 for the last 6.
+    const o = p.measures.find((m) => m.label === '188')!;
+    const tpq = p.tempo.ticksPerQuarter;
+    const cadenzaSeconds = tickToSeconds(p.tempo, o.startTick + o.durationTicks) - tickToSeconds(p.tempo, o.startTick + 4 * tpq);
+    expect(cadenzaSeconds).toBeCloseTo((4.5 * 60) / 144 + (2.5 * 60) / 134 + (3.5 * 60) / 124 + (6 * 60) / 114, 9);
+    expect(keysHeldByBothHands(p, '188')).toEqual([]);
+    checkedSteps(p, ['R', 'L']);
+  });
+
+  it('both Moonlight 3rd-movement editions now play the same notes in measure 188 (the other writes the cadenza as grace notes)', () => {
+    const rightKeys = (file: string): string[] => {
+      const p = prepareLibrary(file);
+      const o = p.measures.find((m) => m.label === '188')!;
+      return p.presses
+        .filter((x) => x.hand === 'R' && x.startTick >= o.startTick && x.startTick < o.startTick + o.durationTicks)
+        .map((x) => midiToLabel(x.midi));
+    };
+    const keys = rightKeys('Sonate_No._14_Moonlight_3rd_Movement.mxl');
+    expect(keys).toHaveLength(31);
+    expect(keys).toEqual(rightKeys('moonlight_sonata_3rd_movement.mxl'));
+  });
+
+  it('cue notes beside the regular notes stay silent, so nothing is doubled (Moonlight trills, Prelude No. 2, La Campanella)', () => {
+    const moonlight = prepareLibrary('Sonate_No._14_Moonlight_3rd_Movement.mxl');
+    // Measure 30: a trill written out in small notes over A#5 and B5; only the written notes are struck.
+    expect(pressesInMeasure(moonlight, '30').filter((x) => x.startsWith('R'))).toEqual(['R A#4@0+1', 'R A#5@0+1', 'R B4@1+3', 'R B5@1+3']);
+    expect(moonlight.warnings.find((w) => w.code === 'cue-notes-skipped')).toMatchObject({
+      count: 58,
+      measures: ['30', '32', '36', '126', '128', '132', '188'],
+    });
+
+    // Prelude No. 2, measure 34: hidden small chords restate the regular chords, with <cue/> on their
+    // first note only. None of them sounds, so the mordent F4 is held for its written length instead
+    // of being cut to a 64th by a hidden F4 taken for its ornament.
+    const prelude = prepareLibrary('Prelude_No._2_BWV_847_in_C_Minor.mxl');
+    expect(prelude.source.notes.filter((n) => n.measureIndex === 33 && !n.printed)).toEqual([]);
+    const m34 = pressesInMeasure(prelude, '34');
+    expect(m34.slice(0, 5)).toEqual(['R C4@0+0.625', 'R E4@0+0.625', 'L C3@0+1', 'L G3@0+1', 'L A#3@0+1']);
+    expect(m34).toContain('R F4@2+0.625');
+    expect(prelude.warnings.find((w) => w.code === 'cue-notes-skipped')).toMatchObject({ count: 20, measures: ['34'] });
+    expect(prelude.warnings.find((w) => w.code === 'ornament-not-played')?.measures).toEqual(['34']);
+    expect(prelude.warnings.map((w) => w.code)).not.toContain('cue-notes-played');
+
+    // La Campanella, measure 105: the arpeggio ends on the file's hidden G#6; the printed small B6 and
+    // G#6 above it only show that ending, so G#6 is struck once.
+    const campanella = prepareLibrary('La_Campanella_-_Grandes_Etudes_de_Paganini_No._3_-_Franz_Liszt.mxl');
+    const m105 = pressesInMeasure(campanella, '105');
+    expect(m105.filter((x) => x.startsWith('R G#6'))).toEqual(['R G#6@1.375+0.125']);
+    expect(m105).toHaveLength(12);
+    expect(campanella.warnings.map((w) => w.code)).not.toContain('cue-notes-played');
+
+    expect(keysHeldByBothHands(moonlight, '30')).toEqual([]);
+    expect(keysHeldByBothHands(prelude, '34')).toEqual([]);
+    expect(keysHeldByBothHands(campanella, '105')).toEqual([]);
+  });
+});
+
+describe('the catalog card notes about hidden notes', () => {
+  it('"Has N hidden playback-only notes" counts the hidden notes the app keeps (hidden cue notes are not among them)', () => {
+    const metadata = JSON.parse(readFileSync(join(__dirname, '..', 'catalog', 'metadata.json'), 'utf8')) as {
+      file: string;
+      notes?: string[];
+    }[];
+    const claims = metadata.flatMap((m) =>
+      (m.notes ?? []).flatMap((note) => {
+        const n = /^Has (\d+) hidden playback-only notes\b/.exec(note)?.[1];
+        return n === undefined ? [] : [{ file: m.file, count: Number(n) }];
+      }),
+    );
+    expect(claims.map((c) => c.file)).toEqual(
+      expect.arrayContaining(['Prelude_No._2_BWV_847_in_C_Minor.mxl', 'Sonate_No._14_Moonlight_3rd_Movement.mxl']),
+    );
+    for (const { file, count } of claims) {
+      const source = loadSourceScore(new Uint8Array(readFileSync(join(LIBRARY, file))), file);
+      expect(source.notes.filter((n) => !n.printed).length, file).toBe(count);
+    }
+  });
+});
+
+describe('a first tempo mark after the opening', () => {
+  it('Prelude No. 2 (BWV 847): the unmarked opening plays at 120 until the Presto (145) in measure 28', () => {
+    const p = prepareLibrary('Prelude_No._2_BWV_847_in_C_Minor.mxl');
+    const m28 = p.measures.find((o) => o.label === '28')!;
+    expect(p.tempo.defaulted).toBe(false);
+    expect(p.tempo.points.slice(0, 3)).toEqual([
+      { tick: 0, qpm: 120 },
+      { tick: m28.startTick, qpm: 145 },
+      { tick: p.measures.find((o) => o.label === '34')!.startTick, qpm: 20 },
+    ]);
+    // 27 measures of 4/4 at 120 quarter notes per minute: 54 s.
+    expect(tickToSeconds(p.tempo, m28.startTick)).toBeCloseTo(54, 9);
+    expect(p.warnings.find((w) => w.code === 'opening-tempo-defaulted')).toEqual({
+      code: 'opening-tempo-defaulted',
+      severity: 'info',
+      message:
+        'The opening has no tempo mark, so the app plays it at 120 quarter notes per minute until the first marked tempo (measure 28).',
+      count: 1,
+    });
+  });
+
+  it('Beethoven 5: a first mark a beat into measure 1 still applies from the very start', () => {
+    const p = prepareLibrary('Beethoven_Symphony_No._5_1st_movement_Piano_solo.mxl');
+    expect(p.source.tempos[0]).toMatchObject({ measureIndex: 0, qpm: 164 });
+    expect(p.source.tempos[0].tick).toBeGreaterThan(0);
+    expect(p.tempo.points[0]).toEqual({ tick: 0, qpm: 164 });
+    expect(p.warnings.map((w) => w.code)).not.toContain('opening-tempo-defaulted');
   });
 });

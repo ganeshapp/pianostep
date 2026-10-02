@@ -216,7 +216,11 @@ flattened.
    in the score itself (e.g. "Easy variation", "Intermediate") are shown as
    "per score".
 4. **Default tempo.** When a file has no tempo, 120 quarter notes per minute is
-   used (MuseScore's default) and labelled as chosen by the app (§8).
+   used (MuseScore's default) and labelled as chosen by the app (§8). The
+   same default plays an unmarked opening when the file's first tempo mark
+   comes later than the first measure (or the first full measure after a
+   pickup), with an info note naming that measure (Prelude No. 2: 120 until
+   the Presto at measure 28).
 5. **Content duplicates are left out.** The rule is the same notes at ≥ 98%
    similarity, never title matching. The reason is listed in the inventory.
 

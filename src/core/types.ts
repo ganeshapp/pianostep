@@ -48,7 +48,8 @@ export interface ScoreWarning {
 
 export type WarningCode =
   | 'grace-notes-approximated'
-  | 'cue-notes-skipped'
+  | 'cue-notes-skipped' // small cue notes alongside the regular notes are not played
+  | 'cue-notes-played' // small cue notes standing alone in an overlong measure (a written-out cadenza) are played
   | 'ornament-not-played' // trills, mordents, turns: principal note only
   | 'tremolo-not-expanded'
   | 'arpeggio-not-rolled'
@@ -65,6 +66,7 @@ export type WarningCode =
   | 'repeats-unsupported' // structure we could not unroll; played straight
   | 'jump-unsupported' // D.C./D.S./coda constructs we could not follow
   | 'no-tempo-in-file' // default tempo chosen by the app
+  | 'opening-tempo-defaulted' // the first tempo mark comes later: the opening plays at the default tempo
   | 'out-of-piano-range'
   | 'microtone-rounded'
   | 'measure-length-mismatch'
@@ -195,6 +197,13 @@ export interface SourceNote {
    * the other hand is already holding is left out (see buildPerformanceNotes).
    */
   printed: boolean;
+  /**
+   * A small cue note the app plays because it is part of a written-out
+   * cadenza: it stands alone in a measure written longer than its time
+   * signature (absent on every other note; other cue notes are left out, see
+   * the importer's cue-note rule).
+   */
+  cue?: true;
   /** Staff of the voice's home staff differs from this note's staff. */
   crossStaff: boolean;
 }
@@ -218,7 +227,11 @@ export interface SourceScore {
   ticksPerQuarter: number;
   parts: SourcePart[];
   measures: SourceMeasure[];
-  /** Pitched notes only (rests omitted, cue notes omitted + warned). Sorted by onsetTick, then midi. */
+  /**
+   * Pitched notes only (rests omitted). Cue notes are omitted + warned, except
+   * those standing alone, such as a written-out cadenza, which are kept (see
+   * the importer's cue-note rule). Sorted by onsetTick, then midi.
+   */
   notes: SourceNote[];
   tempos: SourceTempo[];
   /** Pedal marks found (source ticks) — informational only, not modelled as key holds. */

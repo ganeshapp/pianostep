@@ -29,8 +29,14 @@ const KEYS: Readonly<Record<string, ShortcutAction>> = {
 const SPACE_ACTIVATES =
   'button, a[href], summary, [role="button"], [role="menu"], [role="menuitem"], [role="radio"], [role="checkbox"], [role="switch"], [role="tab"], [role="option"]';
 
-/** Arrow keys and Home already mean something inside these widgets. */
-const ARROWS_OWNED = '[role="radiogroup"], [role="menu"], [role="listbox"], [role="slider"], [role="tablist"], [role="grid"]';
+/**
+ * Arrow keys and Home already mean something inside these widgets (the
+ * on-screen keyboard is a toolbar: its arrows move between keys). A widget
+ * marked aria-disabled (the notes' scrubber during playback) does not take
+ * them.
+ */
+const ARROWS_OWNED =
+  '[role="radiogroup"], [role="menu"], [role="listbox"], [role="slider"], [role="tablist"], [role="grid"], [role="toolbar"]';
 
 function asElement(target: EventTarget | null): Element | null {
   return target instanceof Element ? target : null;
@@ -61,7 +67,10 @@ export function shortcutFor(e: ShortcutKeyEvent, doc: Document): ShortcutAction 
     if (isTextEntry(el)) return null;
     if (el.closest('dialog, [role="dialog"], [role="alertdialog"]')) return null;
     if (action === 'toggle' && el.closest(SPACE_ACTIVATES)) return null;
-    if (action !== 'toggle' && el.closest(ARROWS_OWNED)) return null;
+    if (action !== 'toggle') {
+      const owner = el.closest(ARROWS_OWNED);
+      if (owner && owner.getAttribute('aria-disabled') !== 'true') return null;
+    }
   }
   return action;
 }

@@ -1,13 +1,16 @@
 /*
- * Piano Steps theme: light surfaces, near-black text.
+ * Piano Steps theme: a warm practice studio. Cream paper surfaces, warm grey
+ * text and borders, and one brand colour, a deep ink, for primary actions,
+ * selected controls, focus rings and the logo.
+ *
  * Colour rules (UI_SPEC): red and blue are reserved for notation actions,
  * purple and green for hands, amber for wrong-key feedback and "needs review".
- * Everything else here is neutral grey so it never competes with those cues.
+ * The brand ink and the warm neutrals never compete with those cues.
  */
 
 :root {
   /* Notation, hands and feedback (UI_SPEC table). */
-  --fg: #111827;
+  --fg: #22201c;
   --add: #c81e1e;
   --release: #1d4ed8;
   --rh: #7c3aed;
@@ -15,44 +18,71 @@
   --lh: #15803d;
   --lh-soft: #4ade80;
   --wrong: #b45309;
-  --physical: #0f172a;
+  --physical: #1c1915;
 
-  /* Surfaces and neutral text. Contrast on white: --muted 7.6:1, --subtle 4.8:1. */
-  --bg: #ffffff;
-  --surface: #f9fafb;
-  --surface-2: #f3f4f6;
-  --border: #e5e7eb;
-  --border-strong: #9ca3af;
-  --muted: #4b5563;
-  --subtle: #6b7280;
+  /* Brand: deep ink on cream. Ink is never red, blue, purple, green or amber. */
+  --ink: #22201c;
+  --ink-hover: #3b362f;
+  --on-ink: #fffdf9;
+
+  /*
+   * Surfaces, from the page outwards. Contrast of the text colours
+   * (UI_SPEC "Contrast"): --fg 14.3:1 on --page and 16.0:1 on --bg;
+   * --muted 6.9:1 on --page, 6.5:1 on --surface-2; --subtle 5.1:1 on --page,
+   * 4.8:1 on --surface-2.
+   */
+  --page: #f5f0e6;
+  --bg: #fffdf9;
+  --surface: #faf6ee;
+  --surface-2: #f0e9dd;
+  --border: #e6dfd2;
+  --border-strong: #b3a998;
+  /* Text fields and lists: 3.6:1 on --bg, 3.2:1 on --page (WCAG 1.4.11). */
+  --border-input: #8f8574;
+  --muted: #585148;
+  --subtle: #6c6458;
 
   /* Status chips. */
   --review-fg: #92400e;
   --review-bg: #fef3c7;
   --review-border: #f59e0b;
-  --unusable-fg: #4b5563;
-  --unusable-bg: #f3f4f6;
-  --unusable-border: #d1d5db;
+  --unusable-fg: #585148;
+  --unusable-bg: #f0e9dd;
+  --unusable-border: #d9d0c1;
 
-  /* Difficulty badge (neutral slate so it never reads as a hand or action colour). */
-  --badge-fg: #1e293b;
-  --badge-bg: #f1f5f9;
-  --badge-border: #cbd5e1;
+  /* Difficulty badge (warm neutral so it never reads as a hand or action colour). */
+  --badge-fg: #2f2a24;
+  --badge-bg: #f3ede2;
+  --badge-border: #ddd4c5;
 
-  --focus-ring: #111827;
-  --focus-ring-inner: #ffffff;
-  --radius: 10px;
-  --radius-small: 6px;
-  --shadow-card: 0 1px 2px rgb(17 24 39 / 0.06);
-  --shadow-raised: 0 4px 14px rgb(17 24 39 / 0.1);
-  --shadow-pop: 0 10px 30px rgb(17 24 39 / 0.18);
+  /* The keyboard's body: a warm dark frame around the keys, like a piano case. */
+  --kb-body: #2b2622;
+  --kb-body-deep: #1f1b18;
+  --kb-felt: #5a4b3f;
+  --kb-caption: #d6cdbf;
+  --key-white: #ffffff;
+  --key-white-edge: #c9c0b1;
+  --key-black: #1d1a17;
+  --key-black-edge: #0c0a09;
+
+  --focus-ring: #22201c;
+  --focus-ring-inner: #fffdf9;
+  /* On the ink of the keyboard body and black keys. */
+  --focus-ring-on-dark: #fbf8f2;
+  --radius: 14px;
+  --radius-small: 9px;
+  --shadow-card: 0 1px 2px rgb(60 45 30 / 0.06), 0 1px 1px rgb(60 45 30 / 0.04);
+  --shadow-raised: 0 6px 18px rgb(60 45 30 / 0.1), 0 1px 3px rgb(60 45 30 / 0.06);
+  --shadow-pop: 0 14px 36px rgb(40 30 20 / 0.18), 0 2px 6px rgb(40 30 20 / 0.08);
 
   --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  /* Headings: a book serif from the system only (no web fonts are downloaded). */
+  --font-display: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
   color-scheme: light;
   color: var(--fg);
-  background: var(--bg);
+  background: var(--page);
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.5;
@@ -73,7 +103,7 @@ body {
 }
 
 body {
-  background: var(--bg);
+  background: var(--page);
   color: var(--fg);
   -webkit-font-smoothing: antialiased;
 }
@@ -111,10 +141,12 @@ ol {
 a {
   color: var(--fg);
   text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
   text-underline-offset: 2px;
 }
 
 a:hover {
+  text-decoration-color: currentColor;
   text-decoration-thickness: 2px;
 }
 
@@ -145,6 +177,33 @@ kbd {
 .mono {
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------------------ */
+/* Logo and wordmark (src/ui/common/Logo.tsx)                                */
+/* ------------------------------------------------------------------------ */
+
+.logo-mark {
+  display: block;
+  flex: none;
+  border-radius: 23%;
+  box-shadow: 0 1px 2px rgb(40 30 20 / 0.18);
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.wordmark__piano {
+  font-weight: 700;
+}
+
+.wordmark__steps {
+  color: var(--muted);
+  font-style: italic;
+  font-weight: 400;
 }
 
 /* ------------------------------------------------------------------------ */
@@ -191,18 +250,22 @@ kbd {
   justify-content: center;
   gap: 0.4em;
   min-height: 2.5rem;
-  padding: 0.45rem 0.95rem;
+  padding: 0.45rem 1rem;
   border: 1px solid var(--border-strong);
-  border-radius: var(--radius-small);
+  border-radius: 999px;
   background: var(--bg);
   color: var(--fg);
   font-weight: 500;
   line-height: 1.2;
   text-decoration: none;
   white-space: nowrap;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease;
 }
 
 .btn:hover:not(:disabled) {
+  border-color: var(--border-input);
   background: var(--surface-2);
 }
 
@@ -211,14 +274,15 @@ kbd {
 }
 
 .btn-primary {
-  background: var(--fg);
-  border-color: var(--fg);
-  color: #ffffff;
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--on-ink);
+  font-weight: 600;
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: #374151;
-  border-color: #374151;
+  background: var(--ink-hover);
+  border-color: var(--ink-hover);
 }
 
 .btn-quiet {
@@ -226,9 +290,13 @@ kbd {
   background: transparent;
 }
 
+.btn-quiet:hover:not(:disabled) {
+  border-color: transparent;
+}
+
 .btn-small {
   min-height: 2rem;
-  padding: 0.25rem 0.65rem;
+  padding: 0.25rem 0.75rem;
   font-size: 0.875rem;
 }
 
@@ -258,10 +326,12 @@ kbd {
   background: none;
   color: var(--fg);
   text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
   text-underline-offset: 2px;
 }
 
 .link-btn:hover {
+  text-decoration-color: currentColor;
   text-decoration-thickness: 2px;
 }
 
@@ -273,8 +343,8 @@ input[type='search'],
 input[type='text'],
 select {
   min-height: 2.5rem;
-  padding: 0.4rem 0.7rem;
-  border: 1px solid var(--border-strong);
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--border-input);
   border-radius: var(--radius-small);
   background: var(--bg);
 }
@@ -284,7 +354,7 @@ input[type='radio'] {
   width: 1.1rem;
   height: 1.1rem;
   margin: 0;
-  accent-color: var(--fg);
+  accent-color: var(--ink);
 }
 
 /* Toggle chips (e.g. difficulty filter): use aria-pressed. */
@@ -293,7 +363,7 @@ input[type='radio'] {
   align-items: center;
   gap: 0.4em;
   min-height: 2.25rem;
-  padding: 0.3rem 0.85rem;
+  padding: 0.3rem 0.9rem;
   border: 1px solid var(--border-strong);
   border-radius: 999px;
   background: var(--bg);
@@ -306,9 +376,9 @@ input[type='radio'] {
 }
 
 .chip[aria-pressed='true'] {
-  background: var(--fg);
-  border-color: var(--fg);
-  color: #ffffff;
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--on-ink);
 }
 
 .chip-count {
@@ -325,7 +395,7 @@ input[type='radio'] {
   display: inline-flex;
   align-items: center;
   gap: 0.35em;
-  padding: 0.1rem 0.55rem;
+  padding: 0.1rem 0.6rem;
   border: 1px solid var(--badge-border);
   border-radius: 999px;
   background: var(--badge-bg);
@@ -394,8 +464,8 @@ button.badge:hover {
   z-index: 30;
   width: max-content;
   max-width: min(22rem, calc(100vw - 2rem));
-  padding: 0.75rem 0.9rem;
-  border: 1px solid var(--border-strong);
+  padding: 0.8rem 0.95rem;
+  border: 1px solid var(--border);
   border-radius: var(--radius-small);
   background: var(--bg);
   box-shadow: var(--shadow-pop);
@@ -415,7 +485,8 @@ button.badge:hover {
 
 .popover-title {
   margin-bottom: 0.35rem;
-  font-size: 0.9375rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
   font-weight: 600;
 }
 
@@ -461,8 +532,8 @@ dialog.dialog {
   width: min(40rem, calc(100vw - 2rem));
   max-height: calc(100vh - 2rem);
   padding: 0;
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  border-radius: 18px;
   background: var(--bg);
   box-shadow: var(--shadow-pop);
   color: var(--fg);
@@ -485,20 +556,21 @@ dialog.dialog.dialog-fallback {
 }
 
 dialog.dialog::backdrop {
-  background: rgb(17 24 39 / 0.45);
+  background: rgb(34 32 28 / 0.5);
 }
 
 .dialog-backdrop-fallback {
   position: fixed;
   inset: 0;
   z-index: 99;
-  background: rgb(17 24 39 / 0.45);
+  background: rgb(34 32 28 / 0.5);
 }
 
+/* Less the dialog's border, so only the body scrolls. */
 .dialog-frame {
   display: flex;
   flex-direction: column;
-  max-height: calc(100vh - 2rem);
+  max-height: calc(100vh - 2rem - 2px);
 }
 
 .dialog-header {
@@ -506,16 +578,23 @@ dialog.dialog::backdrop {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem 1.25rem 0.75rem;
+  padding: 1.1rem 1.25rem 0.85rem 1.5rem;
   border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 17px 17px 0 0;
 }
 
 .dialog-title {
-  font-size: 1.2rem;
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
 }
 
+/* Positioned, so visually hidden text inside stays in the body's own scroll area. */
 .dialog-body {
-  padding: 1rem 1.25rem 1.25rem;
+  position: relative;
+  padding: 1.1rem 1.5rem 1.4rem;
   overflow-y: auto;
 }
 
@@ -528,8 +607,10 @@ dialog.dialog::backdrop {
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 0.5rem;
-  padding: 0.75rem 1.25rem 1rem;
+  padding: 0.85rem 1.5rem 1rem;
   border-top: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 0 0 17px 17px;
 }
 
 /* ------------------------------------------------------------------------ */
@@ -545,6 +626,11 @@ dialog.dialog::backdrop {
 
 .page-message > * + * {
   margin-top: 1rem;
+}
+
+.page-message h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
 }
 
 /* ------------------------------------------------------------------------ */

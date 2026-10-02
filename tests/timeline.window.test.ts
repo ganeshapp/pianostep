@@ -2,10 +2,16 @@ import { describe, expect, it } from 'vitest';
 import type { HandCell } from '../src/core/types';
 import { measureStarts, rowHeights, splitLabel } from '../src/ui/notation/timelineLayout';
 import {
+  clampPan,
+  columnsInView,
   sameWindow,
+  scrubberGeometry,
   snapPosition,
   stripOffset,
+  viewAtScrubber,
+  viewPosition,
   visibleRange,
+  wheelPanPixels,
 } from '../src/ui/notation/timelineWindow';
 
 const COL = 72;
@@ -131,5 +137,100 @@ describe('timeline layout', () => {
   it('splits a repeat label into the number and the pass', () => {
     expect(splitLabel('12 (2nd time)')).toEqual({ main: '12', pass: '2nd time' });
     expect(splitLabel('7')).toEqual({ main: '7', pass: null });
+  });
+});
+
+describe('looking through the notes: pan offset', () => {
+  it('keeps the view on the passage: at most the first or last column under the marker', () => {
+    expect(clampPan(10, 5, 100)).toBe(5);
+    expect(clampPan(10, -25, 100)).toBe(-10);
+    expect(clampPan(10, 200, 100)).toBe(89);
+    expect(clampPan(0, -3, 100)).toBe(0);
+    expect(clampPan(99, 3, 100)).toBe(0);
+    expect(viewPosition(10, 200, 100)).toBe(99);
+    expect(viewPosition(10, -25, 100)).toBe(0);
+  });
+
+  it('has nothing to pan without steps, and ignores nonsense', () => {
+    expect(clampPan(0, 10, 0)).toBe(0);
+    expect(clampPan(5, Number.NaN, 100)).toBe(0);
+    expect(viewPosition(Number.NaN, 3, 100)).toBe(3);
+  });
+
+  it('pans the rendered window with the view, so the columns there are mounted', () => {
+    const at = viewPosition(10, 40, 200);
+    const w = visibleRange(at, 1000, COL, MARK, 200, 0);
+    expect(w.start).toBeLessThanOrEqual(50);
+    expect(w.end).toBeGreaterThan(50);
+    // The marker's own column (10) is far off to the left.
+    expect(w.start).toBeGreaterThan(10);
+  });
+});
+
+describe('wheelPanPixels', () => {
+  const wheel = (deltaX: number, deltaY: number, shiftKey = false, deltaMode = 0) => ({ deltaX, deltaY, shiftKey, deltaMode });
+
+  it('pans with a sideways trackpad swipe', () => {
+    expect(wheelPanPixels(wheel(40, 3), 1000)).toBe(40);
+    expect(wheelPanPixels(wheel(-25, 0), 1000)).toBe(-25);
+  });
+
+  it('pans with Shift + mouse wheel, and leaves an upright wheel to scroll the page', () => {
+    expect(wheelPanPixels(wheel(0, 100, true), 1000)).toBe(100);
+    expect(wheelPanPixels(wheel(0, 100), 1000)).toBeNull();
+    expect(wheelPanPixels(wheel(5, 60), 1000)).toBeNull();
+    expect(wheelPanPixels(wheel(0, 0), 1000)).toBeNull();
+  });
+
+  it('scales line and page units to pixels', () => {
+    expect(wheelPanPixels(wheel(3, 0, false, 1), 1000)).toBe(48);
+    expect(wheelPanPixels(wheel(1, 0, false, 2), 900)).toBe(900);
+  });
+});
+
+describe('scrubber geometry', () => {
+  it('shows the columns in view as the thumb, and the current step as a mark', () => {
+    // 1000px viewport, 72px columns: the view at column 50 shows columns ~46.4 to ~60.3.
+    const g = scrubberGeometry(50, 10, 1000, COL, MARK, 200);
+    const left = 50 + 0.5 - (1000 * MARK) / COL;
+    expect(g.start).toBeCloseTo(left / 200, 9);
+    expect(g.size).toBeCloseTo(1000 / COL / 200, 9);
+    expect(g.now).toBeCloseTo(10.5 / 200, 9);
+  });
+
+  it('clips the thumb at the ends of the passage', () => {
+    const g = scrubberGeometry(0, 0, 1000, COL, MARK, 5);
+    expect(g.start).toBe(0);
+    expect(g.start + g.size).toBeLessThanOrEqual(1);
+    expect(scrubberGeometry(0, 0, 1000, COL, MARK, 0)).toEqual({ start: 0, size: 1, now: 0 });
+  });
+
+  it('a click on the track centres the view there (the inverse of the thumb)', () => {
+    const view = viewAtScrubber(0.5, 1000, COL, MARK, 200);
+    const g = scrubberGeometry(view, 0, 1000, COL, MARK, 200);
+    expect(g.start + g.size / 2).toBeCloseTo(0.5, 9);
+    expect(viewAtScrubber(0.5, 1000, COL, MARK, 0)).toBe(0);
+  });
+
+  it('pages by the columns that fit', () => {
+    expect(columnsInView(1000, COL)).toBe(13);
+    expect(columnsInView(0, COL)).toBe(1);
+  });
+});
+
+describe('row heights for a stable layout', () => {
+  const cell = (n: number): HandCell => ({
+    kind: 'replace',
+    tokens: Array.from({ length: n }, (_, i) => ({ midi: 60 + i, label: 'C4', action: 'press' as const })),
+  });
+
+  it('sizes both rows even when the sequence has one hand, from a both-hands sequence', () => {
+    const both = { hands: ['R', 'L'] as const, steps: [{ cells: { R: cell(1), L: cell(4) } }] };
+    const rightOnly = { hands: ['R'] as const, steps: [{ cells: { R: cell(1) } }] };
+    const all = rowHeights({ hands: ['R', 'L'], steps: both.steps });
+    // The left row of a right-hand-only sequence alone would be the minimum...
+    expect(rowHeights({ hands: ['R', 'L'], steps: rightOnly.steps }).L).toBeLessThan(all.L);
+    // ...so the timeline sizes its rows from the both-hands passage.
+    expect(all.L).toBe(4 * 28 + 12);
   });
 });

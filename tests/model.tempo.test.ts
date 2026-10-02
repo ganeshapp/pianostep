@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   buildTempoMap,
   noTempoWarning,
+  openingTempoWarning,
   secondsToTick,
   tickToSeconds,
   unrollMeasures,
@@ -26,9 +27,73 @@ describe('buildTempoMap', () => {
     });
   });
 
-  it('a first tempo after tick 0 also applies from the start', () => {
-    const { map } = mapOf(new ScoreBuilder().measures(2).tempo(1, 2, 80));
+  it('a first tempo later in the first measure also applies from the start', () => {
+    const b = new ScoreBuilder().measures(2).tempo(0, 2, 80);
+    const { map } = mapOf(b);
     expect(map).toEqual({ ticksPerQuarter: 4, points: [{ tick: 0, qpm: 80 }], defaulted: false });
+    expect(openingTempoWarning(b.build())).toBeNull();
+  });
+
+  it('a first tempo in the first full measure after a pickup also applies from the pickup', () => {
+    const implicit = new ScoreBuilder()
+      .measure({ number: '0', implicit: true, durationTicks: 4 })
+      .measures(2)
+      .tempo(1, 1, 80);
+    expect(mapOf(implicit).map.points).toEqual([{ tick: 0, qpm: 80 }]);
+    expect(openingTempoWarning(implicit.build())).toBeNull();
+    // Some files leave the implicit flag out: a first measure shorter than its time signature is a pickup too.
+    const short = new ScoreBuilder().measure({ time: [3, 4], durationTicks: 4 }).measures(2).tempo(1, 0, 80);
+    expect(mapOf(short).map.points).toEqual([{ tick: 0, qpm: 80 }]);
+    expect(openingTempoWarning(short.build())).toBeNull();
+  });
+
+  it('a first tempo mark further in leaves the opening at the default 120 until the mark, and says so', () => {
+    const b = new ScoreBuilder().measures(4).tempo(2, 0, 80);
+    const { map } = mapOf(b);
+    expect(map).toEqual({
+      ticksPerQuarter: 4,
+      points: [
+        { tick: 0, qpm: 120 },
+        { tick: 32, qpm: 80 },
+      ],
+      defaulted: false,
+    });
+    // Measures 1-2 last 8 quarters at 120 = 4 s; measure 3 is 4 quarters at 80 = 3 s.
+    expect(tickToSeconds(map, 32)).toBeCloseTo(4, 12);
+    expect(tickToSeconds(map, 48) - tickToSeconds(map, 32)).toBeCloseTo(3, 12);
+    expect(openingTempoWarning(b.build())).toEqual({
+      code: 'opening-tempo-defaulted',
+      severity: 'info',
+      message:
+        'The opening has no tempo mark, so the app plays it at 120 quarter notes per minute until the first marked tempo (measure 3).',
+      count: 1,
+    });
+  });
+
+  it('the second measure is not near the start unless the first is a pickup', () => {
+    const { map } = mapOf(new ScoreBuilder().measures(2).tempo(1, 2, 80));
+    expect(map.points).toEqual([
+      { tick: 0, qpm: 120 },
+      { tick: 24, qpm: 80 },
+    ]);
+  });
+
+  it('a repeat back to the unmarked opening plays it at the default tempo again', () => {
+    // |: 1 | 2 (Presto 160) :| 3
+    const { map, occurrences } = mapOf(
+      new ScoreBuilder().measure({ forward: true }).measure().measure({ backward: true }).measure().tempo(2, 0, 160),
+    );
+    expect(measureIndexes(occurrences)).toEqual([0, 1, 2, 0, 1, 2, 3]);
+    expect(map.points).toEqual([
+      { tick: 0, qpm: 120 },
+      { tick: 32, qpm: 160 },
+      { tick: 48, qpm: 120 },
+      { tick: 80, qpm: 160 },
+    ]);
+  });
+
+  it('a file with no tempo at all gets the no-tempo note, not the opening note', () => {
+    expect(openingTempoWarning(new ScoreBuilder().measures(2).build())).toBeNull();
   });
 
   it('places a mid-measure tempo change at the right performance tick', () => {

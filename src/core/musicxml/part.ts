@@ -1,5 +1,5 @@
 import { isPitchStep } from '../pitch';
-import type { EndingMark, PitchStep, SpelledPitch, StaffDetails } from '../types';
+import type { EndingMark, PitchStep, SpelledPitch, StaffDetails, WarningCode } from '../types';
 import { attr, childElements, childNumber, childText, firstChild, nameOf, normalizeSpace, textOf, toNumber } from './dom';
 import {
   dynamicsToVelocity,
@@ -40,6 +40,15 @@ export interface DraftNote {
   muted: boolean;
   /** Carries a trill, mordent or turn sign. */
   ornament: boolean;
+  /**
+   * A small cue note (marked <cue/>, or in a chord whose first note is).
+   * MusicXML does not play cue notes; the importer plays only those of a
+   * written-out cadenza: standing alone in a measure written longer than its
+   * time signature (see cueNotesToPlay in parse.ts).
+   */
+  cue: boolean;
+  /** Notation warnings of a cue note, given only if the note is played. */
+  cueWarnings?: WarningCode[];
 }
 
 export interface NavMarks {
@@ -98,6 +107,8 @@ interface ChordGroup {
   local: number;
   /** Ticks taken from the start of this chord by preceding grace notes. */
   steal: number;
+  /** The chord's first note is a cue note, so all its notes are. */
+  cue: boolean;
 }
 
 interface VoiceState {
@@ -357,6 +368,8 @@ export class PartReader {
   private lastGroup: ChordGroup | null = null;
   private lastGraceSlot: DraftNote[] | null = null;
   private lastGraceVoice: string | null = null;
+  /** The last grace chord started with a cue note. */
+  private lastGraceCue = false;
 
   constructor(
     private readonly partId: string,
@@ -373,6 +386,7 @@ export class PartReader {
     this.lastGroup = null;
     this.lastGraceSlot = null;
     this.lastGraceVoice = null;
+    this.lastGraceCue = false;
     this.octaveShift = false;
     this.octaveWords = false;
 
@@ -530,7 +544,15 @@ export class PartReader {
     return this.transpose.get(staff) ?? this.transpose.get(0) ?? 0;
   }
 
-  private makeDraft(el: Element, f: NoteFields, pitch: SpelledPitch, ordinal: number, local: number, duration: number): DraftNote {
+  private makeDraft(
+    el: Element,
+    f: NoteFields,
+    pitch: SpelledPitch,
+    ordinal: number,
+    local: number,
+    duration: number,
+    cue = false,
+  ): DraftNote {
     const muted = toNumber(attr(el, 'dynamics')) === 0;
     const draft: DraftNote = {
       partId: this.partId,
@@ -551,14 +573,22 @@ export class PartReader {
       printed: attr(el, 'print-object') !== 'no',
       muted,
       ornament: f.ornament,
+      cue,
     };
     // A silenced note that stays in the music (see buildNotes) is shown and
     // practised, so it sounds at the loudness around it, never at velocity 1.
     const velocity = muted ? this.velocity : (dynamicsToVelocity(attr(el, 'dynamics')) ?? this.velocity);
     if (velocity !== undefined) draft.velocity = velocity;
-    if (f.tremolo) this.warnings.add('tremolo-not-expanded', this.m);
-    if (f.arpeggiate) this.warnings.add('arpeggio-not-rolled', this.m);
-    if (f.glissando) this.warnings.add('glissando-not-played', this.m);
+    const notations: WarningCode[] = [];
+    if (f.tremolo) notations.push('tremolo-not-expanded');
+    if (f.arpeggiate) notations.push('arpeggio-not-rolled');
+    if (f.glissando) notations.push('glissando-not-played');
+    // A cue note's notations matter only if it is played (decided in parse.ts).
+    if (cue) {
+      if (notations.length > 0) draft.cueWarnings = notations;
+    } else {
+      for (const code of notations) this.warnings.add(code, this.m);
+    }
     return draft;
   }
 
@@ -566,21 +596,30 @@ export class PartReader {
     const ordinal = this.ordinal++;
     const f = scanNote(el);
     const ticks = this.toTicks(f.duration);
-    const sounding = f.pitch !== null && !f.cue && !f.rest;
+    // Every note of a chord whose first note is a cue note is a cue note too:
+    // MuseScore writes <cue/> on the chord's first note only.
+    const cue = f.cue || (f.chord && (f.grace ? this.lastGraceCue : this.lastGroup?.cue === true));
+    const pitched = f.pitch !== null && !f.rest;
+    const sounding = pitched && !cue;
 
-    if (f.cue && f.pitch) this.warnings.add('cue-notes-skipped', this.m);
-    if (f.unpitched && !f.cue) {
+    if (f.unpitched && !cue) {
       this.warnings.add('other', this.m, 1, 'Unpitched (percussion) notes are not played.');
     }
-    if (f.badPitch && !f.cue) {
+    if (f.badPitch && !cue) {
       this.warnings.add('other', this.m, 1, 'Some notes with an unreadable pitch were left out.');
     }
-    if (f.pitchBeyondKeys && !f.cue) {
+    if (f.pitchBeyondKeys && !cue) {
       this.warnings.add('out-of-piano-range', this.m);
       this.warnings.add('other', this.m, 1, PITCH_BEYOND_KEYS);
     }
 
     if (f.grace) {
+      if (!f.chord) this.lastGraceCue = cue;
+      if (cue) {
+        // A small grace note only decorates the notes around it: never played.
+        if (pitched) this.warnings.add('cue-notes-skipped', this.m);
+        return;
+      }
       if (!sounding || !f.pitch) return;
       this.warnings.add('grace-notes-approximated', this.m);
       const draft = this.makeDraft(el, f, f.pitch, ordinal, 0, 0);
@@ -596,15 +635,16 @@ export class PartReader {
     }
     this.lastGraceSlot = null;
     this.lastGraceVoice = null;
+    this.lastGraceCue = false;
 
     if (f.chord) {
-      if (!sounding || !f.pitch) return;
+      if (!pitched || !f.pitch) return;
       if (ticks <= 0) {
-        this.warnings.add('zero-length-note', this.m);
+        this.warnings.add(cue ? 'cue-notes-skipped' : 'zero-length-note', this.m);
         return;
       }
       const group = this.lastGroup;
-      const draft = this.makeDraft(el, f, f.pitch, ordinal, group ? group.local : this.cursor, ticks);
+      const draft = this.makeDraft(el, f, f.pitch, ordinal, group ? group.local : this.cursor, ticks, cue);
       if (group) {
         draft.refMeasure = group.refMeasure;
         draft.duration = Math.max(1, ticks - group.steal);
@@ -614,19 +654,29 @@ export class PartReader {
       return;
     }
 
-    // A cue note is silent but still occupies its written time in the voice.
+    // A cue note occupies its written time in the voice, like any other note.
     const onset = this.cursor;
     this.advance(ticks);
     const vs = this.voice(f.voice);
-    if (!sounding || !f.pitch || ticks <= 0) {
-      if (sounding && ticks <= 0) this.warnings.add('zero-length-note', this.m);
+    if (!pitched || !f.pitch || ticks <= 0) {
+      if (pitched && ticks <= 0) this.warnings.add(cue ? 'cue-notes-skipped' : 'zero-length-note', this.m);
       this.resolveWithoutPrincipal(vs);
-      this.lastGroup = { notes: [], refMeasure: this.m, local: onset, steal: 0 };
+      this.lastGroup = { notes: [], refMeasure: this.m, local: onset, steal: 0, cue };
+      return;
+    }
+    if (cue) {
+      // Kept as a draft at its written time; whether it is played is decided
+      // once the whole part is read (cueNotesToPlay in parse.ts). It is not a
+      // principal for grace notes, which keep to the regular notes.
+      this.resolveWithoutPrincipal(vs);
+      const draft = this.makeDraft(el, f, f.pitch, ordinal, onset, ticks, true);
+      this.lastGroup = { notes: [draft], refMeasure: this.m, local: onset, steal: 0, cue: true };
+      this.notes.push(draft);
       return;
     }
 
     const draft = this.makeDraft(el, f, f.pitch, ordinal, onset, ticks);
-    const group: ChordGroup = { notes: [draft], refMeasure: this.m, local: onset, steal: 0 };
+    const group: ChordGroup = { notes: [draft], refMeasure: this.m, local: onset, steal: 0, cue: false };
     if (vs.pending.length > 0) {
       this.applyPrincipal(group, vs.pending);
       vs.pending = [];

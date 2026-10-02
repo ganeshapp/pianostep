@@ -6,6 +6,7 @@ import { deleteImport, importFile, isImportId, listImports } from '../../storage
 import type { ImportedPieceMeta, ImportStage } from '../../storage/imports';
 import { loadGlobalPrefs, removePieceState, saveGlobalPrefs } from '../../storage/prefs';
 import { ConfirmDialog } from '../common/Dialog';
+import { LogoMark, Wordmark } from '../common/Logo';
 import { AboutDialog } from '../about/AboutDialog';
 import { HelpDialog } from '../help/HelpDialog';
 import { parseHash, pieceHref } from '../router';
@@ -197,8 +198,13 @@ export function LibraryPage() {
     <div className="library">
       <header className="app-header">
         <div className="brand">
-          <h1 className="brand-name">Piano Steps</h1>
-          <p className="brand-tagline">Follow key names instead of sheet music</p>
+          <LogoMark size={48} className="brand-mark" />
+          <div className="brand-text">
+            <h1 className="brand-name">
+              <Wordmark />
+            </h1>
+            <p className="brand-tagline">Follow key names instead of sheet music</p>
+          </div>
         </div>
         <div className="header-actions">
           <button

@@ -246,6 +246,9 @@ describe('App: library', () => {
     renderApp('#/');
     await flush();
     expect(container.querySelector('h1')?.textContent).toBe('Piano Steps');
+    // The logo sits beside the wordmark heading, decorative.
+    expect(container.querySelector('.app-header .brand svg.logo-mark')?.getAttribute('aria-hidden')).toBe('true');
+    expect(container.querySelector('h1 .wordmark__piano')?.textContent).toBe('Piano');
     expect(text()).toContain('Follow key names instead of sheet music');
     expect(button('Import MusicXML…')).toBeTruthy();
 
@@ -317,7 +320,14 @@ describe('App: practice page', () => {
     expect(loads).toContain(ODE);
     expect(container.querySelector('h1')?.textContent).toBe('Moving line');
     expect(container.querySelector('a.ps-back')?.getAttribute('href')).toBe('#/');
-    expect(container.querySelector('[role="region"][aria-label="Practice controls"]')).not.toBeNull();
+    // The small logo leads back to the library; the link is named by its text.
+    expect(container.querySelector('a.ps-back svg.logo-mark')?.getAttribute('aria-hidden')).toBe('true');
+    expect(container.querySelector('a.ps-back')?.textContent).toBe('Library');
+    // Settings in their own area (open on a first visit), the notes card with its legend, then the transport.
+    expect(container.querySelector('section[aria-label="Practice settings"]')).not.toBeNull();
+    expect(container.querySelector('section[aria-label="Notes"] .nt-legend')?.textContent).toMatch(
+      /Dark.*replace.*Red.*add \/ press again.*Blue.*release.*no change.*rest/,
+    );
     for (const label of ['Restart', 'Previous step', 'Play', 'Next step', 'Stop', 'Connect piano', 'More']) {
       expect(button(label)).toBeTruthy();
     }
@@ -370,12 +380,22 @@ describe('App: practice page', () => {
     expect(columnTokens(0, 'L')).toEqual(['Left hand: press D4', 'Left hand: press B3', 'Left hand: press G3']);
     expect(container.querySelectorAll('.nt-token').length).toBeGreaterThan(10);
 
-    // Only the right hand: the L row disappears.
+    // Only the right hand: the L row stays in place, blank, and nothing moves.
+    const rowHeights = (): string[] =>
+      [...container.querySelectorAll<HTMLElement>('.tl__tab')].map((el) => el.style.height);
+    const keys = (): string[] => [...container.querySelectorAll('.kb-key')].map((g) => g.getAttribute('data-midi') ?? '');
+    const heightsBefore = rowHeights();
+    const keysBefore = keys();
     const right = [...container.querySelectorAll('label')].find((l) => l.textContent?.trim() === 'Right hand');
     act(() => right?.querySelector('input')?.click());
     expect([...container.querySelectorAll('.tl__tab-letter')].map((el) => el.getAttribute('aria-label'))).toEqual([
       'Right hand',
+      'Left hand (not practising)',
     ]);
+    expect(columnTokens(0, 'L')).toEqual([]);
+    expect(container.querySelector('.tl__col[data-step="0"] .tl__row--L.is-off')).not.toBeNull();
+    expect(rowHeights()).toEqual(heightsBefore);
+    expect(keys()).toEqual(keysBefore);
 
     const before = dispose.mock.calls.length;
     await go('#/');

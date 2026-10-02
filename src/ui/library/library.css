@@ -25,23 +25,37 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding-top: 1.5rem;
-  padding-bottom: 1rem;
+  padding-top: 1.75rem;
+  padding-bottom: 1.25rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  min-width: 0;
+}
+
+.brand-text {
+  min-width: 0;
 }
 
 .brand-name {
-  font-size: 1.75rem;
-  font-weight: 750;
-  letter-spacing: -0.01em;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.1;
 }
 
 .brand-tagline {
+  margin-top: 0.2rem;
   color: var(--muted);
+  font-size: 0.9375rem;
 }
 
 .header-actions {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 0.5rem;
 }
 
@@ -71,15 +85,24 @@
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0.25rem 0.75rem;
-  margin-bottom: 1rem;
-  padding: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+  padding: 0.8rem 1.1rem;
   border: 1px solid var(--border);
+  border-left: 4px solid var(--ink);
   border-radius: var(--radius);
-  background: var(--surface);
+  background: var(--bg);
+  box-shadow: var(--shadow-card);
 }
 
 .continue-link {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
   font-weight: 600;
+  text-decoration: none;
+}
+
+.continue-link:hover {
+  text-decoration: underline;
 }
 
 .continue-link::after {
@@ -102,7 +125,7 @@
   border: 1px solid var(--border);
   border-left: 4px solid var(--border-strong);
   border-radius: var(--radius-small);
-  background: var(--surface);
+  background: var(--bg);
 }
 
 .import-status p {
@@ -110,12 +133,11 @@
 }
 
 .import-status-done {
-  border-left-color: var(--fg);
+  border-left-color: var(--ink);
 }
 
 .import-status-error {
-  border-left-color: var(--fg);
-  background: var(--bg);
+  border-left-color: var(--ink);
 }
 
 .import-status-actions {
@@ -134,7 +156,7 @@
   height: 1.1rem;
   margin-top: 0.15rem;
   border: 2px solid var(--border-strong);
-  border-top-color: var(--fg);
+  border-top-color: var(--ink);
   border-radius: 50%;
   animation: library-spin 0.8s linear infinite;
 }
@@ -159,7 +181,7 @@
   align-items: flex-end;
   gap: 0.75rem 1.5rem;
   padding: 0.25rem 0 1.25rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-strong);
 }
 
 .search-field {
@@ -171,12 +193,18 @@
 }
 
 .search-field label {
-  font-size: 0.875rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
   font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-.search-field input {
+.search-field input[type='search'] {
   width: 100%;
+  border-radius: 999px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .difficulty-filter {
@@ -200,7 +228,7 @@
 
 /* Sections */
 .library-section {
-  margin-top: 1.75rem;
+  margin-top: 2rem;
 }
 
 .section-heading {
@@ -208,20 +236,26 @@
   flex-wrap: wrap;
   align-items: baseline;
   gap: 0.25rem 0.75rem;
-  margin-bottom: 0.875rem;
-  font-size: 1.25rem;
+  margin-bottom: 0.9rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
 }
 
 .section-count {
   color: var(--muted);
+  font-family: var(--font-sans);
   font-size: 0.9375rem;
   font-weight: 400;
+  letter-spacing: 0;
 }
 
 .empty-state {
   padding: 2rem 1rem;
   border: 1px dashed var(--border-strong);
   border-radius: var(--radius);
+  background: var(--surface);
   color: var(--muted);
   text-align: center;
 }
@@ -248,16 +282,17 @@
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  padding: 1rem 1rem 0.875rem;
+  padding: 1rem 1.1rem 0.8rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--bg);
   box-shadow: var(--shadow-card);
   transition:
-    border-color 120ms ease,
-    box-shadow 120ms ease;
+    border-color 140ms ease,
+    box-shadow 140ms ease;
 }
 
+/* No transform on hover: it would make the card a stacking context and trap an open popover under the next row. */
 .card:not(.card-disabled):hover {
   border-color: var(--border-strong);
   box-shadow: var(--shadow-raised);
@@ -268,8 +303,11 @@
 }
 
 .card-title {
-  font-size: 1.0625rem;
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.005em;
   overflow-wrap: anywhere;
 }
 
@@ -301,8 +339,13 @@
   outline-offset: 2px;
 }
 
+.card-head > .card-arrangement {
+  margin-top: 0.3rem;
+}
+
 .card-arrangement {
   font-size: 0.9375rem;
+  line-height: 1.4;
 }
 
 .card-composer,
@@ -346,13 +389,15 @@
   flex-wrap: wrap;
   gap: 0 0.4rem;
   margin-top: auto;
+  padding-top: 0.55rem;
+  border-top: 1px dashed var(--border);
   color: var(--muted);
   font-size: 0.875rem;
 }
 
 /* "at default speed": the file gives no tempo, so the length is the app's guess. */
 .card-stats-qualifier {
-  color: var(--subtle, #6b7280);
+  color: var(--subtle, #6c6458);
   font-size: 0.8125rem;
 }
 
@@ -361,6 +406,7 @@
 }
 
 .card-disabled {
+  border-style: dashed;
   background: var(--surface);
   box-shadow: none;
 }
@@ -381,8 +427,8 @@
   justify-content: space-between;
   gap: 0.5rem 1.5rem;
   padding-top: 1.25rem;
-  padding-bottom: 1.5rem;
-  border-top: 1px solid var(--border);
+  padding-bottom: 1.75rem;
+  border-top: 1px solid var(--border-strong);
   color: var(--muted);
   font-size: 0.875rem;
 }
@@ -401,5 +447,14 @@
 
   .search-field {
     max-width: none;
+  }
+
+  .brand-name {
+    font-size: 1.625rem;
+  }
+
+  .brand-mark {
+    width: 40px;
+    height: 40px;
   }
 }

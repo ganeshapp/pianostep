@@ -830,7 +830,7 @@
       "Many grace notes (189)",
       "Starts with a pickup (partial) measure",
       "Contains repeats with 1st/2nd endings",
-      "Has 42 hidden playback-only notes (written-out trills or ornaments)"
+      "Has 30 hidden playback-only notes (written-out trills or ornaments)"
     ]
   },
   {
@@ -858,7 +858,7 @@
     "suspectedDuplicateOf": null,
     "overrides": null,
     "notes": [
-      "Has 24 hidden playback-only notes (written-out trills or ornaments)"
+      "Has 4 hidden playback-only notes"
     ]
   },
   {
@@ -958,7 +958,7 @@
     "overrides": null,
     "notes": [
       "Contains repeats with 1st/2nd endings",
-      "Has 56 hidden playback-only notes (written-out trills or ornaments)"
+      "Has 10 hidden playback-only notes"
     ]
   },
   {

@@ -7,7 +7,7 @@ export const HAND_NAME: Readonly<Record<Hand, string>> = { R: 'Right hand', L: '
  * here; red and blue mean add and release only.
  */
 export const TOKEN_COLOUR: Readonly<Record<TokenAction, string>> = {
-  press: 'var(--fg, #111827)',
+  press: 'var(--fg, #22201c)',
   add: 'var(--add, #c81e1e)',
   release: 'var(--release, #1d4ed8)',
 };

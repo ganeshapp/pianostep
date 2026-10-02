@@ -1288,7 +1288,7 @@
       "Grace notes are approximated",
       "Trills and other ornaments are played as the main note",
       "Rolled chords are played as plain chords",
-      "Small cue notes are not played",
+      "Small cue notes that repeat or decorate other notes are not played",
       "Pedal marks are not turned into held notes"
     ]
   },
@@ -1689,7 +1689,7 @@
       "Many grace notes (189)",
       "Starts with a pickup (partial) measure",
       "Contains repeats with 1st/2nd endings",
-      "Has 42 hidden playback-only notes (written-out trills or ornaments)",
+      "Has 30 hidden playback-only notes (written-out trills or ornaments)",
       "Repeats are followed",
       "Grace notes are approximated"
     ]
@@ -1742,20 +1742,23 @@
     },
     "readiness": "review",
     "readinessReasons": [
+      "Trills, mordents and turns are played as the main note only, without the quick extra notes the music asks for.",
       "Some notes are written on the other hand's staff. The app guesses which hand plays them from the musical line they belong to. If a hand feels wrong, the measures are listed under More → About this arrangement."
     ],
     "stats": {
       "measures": 38,
       "performanceMeasures": 38,
       "notes": 1091,
-      "durationSec": 73.2,
+      "durationSec": 82.5,
       "lowest": "C2",
       "highest": "G#5"
     },
     "notes": [
-      "Has 24 hidden playback-only notes (written-out trills or ornaments)",
+      "Has 4 hidden playback-only notes",
+      "Trills and other ornaments are played as the main note",
       "Rolled chords are played as plain chords",
-      "Small cue notes are not played",
+      "Small cue notes that repeat or decorate other notes are not played",
+      "The opening has no tempo mark, so it plays at a default speed until the first marked tempo",
       "Pedal marks are not turned into held notes"
     ]
   },
@@ -1919,18 +1922,18 @@
     "stats": {
       "measures": 201,
       "performanceMeasures": 264,
-      "notes": 6413,
+      "notes": 6443,
       "durationSec": 405.6,
       "lowest": "F1",
       "highest": "E6"
     },
     "notes": [
       "Contains repeats with 1st/2nd endings",
-      "Has 56 hidden playback-only notes (written-out trills or ornaments)",
+      "Has 10 hidden playback-only notes",
       "Repeats are followed",
       "Grace notes are approximated",
       "Trills and other ornaments are played as the main note",
-      "Small cue notes are not played"
+      "Small cue notes written out as a cadenza are played"
     ]
   },
   {

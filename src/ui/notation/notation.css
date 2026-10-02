@@ -63,14 +63,14 @@
 }
 
 .nt-glyph--hold {
-  color: var(--subtle, #6b7280);
+  color: var(--subtle, #6c6458);
   font-size: 22px;
   line-height: 1;
   font-weight: 400;
 }
 
 .nt-glyph--rest {
-  color: var(--fg, #111827);
+  color: var(--fg, #22201c);
   font-family: var(--font-sans, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif);
   font-size: 56px;
   font-weight: 700;
@@ -86,9 +86,9 @@
 .tl {
   position: relative;
   display: flex;
-  border: 1px solid var(--border, #e5e7eb);
+  border: 1px solid var(--border, #e6dfd2);
   border-radius: 12px;
-  background: var(--bg, #ffffff);
+  background: var(--bg, #fffdf9);
   overflow: visible;
 }
 
@@ -97,8 +97,8 @@
   display: flex;
   flex-direction: column;
   width: 48px;
-  border-right: 1px solid var(--border, #e5e7eb);
-  background: var(--surface, #f9fafb);
+  border-right: 1px solid var(--border, #e6dfd2);
+  background: var(--surface, #faf6ee);
   border-radius: 12px 0 0 12px;
 }
 
@@ -110,7 +110,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: 1px solid var(--border, #e5e7eb);
+  border-top: 1px solid var(--border, #e6dfd2);
 }
 
 .tl__tab-letter {
@@ -134,6 +134,31 @@
   background: var(--lh, #15803d);
 }
 
+/* The hand that is not being practised: its row stays, blank, with a muted tab. */
+.tl__tab.is-off .tl__tab-letter {
+  background: transparent;
+  color: var(--subtle, #6c6458);
+  box-shadow: inset 0 0 0 1.5px var(--border-strong, #b3a998);
+  opacity: 0.7;
+}
+
+.tl__row.is-off {
+  background: color-mix(in srgb, var(--fg, #22201c) 2.5%, transparent);
+}
+
+.tl__off-hint {
+  position: absolute;
+  right: 14px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  color: var(--subtle, #6c6458);
+  font-size: 12px;
+  font-style: italic;
+  pointer-events: none;
+  user-select: none;
+}
+
 .tl__viewport {
   position: relative;
   flex: 1 1 auto;
@@ -147,6 +172,20 @@
   overflow: hidden;
   overflow: clip;
   border-radius: 0 12px 12px 0;
+  /* Dragging the notes must not select their text. */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* While not playing, the notes can be dragged sideways to look ahead or back. */
+.tl__viewport.is-browsable {
+  touch-action: pan-y;
+}
+
+.tl__viewport.is-dragging,
+.tl__viewport.is-dragging .tl__cells,
+.tl__viewport.is-dragging .tl__measure {
+  cursor: grabbing;
 }
 
 .tl__marker {
@@ -155,9 +194,9 @@
   bottom: 0;
   z-index: 0;
   pointer-events: none;
-  background: color-mix(in srgb, var(--fg, #111827) 6%, transparent);
-  border-left: 2px solid color-mix(in srgb, var(--fg, #111827) 55%, transparent);
-  border-right: 2px solid color-mix(in srgb, var(--fg, #111827) 55%, transparent);
+  background: color-mix(in srgb, var(--fg, #22201c) 6%, transparent);
+  border-left: 2px solid color-mix(in srgb, var(--fg, #22201c) 55%, transparent);
+  border-right: 2px solid color-mix(in srgb, var(--fg, #22201c) 55%, transparent);
   box-sizing: border-box;
 }
 
@@ -193,7 +232,7 @@
   bottom: 0;
   left: 0;
   width: 0;
-  border-left: 1.5px solid var(--border-strong, #9ca3af);
+  border-left: 1.5px solid var(--border-strong, #b3a998);
   pointer-events: none;
   z-index: 2;
 }
@@ -211,7 +250,7 @@
   border: 1px solid transparent;
   border-radius: 6px;
   background: transparent;
-  color: var(--muted, #4b5563);
+  color: var(--muted, #585148);
   font: inherit;
   font-size: 13px;
   font-weight: 600;
@@ -223,13 +262,13 @@
 }
 
 .tl__measure:hover {
-  background: var(--surface-2, #f3f4f6);
-  border-color: var(--border, #e5e7eb);
-  color: var(--fg, #111827);
+  background: var(--surface-2, #f0e9dd);
+  border-color: var(--border, #e6dfd2);
+  color: var(--fg, #22201c);
 }
 
 .tl__measure:focus-visible {
-  outline: 2px solid var(--focus-ring, #111827);
+  outline: 2px solid var(--focus-ring, #22201c);
   outline-offset: 1px;
 }
 
@@ -256,11 +295,11 @@
 }
 
 .tl__cells:hover .tl__row {
-  background: color-mix(in srgb, var(--fg, #111827) 4%, transparent);
+  background: color-mix(in srgb, var(--fg, #22201c) 4%, transparent);
 }
 
 .tl__cells:focus-visible {
-  outline: 2px solid var(--focus-ring, #111827);
+  outline: 2px solid var(--focus-ring, #22201c);
   outline-offset: -3px;
   border-radius: 6px;
 }
@@ -270,7 +309,7 @@
   display: flex;
   align-items: stretch;
   padding: 6px 0;
-  border-top: 1px solid var(--border, #e5e7eb);
+  border-top: 1px solid var(--border, #e6dfd2);
 }
 
 .tl__gridline {
@@ -278,7 +317,7 @@
   top: 26px;
   bottom: 0;
   right: 0;
-  border-right: 1px solid var(--surface-2, #f3f4f6);
+  border-right: 1px solid var(--surface-2, #f0e9dd);
   pointer-events: none;
 }
 
@@ -288,7 +327,7 @@
   justify-content: center;
   height: 100%;
   padding: 0 24px;
-  color: var(--muted, #4b5563);
+  color: var(--muted, #585148);
   font-size: 15px;
   text-align: center;
 }
@@ -298,10 +337,10 @@
   z-index: 20;
   min-width: 190px;
   padding: 6px;
-  border: 1px solid var(--border, #e5e7eb);
+  border: 1px solid var(--border, #e6dfd2);
   border-radius: 10px;
-  background: var(--bg, #ffffff);
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.14), 0 2px 6px rgba(15, 23, 42, 0.08);
+  background: var(--bg, #fffdf9);
+  box-shadow: 0 10px 30px rgb(40 30 20 / 0.16), 0 2px 6px rgb(40 30 20 / 0.08);
 }
 
 /* Focused itself only after a mouse click (keyboard opening focuses the first item). */
@@ -311,7 +350,7 @@
 
 .tl__menu-title {
   padding: 4px 10px 6px;
-  color: var(--muted, #4b5563);
+  color: var(--muted, #585148);
   font-size: 12px;
   font-weight: 600;
 }
@@ -323,7 +362,7 @@
   border: 0;
   border-radius: 6px;
   background: transparent;
-  color: var(--fg, #111827);
+  color: var(--fg, #22201c);
   font: inherit;
   font-size: 14px;
   text-align: left;
@@ -332,12 +371,166 @@
 
 .tl__menu-item:hover,
 .tl__menu-item:focus-visible {
-  background: var(--surface-2, #f3f4f6);
+  background: var(--surface-2, #f0e9dd);
   outline: none;
 }
 
 .tl__menu-item:focus-visible {
-  box-shadow: inset 0 0 0 2px var(--focus-ring, #111827);
+  box-shadow: inset 0 0 0 2px var(--focus-ring, #22201c);
+}
+
+/* ---------------------------------------------------------------------- */
+/* Under the notes: the scrubber and "Back to current step"                */
+/* ---------------------------------------------------------------------- */
+
+.tl-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tl-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 24px;
+  /* Lined up under the notes, past the R / L tabs. */
+  padding-left: 48px;
+}
+
+.tl-scrub {
+  position: relative;
+  flex: 1 1 auto;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--surface-2, #f0e9dd);
+  /* --border-input: the track's outline reads at 3:1 on the paper card. */
+  box-shadow: inset 0 0 0 1px var(--border-input, #8f8574);
+  cursor: pointer;
+  touch-action: none;
+}
+
+.tl-scrub.is-locked {
+  cursor: default;
+  opacity: 0.7;
+}
+
+/* Nothing to look through (the chosen hand has nothing to play): an empty
+   track that only keeps the row's height. */
+.tl-scrub.is-empty {
+  opacity: 0.45;
+}
+
+.tl-scrub:focus-visible {
+  outline: 2px solid var(--focus-ring, #22201c);
+  outline-offset: 3px;
+}
+
+.tl-scrub__thumb {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  min-width: 10px;
+  border-radius: 999px;
+  /* 3.5:1 against the track (5.5:1 on hover): the thumb must be found at a glance. */
+  background: color-mix(in srgb, var(--fg, #22201c) 55%, transparent);
+}
+
+.tl-scrub:not(.is-locked):hover .tl-scrub__thumb {
+  background: color-mix(in srgb, var(--fg, #22201c) 70%, transparent);
+}
+
+/* The current step, wherever the view is. */
+.tl-scrub__now {
+  position: absolute;
+  top: -3px;
+  bottom: -3px;
+  width: 3px;
+  margin-left: -1.5px;
+  border-radius: 2px;
+  background: var(--fg, #22201c);
+  pointer-events: none;
+}
+
+.tl-nav__back {
+  flex: none;
+  height: 24px;
+  padding: 0 10px;
+  border: 1px solid var(--border-strong, #b3a998);
+  border-radius: 999px;
+  background: var(--bg, #fffdf9);
+  color: var(--fg, #22201c);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tl-nav__back:hover {
+  background: var(--surface-2, #f0e9dd);
+}
+
+.tl-nav__back:focus-visible {
+  outline: 2px solid var(--focus-ring, #22201c);
+  outline-offset: 1px;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Notation legend (above the notes)                                       */
+/* ---------------------------------------------------------------------- */
+
+.nt-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px 0;
+  margin: 0;
+  color: var(--muted, #585148);
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.nt-legend__item {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.nt-legend__sep {
+  padding: 0 8px;
+  color: var(--subtle, #b3a998);
+}
+
+.nt-legend__sample {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace);
+  font-weight: 700;
+}
+
+.nt-legend__mark {
+  display: inline-block;
+  margin-top: 0;
+}
+
+.nt-legend__glyph {
+  display: inline-flex;
+  justify-content: center;
+  min-width: 12px;
+  font-weight: 700;
+}
+
+.nt-legend__glyph--hold {
+  color: var(--subtle, #6c6458);
+  font-weight: 400;
+}
+
+.nt-legend__glyph--rest {
+  color: var(--fg, #22201c);
+  font-size: 26px;
+  line-height: 12px;
 }
 
 /* Mini timeline used by the help dialog. */
@@ -345,16 +538,16 @@
   display: inline-grid;
   grid-auto-flow: column;
   grid-auto-columns: 72px;
-  border: 1px solid var(--border, #e5e7eb);
+  border: 1px solid var(--border, #e6dfd2);
   border-radius: 10px;
   overflow: hidden;
-  background: var(--bg, #ffffff);
+  background: var(--bg, #fffdf9);
 }
 
 .nt-mini__col {
   display: grid;
   grid-template-rows: 24px auto auto;
-  border-left: 1px solid var(--surface-2, #f3f4f6);
+  border-left: 1px solid var(--surface-2, #f0e9dd);
 }
 
 .nt-mini__col:first-child {
@@ -363,7 +556,7 @@
 
 .nt-mini__head {
   padding-top: 4px;
-  color: var(--muted, #4b5563);
+  color: var(--muted, #585148);
   font-size: 12px;
   font-weight: 600;
   text-align: center;
@@ -375,14 +568,14 @@
   justify-content: center;
   min-height: 76px;
   padding: 6px 0;
-  border-top: 1px solid var(--border, #e5e7eb);
+  border-top: 1px solid var(--border, #e6dfd2);
 }
 
 .nt-mini__held {
   padding: 6px 2px;
-  border-top: 1px solid var(--border, #e5e7eb);
-  background: var(--surface, #f9fafb);
-  color: var(--muted, #4b5563);
+  border-top: 1px solid var(--border, #e6dfd2);
+  background: var(--surface, #faf6ee);
+  color: var(--muted, #585148);
   font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace);
   font-size: 12px;
   line-height: 1.35;

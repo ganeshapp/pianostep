@@ -8,8 +8,15 @@ import { loadSourceScore } from '../src/core/musicxml/parse';
 import { DiagnosticsDialog } from '../src/ui/practice/DiagnosticsDialog';
 import { DEFAULT_SETTINGS, type PracticeSettings, type ScoreWarning } from '../src/core/types';
 import type { SessionSnapshot } from '../src/engine/session';
-import { formatDuration, groupWarnings, measureList, tempoDescription } from '../src/ui/practice/diagnostics';
+import {
+  formatDuration,
+  groupWarnings,
+  lengthDescription,
+  measureList,
+  tempoDescription,
+} from '../src/ui/practice/diagnostics';
 import { midiPhase } from '../src/ui/practice/midiConnection';
+import { playWillStart, revealScroll } from '../src/ui/practice/practiceFocus';
 import {
   formatSpeed,
   formatStepSeconds,
@@ -20,7 +27,15 @@ import {
   validRange,
 } from '../src/ui/practice/settings';
 import { shortcutFor, type ShortcutKeyEvent } from '../src/ui/practice/shortcuts';
-import { statusMessage } from '../src/ui/practice/text';
+import {
+  formatClock,
+  passageText,
+  passageTimeText,
+  setupSummary,
+  startingSetup,
+  startingSetupText,
+  statusMessage,
+} from '../src/ui/practice/text';
 
 describe('restoreSettings', () => {
   it('starts from the defaults', () => {
@@ -85,6 +100,26 @@ describe('shortcutFor', () => {
     ctrlKey: false,
     metaKey: false,
     ...mods,
+  });
+
+  it('leaves the arrows and Home to the on-screen keyboard (a toolbar), but not to a disabled widget', () => {
+    const bar = document.createElement('div');
+    bar.setAttribute('role', 'toolbar');
+    const key = document.createElement('span');
+    key.setAttribute('role', 'button');
+    bar.appendChild(key);
+    const scrub = document.createElement('div');
+    scrub.setAttribute('role', 'slider');
+    scrub.setAttribute('aria-disabled', 'true');
+    document.body.append(bar, scrub);
+    expect(shortcutFor(ev('ArrowRight', key), document)).toBeNull();
+    expect(shortcutFor(ev('Home', key), document)).toBeNull();
+    expect(shortcutFor(ev(' ', key), document)).toBeNull();
+    expect(shortcutFor(ev('ArrowRight', scrub), document)).toBe('next');
+    scrub.removeAttribute('aria-disabled');
+    expect(shortcutFor(ev('ArrowRight', scrub), document)).toBeNull();
+    bar.remove();
+    scrub.remove();
   });
 
   it('maps Space, arrows and Home on the page', () => {
@@ -275,5 +310,139 @@ describe('arrangement details', () => {
       }),
     ).toBe('From the file: starts at 96 quarter notes per minute, with 1 change.');
     expect(formatDuration(91.4)).toBe('1:31');
+  });
+
+  it('does not call the default speed of an unmarked opening the file’s (Prelude No. 2: Presto in measure 28)', () => {
+    const file = 'Prelude_No._2_BWV_847_in_C_Minor.mxl';
+    const prelude = prepareScore(
+      loadSourceScore(new Uint8Array(readFileSync(join(__dirname, '..', 'public', 'scores', file))), file),
+    );
+    expect(prelude.warnings.map((w) => w.code)).toContain('opening-tempo-defaulted');
+    const later = prelude.tempo.points.length - 2;
+    expect(later).toBeGreaterThan(1);
+    expect(tempoDescription(prelude)).toBe(
+      'The opening has no tempo mark, so the app plays it at its default of 120 quarter notes per minute until measure 28. ' +
+        `From there it follows the file: 145 quarter notes per minute, with ${later} more changes.`,
+    );
+    expect(lengthDescription(prelude, 82.5)).toBe(
+      'About 1:23 at the written speed (the unmarked opening at the app’s default)',
+    );
+    // A file marked from the start still says so.
+    const marked = { ...prelude, warnings: prelude.warnings.filter((w) => w.code !== 'opening-tempo-defaulted') };
+    expect(tempoDescription(marked)).toMatch(/^From the file: starts at 120 quarter notes per minute, with \d+ changes\.$/);
+    expect(lengthDescription(marked, 82.5)).toBe('About 1:23 at the written speed');
+  });
+});
+
+describe('the folded settings summary', () => {
+  const measures = ['1', '2', '3', '4', '4 (2nd time)', '5'].map((label) => ({ label }));
+
+  it('reads like the settings: mode, hands, speed, passage, repeat', () => {
+    expect(setupSummary(DEFAULT_SETTINGS, measures)).toBe('Listen · Both hands · 1× · Measures 1–5 · Repeat off');
+    expect(
+      setupSummary({ ...DEFAULT_SETTINGS, mode: 'steady', hands: 'R', stepSeconds: 1.5, loop: true, range: { startOcc: 1, endOcc: 4 } }, measures),
+    ).toBe('Steady steps · Right hand · 1.5 s per step · Measures 2–4 (2nd time) · Repeat on');
+    expect(setupSummary({ ...DEFAULT_SETTINGS, speed: 0.75, sound: false, countIn: true }, measures)).toBe(
+      'Listen · Both hands · 0.75× · Measures 1–5 · Repeat off · Sound off · Count-in on',
+    );
+    // Follow me has no speed, plays no sound and needs no count-in.
+    expect(setupSummary({ ...DEFAULT_SETTINGS, mode: 'follow', hands: 'L', sound: false, countIn: true }, measures)).toBe(
+      'Follow me · Left hand · Measures 1–5 · Repeat off',
+    );
+  });
+
+  it('names a one-measure passage, and a piece without measures', () => {
+    expect(passageText({ startOcc: 2, endOcc: 2 }, measures)).toBe('Measure 3');
+    expect(passageText(null, [])).toBe('Whole piece');
+  });
+});
+
+describe('the starting setup', () => {
+  const tok = (midi: number, label: string, carried: boolean) => ({ midi, label, action: 'press' as const, carried });
+  const sequence = {
+    hands: ['R', 'L'] as ('R' | 'L')[],
+    steps: [
+      {
+        cells: {
+          R: { kind: 'replace' as const, tokens: [tok(67, 'G4', false), tok(66, 'F#4', true)] },
+          L: { kind: 'replace' as const, tokens: [tok(50, 'D3', true), tok(38, 'D2', true)] },
+        },
+      },
+    ],
+  };
+
+  it('lists the keys each selected hand already holds when the passage begins', () => {
+    const setup = startingSetup(sequence as never);
+    expect(setup).toEqual([
+      { hand: 'R', keys: [66] },
+      { hand: 'L', keys: [38, 50] },
+    ]);
+    expect(startingSetupText(setup)).toBe(
+      'Starting setup — right hand: F#4 · left hand: D2 D3. These keys are already held when this passage begins; press them first.',
+    );
+  });
+
+  it('reads only the hands of the sequence it is given, and says nothing when nothing is held', () => {
+    expect(startingSetup({ ...sequence, hands: ['R'] } as never)).toEqual([{ hand: 'R', keys: [66] }]);
+    expect(startingSetup({ hands: ['R', 'L'], steps: [] })).toEqual([]);
+    expect(startingSetupText([])).toBeNull();
+  });
+
+  it('marks a hand that is not being practised, keeping its keys in the sentence', () => {
+    const setup = startingSetup(sequence as never);
+    expect(startingSetupText(setup, ['R'])).toBe(
+      'Starting setup — right hand: F#4 · left hand (not practising): D2 D3. These keys are already held when this passage begins; press them first.',
+    );
+    expect(startingSetupText(setup, ['R', 'L'])).toBe(startingSetupText(setup));
+  });
+});
+
+describe('when practice starts', () => {
+  const snap = (over: Partial<Pick<SessionSnapshot, 'status' | 'stepCount' | 'midiInputConnected'>>, mode: PracticeSettings['mode'] = 'listen') => ({
+    status: 'stopped' as const,
+    stepCount: 12,
+    midiInputConnected: false,
+    ...over,
+    settings: { ...DEFAULT_SETTINGS, mode },
+  });
+
+  it('Play starts something only with steps to play and, in Follow me, a piano', () => {
+    expect(playWillStart(snap({}))).toBe(true);
+    expect(playWillStart(snap({ status: 'paused' }, 'steady'))).toBe(true);
+    expect(playWillStart(snap({ status: 'finished' }))).toBe(true);
+    // Nothing for the chosen hands in these measures.
+    expect(playWillStart(snap({ stepCount: 0 }))).toBe(false);
+    // Follow me without a piano only explains what is missing.
+    expect(playWillStart(snap({}, 'follow'))).toBe(false);
+    expect(playWillStart(snap({ midiInputConnected: true }, 'follow'))).toBe(true);
+    expect(playWillStart(snap({ midiInputConnected: true, stepCount: 0 }, 'follow'))).toBe(false);
+    // Already running: Play pauses.
+    for (const status of ['playing', 'count-in', 'waiting'] as const) expect(playWillStart(snap({ status }))).toBe(false);
+  });
+
+  it('scrolls down just enough to show the keyboard, never past the top of the notes and never up', () => {
+    expect(revealScroll({ top: 300, bottom: 1000 }, 800)).toBe(208);
+    // Tall notes: stop with the notes' top just inside the window.
+    expect(revealScroll({ top: 120, bottom: 1300 }, 800)).toBe(112);
+    // Already in view, or scrolled past the notes' top: leave the page alone.
+    expect(revealScroll({ top: 300, bottom: 780 }, 800)).toBe(0);
+    expect(revealScroll({ top: -40, bottom: 1300 }, 800)).toBe(0);
+    expect(revealScroll({ top: 300, bottom: 1000 }, 0)).toBe(0);
+  });
+});
+
+describe('the transport time readout', () => {
+  it('formats m:ss, rounding down to whole seconds', () => {
+    expect(formatClock(0)).toBe('0:00');
+    expect(formatClock(7.9)).toBe('0:07');
+    expect(formatClock(262)).toBe('4:22');
+    expect(formatClock(3725)).toBe('62:05');
+    expect(formatClock(-3)).toBe('0:00');
+    expect(formatClock(Number.NaN)).toBe('0:00');
+  });
+
+  it('shows elapsed / total, and nothing in Follow me', () => {
+    expect(passageTimeText({ elapsed: 7.2, total: 262.5 })).toBe('0:07 / 4:22');
+    expect(passageTimeText(null)).toBeNull();
   });
 });

@@ -53,18 +53,10 @@ function Harness({ initial }: { initial: PracticeSettings }) {
       patches.push(patch);
       setSettings((s) => ({ ...s, ...patch }));
     },
-    togglePlay: () => undefined,
-    restart: () => undefined,
-    next: () => undefined,
-    prev: () => undefined,
-    stop: () => undefined,
   };
   return createElement(ControlsBar, {
     session,
     settings,
-    status: 'playing',
-    stepIndex: 0,
-    stepCount: 10,
     canFollow: false,
     measures: MEASURES,
     midi: MIDI,

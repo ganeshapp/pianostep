@@ -30,6 +30,7 @@ function noteLine(n: SourceNote): string {
     n.chord && 'chord',
     n.tuplet && 'tuplet',
     n.crossStaff && 'crossStaff',
+    n.cue && 'cue',
     !n.printed && 'hidden',
     n.velocity !== undefined && `velocity=${n.velocity}`,
   ].filter((f): f is string => typeof f === 'string');
@@ -696,24 +697,100 @@ describe('every fixture file', () => {
 describe('cue notes, transpose and dynamics', () => {
   const s = parseMusicXml(samples.CUE_TRANSPOSE);
 
-  it('skips cue notes but lets them take their written time, and applies <transpose> per staff', () => {
+  it('skips a lone cue note in a measure of ordinary length and cue notes beside regular notes, and applies <transpose> per staff', () => {
     expect(s.ticksPerQuarter).toBe(48);
-    expect(s.parts).toEqual([PIANO_2_STAVES(6)]);
+    expect(s.parts).toEqual([PIANO_2_STAVES(7)]);
     expect(s.measures).toEqual(evenMeasures(2, 192));
     expect(notes(s)).toEqual([
       'P1:0:3 @0+192 midi=48 s2/v5', // staff-specific transpose of 0
       'P1:0:0 @0+48 midi=60 s1/v1', // D5 (74) - 2 - 12
-      'P1:0:2 @96+96 midi=63 s1/v1', // F5 (77) - 14, after the silent cue quarter
-      'P1:1:4 @192+192 midi=48 s2/v5 velocity=45',
+      // The cue E5 (P1:0:1) stands alone, but its measure is of ordinary length: another part's cue, not played.
+      'P1:0:2 @96+96 midi=63 s1/v1', // F5 (77) - 14, after the cue quarter
+      'P1:1:5 @192+192 midi=48 s2/v5 velocity=45',
       'P1:1:0 @192+48 midi=60 s1/v1 velocity=45', // <sound dynamics="50">: 50% of 90
       'P1:1:1 @240+48 midi=60 s1/v1 velocity=90', // note dynamics="100"
+      'P1:1:4 @288+96 midi=55 s1/v2 velocity=45', // the cue chord D4+F4 over this G3 is left out
     ]);
     // Spelling stays as written; only the midi number is transposed.
     expect(s.notes.find((n) => n.id === 'P1:0:0')?.spelled).toEqual({ step: 'D', alter: 0, octave: 5 });
   });
 
-  it('warns once about the skipped cue notes', () => {
+  it('reports the skipped cue notes once', () => {
     expect(warnings(s)).toEqual([{ code: 'cue-notes-skipped', severity: 'info', count: 3, measures: ['1', '2'] }]);
+  });
+
+  it('never plays another instrument’s line written in small notes over the piano’s rests', () => {
+    const accompaniment = parseMusicXml(`<?xml version="1.0" encoding="UTF-8"?>
+<score-partwise version="4.0">
+  <part-list><score-part id="P1"><part-name>Piano</part-name></score-part></part-list>
+  <part id="P1">
+    <measure number="1">
+      <attributes><divisions>1</divisions><time><beats>4</beats><beat-type>4</beat-type></time><staves>2</staves>
+        <clef number="1"><sign>G</sign><line>2</line></clef><clef number="2"><sign>F</sign><line>4</line></clef></attributes>
+      <note><rest/><duration>4</duration><voice>1</voice><type>whole</type><staff>1</staff></note>
+      <backup><duration>4</duration></backup>
+      <note><cue/><pitch><step>C</step><octave>5</octave></pitch><duration>1</duration><voice>2</voice><type size="cue">quarter</type><staff>1</staff></note>
+      <note><cue/><pitch><step>D</step><octave>5</octave></pitch><duration>1</duration><voice>2</voice><type size="cue">quarter</type><staff>1</staff></note>
+      <note><cue/><pitch><step>E</step><octave>5</octave></pitch><duration>2</duration><voice>2</voice><type size="cue">half</type><staff>1</staff></note>
+      <backup><duration>4</duration></backup>
+      <note><rest/><duration>4</duration><voice>5</voice><type>whole</type><staff>2</staff></note>
+    </measure>
+    <measure number="2">
+      <note><pitch><step>G</step><octave>4</octave></pitch><duration>4</duration><voice>1</voice><type>whole</type><staff>1</staff></note>
+      <backup><duration>4</duration></backup>
+      <note><pitch><step>C</step><octave>3</octave></pitch><duration>4</duration><voice>5</voice><type>whole</type><staff>2</staff></note>
+    </measure>
+  </part>
+</score-partwise>`);
+    expect(notes(accompaniment)).toEqual(['P1:1:1 @192+192 midi=48 s2/v5', 'P1:1:0 @192+192 midi=67 s1/v1']);
+    expect(warnings(accompaniment)).toEqual([{ code: 'cue-notes-skipped', severity: 'info', count: 3, measures: ['1'] }]);
+  });
+});
+
+describe('which cue notes are played', () => {
+  const s = parseMusicXml(samples.CUE_NOTES);
+  const inMeasure = (i: number) => notes(s).filter((line) => line.startsWith(`P1:${i}:`));
+
+  it('plays a written-out cadenza at its written times, chord notes the file leaves unmarked included', () => {
+    expect(s.measures.map((m) => [m.startTick, m.durationTicks])).toEqual([
+      [0, 288],
+      [288, 192],
+      [480, 192],
+    ]);
+    expect(inMeasure(0)).toEqual([
+      'P1:0:7 @0+96 midi=48 s2/v5 tieStart',
+      'P1:0:8 @0+96 midi=55 s2/v5 tieStart chord',
+      'P1:0:0 @0+96 midi=69 s1/v1',
+      'P1:0:1 @96+24 midi=67 s1/v1 cue',
+      'P1:0:2 @120+24 midi=65 s1/v1 cue',
+      'P1:0:3 @144+24 midi=64 s1/v1 cue',
+      'P1:0:4 @168+24 midi=62 s2/v1 crossStaff cue',
+      'P1:0:5 @192+96 midi=60 s2/v1 crossStaff cue',
+      'P1:0:6 @192+96 midi=64 s2/v1 chord crossStaff cue', // no <cue/> of its own: its chord's first note has one
+    ]);
+    // The hidden cue chord the half notes are tied into (P1:0:9 and P1:0:10) is neither shown nor played.
+  });
+
+  it('leaves out cue notes beside regular notes on their staff, but they still take their written time', () => {
+    expect(inMeasure(1)).toEqual([
+      'P1:1:6 @288+192 midi=48 s2/v5',
+      'P1:1:0 @288+96 midi=71 s1/v1',
+      'P1:1:5 @336+48 midi=67 s1/v2', // G4 on beat 2, after the hidden C5, B4 and the printed A4 beside B4
+      'P1:1:1 @384+96 midi=72 s1/v1',
+    ]);
+  });
+
+  it('leaves out a cue note where the file plays that staff with hidden notes of its own', () => {
+    expect(inMeasure(2)).toEqual(['P1:2:3 @480+192 midi=48 s2/v5', 'P1:2:0 @480+24 midi=79 s1/v1 hidden']);
+  });
+
+  it('reports the played and the skipped cue notes by measure', () => {
+    expect(warnings(s)).toEqual([
+      { code: 'cross-staff-notes', severity: 'review', count: 3, measures: ['1'] },
+      { code: 'cue-notes-played', severity: 'info', count: 6, measures: ['1'] },
+      { code: 'cue-notes-skipped', severity: 'info', count: 6, measures: ['1', '2', '3'] },
+      { code: 'measure-length-mismatch', severity: 'info', count: 1, measures: ['1'] },
+    ]);
   });
 });
 

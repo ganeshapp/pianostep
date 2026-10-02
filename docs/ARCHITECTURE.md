@@ -108,8 +108,41 @@ Only use DOM APIs supported by both jsdom and xmldom: `childNodes`, `nodeType`,
 - Notes:
   - `<chord/>` means same onset as the previous non-chord note.
   - `<rest>` advances the cursor but is not emitted.
-  - `<cue>` notes do not advance the cursor and are skipped, with an info
-    warning.
+  - `<cue>` (small "cue") notes take their written time in the voice, like
+    any other note: the cursor advances by their `<duration>`, so the notes
+    after them land where written. Every note of a chord whose first note
+    is a cue note is a cue note too (MuseScore writes `<cue/>` on the
+    chord's first note only). MusicXML does not play cue notes, and most of
+    them only repeat or decorate notes already played (a written-out trill
+    over its main note, a grace note spelled out, a chord restated for
+    playback, another reading of a passage), so playing them would double
+    the music; small notes over a part's rests are usually another
+    instrument's line, shown only to help the player come in. A cue note is
+    played only when the file clearly means it as a cadenza; all of these
+    must hold (`cueNotesToPlay` in `musicxml/parse.ts`):
+    - it is printed: a hidden cue note is neither shown nor heard;
+    - its measure is written longer than its time signature (not a
+      pickup), as a cadenza in free time is. Small notes in a measure of
+      ordinary length are taken for another part's cue and stay silent,
+      even over the piano's rests. The trade-off: a cadenza written in a
+      measure whose time signature was changed to fit it is not played (as
+      before this rule), and the info warning says so;
+    - no regular note sounds on its staff at any moment of its written
+      time (it does not sit beside the regular music);
+    - its staff has no hidden regular notes in that measure: those are the
+      file's own playback of that spot, and the small notes only show it.
+    A played cue note keeps its written start and length (`SourceNote.cue`
+    is `true`) and is reported with the info warning `cue-notes-played`;
+    every other cue note is left out with the info warning
+    `cue-notes-skipped`. A cue grace note is always left out. In the
+    library this plays only the cadenza of the Moonlight Sonata's 3rd
+    movement (`Sonate_No._14…`, measure 188: 30 notes for the right hand,
+    the same notes the other edition writes as grace notes). The written-out
+    trills there (measures 30, 32, 36, 126, 128, 132), the hidden chords and
+    mordent of Prelude No. 2 (m34), the hidden trills of Rondo alla Turca
+    (m24, m94) and of the Minuet in G (m8), the alternative turn ending of
+    the Chopin Ballade (m25) and the small B6/G#6 over La Campanella's
+    hidden G#6 (m105) all stay silent.
   - `<grace>` handling is below.
   - `<unpitched>` is skipped.
   - Pitch comes from `<pitch>` and is already the *sounding* octave.
@@ -397,7 +430,20 @@ and a plain-language `message`.
 - If the file has no tempo, use `{ tick: 0, qpm: 120 }` with
   `defaulted: true` and an info warning `no-tempo-in-file`. The message says
   120 quarter-notes per minute was chosen by the app.
-- If the first tempo is after tick 0, it also applies from 0.
+- The first tempo mark (in written order) also applies from tick 0 when it
+  is near the start: in the first measure, or in the first full measure
+  after a pickup (a first measure marked implicit, or shorter than its time
+  signature). Beethoven 5 marks its tempo a beat into measure 1, so it still
+  plays at that tempo from the start.
+- A first mark further in leaves the opening unmarked: the opening plays at
+  the app's default (120 quarter-notes per minute, the same constant as for
+  a file with no tempo) until the first mark, and `prepareScore` adds the
+  info warning `opening-tempo-defaulted` ("The opening has no tempo mark,
+  so the app plays it at 120 quarter notes per minute until the first
+  marked tempo (measure 28)."). `defaulted` stays `false`: the file does
+  give a tempo. A repeat or D.C. back to the opening resumes at 120. In the
+  library only Prelude No. 2 (BWV 847) has this: 120 until the Presto
+  (145) at measure 28.
 
 `tickToSeconds(map, tick)` / `secondsToTick(map, seconds)` are piecewise-linear
 and exact at tempo points.
@@ -604,7 +650,7 @@ sets.
     beside the switched-off piano is never attached, reported as connected or
     saved in its place. The page reports a selected input that was never seen
     as "No piano found" (or asks for a choice), not as disconnected, in the
-    notice and in the status line (`SessionSnapshot.midiInputNotFound`).
+    notice and in the transport bar (`SessionSnapshot.midiInputNotFound`).
   - Delivers events to subscribers.
   - Output: `selectOutput(id|null, rememberedName?)`,
     `send noteOn/noteOff/allNotesOff`. The session passes the output name
@@ -659,13 +705,16 @@ sets.
   use the nearest sample with `playbackRate = 2^(Δ/12)`, and a gain envelope
   with a ~0.25 s release. Anything that is not a MIDI number 0–127 is
   ignored.
-- `owner` is `'app'` (the default: playback and previews) or `'input'` (the
-  learner's notes heard through "Hear my playing"). A strike fades an
-  earlier voice of the same key only if it has the same owner, and a
-  note-off releases only voices of its own owner, so the learner holding a
-  key past the app's release, or tapping a key the app is playing, never
-  cuts the other's sound. `allNotesOff` silences every voice, whoever
-  started it.
+- `owner` is `'app'` (the default: playback and previews), `'input'` (the
+  learner's notes heard through "Hear my playing") or `'audition'` (a key
+  clicked on the on-screen keyboard to hear it; the UI's `KeyAudition`
+  plays it directly, never through the session, so it is never MIDI input,
+  never reaches Follow me or the MIDI output, and sounds whether or not
+  Sound is on). A strike fades an earlier voice of the same key only if it
+  has the same owner, and a note-off releases only voices of its own owner,
+  so the learner holding a key past the app's release, or tapping a key the
+  app is playing, never cuts the other's sound. `allNotesOff` silences every
+  voice, whoever started it.
 - `allNotesOff(fadeSec = 0.05)` stops every active *and* future-scheduled
   voice. This prevents stuck notes.
 - `currentTime` gives the shared clock.
@@ -754,7 +803,60 @@ for smooth scrolling.
 - A manual-step preview sends only its note-on to the MIDI output; the
   note-off is sent by the timer when due, never queued ahead.
 - The keyboard shows `heldAfter` of the marker step, for every mode.
+- `getPassageTime()` gives the transport's "elapsed / total" in Listen and
+  Steady steps, from the same step times and passage length that playback
+  uses (so it follows the speed or step length); while playing it reads the
+  clock like `getVisualPosition()`. Follow me has no clock and returns null.
 
 ## 8. UI
 
-The UI rules are in `docs/UI_SPEC.md`.
+The UI rules are in `docs/UI_SPEC.md`. The look comes from
+`src/ui/theme.css`: custom properties for the notation, hand and warning
+colours, the warm neutrals (cream page, paper surfaces, warm greys) and the
+one brand colour (`--ink`), the three font stacks (a system book serif for
+headings, the system sans, the monospace for note labels; no web fonts), and
+the shared buttons, chips, badges, popovers and dialogs. Component CSS sits
+next to its components and reads those properties. The logo is
+`src/ui/common/Logo.tsx` (`LogoMark`, `Wordmark`); `index.html` inlines the
+same mark as its favicon.
+
+In outline, the practice page
+(`src/ui/practice/PracticePage.tsx`) is:
+
+- `SetupPanel` holding `ControlsBar`: the settings, folding into a summary
+  line (`setupSummary` in `text.ts`) when Play really starts playback or
+  Follow me (`playWillStart` in `practiceFocus.ts`: steps to play and, in
+  Follow me, a piano; otherwise the settings stay open for the message to
+  point at); open or folded is `GlobalPrefs.setupCollapsed`. The same start
+  scrolls the page down just enough to show the keyboard, never past the top
+  of the notes card and never up (`revealScroll`, run in a layout effect
+  after the fold is committed).
+- The notes card: `NotationLegend`, the starting-setup line (`startingSetup`
+  in `text.ts`, from the carried tokens of the first step of the
+  **both-hands** passage, so the line stays whichever hand is practised; a
+  hand not practised is muted, and read out as "not practising") and
+  `Timeline`. The timeline's scrubber row is always rendered (an empty,
+  inert track when the chosen hand has nothing to play).
+- `TransportBar`: the transport, `getPassageTime()` as "0:07 / 4:22", the
+  step count, the MIDI fact and one message / mode-note line.
+- `Keyboard`, with click-to-hear through `KeyAudition`
+  (`src/ui/keyboard/audition.ts`). Its keys sit in a dark body
+  (`.kb__body`); the SVG gets the stage width less `BODY_PAD_X` on each side,
+  so the body never overflows.
+
+The page also derives the passage with **both** hands
+(`deriveSteps(prepared, ['R', 'L'], range)`, the session's own sequence when
+both are selected). The keyboard is framed and labelled from it and the
+timeline's rows are sized from it, and the starting-setup line is read from
+it, so choosing a hand changes the steps, the columns and the highlighted
+keys, but not the size or place of the rows, the starting-setup line, the
+scrubber, the transport or the keyboard. The columns themselves do re-flow:
+they are the practised hands' steps, which Steady steps and Follow me step
+through.
+
+`Timeline` keeps a pan offset (in columns) next to the marker position its
+animation loop reads: the strip, the marker band, the rendered window and the
+scrubber are all drawn at `position + offset`. The offset is clamped by
+`clampPan` (`timelineWindow.ts`, with the other pure window math) and reset
+to 0 by any step change, a new sequence, playback starting or a transport
+action (`recenterKey`).

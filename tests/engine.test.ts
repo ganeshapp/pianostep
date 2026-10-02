@@ -2830,3 +2830,44 @@ describe('A sampler that throws on one note does not stall playback', () => {
     expect(h.session.getSnapshot().status).toBe('finished');
   });
 });
+
+describe('Passage time for the transport readout', () => {
+  it('Listen: the marker step\'s time and the passage length, at the current speed', () => {
+    const h = setup(SCORE_A);
+    expect(h.session.getPassageTime()).toEqual({ elapsed: 0, total: 3 });
+    h.session.seek(2);
+    expect(h.session.getPassageTime()).toEqual({ elapsed: 1, total: 3 });
+    h.session.updateSettings({ speed: 0.5 });
+    expect(h.session.getPassageTime()).toEqual({ elapsed: 2, total: 6 });
+    h.session.dispose();
+  });
+
+  it('moves with the clock while playing, and holds the start during a count-in', async () => {
+    const h = setup(SCORE_A);
+    await h.session.play();
+    expect(h.session.getPassageTime()?.elapsed).toBe(0);
+    h.clock.advance(750);
+    expect(h.session.getPassageTime()?.elapsed).toBeCloseTo(0.75 - START_LEAD_SEC, 6);
+    h.clock.advance(5000);
+    expect(h.session.getSnapshot().status).toBe('finished');
+    expect(h.session.getPassageTime()).toEqual({ elapsed: 3, total: 3 });
+    h.session.dispose();
+
+    const c = setup(SCORE_A, { countIn: true });
+    c.session.seek(1);
+    await c.session.play();
+    expect(c.session.getSnapshot().status).toBe('count-in');
+    c.clock.advance(300);
+    expect(c.session.getPassageTime()?.elapsed).toBeCloseTo(0.5, 6);
+    c.session.dispose();
+  });
+
+  it('Steady steps: one step length per step; Follow me has no clock', () => {
+    const h = setup(SCORE_A, { mode: 'steady', stepSeconds: 1 });
+    h.session.seek(3);
+    expect(h.session.getPassageTime()).toEqual({ elapsed: 3, total: 5 });
+    h.session.updateSettings({ mode: 'follow' });
+    expect(h.session.getPassageTime()).toBeNull();
+    h.session.dispose();
+  });
+});
