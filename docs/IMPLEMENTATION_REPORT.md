@@ -16,10 +16,11 @@ action notation. It also provides:
 - a browsable built-in library with honest difficulty provenance;
 - local MusicXML import.
 
-It is ready to deploy to GitHub Pages but **has not been deployed**, because no
-repository exists yet. See the README for the exact steps.
+It is deployed on GitHub Pages at https://www.gapp.in/pianostep/ (repository
+`ganeshapp/pianostep`). Every push to `main` runs the tests, builds and
+redeploys.
 
-**Final verification:** 1,298 automated tests pass and the TypeScript
+**Final verification:** 1,396 automated tests pass and the TypeScript
 strict typecheck is clean. The production build (`npm run build`) succeeds,
 and a GitHub-Pages-style subpath was served and checked.
 
